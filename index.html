@@ -1,0 +1,3695 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="hell">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHK Prüfungssimulator — AP1</title>
+<style>
+  :root{
+    --paper:#FCFCFA; --card:#FFFFFF; --ink:#14171C; --muted:#5E6570;
+    --rule:#D5D8DE; --rule-soft:#E8EAEE; --pruefer:#12457E; --pruefer-soft:#EAF0F7;
+    --red:#A8291F; --red-soft:#FDF4F3; --field:#F4F6F9; --ok:#1D6B4A; --ok-soft:#EAF5F0;
+    --warn:#B4740E; --warn-soft:#FCF4E4;
+    --display:"Arial Narrow","Helvetica Neue Condensed",-apple-system,Roboto,sans-serif;
+    --body:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    --data:"Consolas","SF Mono",ui-monospace,"Liberation Mono",monospace;
+  }
+  [data-theme="dunkel"]{
+    --paper:#14171C; --card:#1B1F26; --ink:#E8EAEE; --muted:#98A0AC;
+    --rule:#333A45; --rule-soft:#262C35; --pruefer:#6FA8E8; --pruefer-soft:#1D2A3A;
+    --red:#E88178; --red-soft:#2E1E1C; --field:#232830; --ok:#5FBF92; --ok-soft:#1B2B24;
+    --warn:#E0AC5B; --warn-soft:#2E2618;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper); color:var(--ink); font-family:var(--body);
+       font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased}
+  button,input,select,textarea{font-family:inherit; color:inherit}
+  :focus-visible{outline:2px solid var(--pruefer); outline-offset:2px}
+  [hidden]{display:none !important}
+
+  .eyebrow{font-family:var(--display); text-transform:uppercase; letter-spacing:.14em;
+           font-size:11px; font-weight:700; color:var(--muted)}
+
+  .btn{border:1px solid var(--rule); background:var(--card); color:var(--ink);
+       font-family:var(--display); text-transform:uppercase; letter-spacing:.09em;
+       font-size:12px; font-weight:700; padding:8px 15px; border-radius:2px;
+       cursor:pointer; transition:background .12s, color .12s, border-color .12s}
+  .btn:hover{border-color:var(--ink)}
+  .btn.primary{background:var(--pruefer); border-color:var(--pruefer); color:#fff}
+  .btn.primary:hover{filter:brightness(1.12)}
+  .btn.ghost{border-color:transparent; color:var(--muted)}
+  .btn.ghost:hover{background:var(--rule-soft); color:var(--ink)}
+  .btn.klein{padding:5px 10px; font-size:11px}
+  .btn[disabled]{opacity:.4; cursor:not-allowed}
+
+  /* ================= Kopfleiste ================= */
+  .kopf{position:sticky; top:0; z-index:40; background:var(--paper);
+        border-bottom:3px double var(--ink)}
+  .kopf-in{max-width:1280px; margin:0 auto; padding:12px 24px 10px;
+           display:flex; align-items:center; gap:20px; flex-wrap:wrap}
+  .marke{font-family:var(--display); font-size:18px; font-weight:700; letter-spacing:.02em;
+         background:none; border:0; padding:0; cursor:pointer; color:var(--ink); white-space:nowrap}
+  .marke small{display:block; font-size:10px; letter-spacing:.14em; color:var(--muted); font-weight:700}
+  .kopf-titel{flex:1 1 200px; min-width:0}
+  .kopf-titel h1{font-family:var(--display); font-size:21px; font-weight:700; margin:0; line-height:1.2;
+                 overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .kopf-titel .eyebrow{display:block}
+  .kopf-meta{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+  .messwert{text-align:right}
+  .messwert .eyebrow{display:block; margin-bottom:1px}
+  .messwert b{font-family:var(--data); font-size:16px; font-variant-numeric:tabular-nums; font-weight:600}
+  .uhr{font-family:var(--data); font-size:27px; font-weight:600; line-height:1}
+  .uhr.warn{color:var(--red)} .uhr.stopped{color:var(--muted)}
+  .fortschritt{height:3px; background:var(--rule-soft)}
+  .fortschritt i{display:block; height:100%; width:0; background:var(--pruefer); transition:width .3s}
+
+  /* ================= Seiten ================= */
+  .seite{max-width:1280px; margin:0 auto; padding:26px 24px 96px}
+  .seite h2{font-family:var(--display); font-size:20px; margin:0 0 4px; letter-spacing:.02em}
+  .seite h2 + p{color:var(--muted); margin:0 0 16px; font-size:14px}
+  .abschnitt{margin-bottom:38px}
+
+  .karten{display:grid; grid-template-columns:repeat(auto-fill,minmax(272px,1fr)); gap:14px}
+  .ekarte{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--ink);
+          padding:15px 17px 14px; border-radius:2px; display:flex; flex-direction:column; gap:9px}
+  .ekarte.fertig{border-top-color:var(--ok)}
+  .ekarte.laufend{border-top-color:var(--warn)}
+  .ekarte h3{font-family:var(--display); font-size:17px; margin:0; line-height:1.25}
+  .ekarte .zeile{display:flex; justify-content:space-between; gap:8px; font-size:12.5px;
+                 color:var(--muted); font-family:var(--data)}
+  .balken{height:5px; background:var(--rule-soft); border-radius:3px; overflow:hidden}
+  .balken i{display:block; height:100%; background:var(--pruefer)}
+  .ekarte .aktionen{display:flex; gap:7px; margin-top:2px; flex-wrap:wrap}
+  .note-chip{font-family:var(--data); font-weight:700; font-size:12px; padding:2px 8px;
+             border-radius:10px; background:var(--ok-soft); color:var(--ok); white-space:nowrap}
+  .note-chip.schlecht{background:var(--red-soft); color:var(--red)}
+  .note-chip.mittel{background:var(--warn-soft); color:var(--warn)}
+
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin:10px 0 14px}
+  .chip{border:1px solid var(--rule); background:var(--card); border-radius:14px;
+        padding:5px 12px; font-size:13px; cursor:pointer; display:flex; gap:7px; align-items:center}
+  .chip:hover{border-color:var(--pruefer)}
+  .chip.an{background:var(--pruefer); border-color:var(--pruefer); color:#fff}
+  .chip .n{font-family:var(--data); font-size:11.5px; opacity:.7}
+  .chip .quote{font-family:var(--data); font-size:11.5px; font-weight:700}
+  .chip.schwach{border-color:var(--red)}
+  .chip.schwach .quote{color:var(--red)}
+  .chip.an .quote{color:#fff}
+
+  .steuer{display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin-bottom:14px}
+  .feld{display:flex; flex-direction:column; gap:3px}
+  .feld select,.feld input[type=number],.feld input[type=search],.feld input[type=text]{
+    background:var(--field); border:1px solid var(--rule); border-radius:2px;
+    padding:7px 9px; font-size:14px; min-width:140px}
+  label.schalter{display:flex; gap:7px; align-items:center; font-size:13.5px;
+                 color:var(--muted); cursor:pointer; white-space:nowrap}
+
+  /* ================= Prüfungsbogen ================= */
+  .blatt{max-width:1280px; margin:0 auto; padding:22px 24px 130px;
+         display:grid; grid-template-columns:320px 1fr; gap:32px; align-items:start}
+  @media (max-width:1040px){ .blatt{grid-template-columns:1fr; gap:20px} }
+  .rand{position:sticky; top:100px; display:flex; flex-direction:column; gap:16px}
+  @media (max-width:1040px){ .rand{position:static} }
+
+  .sit{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--ink);
+       padding:16px 18px; border-radius:2px}
+  .sit-txt{white-space:pre-wrap; font-size:13.5px; margin-top:9px}
+  .sit-txt.clamped{max-height:230px; overflow:hidden;
+    -webkit-mask-image:linear-gradient(#000 65%,transparent); mask-image:linear-gradient(#000 65%,transparent)}
+  .mehr{margin-top:7px; background:none; border:0; padding:0; cursor:pointer; font-family:var(--display);
+        text-transform:uppercase; letter-spacing:.1em; font-size:11px; font-weight:700;
+        color:var(--pruefer); border-bottom:1px solid var(--pruefer)}
+
+  .inhalt{background:var(--card); border:1px solid var(--rule); border-radius:2px; padding:12px 14px}
+  .inhalt ol{list-style:none; margin:8px 0 0; padding:0}
+  .inhalt li{display:flex; justify-content:space-between; gap:8px; padding:4px 0; font-size:13.5px;
+             border-bottom:1px solid var(--rule-soft); cursor:pointer}
+  .inhalt li:last-child{border-bottom:0}
+  .inhalt li:hover{color:var(--pruefer)}
+  .inhalt li b{font-family:var(--data); font-weight:600; font-size:12.5px; color:var(--muted)}
+
+  .aufgabe{margin-bottom:34px; scroll-margin-top:112px}
+  .aufgabe-kopf{display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--ink);
+                padding-bottom:6px}
+  .aufgabe-nr{font-family:var(--display); font-size:20px; font-weight:700}
+  .aufgabe-intro{flex:1; font-size:13.5px; color:var(--muted)}
+  .aufgabe-be{font-family:var(--data); font-size:13px; color:var(--muted); white-space:nowrap}
+
+  .tk{display:grid; grid-template-columns:1fr 96px; background:var(--card);
+      border:1px solid var(--rule); border-top:0; scroll-margin-top:112px}
+  .aufgabe .tk:first-of-type,.uebung .tk{border-top:1px solid var(--rule)}
+  .uebung .tk{margin-bottom:14px}
+  .tk-haupt{padding:16px 20px 18px; min-width:0}
+  .tk-nr{font-family:var(--data); font-size:12.5px; font-weight:700; color:var(--pruefer);
+         display:flex; gap:9px; align-items:center; flex-wrap:wrap}
+  .herkunft{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em; font-size:10px;
+            color:var(--muted); border:1px solid var(--rule); border-radius:2px; padding:1px 6px}
+  .thema{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em; font-size:10px;
+         color:var(--muted); background:var(--rule-soft); border-radius:2px; padding:2px 6px}
+  .tk-frage{margin:7px 0 13px; white-space:pre-wrap; font-size:15px}
+
+  .marke-katalog{font-family:var(--display); text-transform:uppercase; letter-spacing:.09em;
+    font-size:10px; font-weight:700; padding:2px 7px; border-radius:2px; white-space:nowrap}
+  .marke-katalog.veraltet{background:var(--red-soft); color:var(--red); border:1px solid var(--red)}
+  .marke-katalog.reduziert{background:var(--warn-soft); color:var(--warn); border:1px solid var(--warn)}
+  .tk.veraltet{border-left:3px solid var(--red)}
+  .katalog-hinweis{border-left:3px solid var(--red); background:var(--red-soft);
+    padding:8px 12px; font-size:13px; margin:8px 0 12px; display:flex; gap:10px;
+    align-items:flex-start; justify-content:space-between}
+  .katalog-hinweis.reduziert{border-left-color:var(--warn); background:var(--warn-soft)}
+  .katalog-hinweis button{flex:none}
+  .tk.veraltet .tk-frage, .tk.veraltet textarea{opacity:.72}
+
+  .tk-rand{border-left:1px solid var(--rule); background:var(--field); padding:14px 8px;
+           display:flex; flex-direction:column; align-items:center; gap:7px}
+  .rand-lbl{font-family:var(--display); text-transform:uppercase; letter-spacing:.13em;
+            font-size:10px; font-weight:700; color:var(--muted)}
+  .rand-be{font-family:var(--data); font-size:18px; font-weight:600}
+  .rand-be small{font-size:11px; color:var(--muted); font-weight:400}
+  .punkte-wahl{display:flex; flex-wrap:wrap; gap:3px; justify-content:center}
+  .punkte-wahl button{width:23px; height:23px; padding:0; font-family:var(--data); font-size:11.5px;
+    border:1px solid var(--rule); background:var(--card); border-radius:2px; cursor:pointer}
+  .punkte-wahl button:hover{border-color:var(--pruefer)}
+  .punkte-wahl button.an{background:var(--pruefer); border-color:var(--pruefer); color:#fff; font-weight:700}
+  .tk.done{border-left:3px solid var(--ok)}
+  .tk.bewertet .rand-be{color:var(--ok)}
+
+  textarea{width:100%; min-height:100px; resize:vertical; background:var(--field);
+    border:1px solid var(--rule); border-radius:2px; padding:10px 12px; font-size:14.5px;
+    line-height:1.6}
+  textarea:focus{background:var(--card); border-color:var(--pruefer); outline:none;
+                 box-shadow:0 0 0 3px var(--pruefer-soft)}
+  textarea::placeholder{color:var(--muted); opacity:.7}
+
+  .felder{display:flex; flex-direction:column; gap:7px; margin-bottom:10px}
+  .feldzeile{display:grid; grid-template-columns:minmax(120px,34%) 1fr; gap:10px; align-items:start}
+  @media (max-width:640px){ .feldzeile{grid-template-columns:1fr; gap:3px} }
+  .feldzeile label{font-size:13px; color:var(--muted); padding-top:9px; line-height:1.35}
+  .feldzeile textarea{min-height:42px; font-size:14px; padding:8px 10px}
+
+  .bild{margin:0 0 12px; border:1px solid var(--rule); background:var(--card); padding:5px}
+  .bild img{display:block; width:100%; height:auto; cursor:zoom-in}
+  .bild figcaption{font-family:var(--display); text-transform:uppercase; letter-spacing:.12em;
+    font-size:10px; font-weight:700; color:var(--muted); padding:5px 2px 1px}
+  .bild-fehler{padding:12px; font-size:13px; color:var(--muted); background:var(--field)}
+
+  .hinweis{border-left:3px solid var(--red); background:var(--red-soft); padding:9px 12px;
+           font-size:13.5px; margin-bottom:12px}
+  .gruppe{grid-column:1/-1; background:var(--field); border-bottom:1px solid var(--rule); padding:12px 20px}
+  .gruppe-lbl{font-family:var(--data); font-size:12px; font-weight:700; color:var(--pruefer);
+              display:block; margin-bottom:3px}
+  .gruppe-txt{font-size:14px; white-space:pre-wrap}
+  mark.unsicher{background:#FCE9A8; color:#5A4300; padding:0 4px; border-bottom:1px solid #C9A227;
+                font-family:var(--data); font-size:13px}
+  .seite-link{display:inline-block; margin:0 8px 12px 0; padding:4px 10px; border:1px solid var(--rule);
+    border-radius:2px; background:var(--field); font-family:var(--display); text-transform:uppercase;
+    letter-spacing:.1em; font-size:10.5px; font-weight:700; color:var(--pruefer); cursor:pointer}
+  .seite-link:hover{background:var(--pruefer-soft); border-color:var(--pruefer)}
+
+  .loesung{margin-top:12px; border-top:1px dashed var(--rule); padding-top:9px}
+  .loesung summary{cursor:pointer; font-family:var(--display); text-transform:uppercase;
+    letter-spacing:.11em; font-size:11px; font-weight:700; color:var(--pruefer)}
+  .loesung-txt{white-space:pre-wrap; font-size:14px; margin-top:8px; background:var(--pruefer-soft);
+    padding:11px 13px; border-radius:2px}
+
+  .pruefhilfe{margin-top:10px; border:1px solid var(--rule); border-left:3px solid var(--pruefer);
+    background:var(--card); padding:10px 13px; font-size:13.5px}
+  .pruefhilfe h4{margin:0 0 7px; font-family:var(--display); text-transform:uppercase;
+    letter-spacing:.11em; font-size:11px; color:var(--muted); font-weight:700}
+  .treffer{display:flex; flex-wrap:wrap; gap:5px; margin:4px 0 8px}
+  .treffer span{font-size:12.5px; padding:2px 8px; border-radius:10px; font-family:var(--data)}
+  .treffer .ja{background:var(--ok-soft); color:var(--ok)}
+  .treffer .nein{background:var(--red-soft); color:var(--red)}
+  .pruef-fazit{font-size:13.5px; color:var(--muted)}
+  .pruef-fazit b{color:var(--ink)}
+
+  /* ================= Netzplan ================= */
+  .netz-gitter{display:flex; gap:22px; overflow-x:auto; padding:6px 2px 14px; align-items:flex-start}
+  .netz-spalte{display:flex; flex-direction:column; gap:16px; flex:none}
+  .knoten{border:1.5px solid var(--ink); background:var(--card); display:grid;
+    grid-template-columns:repeat(3, 54px); font-family:var(--data); font-size:13px;
+    font-variant-numeric:tabular-nums}
+  .knoten > div{border:.5px solid var(--rule); min-height:30px; display:flex; align-items:center;
+    justify-content:center; text-align:center}
+  .knoten .name{grid-column:1/-1; font-weight:700; font-family:var(--body); font-size:12.5px;
+    background:var(--field); padding:4px 5px; line-height:1.25}
+  .knoten .fix{background:var(--rule-soft); font-weight:600}
+  .knoten input{width:100%; height:30px; border:0; background:transparent;
+    text-align:center; font-family:var(--data); font-size:13px; padding:0}
+  .knoten input:focus{background:var(--pruefer-soft); outline:none}
+  .knoten input.falsch{background:var(--red-soft); color:var(--red); font-weight:700}
+  .knoten input.richtig{background:var(--ok-soft); color:var(--ok)}
+  .netz-legende{font-size:13px; color:var(--muted); margin-bottom:12px; line-height:1.6}
+  .netz-legende code{font-family:var(--data); background:var(--field); padding:1px 5px;
+    border:1px solid var(--rule-soft)}
+  .netz-pfeil{font-size:16px; color:var(--muted); font-family:var(--data);
+    align-self:center; padding-top:40px}
+
+  /* --- Schablone, Abschlussfragen, Gantt, Modelle --- */
+  .schablone{display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--pruefer);
+    padding:16px 20px; margin-bottom:16px; border-radius:2px; color:var(--ink)}
+  .schablone svg{color:var(--muted)}
+  .schablone-txt{flex:1 1 340px; font-size:13.5px; line-height:1.75; color:var(--muted)}
+  .schablone-txt b{color:var(--ink)}
+  .ergebnis{font-size:13.5px; margin:2px 0 14px; min-height:20px}
+  .ergebnis b{font-family:var(--data)}
+  .ergebnis .gut{color:var(--ok); font-weight:700}
+  .ergebnis .schlecht{color:var(--red); font-weight:700}
+
+  .abschluss{background:var(--card); border:1px solid var(--rule); padding:14px 18px;
+    border-radius:2px; margin-top:18px}
+  .abschluss-zeilen{display:flex; gap:20px; flex-wrap:wrap}
+  .abschluss-zeilen label{display:flex; flex-direction:column; gap:4px; font-size:13px;
+    color:var(--muted)}
+  .abschluss-zeilen input{background:var(--field); border:1px solid var(--rule); border-radius:2px;
+    padding:7px 9px; font-family:var(--data); font-size:14px; min-width:170px}
+  .abschluss-zeilen input.falsch{border-color:var(--red); background:var(--red-soft); color:var(--red)}
+  .abschluss-zeilen input.richtig{border-color:var(--ok); background:var(--ok-soft); color:var(--ok)}
+
+  /* Gantt */
+  .gantt{background:var(--card); border:1px solid var(--rule); padding:14px 16px; border-radius:2px;
+    overflow-x:auto}
+  table.gantt-tab{border-collapse:collapse; font-size:13px; width:100%}
+  table.gantt-tab th{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+    font-size:10px; color:var(--muted); font-weight:700; padding:5px 8px; text-align:left;
+    border-bottom:1px solid var(--rule); white-space:nowrap}
+  table.gantt-tab td{padding:4px 8px; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+  table.gantt-tab input{width:56px; text-align:center; font-family:var(--data); font-size:13px;
+    background:var(--field); border:1px solid var(--rule); border-radius:2px; padding:4px 2px}
+  table.gantt-tab input.falsch{background:var(--red-soft); color:var(--red); border-color:var(--red)}
+  table.gantt-tab input.richtig{background:var(--ok-soft); color:var(--ok); border-color:var(--ok)}
+  .gantt-spur{position:relative; height:16px; background:var(--rule-soft); border-radius:2px;
+    min-width:260px}
+  .gantt-spur i{position:absolute; top:0; height:100%; background:var(--pruefer);
+    border-radius:2px; box-shadow:0 0 0 2px var(--card)}
+  .gantt-spur i.kritisch{background:var(--red)}
+  .gantt-skala{display:flex; justify-content:space-between; font-family:var(--data);
+    font-size:11px; color:var(--muted); margin-top:3px}
+
+  /* Modelle */
+  .modell-aufgabe{background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--ink);
+    padding:14px 18px; border-radius:2px; margin-bottom:16px; font-size:14px; white-space:pre-wrap}
+  .modell-block{background:var(--card); border:1px solid var(--rule); border-radius:2px;
+    padding:12px 16px; margin-bottom:14px}
+  .modell-block > .eyebrow{display:block; margin-bottom:8px}
+  table.modell{width:100%; border-collapse:collapse; font-size:13.5px}
+  table.modell th{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+    font-size:10px; color:var(--muted); font-weight:700; text-align:left; padding:4px 6px;
+    border-bottom:1px solid var(--rule)}
+  table.modell td{padding:3px 6px; border-bottom:1px solid var(--rule-soft)}
+  table.modell input{width:100%; background:var(--field); border:1px solid var(--rule);
+    border-radius:2px; padding:6px 8px; font-size:13.5px}
+  table.modell input.warn{border-color:var(--warn); background:var(--warn-soft)}
+  table.modell td.weg-btn{width:34px; text-align:center}
+  .modell-hinweise{font-size:13.5px; line-height:1.8; margin-top:6px}
+  .modell-hinweise .ok{color:var(--ok)}
+  .modell-hinweise .fehlt{color:var(--red)}
+  /* UML-Trainer */
+  .uml-hinweis{font-size:13.5px; color:var(--muted); line-height:1.8; margin-bottom:4px}
+  .uml-auftrag{margin-top:12px; font-weight:600}
+  .uml-svg-box{overflow-x:auto; padding:12px 0 16px; color:var(--ink)}
+  .uml-svg{max-width:100%; height:auto}
+  table.modell select{width:100%; background:var(--field); border:1px solid var(--rule);
+    border-radius:2px; padding:6px 4px; font:inherit; font-size:13px; color:var(--ink)}
+  table.modell select.warn{border-color:var(--warn); background:var(--warn-soft)}
+
+  /* ================= Karteikarten ================= */
+  .kk-buehne{max-width:660px; margin:0 auto}
+  .kk{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+      border-radius:3px; padding:30px 28px; min-height:230px; display:flex; flex-direction:column;
+      justify-content:center; cursor:pointer; text-align:center}
+  .kk .vorne{font-size:19px; line-height:1.45; white-space:pre-wrap}
+  .kk .hinten{margin-top:18px; padding-top:16px; border-top:1px dashed var(--rule);
+    font-size:15px; white-space:pre-wrap; text-align:left}
+  .kk .quelle{margin-top:14px; font-size:12px; color:var(--muted)}
+  .kk-steuer{display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap}
+  .kk-zaehler{text-align:center; margin-top:12px; font-family:var(--data); font-size:13px; color:var(--muted)}
+
+  /* ================= Statistik / Lücken ================= */
+  table.tab{width:100%; border-collapse:collapse; font-size:14px; background:var(--card)}
+  table.tab th,table.tab td{text-align:left; padding:8px 11px; border-bottom:1px solid var(--rule-soft)}
+  table.tab th{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+               font-size:10.5px; color:var(--muted); border-bottom:1px solid var(--rule)}
+  table.tab td.z{font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap}
+  /* --- Hero: eine Zahl, die den Stand zusammenfasst --- */
+  .hero{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+        padding:18px 22px; border-radius:2px; margin-bottom:20px;
+        display:flex; gap:34px; align-items:baseline; flex-wrap:wrap}
+  .hero .zahl{font-family:var(--data); font-size:52px; font-weight:600; line-height:1;
+              font-variant-numeric:tabular-nums}
+  .hero .neben{font-family:var(--data); font-size:22px; font-weight:600;
+               font-variant-numeric:tabular-nums}
+  .hero .txt{flex:1 1 260px; font-size:13.5px; color:var(--muted); line-height:1.6}
+
+  /* --- Prioritätentabelle: 12 Themen -> Tabelle, keine 12 Farben --- */
+  table.prio{width:100%; border-collapse:collapse; font-size:13.5px; background:var(--card)}
+  table.prio th{text-align:left; font-family:var(--display); text-transform:uppercase;
+    letter-spacing:.1em; font-size:10.5px; color:var(--muted); font-weight:700;
+    border-bottom:1px solid var(--rule); padding:7px 10px; white-space:nowrap}
+  table.prio th.r, table.prio td.r{text-align:right}
+  table.prio td{padding:8px 10px; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+  table.prio tr:last-child td{border-bottom:0}
+  table.prio tbody tr:hover{background:var(--field)}
+  .prio-thema{font-weight:600}
+  .prio-thema small{display:block; font-weight:400; color:var(--muted); font-size:12px}
+  .spur{height:10px; background:var(--rule-soft); border-radius:0 2px 2px 0; overflow:hidden;
+        min-width:110px}
+  .spur i{display:block; height:100%; border-radius:0 4px 4px 0}
+  .spur i.anteil{background:var(--pruefer)}
+  .zahl-m{font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .lage{display:inline-flex; align-items:center; gap:5px; font-family:var(--data);
+        font-size:12.5px; font-weight:700; white-space:nowrap}
+  .lage b{font-weight:700}
+  .lage .punkt{width:9px; height:9px; border-radius:50%; flex:none}
+  .lage.stark   .punkt{background:var(--ok)}    .lage.stark{color:var(--ok)}
+  .lage.mittel  .punkt{background:var(--warn)}  .lage.mittel{color:var(--warn)}
+  .lage.schwach .punkt{background:var(--red)}   .lage.schwach{color:var(--red)}
+  .lage.offen   .punkt{background:var(--muted)} .lage.offen{color:var(--muted)}
+  .prio-marke{font-family:var(--display); text-transform:uppercase; letter-spacing:.09em;
+    font-size:10px; font-weight:700; padding:2px 7px; border-radius:2px; border:1px solid}
+  .prio-marke.hoch{color:var(--red); border-color:var(--red); background:var(--red-soft)}
+  .prio-marke.mittel{color:var(--warn); border-color:var(--warn); background:var(--warn-soft)}
+  .prio-marke.niedrig{color:var(--muted); border-color:var(--rule); background:var(--field)}
+  @media (max-width:820px){
+    table.prio th.weg, table.prio td.weg{display:none}
+    .spur{min-width:60px}
+  }
+  .schwer{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;
+          margin-top:10px}
+  .schwer .box{background:var(--card); border:1px solid var(--rule);
+               border-left:3px solid var(--pruefer); padding:12px 15px; border-radius:2px}
+  .schwer h4{margin:0 0 7px; font-size:14px; font-family:var(--display); letter-spacing:.02em}
+  .schwer h4 span{font-family:var(--data); font-size:12px; color:var(--muted); font-weight:400}
+  .schwer ul{margin:0; padding-left:17px; font-size:13.5px; line-height:1.55}
+  .schwer li{margin-bottom:4px}
+  .bringer{width:100%; border-collapse:collapse; font-size:13.5px; background:var(--card);
+           margin-top:8px}
+  .bringer th{text-align:left; font-family:var(--display); text-transform:uppercase;
+    letter-spacing:.1em; font-size:10.5px; color:var(--muted); font-weight:700;
+    border-bottom:1px solid var(--rule); padding:7px 10px}
+  .bringer td{padding:8px 10px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .bringer tr:last-child td{border-bottom:0}
+  .bringer .be{font-family:var(--data); font-weight:600; white-space:nowrap}
+  .bringer small{color:var(--muted); font-size:12.5px}
+  .quelle-zeile{margin-top:22px; font-size:12.5px; color:var(--muted); line-height:1.6}
+  .quelle-zeile a{color:var(--pruefer)}
+  .luecke{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:baseline;
+    padding:7px 0; border-bottom:1px solid var(--rule-soft); font-size:14px}
+  .luecke small{display:block; color:var(--muted); font-size:12.5px}
+  .luecke .z{font-family:var(--data); font-size:12.5px; color:var(--muted); white-space:nowrap}
+  .luecke.leer .z{color:var(--red); font-weight:700}
+
+  .leer-hinweis{border:1px dashed var(--rule); padding:22px; text-align:center; color:var(--muted);
+                font-size:14px; border-radius:3px; background:var(--card)}
+
+  .fuss{position:fixed; left:0; right:0; bottom:0; z-index:45; background:var(--card);
+        border-top:1px solid var(--rule); box-shadow:0 -2px 14px rgba(0,0,0,.09)}
+  .fuss-in{max-width:1280px; margin:0 auto; padding:10px 24px; display:flex; align-items:center;
+           gap:16px; flex-wrap:wrap}
+  .fuss-stat{font-size:13px; color:var(--muted)}
+  .fuss-stat b{color:var(--ink); font-family:var(--data)}
+  .spacer{flex:1}
+
+  .toast{position:fixed; bottom:70px; left:50%; transform:translateX(-50%); background:var(--ink);
+    color:var(--paper); padding:10px 18px; border-radius:2px; font-size:13.5px; z-index:60;
+    opacity:0; pointer-events:none; transition:opacity .2s; max-width:80vw; text-align:center}
+  .toast.on{opacity:1}
+  .lupe{position:fixed; inset:0; background:rgba(0,0,0,.87); z-index:70; display:none;
+        align-items:center; justify-content:center; padding:26px; cursor:zoom-out}
+  .lupe.on{display:flex}
+  .lupe img{max-width:100%; max-height:100%; background:#fff}
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+
+  @media print{
+    .kopf,.fuss,.rand,.toast,.lupe,.punkte-wahl,.loesung,.pruefhilfe,
+    .seite-link,.btn,.katalog-hinweis button{ display:none !important }
+    body{background:#fff; color:#000; font-size:11pt}
+    .blatt{display:block; padding:0; max-width:none}
+    .tk{grid-template-columns:1fr 70px; break-inside:avoid; page-break-inside:avoid;
+        border:1px solid #999; margin-bottom:6pt}
+    .tk-rand{border-left:1px solid #999}
+    .tk.veraltet{display:none}
+    textarea{min-height:70pt; background:#fff; border:1px solid #bbb}
+    .aufgabe-kopf{border-bottom:2px solid #000}
+  }
+</style>
+</head>
+<body>
+
+<div class="kopf">
+  <div class="kopf-in">
+    <button class="marke" id="btnHome">IHK AP1<small>Prüfungssimulator</small></button>
+    <div class="kopf-titel" id="kopfTitel" hidden>
+      <span class="eyebrow" id="kEyebrow"></span>
+      <h1 id="kTitel"></h1>
+    </div>
+    <div class="spacer"></div>
+    <div class="kopf-meta">
+      <label class="schalter" id="schalterKatalog"
+             title="Aufgaben zu gestrichenen Themen ganz ausblenden statt nur markieren">
+        <input type="checkbox" id="chkKatalog"> veraltete ausblenden
+      </label>
+      <div class="messwert" id="mwUhr" hidden>
+        <span class="eyebrow">Zeit</span>
+        <div class="uhr stopped" id="uhr">--:--</div>
+      </div>
+      <div class="messwert" id="mwPunkte" hidden>
+        <span class="eyebrow">Selbstbewertung</span>
+        <b id="kPunkte">— BE</b>
+      </div>
+      <button class="btn" id="btnUhr" hidden>Start</button>
+      <button class="btn ghost klein" id="btnTheme">Dunkel</button>
+    </div>
+  </div>
+  <div class="fortschritt"><i id="balken"></i></div>
+</div>
+
+<!-- ===================== START ===================== -->
+<div class="seite" id="scStart">
+  <div class="abschnitt">
+    <h2>Prüfungen</h2>
+    <p id="startZusammenfassung">—</p>
+    <div class="karten" id="examKarten"></div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Übungsmodus — nach Themen</h2>
+    <p>Ohne Uhr, ohne ganzen Bogen. Themen wählen, Anzahl festlegen, Lösung nach jeder Aufgabe.</p>
+    <div class="chips" id="themenChips"></div>
+    <div class="steuer">
+      <div class="feld">
+        <span class="eyebrow">Anzahl</span>
+        <input type="number" id="drillAnzahl" min="1" max="120" value="10">
+      </div>
+      <div class="feld">
+        <span class="eyebrow">Reihenfolge</span>
+        <select id="drillOrder">
+          <option value="mix">gemischt</option>
+          <option value="jahr">nach Jahrgang</option>
+          <option value="schwach">schwächste zuerst</option>
+        </select>
+      </div>
+      <label class="schalter"><input type="checkbox" id="drillNurFalsch"> nur was ich verhauen habe</label>
+      <label class="schalter"><input type="checkbox" id="drillNurNeu"> nur ungeübte</label>
+      <button class="btn primary" id="btnDrill">Übung starten</button>
+      <button class="btn ghost" id="btnAlleThemen">alle / keine</button>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Diagramm-Trainer</h2>
+    <p>Die teuersten Aufgaben der AP1 sind Diagramme: Netzplan und Gantt bringen zusammen
+       45 % des Themas Projektmanagement, ER-Modelle und UML werden nach dem Wegfall von SQL
+       eher mehr. Netzplan, Gantt, Aktivitäts- und Klassendiagramm würfeln jedes Mal eine neue
+       Aufgabe aus und prüfen deine Antwort — Arithmetik, Notation und Inhalt.
+       „ER-Modell &amp; UML“ enthält feste Aufgaben aus echten Prüfungen.</p>
+    <div class="steuer">
+      <div class="feld">
+        <span class="eyebrow">Vorgänge</span>
+        <input type="number" id="netzAnzahl" min="5" max="14" value="8">
+      </div>
+      <button class="btn primary" id="btnNetzZufall">Netzplan üben</button>
+      <button class="btn primary" id="btnGantt">Gantt-Diagramm üben</button>
+      <button class="btn primary" id="btnAktivitaet">Aktivitätsdiagramm üben</button>
+      <button class="btn primary" id="btnKlassen">Klassendiagramm üben</button>
+      <button class="btn" id="btnModelle">ER-Modell &amp; UML</button>
+      <button class="btn ghost" id="btnNetzEigen">eigene Vorgangsliste</button>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Karteikarten</h2>
+    <p id="kkZusammenfassung">—</p>
+    <div class="steuer">
+      <div class="feld">
+        <span class="eyebrow">Typ</span>
+        <select id="kkTyp">
+          <option value="alle">alle</option>
+          <option value="begriff">nur Begriffe</option>
+          <option value="frage">nur Fragen</option>
+        </select>
+      </div>
+      <label class="schalter"><input type="checkbox" id="kkThemen"> nur gewählte Themen (oben)</label>
+      <button class="btn primary" id="btnKK">Karteikarten starten</button>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Suche</h2>
+    <p>Volltextsuche über alle Aufgaben und Musterlösungen.</p>
+    <div class="steuer">
+      <div class="feld" style="flex:1">
+        <input type="search" id="sucheFeld" placeholder="z. B. Subnetzmaske, Skonto, Härtung …" style="width:100%">
+      </div>
+    </div>
+    <div id="sucheErgebnis"></div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Themen: Stärken, Schwächen, Prioritäten</h2>
+    <p id="prioIntro">—</p>
+    <div id="statBox"></div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Lücken im Katalog</h2>
+    <p id="lueckenIntro">—</p>
+    <div id="lueckenBox"></div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>Fortschritt sichern</h2>
+    <p>Alles liegt im localStorage dieses Browsers. Zum Umziehen auf ein anderes Gerät:
+       exportieren, Datei mitnehmen, dort importieren.</p>
+    <div class="steuer">
+      <button class="btn" id="btnExport">Fortschritt exportieren</button>
+      <button class="btn" id="btnImport">Fortschritt importieren</button>
+      <button class="btn ghost" id="btnAllesLoeschen">Alles löschen</button>
+    </div>
+    <input type="file" id="importDatei" accept=".json,application/json" hidden>
+  </div>
+</div>
+
+<!-- ===================== BOGEN ===================== -->
+<div class="blatt" id="scBogen" hidden>
+  <aside class="rand" id="randSpalte">
+    <div class="sit" id="sitBox">
+      <span class="eyebrow">Ausgangssituation</span>
+      <div class="sit-txt clamped" id="sitTxt"></div>
+      <button class="mehr" id="btnMehr">Vollständig anzeigen</button>
+    </div>
+    <div class="inhalt" id="inhaltBox">
+      <span class="eyebrow">Inhalt</span>
+      <ol id="inhaltListe"></ol>
+    </div>
+    <div id="anlagen"></div>
+  </aside>
+  <main id="bogenMain"></main>
+</div>
+
+<!-- ===================== NETZPLAN / GANTT ===================== -->
+<div class="seite" id="scNetz" hidden>
+  <div class="abschnitt">
+    <h2 id="netzTitel">Netzplan</h2>
+
+    <div class="schablone" id="netzSchablone">
+      <div>
+        <div class="eyebrow" style="margin-bottom:8px">So ist ein Vorgangsknoten aufgebaut</div>
+        <svg viewBox="0 0 232 132" width="232" height="132" role="img"
+             aria-label="Vorgangsknoten: oben FAZ, Dauer, FEZ; Mitte der Name; unten SAZ, GP, SEZ; darunter FP">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="1" y="1" width="230" height="130"/>
+            <path d="M1 34h230M1 68h230M1 100h230M78 1v33M154 1v33M78 68v32M154 68v32"/>
+          </g>
+          <g font-family="ui-monospace,Consolas,monospace" font-size="13" text-anchor="middle"
+             fill="currentColor">
+            <text x="39" y="22">FAZ</text><text x="116" y="22">Dauer</text><text x="193" y="22">FEZ</text>
+            <text x="116" y="55" font-family="inherit" font-weight="700">Vorgang</text>
+            <text x="39" y="90">SAZ</text><text x="116" y="90">GP</text><text x="193" y="90">SEZ</text>
+            <text x="116" y="120">FP</text>
+          </g>
+        </svg>
+      </div>
+      <div class="schablone-txt">
+        <b>Vorwärts</b> (links nach rechts): FAZ = größtes FEZ der Vorgänger, FEZ = FAZ + Dauer.<br>
+        <b>Rückwärts</b> (rechts nach links): SEZ = kleinstes SAZ der Nachfolger, SAZ = SEZ − Dauer.
+        Am Projektende ist SEZ = FEZ.<br>
+        <b>Puffer:</b> GP = SAZ − FAZ (so viel darf sich der Vorgang verschieben, ohne das
+        <i>Projektende</i> zu verschieben). FP = kleinstes FAZ der Nachfolger − FEZ (so viel,
+        ohne den <i>Nachfolger</i> zu verschieben). FP ist nie größer als GP.<br>
+        <b>Kritischer Pfad:</b> alle Vorgänge mit GP = 0.
+      </div>
+    </div>
+
+    <div class="steuer">
+      <button class="btn primary" id="btnNetzPruefen">Prüfen</button>
+      <button class="btn" id="btnNetzLoesung">Lösung zeigen</button>
+      <button class="btn" id="btnNetzNeu">Neuer Plan</button>
+      <button class="btn ghost" id="btnSchablone">Schablone ausblenden</button>
+      <button class="btn ghost" id="btnNetzZurueck">zurück</button>
+    </div>
+    <div id="netzErgebnis" class="ergebnis"></div>
+
+    <div class="netz-gitter" id="netzGitter"></div>
+    <div class="gantt" id="ganttGitter" hidden></div>
+
+    <div class="abschluss" id="netzAbschluss">
+      <div class="eyebrow" style="margin-bottom:9px">Zum Schluss — das wird in der Prüfung gefragt</div>
+      <div class="abschluss-zeilen">
+        <label>Projektdauer (Tage)
+          <input type="text" inputmode="numeric" id="fragDauer" placeholder="z. B. 24"></label>
+        <label>Kritischer Pfad
+          <input type="text" id="fragPfad" placeholder="z. B. A B D G"></label>
+        <label>Größter Puffer — welcher Vorgang?
+          <input type="text" id="fragPuffer" placeholder="z. B. E"></label>
+      </div>
+      <div id="fragErgebnis" class="ergebnis"></div>
+    </div>
+    <div id="netzInfo" style="font-size:13.5px;color:var(--muted);line-height:1.8;margin-top:16px"></div>
+  </div>
+</div>
+
+<!-- ===================== MODELLE (ER / UML) ===================== -->
+<div class="seite" id="scModell" hidden>
+  <div class="abschnitt">
+    <h2 id="modellTitel">ER-Modell &amp; UML</h2>
+    <p id="modellIntro">—</p>
+    <div class="steuer">
+      <div class="feld">
+        <span class="eyebrow">Aufgabe</span>
+        <select id="modellWahl"></select>
+      </div>
+      <button class="btn primary" id="btnModellPruefen">Struktur prüfen</button>
+      <button class="btn" id="btnModellLoesung">Musterlösung zeigen</button>
+      <button class="btn ghost" id="btnModellZurueck">zurück</button>
+    </div>
+    <div id="modellErgebnis" class="ergebnis"></div>
+    <div id="modellAufgabe" class="modell-aufgabe"></div>
+    <div id="modellBauen"></div>
+    <details class="loesung" id="modellLoesungBox" hidden>
+      <summary>Musterlösung</summary>
+      <div class="loesung-txt" id="modellLoesungTxt"></div>
+    </details>
+  </div>
+</div>
+
+<!-- ===================== UML-TRAINER ===================== -->
+<div class="seite" id="scUml" hidden>
+  <div class="abschnitt">
+    <h2 id="umlTitel">UML-Trainer</h2>
+    <p class="uml-hinweis" id="umlHinweis">—</p>
+    <div class="steuer">
+      <button class="btn primary" id="btnUmlPruefen">Prüfen</button>
+      <button class="btn" id="btnUmlLoesung">Lösung zeigen</button>
+      <button class="btn" id="btnUmlNeu">Neue Aufgabe</button>
+      <button class="btn ghost" id="btnUmlZurueck">zurück</button>
+    </div>
+    <div id="umlErgebnis" class="ergebnis"></div>
+    <div class="modell-aufgabe">
+      <span class="eyebrow">Ausgangssituation</span>
+      <div id="umlText"></div>
+      <div class="uml-auftrag" id="umlAufgabe"></div>
+    </div>
+    <div id="umlBauen"></div>
+    <details class="loesung" id="umlLoesungBox" hidden>
+      <summary>Musterlösung</summary>
+      <div class="uml-svg-box" id="umlLoesungSvg"></div>
+      <div class="loesung-txt" id="umlLoesungTxt"></div>
+    </details>
+  </div>
+</div>
+
+<!-- ===================== KARTEIKARTEN ===================== -->
+<div class="seite" id="scKK" hidden>
+  <div class="abschnitt kk-buehne">
+    <div class="kk" id="kkKarte">
+      <div class="vorne" id="kkVorne"></div>
+      <div class="hinten" id="kkHinten" hidden></div>
+      <div class="quelle" id="kkQuelle"></div>
+    </div>
+    <div class="kk-steuer">
+      <button class="btn" id="kkUmdrehen">Umdrehen</button>
+      <button class="btn ghost" id="kkFalsch">wusste ich nicht</button>
+      <button class="btn primary" id="kkRichtig">wusste ich</button>
+      <button class="btn ghost" id="kkEnde">beenden</button>
+    </div>
+    <div class="kk-zaehler" id="kkZaehler"></div>
+  </div>
+</div>
+
+<!-- ===================== AUSWERTUNG ===================== -->
+<div class="seite" id="scAuswertung" hidden>
+  <div class="abschnitt">
+    <h2 id="ausTitel">Auswertung</h2>
+    <p id="ausUnter">Vergleiche deine Antwort mit der Musterlösung und vergib Punkte.</p>
+    <div class="steuer">
+      <button class="btn" id="btnAusExport">Markdown für Claude</button>
+      <button class="btn" id="btnAusCopy">In Zwischenablage</button>
+      <button class="btn" id="btnAusImport">Punkte einfügen</button>
+      <button class="btn primary" id="btnAusSpeichern">Ergebnis speichern</button>
+      <button class="btn ghost" id="btnAusZurueck">zurück zum Bogen</button>
+    </div>
+    <div id="ausErgebnis"></div>
+  </div>
+</div>
+
+<div class="fuss" id="fuss" hidden>
+  <div class="fuss-in">
+    <span class="fuss-stat">Beantwortet <b id="statAnz">0/0</b></span>
+    <span class="fuss-stat">Bearbeitet <b id="statBe">0/0</b> BE</span>
+    <span class="fuss-stat" id="statNote"></span>
+    <span class="spacer"></span>
+    <button class="btn ghost klein" id="btnDrucken">Drucken</button>
+    <button class="btn ghost klein" id="btnNaechste">nächste offene ↓</button>
+    <button class="btn ghost" id="btnReset">Zurücksetzen</button>
+    <button class="btn" id="btnLoes">Lösungen einblenden</button>
+    <button class="btn primary" id="btnAbgeben">Abgeben &amp; auswerten</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="lupe" id="lupe"><img id="lupeImg" alt=""></div>
+
+<script src="exams/exams.js"></script>
+<script>
+"use strict";
+
+const $ = id => document.getElementById(id);
+const EXAMS   = window.IHK_EXAMS   || [];
+const TLABEL  = window.IHK_TOPICS  || {};
+const CARDS   = window.IHK_CARDS   || [];
+const LUECKEN = window.IHK_LUECKEN || [];
+const KATALOG = window.IHK_KATALOG || {};
+const GEWICHTE = window.IHK_GEWICHTE || {};
+
+const SK = {
+  answers:"ihk2:answers", scores:"ihk2:scores", timer:"ihk2:timer",
+  attempts:"ihk2:attempts", theme:"ihk2:theme", katalog:"ihk2:veraltetAusblenden", cards:"ihk2:cards",
+};
+const ls = {
+  get(k, def){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }catch{ return def; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch{} },
+};
+let ANSWERS  = ls.get(SK.answers, {});
+let SCORES   = ls.get(SK.scores, {});
+let TIMERS   = ls.get(SK.timer, {});
+let ATTEMPTS = ls.get(SK.attempts, []);
+let KKSTAT   = ls.get(SK.cards, {});
+let VERSTECKEN = ls.get(SK.katalog, false);   // по умолчанию показываем всё, только с пометкой
+
+const NOTEN = [[92,"1","sehr gut"],[81,"2","gut"],[67,"3","befriedigend"],
+               [50,"4","ausreichend"],[30,"5","mangelhaft"],[0,"6","ungenügend"]];
+function note(p){ for (const [ab,n,t] of NOTEN) if (p >= ab) return {note:n, text:t};
+                  return {note:"6", text:"ungenügend"}; }
+const key = (e, s) => e + ":" + s;
+const istVeraltet = it => ((it.katalog || {}).status === "veraltet");
+const aktiv = it => !(VERSTECKEN && istVeraltet(it));
+
+const ALLE = [];
+EXAMS.forEach(ex => ex.tasks.forEach(t => t.subtasks.forEach(s => ALLE.push({
+  ...s, exam: ex, task: t, k: key(ex.examId, s.id)
+}))));
+function examSubs(ex){
+  return ex.tasks.flatMap(t => t.subtasks.map(s => ({...s, exam:ex, task:t, k:key(ex.examId, s.id)})));
+}
+function antwortText(it){
+  if (it.felder && it.felder.length){
+    const teile = it.felder.map((f, i) => {
+      const v = (ANSWERS[it.k + "#" + i] || "").trim();
+      return v ? f.label + ": " + v : "";
+    }).filter(Boolean);
+    const frei = (ANSWERS[it.k] || "").trim();
+    if (frei) teile.push(frei);
+    return teile.join("\n");
+  }
+  return (ANSWERS[it.k] || "").trim();
+}
+const hatAntwort = it => antwortText(it).length > 0;
+const hatPunkte  = it => (SCORES[it.k] !== undefined && SCORES[it.k] !== null);
+
+let VIEW = null, SHOW_SOL = false, tick = null;
+
+(function(){
+  const t = ls.get(SK.theme, null);
+  if (t) document.documentElement.dataset.theme = t;
+  $("btnTheme").textContent = (t === "dunkel" ? "Hell" : "Dunkel");
+  $("chkKatalog").checked = VERSTECKEN;
+})();
+$("btnTheme").addEventListener("click", () => {
+  const d = document.documentElement.dataset.theme === "dunkel" ? "hell" : "dunkel";
+  document.documentElement.dataset.theme = d;
+  $("btnTheme").textContent = (d === "dunkel" ? "Hell" : "Dunkel");
+  ls.set(SK.theme, d);
+});
+$("chkKatalog").addEventListener("change", e => {
+  VERSTECKEN = e.target.checked;
+  ls.set(SK.katalog, VERSTECKEN);
+  if (VIEW && !$("scBogen").hidden) zeigeBogen(); else renderStart();
+  toast(VERSTECKEN ? "Veraltete Aufgaben ausgeblendet."
+                   : "Alle Aufgaben sichtbar — veraltete sind markiert.");
+});
+
+/* ======================= Startseite ======================= */
+function examFortschritt(ex){
+  const alleSubs = examSubs(ex);
+  const subs = alleSubs.filter(aktiv);
+  const be = subs.reduce((a,s) => a + (s.maxPoints||0), 0);
+  const veraltetBe = alleSubs.filter(istVeraltet).reduce((a,s) => a + (s.maxPoints||0), 0);
+  const done = subs.filter(hatAntwort).length;
+  const bester = ATTEMPTS.filter(a => a.examId === ex.examId)
+                         .reduce((b,a) => (!b || a.prozent > b.prozent ? a : b), null);
+  return {subs, be, veraltetBe, done, bester};
+}
+function renderStart(){
+  const box = $("examKarten");
+  box.innerHTML = "";
+  if (!EXAMS.length)
+    box.innerHTML = '<div class="leer-hinweis">Keine Prüfungen gefunden — ' +
+                    'starte <code>python tools/build_index.py</code>.</div>';
+  EXAMS.forEach(ex => {
+    const f = examFortschritt(ex), m = ex.meta || {};
+    const el = document.createElement("div");
+    el.className = "ekarte" + (f.bester ? " fertig" : (f.done ? " laufend" : ""));
+    const kopf = document.createElement("h3");
+    kopf.textContent = (m.season || "") + " " + (m.year || "");
+    const unter = document.createElement("div");
+    unter.style.cssText = "font-size:13px;color:var(--muted);margin-top:-4px";
+    unter.textContent = m.title || ex.examId;
+    const z1 = document.createElement("div");
+    z1.className = "zeile";
+    z1.innerHTML = "<span>" + f.subs.length + " Teilaufgaben</span><span>" +
+                   (f.veraltetBe && !VERSTECKEN ? (f.be - f.veraltetBe) + " von " + f.be : f.be) + " BE</span>";
+    const bar = document.createElement("div");
+    bar.className = "balken";
+    bar.innerHTML = '<i style="width:' + (f.subs.length ? f.done/f.subs.length*100 : 0) + '%"></i>';
+    const z2 = document.createElement("div");
+    z2.className = "zeile";
+    const links = document.createElement("span");
+    links.textContent = f.done + "/" + f.subs.length + " beantwortet";
+    z2.appendChild(links);
+    if (f.bester){
+      const n = note(f.bester.prozent);
+      const chip = document.createElement("span");
+      chip.className = "note-chip " + (n.note <= "2" ? "" : (n.note <= "4" ? "mittel" : "schlecht"));
+      chip.textContent = "beste " + n.note + " · " + f.bester.punkte + " BE";
+      z2.appendChild(chip);
+    }
+    el.append(kopf, unter, z1, bar, z2);
+    if (f.veraltetBe){
+      const w = document.createElement("div");
+      w.className = "zeile";
+      w.innerHTML = '<span style="color:var(--red)">davon ' + f.veraltetBe +
+                    ' BE nicht mehr im Katalog</span>';
+      el.appendChild(w);
+    }
+    const akt = document.createElement("div");
+    akt.className = "aktionen";
+    const b1 = document.createElement("button");
+    b1.className = "btn primary klein";
+    b1.textContent = f.done ? "Fortsetzen" : "Prüfung starten";
+    b1.onclick = () => oeffnePruefung(ex);
+    akt.appendChild(b1);
+    if (f.done){
+      const b2 = document.createElement("button");
+      b2.className = "btn ghost klein"; b2.textContent = "Auswertung";
+      b2.onclick = () => { oeffnePruefung(ex, true); zeigeAuswertung(); };
+      const b3 = document.createElement("button");
+      b3.className = "btn ghost klein"; b3.textContent = "Zurücksetzen";
+      b3.onclick = () => resetExam(ex);
+      akt.append(b2, b3);
+    }
+    el.appendChild(akt);
+    box.appendChild(el);
+  });
+
+  const av = ALLE.filter(aktiv);
+  const be = av.reduce((a,s) => a + (s.maxPoints||0), 0);
+  const raus = ALLE.length - av.length;
+  $("startZusammenfassung").textContent =
+    EXAMS.length + " Prüfungen · " + av.length + " Teilaufgaben · " + be + " BE" +
+    (VERSTECKEN
+      ? (raus ? "  ·  " + raus + " veraltete Aufgaben ausgeblendet" : "")
+      : "  ·  davon " + ALLE.filter(istVeraltet).length + " Aufgaben (" +
+        ALLE.filter(istVeraltet).reduce((a,s2) => a + (s2.maxPoints||0), 0) +
+        " BE) nicht mehr im Katalog — markiert, kannst du überspringen");
+  $("kkZusammenfassung").textContent =
+    CARDS.length + " Karten aus den Musterlösungen — Begriffe und kurze Fragen. " +
+    "Was du nicht wusstest, kommt in derselben Runde noch einmal.";
+  renderThemenChips(); renderStatistik(); renderLuecken();
+}
+
+function themenStat(){
+  const m = {};
+  ALLE.filter(aktiv).filter(it => !istVeraltet(it)).forEach(it =>
+    (it.topics || ["sonstiges"]).forEach(t => {
+      const e = m[t] || (m[t] = {key:t, label:TLABEL[t] || t, n:0, be:0, got:0, max:0});
+      e.n++; e.be += it.maxPoints || 0;
+      if (hatPunkte(it)){ e.got += SCORES[it.k]; e.max += it.maxPoints || 0; }
+    }));
+  return Object.values(m).sort((a,b) => b.n - a.n);
+}
+let GEWAEHLT = new Set();
+function renderThemenChips(){
+  const box = $("themenChips"); box.innerHTML = "";
+  themenStat().forEach(t => {
+    const c = document.createElement("button");
+    c.className = "chip" + (GEWAEHLT.has(t.key) ? " an" : "");
+    const q = t.max ? Math.round(t.got / t.max * 100) : null;
+    if (q !== null && q < 60) c.classList.add("schwach");
+    c.innerHTML = '<span>' + t.label + '</span><span class="n">' + t.n + '</span>' +
+                  (q !== null ? '<span class="quote">' + q + '%</span>' : '');
+    c.onclick = () => { GEWAEHLT.has(t.key) ? GEWAEHLT.delete(t.key) : GEWAEHLT.add(t.key);
+                        renderThemenChips(); };
+    box.appendChild(c);
+  });
+}
+$("btnAlleThemen").addEventListener("click", () => {
+  GEWAEHLT = GEWAEHLT.size ? new Set() : new Set(themenStat().map(t => t.key));
+  renderThemenChips();
+});
+
+/* ===================================================================
+   Themenanalyse: was ist stark, was schwach — und was lohnt sich.
+
+   Häufigkeit  = wie viele BE dieses Thema im Schnitt in EINER Prüfung wert ist.
+                 Punkte einer Teilaufgabe werden auf ihre Themen aufgeteilt,
+                 sonst käme mehr als 100 BE heraus.
+   Quote       = dein Anteil erreichter BE in diesem Thema (nur bewertete Aufgaben).
+   Risiko      = Häufigkeit × (1 − Quote) = erwarteter Punktverlust pro Prüfung.
+                 Genau das ordnet die Liste: ein schwaches Thema, das selten
+                 vorkommt, steht unten; ein mittelmäßiges Thema, das 12 BE wert
+                 ist, steht oben.
+   Veraltete Aufgaben zählen hier nirgends mit — dafür lernt man nicht mehr.
+   =================================================================== */
+function themenAnalyse(){
+  const t = {};
+  const hol = k => t[k] || (t[k] = {key:k, label:TLABEL[k] || k,
+                                    beProExam:[], getestet:0, erreicht:0, n:0, offen:0});
+  EXAMS.forEach(ex => {
+    const proExam = {};
+    examSubs(ex).filter(s => !istVeraltet(s)).forEach(s => {
+      const themen = (s.topics && s.topics.length) ? s.topics : ["sonstiges"];
+      const anteil = (s.maxPoints || 0) / themen.length;
+      themen.forEach(k => {
+        const e = hol(k);
+        proExam[k] = (proExam[k] || 0) + anteil;
+        e.n++;
+        if (hatPunkte(s)){
+          e.getestet += anteil;
+          e.erreicht += (SCORES[s.k] || 0) / themen.length;
+        } else e.offen++;
+      });
+    });
+    Object.values(t).forEach(e => e.beProExam.push(proExam[e.key] || 0));
+  });
+  const liste = Object.values(t).map(e => {
+    const haeufig = e.beProExam.reduce((a,b) => a+b, 0) / Math.max(1, e.beProExam.length);
+    const quote = e.getestet > 0 ? e.erreicht / e.getestet : null;
+    return {...e, haeufig, quote};
+  }).filter(e => e.haeufig > 0.05);
+
+  /* --- Prüfungsgewicht ---------------------------------------------------
+     Meine Auszählung dieser Sammlung überschätzt „Kalkulation": der
+     Auto-Tagger hängt das Thema an jede Aufgabe mit Zahlen. Deshalb werden
+     die vier gemessenen Anker aus exams/gewichte.json gesetzt und der Rest
+     proportional auf die übrigen Themen verteilt. Quelle steht im Interface. */
+  const anker = (GEWICHTE.anker) || {};
+  const ankerSumme = Object.values(anker).reduce((a,x) => a + (x.prozent || 0), 0);
+  const rest = liste.filter(e => !anker[e.key]);
+  const restHaeufig = rest.reduce((a,e) => a + e.haeufig, 0);
+  const restProzent = Math.max(0, 100 - ankerSumme);
+  liste.forEach(e => {
+    if (anker[e.key]){
+      e.gewicht = anker[e.key].prozent;
+      e.gemessen = true;
+      e.ankerName = anker[e.key].name;
+    } else {
+      e.gewicht = restHaeufig ? restProzent * e.haeufig / restHaeufig : 0;
+      e.gemessen = false;
+    }
+    e.risiko = e.quote === null ? null : e.gewicht * (1 - e.quote);
+  });
+  const gesamt = liste.reduce((a,e) => a + e.gewicht, 0);
+  return {liste, gesamt, ankerSumme, hatAnker: ankerSumme > 0};
+}
+
+function lageVon(q){
+  if (q === null) return {klasse:"offen",    wort:"ungetestet"};
+  if (q >= 0.75)  return {klasse:"stark",    wort:"stark"};
+  if (q >= 0.5)   return {klasse:"mittel",   wort:"mittel"};
+  return               {klasse:"schwach",  wort:"schwach"};
+}
+function prioVon(r){
+  if (r === null) return null;
+  if (r >= 3)   return {klasse:"hoch",    wort:"hoch"};
+  if (r >= 1.5) return {klasse:"mittel",  wort:"mittel"};
+  return             {klasse:"niedrig", wort:"niedrig"};
+}
+
+function renderStatistik(){
+  const box = $("statBox"); box.innerHTML = "";
+  const {liste, gesamt, hatAnker} = themenAnalyse();
+  const maxGewicht = Math.max(...liste.map(e => e.gewicht), 1);
+  const getestet = liste.filter(e => e.quote !== null);
+  const offen    = liste.filter(e => e.quote === null);
+
+  $("prioIntro").innerHTML =
+    "<b>Gewicht</b> = wie viele der 100 BE einer Prüfung auf das Thema entfallen. " +
+    (hatAnker
+      ? "Für die vier grossen Themen sind das gemessene Werte aus einer Auswertung von " +
+        "sieben Prüfungen (Quelle unten), der Rest ist auf diese Sammlung hochgerechnet. "
+      : "Hochgerechnet aus dieser Sammlung. ") +
+    "<b>Priorität</b> = Gewicht × Fehlerquote, also der erwartete Punktverlust. " +
+    "Ein schwaches Thema, das selten drankommt, landet deshalb unten.";
+
+  /* ---- Hero: eine Zahl ---- */
+  const abgedeckt = getestet.reduce((a,e) => a + e.gewicht, 0);
+  const hero = document.createElement("div");
+  hero.className = "hero";
+  if (!getestet.length){
+    hero.innerHTML =
+      '<div><div class="eyebrow">Stand</div><div class="zahl">—</div></div>' +
+      '<div class="txt">Noch keine Teilaufgabe bewertet. Mach eine Prüfung oder eine Übung, ' +
+      'vergib in der Auswertung Punkte — danach steht hier, welche Themen dich Punkte kosten ' +
+      'und in welcher Reihenfolge es sich lohnt, sie anzugehen.</div>';
+  } else {
+    const erreicht = getestet.reduce((a,e) => a + e.gewicht * e.quote, 0);
+    const proz = abgedeckt ? Math.round(erreicht / abgedeckt * 100) : 0;
+    const n = note(proz);
+    const verlust = getestet.reduce((a,e) => a + e.risiko, 0);
+    hero.innerHTML =
+      '<div><div class="eyebrow">Note auf dem geprüften Teil</div>' +
+        '<div class="zahl">' + n.note + '</div></div>' +
+      '<div><div class="eyebrow">Trefferquote</div>' +
+        '<div class="neben">' + proz + ' %</div></div>' +
+      '<div><div class="eyebrow">Erwarteter Verlust</div>' +
+        '<div class="neben">' + verlust.toFixed(1) + ' BE</div></div>' +
+      '<div class="txt">Gerechnet auf die <b>' + Math.round(abgedeckt) + ' von ' +
+        Math.round(gesamt) + ' BE</b> einer Prüfung, die du bereits bewertet hast — ' +
+        n.text + '. Die restlichen ' + Math.round(gesamt - abgedeckt) +
+        ' BE sind noch ungetestet und stehen unten.</div>';
+  }
+  box.appendChild(hero);
+
+  /* ---- Tabelle: nach Risiko sortiert ---- */
+  function tabelle(zeilen, ueberschrift, sortKey, mitPrio){
+    if (!zeilen.length) return;
+    const h = document.createElement("div");
+    h.className = "eyebrow"; h.style.cssText = "margin:22px 0 8px";
+    h.textContent = ueberschrift;
+    const tab = document.createElement("table");
+    tab.className = "prio";
+    tab.innerHTML =
+      "<thead><tr>" +
+      "<th>Thema</th>" +
+      "<th class='r'>Gewicht</th>" +
+      "<th class='weg'>Anteil an 100 BE</th>" +
+      "<th>Deine Quote</th>" +
+      (mitPrio ? "<th class='r'>Verlust</th><th>Priorität</th>" : "") +
+      "<th></th></tr></thead>";
+    const tb = document.createElement("tbody");
+    zeilen.sort(sortKey).forEach(e => {
+      const lage = lageVon(e.quote), prio = prioVon(e.risiko);
+      const tr = document.createElement("tr");
+
+      const c1 = document.createElement("td");
+      c1.className = "prio-thema";
+      const sp = (GEWICHTE.schwerpunkte || {})[e.key];
+      c1.innerHTML = esc(e.label) +
+        (e.gemessen ? ' <span class="prio-marke niedrig" style="border-color:var(--pruefer);' +
+                      'color:var(--pruefer);background:var(--pruefer-soft)">Top ' +
+                      ((GEWICHTE.anker||{})[e.key]||{}).rang + '</span>' : '') +
+        "<small>" + e.n + " Aufgaben in " + EXAMS.length + " Prüfungen" +
+        (e.offen ? " · " + e.offen + " noch unbewertet" : "") + "</small>";
+      if (sp && sp.length){
+        const d = document.createElement("small");
+        d.style.cssText = "margin-top:4px;color:var(--pruefer)";
+        d.textContent = "Schwerpunkte: " + sp[0].split(" — ")[0].split(":")[0];
+        d.title = sp.join("\n");
+        c1.appendChild(d);
+      }
+
+      const c2 = document.createElement("td");
+      c2.className = "r zahl-m";
+      c2.innerHTML = e.gewicht.toFixed(0) + " BE" +
+                     (e.gemessen ? '' : ' <span style="color:var(--muted)">≈</span>');
+      c2.title = e.gemessen
+        ? "Gemessener Anteil aus sieben Prüfungen: " + e.gewicht + " % der Gesamtpunktzahl"
+        : "Hochgerechnet aus dieser Sammlung (" + e.haeufig.toFixed(1) + " BE pro Prüfung)";
+
+      const c3 = document.createElement("td");
+      c3.className = "weg";
+      const spur = document.createElement("div");
+      spur.className = "spur";
+      spur.innerHTML = '<i class="anteil" style="width:' +
+                       (e.gewicht / maxGewicht * 100).toFixed(1) + '%"></i>';
+      spur.title = e.gewicht.toFixed(0) + " von 100 BE einer Prüfung";
+      c3.appendChild(spur);
+
+      const c4 = document.createElement("td");
+      const l = document.createElement("span");
+      l.className = "lage " + lage.klasse;
+      l.innerHTML = '<span class="punkt"></span><b>' +
+                    (e.quote === null ? "—" : Math.round(e.quote * 100) + " %") +
+                    '</b> ' + lage.wort;
+      l.title = e.quote === null ? "Noch keine Aufgabe dieses Themas bewertet"
+              : Math.round(e.erreicht) + " von " + Math.round(e.getestet) + " bewerteten BE richtig";
+      c4.appendChild(l);
+
+      const c5 = document.createElement("td");
+      c5.className = "r zahl-m";
+      c5.textContent = e.risiko === null ? "—" : e.risiko.toFixed(1);
+      c5.title = e.risiko === null ? "" :
+        "Bei diesem Stand verlierst du in diesem Thema im Schnitt " +
+        e.risiko.toFixed(1) + " BE pro Prüfung";
+
+      const c6 = document.createElement("td");
+      if (prio){
+        const m = document.createElement("span");
+        m.className = "prio-marke " + prio.klasse; m.textContent = prio.wort;
+        c6.appendChild(m);
+      }
+
+      const c7 = document.createElement("td");
+      const b = document.createElement("button");
+      b.className = "btn ghost klein"; b.textContent = "üben";
+      b.onclick = () => {
+        GEWAEHLT = new Set([e.key]);
+        renderThemenChips();
+        $("btnDrill").click();
+      };
+      c7.appendChild(b);
+
+      tr.append(c1, c2, c3, c4);
+      if (mitPrio) tr.append(c5, c6);
+      tr.append(c7);
+      tb.appendChild(tr);
+    });
+    tab.appendChild(tb);
+    box.append(h, tab);
+  }
+
+  tabelle(getestet, "Nach Priorität — oben kostet dich am meisten Punkte",
+          (a,b) => b.risiko - a.risiko, true);
+  tabelle(offen, "Noch nicht getestet — nach Häufigkeit; hier kennst du deinen Stand nicht",
+          (a,b) => b.haeufig - a.haeufig, false);
+
+  /* ---- Schwerpunkte innerhalb der grossen Themen ---- */
+  const sp = GEWICHTE.schwerpunkte || {};
+  if (Object.keys(sp).length){
+    const h = document.createElement("div");
+    h.className = "eyebrow"; h.style.cssText = "margin:26px 0 4px";
+    h.textContent = "Worauf es innerhalb der vier grossen Themen ankommt";
+    const grid = document.createElement("div");
+    grid.className = "schwer";
+    (GEWICHTE.anker ? Object.keys(GEWICHTE.anker) : Object.keys(sp)).forEach(k => {
+      if (!sp[k]) return;
+      const a = (GEWICHTE.anker || {})[k] || {};
+      const e = liste.find(x => x.key === k);
+      const box = document.createElement("div");
+      box.className = "box";
+      const t = document.createElement("h4");
+      t.innerHTML = esc(a.name || TLABEL[k] || k) +
+                    ' <span>' + (a.prozent ? a.prozent + " von 100 BE" : "") +
+                    (e && e.quote !== null ? " · du " + Math.round(e.quote*100) + " %" : "") + '</span>';
+      const ul = document.createElement("ul");
+      sp[k].forEach(z => { const li = document.createElement("li"); li.textContent = z; ul.appendChild(li); });
+      box.append(t, ul);
+      const b = document.createElement("button");
+      b.className = "btn ghost klein"; b.style.marginTop = "8px"; b.textContent = "üben";
+      b.onclick = () => { GEWAEHLT = new Set([k]); renderThemenChips(); $("btnDrill").click(); };
+      box.appendChild(b);
+      grid.appendChild(box);
+    });
+    box.append(h, grid);
+  }
+
+  /* ---- Aufgabentypen mit der höchsten Einzelpunktzahl ---- */
+  const pb = GEWICHTE.punktebringer || [];
+  if (pb.length){
+    const h = document.createElement("div");
+    h.className = "eyebrow"; h.style.cssText = "margin:26px 0 4px";
+    h.textContent = "Punktebringer — einzelne Aufgaben mit viel BE";
+    const pp = document.createElement("p");
+    pp.style.cssText = "font-size:13.5px;color:var(--muted);margin:0";
+    pp.textContent = "Aufgabentypen, die in einem Stück viele Punkte geben. Wer die sicher kann, "
+      + "holt sich einen grossen Teil der Note aus wenigen Aufgaben.";
+    const tab = document.createElement("table");
+    tab.className = "bringer";
+    tab.innerHTML = "<thead><tr><th>Aufgabentyp</th><th>BE am Stück</th><th>Warum</th><th></th></tr></thead>";
+    const tb = document.createElement("tbody");
+    pb.forEach(x => {
+      const tr = document.createElement("tr");
+      const c1 = document.createElement("td");
+      c1.innerHTML = "<b>" + esc(x.was) + "</b>";
+      const c2 = document.createElement("td"); c2.className = "be"; c2.textContent = x.be + " BE";
+      const c3 = document.createElement("td");
+      c3.innerHTML = "<small>" + esc(x.hinweis || "") + "</small>";
+      const c4 = document.createElement("td");
+      if (x.thema && TLABEL[x.thema]){
+        const b = document.createElement("button");
+        b.className = "btn ghost klein"; b.textContent = "üben";
+        b.onclick = () => { GEWAEHLT = new Set([x.thema]); renderThemenChips(); $("btnDrill").click(); };
+        c4.appendChild(b);
+      }
+      tr.append(c1, c2, c3, c4); tb.appendChild(tr);
+    });
+    tab.appendChild(tb);
+    box.append(h, pp, tab);
+  }
+
+  if (GEWICHTE.quelle){
+    const q = document.createElement("div");
+    q.className = "quelle-zeile";
+    const m = String(GEWICHTE.quelle).match(/^(.*?)\s*(https?:\/\/\S+)\s*$/);
+    q.innerHTML = "Gewichte und Schwerpunkte: " + esc(m ? m[1] : GEWICHTE.quelle) +
+      (m ? ' <a href="' + m[2] + '" target="_blank" rel="noopener">Video</a>' : "") +
+      "<br>Der Rest ist aus dieser Sammlung hochgerechnet — die Zahlen mit <span class='zahl-m'>≈</span> " +
+      "sind Schätzungen, die vier gemessenen nicht.";
+    box.appendChild(q);
+  }
+
+  /* ---- Durchgänge ---- */
+  if (ATTEMPTS.length){
+    const h2 = document.createElement("div");
+    h2.className = "eyebrow"; h2.style.cssText = "margin:26px 0 9px"; h2.textContent = "Durchgänge";
+    const tab = document.createElement("table"); tab.className = "tab";
+    tab.innerHTML = "<thead><tr><th>Datum</th><th>Prüfung</th><th>Modus</th>" +
+                    "<th>Punkte</th><th>%</th><th>Note</th><th>Zeit</th></tr></thead>";
+    const tb = document.createElement("tbody");
+    ATTEMPTS.slice().reverse().forEach(a => {
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        '<td class="z">' + new Date(a.datum).toLocaleDateString("de-DE") + '</td>' +
+        '<td>' + esc(a.titel) + '</td><td>' + (a.modus === "uebung" ? "Übung" : "Prüfung") + '</td>' +
+        '<td class="z">' + a.punkte + "/" + a.maxPunkte + '</td>' +
+        '<td class="z">' + a.prozent + '%</td>' +
+        '<td class="z"><b>' + note(a.prozent).note + '</b></td>' +
+        '<td class="z">' + (a.minuten != null ? a.minuten + " min" : "—") + '</td>';
+      tb.appendChild(tr);
+    });
+    tab.appendChild(tb); box.append(h2, tab);
+  }
+}
+
+function renderLuecken(){
+  const box = $("lueckenBox"); box.innerHTML = "";
+  if (!LUECKEN.length){ box.innerHTML = '<div class="leer-hinweis">Keine Katalogdaten geladen.</div>'; return; }
+  const leer = LUECKEN.filter(t => !t.n).length;
+  $("lueckenIntro").innerHTML =
+    "Themen, die der Prüfungskatalog ab 2025 <b>neu</b> nennt, und wie viele Aufgaben dieser Sammlung " +
+    "sie abdecken. <b>" + leer + "</b> davon kommen in keiner der zehn Prüfungen vor — die musst du " +
+    "woanders lernen. Zeile anklicken öffnet die passenden Aufgaben." +
+    (KATALOG.stand ? " (Stand " + KATALOG.stand + ")" : "");
+  LUECKEN.forEach(t => {
+    const d = document.createElement("div");
+    d.className = "luecke" + (t.n ? "" : " leer");
+    const links = document.createElement("div");
+    links.innerHTML = "<span>" + esc(t.label) + "</span>" +
+                      (t.hinweis ? "<small>" + esc(t.hinweis) + "</small>" : "");
+    const z = document.createElement("div"); z.className = "z";
+    z.textContent = t.n ? t.n + " Aufgaben · " + t.be + " BE" : "keine Aufgabe";
+    d.append(links, z);
+    if (t.n && t.beispiele && t.beispiele.length){
+      d.style.cursor = "pointer";
+      d.onclick = () => {
+        const items = t.beispiele.map(k => ALLE.find(x => x.k === k)).filter(Boolean).filter(aktiv);
+        if (!items.length) return toast("Diese Aufgaben sind gerade ausgeblendet.");
+        VIEW = {modus:"uebung", exam:null, items, titel:"Katalogthema · " + t.label};
+        SHOW_SOL = false; zeigeBogen();
+      };
+    }
+    box.appendChild(d);
+  });
+}
+
+$("sucheFeld").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  const box = $("sucheErgebnis"); box.innerHTML = "";
+  if (q.length < 3) return;
+  const tref = ALLE.filter(aktiv).filter(it =>
+    ((it.prompt || "") + " " + ((it.solution || {}).text || "")).toLowerCase().includes(q)).slice(0, 40);
+  if (!tref.length){ box.innerHTML = '<div class="leer-hinweis">Nichts gefunden.</div>'; return; }
+  const info = document.createElement("p");
+  info.style.cssText = "color:var(--muted);font-size:13px";
+  info.textContent = tref.length + " Treffer";
+  box.appendChild(info);
+  tref.forEach(it => {
+    const d = document.createElement("div");
+    d.style.cssText = "border-left:3px solid var(--rule);padding:7px 12px;margin-bottom:8px;cursor:pointer";
+    d.innerHTML = '<div class="eyebrow">' + it.exam.meta.season + " " + it.exam.meta.year +
+                  " · " + esc(it.fullLabel) + " · " + (it.maxPoints || 0) + ' BE</div>' +
+                  '<div style="font-size:13.5px;margin-top:3px">' +
+                  esc((it.prompt || "").slice(0, 220)) + '…</div>';
+    d.onclick = () => { oeffnePruefung(it.exam); setTimeout(() => springeZu(it.k), 60); };
+    box.appendChild(d);
+  });
+});
+function esc(s){ const d = document.createElement("div"); d.textContent = s == null ? "" : s; return d.innerHTML; }
+
+/* ======================= Übung ======================= */
+$("btnDrill").addEventListener("click", () => {
+  let pool = ALLE.filter(aktiv).filter(it => !GEWAEHLT.size ||
+                                             (it.topics || []).some(t => GEWAEHLT.has(t)));
+  if ($("drillNurFalsch").checked)
+    pool = pool.filter(it => hatPunkte(it) && SCORES[it.k] < (it.maxPoints || 1) * 0.6);
+  if ($("drillNurNeu").checked) pool = pool.filter(it => !hatPunkte(it));
+  if (!pool.length) return toast("Für diese Auswahl gibt es keine Aufgaben.");
+  const ord = $("drillOrder").value;
+  if (ord === "mix") pool = pool.map(v => [Math.random(), v]).sort((a,b) => a[0]-b[0]).map(v => v[1]);
+  else if (ord === "jahr") pool.sort((a,b) => (b.exam.meta.year - a.exam.meta.year));
+  else if (ord === "schwach") pool.sort((a,b) => quote(a) - quote(b));
+  const n = Math.max(1, Math.min(120, parseInt($("drillAnzahl").value, 10) || 10));
+  VIEW = {modus:"uebung", exam:null, items:pool.slice(0, n),
+          titel:"Übung · " + (GEWAEHLT.size ? [...GEWAEHLT].map(t => TLABEL[t]||t).join(", ") : "alle Themen")};
+  SHOW_SOL = false; zeigeBogen();
+});
+function quote(it){ return hatPunkte(it) ? SCORES[it.k] / Math.max(1, it.maxPoints || 1) : 0.5; }
+
+/* ======================= Prüfung ======================= */
+function oeffnePruefung(ex, stumm){
+  VIEW = {modus:"pruefung", exam:ex, items:examSubs(ex).filter(aktiv),
+          titel:(ex.meta.season || "") + " " + (ex.meta.year || "")};
+  SHOW_SOL = false;
+  if (!TIMERS[ex.examId])
+    TIMERS[ex.examId] = {endsAt:null, remaining:(ex.meta.durationMinutes || 90) * 60, running:false};
+  if (!stumm) zeigeBogen();
+}
+function resetExam(ex){
+  if (!confirm("Antworten, Punkte und Uhr für " + ex.meta.season + " " + ex.meta.year + " löschen?")) return;
+  examSubs(ex).forEach(s => {
+    delete ANSWERS[s.k]; delete SCORES[s.k];
+    (s.felder || []).forEach((f, i) => delete ANSWERS[s.k + "#" + i]);
+  });
+  delete TIMERS[ex.examId];
+  speichern(); renderStart(); toast("Zurückgesetzt.");
+}
+function speichern(){ ls.set(SK.answers, ANSWERS); ls.set(SK.scores, SCORES); ls.set(SK.timer, TIMERS); }
+
+/* ======================= Bogen ======================= */
+function schirm(name){
+  ["scStart","scBogen","scAuswertung","scNetz","scKK","scModell","scUml"].forEach(id => $(id).hidden = (id !== name));
+  const imBogen = (name === "scBogen");
+  $("fuss").hidden = !(imBogen || name === "scAuswertung");
+  $("kopfTitel").hidden = (name === "scStart");
+  $("mwUhr").hidden = !(imBogen && VIEW && VIEW.modus === "pruefung");
+  $("btnUhr").hidden = $("mwUhr").hidden;
+  $("mwPunkte").hidden = !(imBogen || name === "scAuswertung");
+  $("schalterKatalog").hidden = (name === "scNetz" || name === "scKK" || name === "scModell" || name === "scUml");
+  window.scrollTo(0, 0);
+}
+function zeigeBogen(){
+  if (VIEW.modus === "pruefung" && VIEW.exam) VIEW.items = examSubs(VIEW.exam).filter(aktiv);
+  else if (VIEW.items) VIEW.items = VIEW.items.filter(aktiv);
+  const ex = VIEW.exam;
+  $("kEyebrow").textContent = VIEW.modus === "uebung"
+    ? "Übungsmodus · " + VIEW.items.length + " Aufgaben"
+    : [ex.meta.part, ex.meta.season, ex.meta.year].filter(Boolean).join(" · ");
+  $("kTitel").textContent = VIEW.modus === "uebung" ? VIEW.titel : (ex.meta.title || ex.examId);
+
+  $("sitBox").hidden = (VIEW.modus === "uebung");
+  $("inhaltBox").hidden = (VIEW.modus === "uebung");
+  if (VIEW.modus === "pruefung"){
+    const txt = (ex.situation && ex.situation.text) || "—";
+    $("sitTxt").textContent = txt;
+    const kurz = txt.length < 620;
+    $("sitTxt").classList.toggle("clamped", !kurz);
+    $("btnMehr").hidden = kurz;
+    renderInhalt(ex); renderAnlagen(ex.attachments || []);
+  } else $("anlagen").innerHTML = "";
+
+  const main = $("bogenMain"); main.innerHTML = "";
+  if (VIEW.modus === "pruefung"){
+    ex.tasks.forEach(t => { const b = aufgabeBlock(t, ex); if (b) main.appendChild(b); });
+  } else {
+    const wrap = document.createElement("div"); wrap.className = "uebung";
+    VIEW.items.forEach((it, i) => wrap.appendChild(karte(it, {nummer:i+1, herkunft:true})));
+    main.appendChild(wrap);
+  }
+  schirm("scBogen"); drawTimer();
+  if (VIEW.modus === "pruefung" && TIMERS[ex.examId] && TIMERS[ex.examId].running) runTimer();
+  refresh();
+}
+function renderInhalt(ex){
+  const ol = $("inhaltListe"); ol.innerHTML = "";
+  ex.tasks.forEach(t => {
+    const subs = t.subtasks.map(s => ({...s, exam:ex, k:key(ex.examId, s.id)})).filter(aktiv);
+    if (!subs.length) return;
+    const li = document.createElement("li");
+    li.innerHTML = "<span>" + t.label + "</span><b>" + subs.filter(hatAntwort).length + "/" + subs.length + "</b>";
+    li.onclick = () => { const el = document.getElementById("tk-" + t.id);
+                         if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); };
+    ol.appendChild(li);
+  });
+}
+function renderAnlagen(list){
+  const box = $("anlagen"); box.innerHTML = "";
+  if (!list.length) return;
+  const w = document.createElement("div"); w.className = "inhalt";
+  const h = document.createElement("span"); h.className = "eyebrow"; h.textContent = "Anlagen";
+  w.appendChild(h);
+  list.forEach((a, i) => w.appendChild(bild(a, "Anlage " + (i+1))));
+  box.appendChild(w);
+}
+function aufgabeBlock(t, ex){
+  const subs = t.subtasks.map(s => ({...s, exam:ex, task:t, k:key(ex.examId, s.id)}));
+  const sichtbar = subs.filter(aktiv);
+  if (!sichtbar.length) return null;
+  const sec = document.createElement("section");
+  sec.className = "aufgabe"; sec.id = "tk-" + t.id;
+  const kopf = document.createElement("div"); kopf.className = "aufgabe-kopf";
+  const nr = document.createElement("span"); nr.className = "aufgabe-nr"; nr.textContent = t.label;
+  const intro = document.createElement("span"); intro.className = "aufgabe-intro"; intro.textContent = t.intro || "";
+  const be = document.createElement("span"); be.className = "aufgabe-be";
+  const beS = sichtbar.reduce((a,s) => a + (s.maxPoints||0), 0);
+  be.textContent = beS + " BE" + (beS !== (t.maxPoints||0) ? " (von " + t.maxPoints + ")" : "");
+  kopf.append(nr, intro, be); sec.appendChild(kopf);
+  let letzte = null;
+  sichtbar.forEach(it => {
+    if (it.groupIntro && it.groupLabel !== letzte){
+      const g = document.createElement("div"); g.className = "tk";
+      const inner = document.createElement("div"); inner.className = "gruppe";
+      const lbl = document.createElement("span");
+      lbl.className = "gruppe-lbl"; lbl.textContent = it.groupLabel || "";
+      const txt = document.createElement("div"); txt.className = "gruppe-txt";
+      mitUnsicher(txt, it.groupIntro);
+      inner.append(lbl, txt); g.appendChild(inner); sec.appendChild(g);
+    }
+    letzte = it.groupLabel;
+    sec.appendChild(karte(it, {}));
+  });
+  return sec;
+}
+
+function karte(it, opt){
+  const card = document.createElement("article");
+  card.className = "tk"; card.id = "sub-" + safeId(it.k); card.dataset.k = it.k;
+  const kat = it.katalog || {};
+  const main = document.createElement("div"); main.className = "tk-haupt";
+
+  const nr = document.createElement("div"); nr.className = "tk-nr";
+  const label = document.createElement("span");
+  label.textContent = (opt.nummer ? opt.nummer + ". " : "") + "Teilaufgabe " + (it.fullLabel || it.label);
+  nr.appendChild(label);
+  if (opt.herkunft){
+    const h = document.createElement("span"); h.className = "herkunft";
+    h.textContent = it.exam.meta.season + " " + it.exam.meta.year;
+    nr.appendChild(h);
+  }
+  if (kat.status){
+    const b = document.createElement("span");
+    b.className = "marke-katalog " + kat.status;
+    b.textContent = kat.status === "veraltet" ? "nicht mehr im Katalog" : "im Katalog reduziert";
+    b.title = kat.grund || "";
+    nr.appendChild(b);
+  }
+  (it.topics || []).forEach(t => {
+    const c = document.createElement("span"); c.className = "thema";
+    c.textContent = TLABEL[t] || t; nr.appendChild(c);
+  });
+  main.appendChild(nr);
+
+  if (kat.status){
+    card.classList.add(kat.status);
+    const hw = document.createElement("div");
+    hw.className = "katalog-hinweis" + (kat.status === "reduziert" ? " reduziert" : "");
+    const txt = document.createElement("div");
+    txt.innerHTML = (kat.status === "veraltet" ? "<b>Kannst du überspringen.</b> " : "")
+      + "<b>" + esc((kat.themen || []).join(", ")) + "</b> — " + esc(kat.grund || "");
+    hw.appendChild(txt);
+    main.appendChild(hw);
+  }
+
+  if (opt.herkunft && it.task.intro){
+    const gi = document.createElement("div");
+    gi.style.cssText = "font-size:13px;color:var(--muted);margin-top:6px;white-space:pre-wrap";
+    gi.textContent = it.task.intro; main.appendChild(gi);
+  }
+  if (opt.herkunft && it.groupIntro){
+    const gi = document.createElement("div");
+    gi.style.cssText = "font-size:13.5px;margin-top:6px;white-space:pre-wrap;" +
+                       "background:var(--field);padding:9px 11px;border-radius:2px";
+    mitUnsicher(gi, it.groupIntro); main.appendChild(gi);
+  }
+
+  const frage = document.createElement("div"); frage.className = "tk-frage";
+  mitUnsicher(frage, it.prompt || "—"); main.appendChild(frage);
+
+  (it.assets || []).forEach((a, i) => main.appendChild(bild(a, "Abbildung " + (i+1))));
+  if (it.pageImage){
+    const lnk = document.createElement("button");
+    lnk.className = "seite-link";
+    lnk.textContent = "Vollständige Seite ansehen (S. " + (it.sourcePage || "?") + ")";
+    lnk.onclick = () => zeigeLupe(it.pageImage);
+    main.appendChild(lnk);
+  }
+  if (it.placeholder){
+    const hw = document.createElement("div");
+    hw.className = "hinweis"; hw.textContent = it.placeholder; main.appendChild(hw);
+  }
+
+  if (it.felder && it.felder.length){
+    const box = document.createElement("div"); box.className = "felder";
+    it.felder.forEach((f, i) => {
+      const zeile = document.createElement("div"); zeile.className = "feldzeile";
+      const lab = document.createElement("label");
+      lab.textContent = f.label + (f.maxPoints ? "  (" + f.maxPoints + " BE)" : "");
+      const ta = document.createElement("textarea");
+      ta.rows = 1; ta.value = ANSWERS[it.k + "#" + i] || ""; ta.placeholder = "…";
+      ta.addEventListener("input", () => {
+        ANSWERS[it.k + "#" + i] = ta.value;
+        card.classList.toggle("done", hatAntwort(it));
+        autoHeight(ta, 42); debouncedSave();
+      });
+      ta.addEventListener("blur", speichern);
+      zeile.append(lab, ta); box.appendChild(zeile);
+      requestAnimationFrame(() => autoHeight(ta, 42));
+    });
+    main.appendChild(box);
+    const frei = document.createElement("textarea");
+    frei.style.minHeight = "60px"; frei.placeholder = "Nebenrechnung / Ergänzung …";
+    frei.value = ANSWERS[it.k] || "";
+    frei.addEventListener("input", () => { ANSWERS[it.k] = frei.value;
+                                           card.classList.toggle("done", hatAntwort(it));
+                                           autoHeight(frei, 60); debouncedSave(); });
+    frei.addEventListener("blur", speichern);
+    main.appendChild(frei);
+    requestAnimationFrame(() => autoHeight(frei, 60));
+  } else {
+    const ta = document.createElement("textarea");
+    ta.value = ANSWERS[it.k] || "";
+    ta.placeholder = it.answerType === "diagram"
+      ? "Beschreibe deine Lösung in Worten: Elemente, Beziehungen, Werte …"
+      : "Deine Antwort …";
+    ta.addEventListener("input", () => {
+      ANSWERS[it.k] = ta.value;
+      card.classList.toggle("done", ta.value.trim().length > 0);
+      autoHeight(ta); debouncedSave();
+    });
+    ta.addEventListener("blur", speichern);
+    main.appendChild(ta);
+    requestAnimationFrame(() => autoHeight(ta));
+  }
+
+  const pr = it.pruefung || {};
+  if ((pr.zahlen && pr.zahlen.length) || (pr.begriffe && pr.begriffe.length)){
+    const btn = document.createElement("button");
+    btn.className = "seite-link"; btn.textContent = "Antwort prüfen";
+    const ziel = document.createElement("div");
+    btn.onclick = () => { ziel.innerHTML = ""; ziel.appendChild(pruefhilfe(it, card, true)); };
+    main.append(btn, ziel);
+  }
+
+  if (it.solution && it.solution.text){
+    const det = document.createElement("details");
+    det.className = "loesung"; det.open = SHOW_SOL; det.dataset.sol = "1";
+    const sum = document.createElement("summary"); sum.textContent = "Musterlösung";
+    const txt = document.createElement("div"); txt.className = "loesung-txt";
+    txt.textContent = it.solution.text;
+    det.append(sum, txt);
+    if (it.solution.image){
+      const lb = document.createElement("button");
+      lb.className = "seite-link"; lb.style.marginTop = "9px";
+      lb.textContent = "Lösungsseite ansehen (S. " + (it.solution.solutionPage || "?") + ")";
+      lb.onclick = () => zeigeLupe(it.solution.image);
+      det.appendChild(lb);
+    }
+    main.appendChild(det);
+  }
+
+  const rand = document.createElement("div"); rand.className = "tk-rand";
+  const lbl = document.createElement("span"); lbl.className = "rand-lbl"; lbl.textContent = "BE";
+  const wert = document.createElement("span"); wert.className = "rand-be";
+  const max = it.maxPoints || 0;
+  const setzeWert = () => {
+    const p = SCORES[it.k];
+    wert.innerHTML = (p == null ? "__" : p) + " <small>/ " + max + "</small>";
+    card.classList.toggle("bewertet", p != null);
+  };
+  setzeWert();
+  const wahl = document.createElement("div"); wahl.className = "punkte-wahl";
+  for (let p = 0; p <= max; p++){
+    const b = document.createElement("button");
+    b.textContent = p; b.title = p + " von " + max + " BE";
+    b.className = (SCORES[it.k] === p ? "an" : "");
+    b.onclick = () => {
+      if (SCORES[it.k] === p) delete SCORES[it.k]; else SCORES[it.k] = p;
+      [...wahl.children].forEach((c, i) => c.classList.toggle("an", SCORES[it.k] === i));
+      setzeWert(); speichern(); refresh();
+    };
+    wahl.appendChild(b);
+  }
+  rand.append(lbl, wert, wahl);
+  card.append(main, rand);
+  if (hatAntwort(it)) card.classList.add("done");
+  return card;
+}
+
+/* --- offline: Zahlen und Begriffe abgleichen --- */
+function normal(s){ return (s || "").toLowerCase().replace(/[»«"'„“]/g, "").replace(/\s+/g, " "); }
+function zahlenAus(text){
+  const out = [];
+  const rx = /(\d{1,3}(?:[.\s]\d{3})*(?:,\d+)?|\d+(?:[.,]\d+)?)/g;
+  let m;
+  while ((m = rx.exec(text)) !== null){
+    const v = parseFloat(m[1].replace(/[.\s]/g, "").replace(",", "."));
+    if (!isNaN(v)) out.push(v);
+  }
+  return out;
+}
+function pruefhilfe(it, card, mitUebernehmen){
+  const box = document.createElement("div"); box.className = "pruefhilfe";
+  const meins = antwortText(it);
+  const meinsN = normal(meins);
+  const meineZahlen = zahlenAus(meins);
+  const pr = it.pruefung || {};
+  let gefunden = 0, gesamt = 0;
+
+  if (pr.zahlen && pr.zahlen.length){
+    const h = document.createElement("h4"); h.textContent = "Zahlen aus der Musterlösung";
+    const row = document.createElement("div"); row.className = "treffer";
+    pr.zahlen.forEach(z => {
+      gesamt++;
+      const da = meineZahlen.some(v => Math.abs(v - z.wert) < Math.max(0.01, Math.abs(z.wert) * 0.005));
+      if (da) gefunden++;
+      const s = document.createElement("span");
+      s.className = da ? "ja" : "nein";
+      s.textContent = (da ? "✓ " : "· ") + z.text;
+      row.appendChild(s);
+    });
+    box.append(h, row);
+  }
+  if (pr.begriffe && pr.begriffe.length){
+    const h = document.createElement("h4"); h.textContent = "Begriffe aus der Musterlösung";
+    const row = document.createElement("div"); row.className = "treffer";
+    pr.begriffe.forEach(b => {
+      gesamt++;
+      const teile = normal(b).split(" ").filter(w => w.length > 3);
+      const da = teile.length
+        ? teile.every(w => meinsN.includes(w.slice(0, Math.max(4, w.length - 2))))
+        : meinsN.includes(normal(b));
+      if (da) gefunden++;
+      const s = document.createElement("span");
+      s.className = da ? "ja" : "nein";
+      s.textContent = (da ? "✓ " : "· ") + b;
+      row.appendChild(s);
+    });
+    box.append(h, row);
+  }
+
+  const max = it.maxPoints || 0;
+  const anteil = gesamt ? gefunden / gesamt : 0;
+  const vorschlag = Math.round(max * anteil);
+  const fazit = document.createElement("div"); fazit.className = "pruef-fazit";
+  fazit.innerHTML = "<b>" + gefunden + " von " + gesamt + "</b> Stichpunkten getroffen — das wären etwa " +
+    "<b>" + vorschlag + " von " + max + " BE</b>. " +
+    "<span style='color:var(--muted)'>Das ist nur ein Wortabgleich, kein Korrektor: " +
+    "lies die Musterlösung und entscheide selbst.</span>";
+  box.appendChild(fazit);
+
+  if (mitUebernehmen){
+    const btn = document.createElement("button");
+    btn.className = "seite-link"; btn.style.marginTop = "9px";
+    btn.textContent = vorschlag + " BE übernehmen";
+    btn.onclick = () => {
+      SCORES[it.k] = vorschlag;
+      const wahl = card.querySelector(".punkte-wahl");
+      if (wahl) [...wahl.children].forEach((c, i) => c.classList.toggle("an", i === vorschlag));
+      const rb = card.querySelector(".rand-be");
+      if (rb) rb.innerHTML = vorschlag + " <small>/ " + max + "</small>";
+      card.classList.add("bewertet");
+      speichern(); refresh(); toast("Übernommen — jederzeit änderbar.");
+    };
+    box.appendChild(btn);
+  }
+  return box;
+}
+
+function bild(a, caption){
+  const fig = document.createElement("figure"); fig.className = "bild";
+  const img = document.createElement("img");
+  img.src = a.file; img.alt = caption; img.loading = "lazy";
+  img.onclick = () => zeigeLupe(a.file);
+  img.onerror = () => {
+    const p = document.createElement("div"); p.className = "bild-fehler";
+    p.textContent = "Bild nicht gefunden: " + a.file + " — assets/ muss neben index.html liegen.";
+    img.replaceWith(p);
+  };
+  const cap = document.createElement("figcaption");
+  cap.textContent = caption + (a.sourcePage ? " · S. " + a.sourcePage : "");
+  fig.append(img, cap);
+  return fig;
+}
+function zeigeLupe(src){ $("lupeImg").src = src; $("lupe").classList.add("on"); }
+function mitUnsicher(el, text){
+  el.textContent = "";
+  String(text).split(/(<\?>|‹\?›)/).forEach(t => {
+    if (t === "<?>" || t === "‹?›"){
+      const m = document.createElement("mark");
+      m.className = "unsicher"; m.textContent = "?";
+      m.title = "Beim Scannen nicht sicher erkannt — im PDF nachsehen";
+      el.appendChild(m);
+    } else if (t) el.appendChild(document.createTextNode(t));
+  });
+}
+function autoHeight(ta, min){
+  ta.style.height = "auto";
+  ta.style.height = Math.max(min || 100, ta.scrollHeight + 2) + "px";
+}
+let saveTO = null;
+function debouncedSave(){ clearTimeout(saveTO); saveTO = setTimeout(() => { speichern(); refresh(); }, 400); }
+function safeId(k){ return String(k).replace(/[^A-Za-z0-9_-]/g, "_"); }
+
+/* ======================= Fortschritt ======================= */
+function refresh(){
+  if (!VIEW) return;
+  const items = VIEW.items;
+  const done = items.filter(hatAntwort);
+  const beAll = items.reduce((a,s) => a + (s.maxPoints||0), 0);
+  const beDone = done.reduce((a,s) => a + (s.maxPoints||0), 0);
+  $("statAnz").textContent = done.length + "/" + items.length;
+  $("statBe").textContent = beDone + "/" + beAll;
+  $("balken").style.width = items.length ? (done.length / items.length * 100) + "%" : "0";
+  const bew = items.filter(hatPunkte);
+  if (bew.length){
+    const got = bew.reduce((a,s) => a + SCORES[s.k], 0);
+    const max = bew.reduce((a,s) => a + (s.maxPoints||0), 0);
+    const proz = max ? Math.round(got / max * 100) : 0;
+    $("kPunkte").textContent = got + " / " + beAll + " BE";
+    $("statNote").innerHTML = "Bewertet <b>" + bew.length + "/" + items.length +
+      "</b> · Stand <b>" + proz + "%</b> · Note <b>" + note(proz).note + "</b>";
+  } else {
+    $("kPunkte").textContent = "— / " + beAll + " BE";
+    $("statNote").textContent = "";
+  }
+  if (VIEW.modus === "pruefung" && VIEW.exam) renderInhalt(VIEW.exam);
+}
+function springeZu(k){
+  const el = document.getElementById("sub-" + safeId(k));
+  if (!el) return;
+  el.scrollIntoView({behavior:"smooth", block:"center"});
+  const ta = el.querySelector("textarea");
+  if (ta) setTimeout(() => ta.focus(), 320);
+}
+$("btnNaechste").addEventListener("click", () => {
+  const offen = VIEW.items.find(it => !hatAntwort(it));
+  if (!offen) return toast("Alles beantwortet.");
+  springeZu(offen.k);
+});
+$("btnDrucken").addEventListener("click", () => window.print());
+
+/* ======================= Uhr ======================= */
+function T(){ return VIEW && VIEW.exam ? TIMERS[VIEW.exam.examId] : null; }
+function fmt(sec){
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec/3600), m = Math.floor(sec%3600/60), s = sec%60;
+  const p = n => String(n).padStart(2,"0");
+  return (h ? h + ":" : "") + p(m) + ":" + p(s);
+}
+function left(){ const t = T(); if (!t) return 0;
+  return t.running ? (t.endsAt - Date.now())/1000 : t.remaining; }
+function drawTimer(){
+  const t = T(); if (!t) return;
+  const r = left(), u = $("uhr");
+  u.textContent = fmt(r);
+  u.classList.toggle("warn", r <= 300);
+  u.classList.toggle("stopped", !t.running);
+  $("btnUhr").textContent = t.running ? "Pause" : (r <= 0 ? "Neu" : "Start");
+}
+function runTimer(){
+  clearInterval(tick);
+  tick = setInterval(() => {
+    const t = T(); if (!t) return clearInterval(tick);
+    if (left() <= 0){
+      t.running = false; t.remaining = 0; clearInterval(tick); speichern(); drawTimer();
+      toast("Bearbeitungszeit abgelaufen."); return;
+    }
+    drawTimer();
+  }, 1000);
+}
+$("btnUhr").addEventListener("click", () => {
+  const t = T(); if (!t) return;
+  if (t.running){ t.remaining = left(); t.running = false; clearInterval(tick); }
+  else {
+    if (left() <= 0) t.remaining = (VIEW.exam.meta.durationMinutes || 90) * 60;
+    t.endsAt = Date.now() + t.remaining * 1000; t.running = true; runTimer();
+  }
+  speichern(); drawTimer();
+});
+window.addEventListener("beforeunload", () => {
+  const t = T(); if (t && t.running) t.remaining = left();
+  speichern();
+});
+
+/* ======================= Netzplan / Gantt / Modelle ======================= */
+let NETZ = null, NETZ_ART = "netzplan";
+
+function netzRechnen(vorgaenge){
+  const byId = {};
+  vorgaenge.forEach(v => byId[v.id] = {...v, vor: [], nach: (v.nachfolger || []).filter(n => n)});
+  Object.values(byId).forEach(v => v.nach = v.nach.filter(n => byId[n]));
+  Object.values(byId).forEach(v => v.nach.forEach(n => byId[n].vor.push(v.id)));
+  const liste = Object.values(byId);
+  const fertig = [], offen = new Set(liste.map(v => v.id));
+  let schutz = 0;
+  while (offen.size && schutz++ < 400){
+    for (const id of [...offen])
+      if (byId[id].vor.every(pv => !offen.has(pv))){ fertig.push(id); offen.delete(id); }
+  }
+  if (offen.size) throw new Error("Zyklus im Netzplan");
+  fertig.forEach(id => {
+    const v = byId[id];
+    v.faz = v.vor.length ? Math.max(...v.vor.map(pv => byId[pv].fez)) : 0;
+    v.fez = v.faz + v.dauer;
+    v.ebene = v.vor.length ? Math.max(...v.vor.map(pv => byId[pv].ebene)) + 1 : 0;
+  });
+  const ende = Math.max(...liste.map(v => v.fez));
+  [...fertig].reverse().forEach(id => {
+    const v = byId[id];
+    v.sez = v.nach.length ? Math.min(...v.nach.map(n => byId[n].saz)) : ende;
+    v.saz = v.sez - v.dauer;
+    v.gp = v.saz - v.faz;
+    v.fp = (v.nach.length ? Math.min(...v.nach.map(n => byId[n].faz)) : ende) - v.fez;
+  });
+  const pfad = fertig.filter(id => byId[id].gp === 0);
+  const maxGp = Math.max(...liste.map(v => v.gp));
+  return {liste, ende, byId, reihenfolge: fertig,
+          kritisch: pfad,
+          maxPufferVorgang: liste.filter(v => v.gp === maxGp).map(v => v.id), maxGp};
+}
+
+function netzWuerfeln(n){
+  const namen = ["Anforderungen","Angebote einholen","Hardware bestellen","Netzwerk planen",
+    "Verkabelung","Server aufbauen","Clients installieren","Software verteilen","Benutzer anlegen",
+    "Testlauf","Schulung","Abnahme","Altsystem abbauen","Dokumentation"];
+  const ids = "ABCDEFGHIJKLMN".slice(0, n).split("");
+  const v = ids.map((id, i) => ({id, name: namen[i % namen.length],
+                                 dauer: 1 + Math.floor(Math.random() * 8), nachfolger: []}));
+  const schichten = [[0]];
+  let i = 1;
+  while (i < n){
+    const rest = n - i;
+    let breite = 1 + Math.floor(Math.random() * 3);
+    if (rest - breite === 1) breite = rest;
+    breite = Math.min(breite, rest);
+    schichten.push(Array.from({length: breite}, (_, j) => i + j));
+    i += breite;
+  }
+  for (let s2 = 1; s2 < schichten.length; s2++){
+    const vorher = schichten[s2 - 1], bedient = new Set();
+    schichten[s2].forEach(idx => {
+      const wieViele = 1 + (vorher.length > 1 && Math.random() < .45 ? 1 : 0);
+      vorher.slice().sort(() => Math.random() - .5).slice(0, wieViele)
+        .forEach(pv => { v[pv].nachfolger.push(ids[idx]); bedient.add(pv); });
+    });
+    vorher.filter(pv => !bedient.has(pv)).forEach(pv => {
+      const idx = schichten[s2][Math.floor(Math.random() * schichten[s2].length)];
+      v[pv].nachfolger.push(ids[idx]);
+    });
+  }
+  return v;
+}
+
+function netzStarten(vorgaenge, titel, art){
+  NETZ = netzRechnen(vorgaenge);
+  NETZ_ART = art || "netzplan";
+  $("netzTitel").textContent = titel || "Netzplan";
+  $("netzErgebnis").innerHTML = "";
+  $("fragErgebnis").innerHTML = "";
+  ["fragDauer","fragPfad","fragPuffer"].forEach(id => {
+    $(id).value = ""; $(id).classList.remove("richtig","falsch");
+  });
+  $("fragPfad").closest("label").hidden = false;
+  $("netzGitter").hidden = (NETZ_ART !== "netzplan");
+  $("ganttGitter").hidden = (NETZ_ART !== "gantt");
+  $("netzSchablone").hidden = (NETZ_ART !== "netzplan");
+  if (NETZ_ART === "netzplan") zeichneNetz(); else zeichneGantt();
+  $("netzInfo").innerHTML = "Vorgänge (Dauer) → Nachfolger:<br>" +
+    NETZ.liste.map(v => "<b>" + v.id + "</b> (" + v.dauer + ") → " +
+                        (v.nach.length ? v.nach.join(", ") : "Ende")).join(" &nbsp;·&nbsp; ");
+  schirm("scNetz");
+}
+
+function zeichneNetz(){
+  const gitter = $("netzGitter"); gitter.innerHTML = "";
+  const maxE = Math.max(...NETZ.liste.map(v => v.ebene));
+  for (let e = 0; e <= maxE; e++){
+    const sp = document.createElement("div"); sp.className = "netz-spalte";
+    NETZ.liste.filter(v => v.ebene === e).forEach(v => sp.appendChild(knotenEl(v)));
+    gitter.appendChild(sp);
+    if (e < maxE){
+      const pf = document.createElement("div"); pf.className = "netz-pfeil"; pf.textContent = "→";
+      gitter.appendChild(pf);
+    }
+  }
+}
+function knotenEl(v){
+  const k = document.createElement("div"); k.className = "knoten";
+  const eingabe = feld => {
+    const d = document.createElement("div");
+    const i = document.createElement("input");
+    i.type = "text"; i.inputMode = "numeric"; i.dataset.feld = feld; i.dataset.id = v.id;
+    i.setAttribute("aria-label", feld.toUpperCase() + " von " + v.id);
+    d.appendChild(i); return d;
+  };
+  const fix = wert => { const d = document.createElement("div");
+                        d.className = "fix"; d.textContent = wert; return d; };
+  k.append(eingabe("faz"), fix(v.dauer), eingabe("fez"));
+  const name = document.createElement("div"); name.className = "name";
+  name.textContent = v.id + " · " + v.name; k.appendChild(name);
+  k.append(eingabe("saz"), eingabe("gp"), eingabe("sez"));
+  const fp = document.createElement("div"); fp.className = "name";
+  fp.style.cssText = "display:flex;gap:8px;justify-content:center;align-items:center;font-weight:400";
+  const lab = document.createElement("span");
+  lab.textContent = "FP"; lab.style.cssText = "font-family:var(--data);font-weight:700";
+  const inp = document.createElement("input");
+  inp.type = "text"; inp.inputMode = "numeric"; inp.dataset.feld = "fp"; inp.dataset.id = v.id;
+  inp.setAttribute("aria-label", "FP von " + v.id);
+  inp.style.cssText = "width:48px;border:1px solid var(--rule);background:var(--card)";
+  fp.append(lab, inp); k.appendChild(fp);
+  return k;
+}
+
+/* --- Gantt: dieselben Vorgänge, andere Darstellung --- */
+function zeichneGantt(){
+  const box = $("ganttGitter"); box.innerHTML = "";
+  const tab = document.createElement("table"); tab.className = "gantt-tab";
+  tab.innerHTML = "<thead><tr><th>Vorgang</th><th>Dauer</th><th>Vorgänger</th>" +
+                  "<th>Start (Tag)</th><th>Ende (Tag)</th><th>Balken</th></tr></thead>";
+  const tb = document.createElement("tbody");
+  NETZ.reihenfolge.forEach(id => {
+    const v = NETZ.byId[id];
+    const tr = document.createElement("tr");
+    const feld = f => {
+      const i = document.createElement("input");
+      i.type = "text"; i.inputMode = "numeric"; i.dataset.feld = f; i.dataset.id = v.id;
+      i.setAttribute("aria-label", (f === "faz" ? "Start" : "Ende") + " von " + v.id);
+      i.addEventListener("input", ganttBalken);
+      return i;
+    };
+    const td = inhalt => { const d = document.createElement("td");
+                           if (typeof inhalt === "string") d.textContent = inhalt;
+                           else d.appendChild(inhalt); return d; };
+    const spur = document.createElement("div"); spur.className = "gantt-spur";
+    spur.innerHTML = '<i data-balken="' + v.id + '" style="left:0;width:0"></i>';
+    const tdSpur = document.createElement("td"); tdSpur.appendChild(spur);
+    tr.append(td(v.id + " · " + v.name), td(String(v.dauer)),
+              td(v.vor.length ? v.vor.join(", ") : "—"),
+              td(feld("faz")), td(feld("fez")), tdSpur);
+    tb.appendChild(tr);
+  });
+  tab.appendChild(tb);
+  box.appendChild(tab);
+  const skala = document.createElement("div");
+  skala.className = "gantt-skala";
+  skala.innerHTML = "<span>Tag 0</span><span>Tag " + NETZ.ende + "</span>";
+  box.appendChild(skala);
+  const hinweis = document.createElement("div");
+  hinweis.style.cssText = "font-size:13px;color:var(--muted);margin-top:10px";
+  hinweis.textContent = "Trage Start und Ende ein — der Balken zeichnet sich mit. " +
+    "Start = frühester Anfang (alle Vorgänger fertig), Ende = Start + Dauer.";
+  box.appendChild(hinweis);
+  ganttBalken();
+}
+function ganttBalken(){
+  if (!NETZ) return;
+  const skala = Math.max(1, NETZ.ende);
+  document.querySelectorAll("#ganttGitter input").forEach(() => {});
+  NETZ.liste.forEach(v => {
+    const bal = document.querySelector('#ganttGitter i[data-balken="' + v.id + '"]');
+    if (!bal) return;
+    const s0 = document.querySelector('#ganttGitter input[data-id="' + v.id + '"][data-feld="faz"]');
+    const e0 = document.querySelector('#ganttGitter input[data-id="' + v.id + '"][data-feld="fez"]');
+    const a = parseFloat((s0.value || "").replace(",", ".")),
+          b = parseFloat((e0.value || "").replace(",", "."));
+    if (isNaN(a) || isNaN(b) || b <= a){ bal.style.width = "0"; return; }
+    bal.style.left  = (a / skala * 100) + "%";
+    bal.style.width = ((b - a) / skala * 100) + "%";
+    bal.className = (v.gp === 0 ? "kritisch" : "");
+  });
+}
+
+function netzNeu(art){
+  const n = Math.max(5, Math.min(14, parseInt($("netzAnzahl").value, 10) || 8));
+  const titel = (art === "gantt" ? "Gantt-Diagramm" : "Netzplan") + " — Übung (" + n + " Vorgänge)";
+  netzStarten(netzWuerfeln(n), titel, art);
+}
+$("btnNetzZufall").addEventListener("click", () => netzNeu("netzplan"));
+$("btnGantt").addEventListener("click", () => netzNeu("gantt"));
+$("btnNetzNeu").addEventListener("click", () => netzNeu(NETZ_ART));
+$("btnSchablone").addEventListener("click", () => {
+  const zu = $("netzSchablone").hidden = !$("netzSchablone").hidden;
+  $("btnSchablone").textContent = zu ? "Schablone zeigen" : "Schablone ausblenden";
+});
+$("btnNetzEigen").addEventListener("click", () => {
+  const bsp = "A,2,B C\nB,4,D\nC,3,D\nD,5,";
+  const roh = prompt("Eine Zeile je Vorgang:  Name,Dauer,Nachfolger (durch Leerzeichen)\n" +
+                     "Leer lassen heißt: kein Nachfolger.\n\nBeispiel:\n" + bsp, bsp);
+  if (!roh) return;
+  const v = [];
+  roh.split(/\r?\n/).forEach(z => {
+    const t = z.split(",");
+    if (t.length < 2 || !t[0].trim()) return;
+    v.push({id: t[0].trim(), name: t[0].trim(), dauer: parseFloat(t[1]) || 0,
+            nachfolger: (t[2] || "").trim().split(/[\s,]+/).filter(Boolean)});
+  });
+  if (v.length < 2) return toast("Zu wenige Vorgänge erkannt.");
+  try { netzStarten(v, "Eigene Vorgangsliste", NETZ_ART); }
+  catch { toast("Der Plan geht nicht auf — prüfe die Nachfolger auf Kreise."); }
+});
+$("btnNetzZurueck").addEventListener("click", () => { renderStart(); schirm("scStart"); });
+
+function felderPruefen(wurzel){
+  let richtig = 0, gesamt = 0, leer = 0;
+  const nachGruppe = {termine:[0,0], puffer:[0,0]};
+  document.querySelectorAll(wurzel + " input[data-feld]").forEach(i => {
+    const soll = NETZ.byId[i.dataset.id][i.dataset.feld];
+    const ist = i.value.trim();
+    i.classList.remove("richtig", "falsch");
+    const gruppe = (i.dataset.feld === "gp" || i.dataset.feld === "fp") ? "puffer" : "termine";
+    if (ist === ""){ leer++; return; }
+    gesamt++; nachGruppe[gruppe][1]++;
+    if (parseFloat(ist.replace(",", ".")) === soll){
+      richtig++; nachGruppe[gruppe][0]++; i.classList.add("richtig");
+    } else i.classList.add("falsch");
+  });
+  return {richtig, gesamt, leer, nachGruppe};
+}
+$("btnNetzPruefen").addEventListener("click", () => {
+  if (!NETZ) return;
+  const wurzel = NETZ_ART === "netzplan" ? "#netzGitter" : "#ganttGitter";
+  const r = felderPruefen(wurzel);
+  const T = r.nachGruppe.termine, P = r.nachGruppe.puffer;
+  if (!r.gesamt){ $("netzErgebnis").textContent = "Noch nichts eingetragen."; }
+  else {
+    const alles = r.richtig === r.gesamt && !r.leer;
+    $("netzErgebnis").innerHTML =
+      "<b>" + r.richtig + " von " + r.gesamt + "</b> richtig" +
+      (T[1] ? " · Termine <b>" + T[0] + "/" + T[1] + "</b>" : "") +
+      (P[1] ? " · Puffer <b>" + P[0] + "/" + P[1] + "</b>" : "") +
+      (r.leer ? " · " + r.leer + " leer" : "") +
+      (alles ? ' <span class="gut">— alles korrekt.</span>'
+             : (P[1] && P[0] < P[1]
+                ? ' <span class="schlecht">— sieh dir die Puffer noch einmal an:'
+                  + ' GP = SAZ − FAZ, FP = FAZ des Nachfolgers − FEZ.</span>' : ""));
+  }
+  fragenPruefen();
+});
+$("btnNetzLoesung").addEventListener("click", () => {
+  if (!NETZ) return;
+  const wurzel = NETZ_ART === "netzplan" ? "#netzGitter" : "#ganttGitter";
+  document.querySelectorAll(wurzel + " input[data-feld]").forEach(i => {
+    i.value = NETZ.byId[i.dataset.id][i.dataset.feld];
+    i.classList.remove("falsch"); i.classList.add("richtig");
+  });
+  if (NETZ_ART === "gantt") ganttBalken();
+  $("fragDauer").value = NETZ.ende;
+  $("fragPfad").value = NETZ.kritisch.join(" ");
+  $("fragPuffer").value = NETZ.maxPufferVorgang.join(" ");
+  ["fragDauer","fragPfad","fragPuffer"].forEach(id => {
+    $(id).classList.remove("falsch"); $(id).classList.add("richtig");
+  });
+  $("netzErgebnis").innerHTML = "Projektdauer <b>" + NETZ.ende +
+    "</b> · kritischer Pfad <b>" + NETZ.kritisch.join(" – ") +
+    "</b> · größter Puffer bei <b>" + NETZ.maxPufferVorgang.join(", ") +
+    "</b> (GP " + NETZ.maxGp + ")";
+  $("fragErgebnis").innerHTML = "";
+});
+
+function fragenPruefen(){
+  if (!NETZ) return;
+  const teile = [];
+  const setz = (id, ok, leer) => {
+    const el = $(id);
+    el.classList.remove("richtig","falsch");
+    if (!leer) el.classList.add(ok ? "richtig" : "falsch");
+  };
+  const dauerRoh = $("fragDauer").value.trim();
+  if (dauerRoh){
+    const ok = parseFloat(dauerRoh.replace(",", ".")) === NETZ.ende;
+    setz("fragDauer", ok, false);
+    teile.push((ok ? '<span class="gut">✓</span>' : '<span class="schlecht">✗</span>') + " Projektdauer");
+  } else setz("fragDauer", false, true);
+
+  const pfadRoh = $("fragPfad").value.trim();
+  if (pfadRoh){
+    const meins = pfadRoh.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+    const soll = NETZ.kritisch.map(x => x.toUpperCase());
+    const ok = meins.length === soll.length && meins.every((x, i) => x === soll[i]);
+    setz("fragPfad", ok, false);
+    teile.push((ok ? '<span class="gut">✓</span>' : '<span class="schlecht">✗</span>') +
+               " kritischer Pfad" + (ok ? "" : " (" + soll.length + " Vorgänge mit GP 0)"));
+  } else setz("fragPfad", false, true);
+
+  const pufRoh = $("fragPuffer").value.trim();
+  if (pufRoh){
+    const meins = pufRoh.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+    const soll = NETZ.maxPufferVorgang.map(x => x.toUpperCase());
+    const ok = meins.length > 0 && meins.every(x => soll.includes(x));
+    setz("fragPuffer", ok, false);
+    teile.push((ok ? '<span class="gut">✓</span>' : '<span class="schlecht">✗</span>') +
+               " größter Puffer");
+  } else setz("fragPuffer", false, true);
+
+  $("fragErgebnis").innerHTML = teile.length ? teile.join(" &nbsp;·&nbsp; ")
+    : "Trage die drei Antworten ein und drücke „Prüfen\".";
+}
+["fragDauer","fragPfad","fragPuffer"].forEach(id =>
+  $(id).addEventListener("keydown", e => { if (e.key === "Enter") fragenPruefen(); }));
+
+/* ======================= Modell-Werkstatt (ER / UML) ======================= */
+const MODELLE = [
+  { key:"er-lager", typ:"er", titel:"ER-Modell — Verladung (Frühjahr 2026, Aufgabe 4c)",
+    aufgabe:"Für die Verladung sollen Artikel erfasst werden. Zu jedem Artikel gehören " +
+      "Bezeichnung, Gewicht und eine eindeutige Artikelnummer. Jeder Artikel wird genau " +
+      "einer Ladung zugeordnet, eine Ladung enthält mehrere Artikel. Zur Ladung werden " +
+      "Ladungsnummer und Verladezeit gespeichert.\n\n" +
+      "Trage Entitäten mit ihren Attributen und die Beziehung mit Kardinalitäten ein.",
+    loesung:"Artikel (AID = Primärschlüssel, Bezeichnung, Gewicht, LID = Fremdschlüssel)\n" +
+      "Ladung (LID = Primärschlüssel, Verladezeit)\n" +
+      "Beziehung: Ladung 1 —enthält— n Artikel" },
+  { key:"er-ticket", typ:"er", titel:"ER-Modell — Ticketsystem (Herbst 2023, Aufgabe 4ca)",
+    aufgabe:"Zu einem Ticket gehören mehrere Tätigkeiten, die von Mitarbeitern ausgeführt " +
+      "werden. Zu jeder Tätigkeit gehören eine Beschreibung der Arbeiten, ein Ergebnis " +
+      "sowie Start und Ende.\n\nErgänze die Entität Taetigkeiten mit ihren Attributen und " +
+      "den Beziehungen zu Ticket und Mitarbeiter.",
+    loesung:"Taetigkeiten (TaetID = Primärschlüssel, Beschreibung, Ergebnis, Start, Ende,\n" +
+      "               TicketID = Fremdschlüssel, MitarbeiterID = Fremdschlüssel)\n" +
+      "Ticket 1 —führt zu— n Taetigkeiten\nMitarbeiter 1 —führt aus— n Taetigkeiten" },
+  { key:"er-walz", typ:"er", titel:"ER-Modell — Walzanlage (Herbst 2022, Aufgabe 4c)",
+    aufgabe:"In der Produktionshalle stehen mehrere Walzanlagen. Gespeichert werden " +
+      "Spezifikation (welche Dicken die Anlage kann), Bezeichnung, Baujahr und eine " +
+      "eindeutige Maschinennummer. Zu jeder Walzanlage gehören Produktionsdaten mit " +
+      "Breite, Länge, Dicke, Anzahl und Zeitstempel.",
+    loesung:"Walzanlage (WID = Primärschlüssel, Spezifikation, Bezeichnung, Baujahr)\n" +
+      "Produktionsdaten (OrderID = Primärschlüssel, Breite, Länge, Dicke, Zeitstempel,\n" +
+      "                  WID = Fremdschlüssel)\nWalzanlage 1 —liefert— n Produktionsdaten" },
+  { key:"uml-klasse", typ:"klasse", titel:"UML-Klassendiagramm — Versicherung (Frühjahr 2023, 4c)",
+    aufgabe:"KFZ hat Hersteller, Typschlüssel, Neupreis, Baujahr, Laufleistung, Schadenshöhe " +
+      "sowie restwertBerechnen() und auszahlen().\nImmobilie hat Neupreis, Baujahr, " +
+      "Wohnfläche, Lagebewertung, Schadenshöhe sowie restwertBerechnen(), " +
+      "getLagebewertung() und auszahlen().\n\nBaue eine sinnvolle Hierarchie mit der " +
+      "Oberklasse Versicherungsobjekt.\n\nHinweis: Vererbung ist im aktuellen Katalog " +
+      "gestrichen — das hier ist reine Übung im Klassendiagramm.",
+    loesung:"Versicherungsobjekt: Neupreis, Baujahr, Schadenshöhe | auszahlen()\n" +
+      "KFZ (erbt von Versicherungsobjekt): Hersteller, Typschlüssel, Laufleistung | " +
+      "restwertBerechnen()\nImmobilie (erbt von Versicherungsobjekt): Wohnfläche, " +
+      "Lagebewertung | restwertBerechnen(), getLagebewertung()" },
+  { key:"uc-schluessel", typ:"usecase", titel:"UML Use-Case — Schließsystem (Herbst 2024, 2d)",
+    aufgabe:"Der Mitarbeiter kann Türen öffnen und Türen zuschließen; dabei findet immer " +
+      "eine Berechtigungsprüfung statt. Der Administrator kann alles, was ein Mitarbeiter " +
+      "kann, und zusätzlich Türschlösser programmieren — ebenfalls mit Berechtigungsprüfung.",
+    loesung:"Akteure: Mitarbeiter, Administrator (generalisiert Mitarbeiter)\n" +
+      "Anwendungsfälle: Tür öffnen, Tür zuschließen, Türschloss programmieren\n" +
+      "Jeder Anwendungsfall «include» Berechtigung prüfen" },
+  { key:"frei-er", typ:"er", titel:"Freies ER-Modell — eigene Aufgabe",
+    aufgabe:"Kein vorgegebener Text: nimm eine Aufgabe aus einer Prüfung (Knopf " +
+      "„Vollständige Seite ansehen\") und baue das Modell hier nach. Geprüft wird die " +
+      "Struktur, nicht der Inhalt.",
+    loesung:null },
+];
+
+const MODELL_SPALTEN = {
+  er: {
+    bloecke: [
+      {key:"entitaeten", label:"Entitäten", spalten:["Entität","Attribute (Komma-getrennt)","Primärschlüssel","Fremdschlüssel"]},
+      {key:"beziehungen", label:"Beziehungen", spalten:["von","Beziehungsname","nach","Kardinalität (z. B. 1:n)"]},
+    ]},
+  klasse: {
+    bloecke: [
+      {key:"klassen", label:"Klassen", spalten:["Klasse","Attribute","Methoden","erbt von"]},
+    ]},
+  usecase: {
+    bloecke: [
+      {key:"akteure", label:"Akteure", spalten:["Akteur","generalisiert (erbt von)"]},
+      {key:"faelle", label:"Anwendungsfälle", spalten:["Anwendungsfall","Akteur","Beziehung («include» / «extend») zu"]},
+    ]},
+};
+
+let MODELL = null;
+function modellStarten(key){
+  MODELL = MODELLE.find(m => m.key === key) || MODELLE[0];
+  $("modellTitel").textContent = MODELL.titel;
+  $("modellAufgabe").textContent = MODELL.aufgabe;
+  $("modellErgebnis").innerHTML = "";
+  $("modellLoesungBox").hidden = !MODELL.loesung;
+  $("modellLoesungBox").open = false;
+  $("modellLoesungTxt").textContent = MODELL.loesung || "";
+  $("modellIntro").innerHTML =
+    "Gebaut wird in Tabellen statt auf Papier — geprüft wird die <b>Struktur</b>: " +
+    "hat jede Entität einen Primärschlüssel, hat jede Beziehung eine Kardinalität, " +
+    "steht der Fremdschlüssel auf der n-Seite. Ob der Inhalt fachlich passt, " +
+    "vergleichst du selbst mit der Musterlösung.";
+  const box = $("modellBauen"); box.innerHTML = "";
+  MODELL_SPALTEN[MODELL.typ].bloecke.forEach(b => box.appendChild(modellBlock(b)));
+  schirm("scModell");
+}
+function modellBlock(def){
+  const wrap = document.createElement("div"); wrap.className = "modell-block";
+  const h = document.createElement("span"); h.className = "eyebrow"; h.textContent = def.label;
+  const tab = document.createElement("table"); tab.className = "modell";
+  tab.dataset.block = def.key;
+  tab.innerHTML = "<thead><tr>" + def.spalten.map(c => "<th>" + esc(c) + "</th>").join("") +
+                  "<th></th></tr></thead>";
+  const tb = document.createElement("tbody");
+  tab.appendChild(tb);
+  const zeile = () => {
+    const tr = document.createElement("tr");
+    def.spalten.forEach((c, i) => {
+      const td = document.createElement("td");
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.dataset.spalte = String(i);
+      inp.setAttribute("aria-label", c);
+      td.appendChild(inp); tr.appendChild(td);
+    });
+    const tdX = document.createElement("td"); tdX.className = "weg-btn";
+    const x = document.createElement("button");
+    x.className = "btn ghost klein"; x.textContent = "×"; x.title = "Zeile entfernen";
+    x.onclick = () => tr.remove();
+    tdX.appendChild(x); tr.appendChild(tdX);
+    return tr;
+  };
+  for (let i = 0; i < 3; i++) tb.appendChild(zeile());
+  const plus = document.createElement("button");
+  plus.className = "btn ghost klein"; plus.textContent = "+ Zeile";
+  plus.style.marginTop = "8px";
+  plus.onclick = () => tb.appendChild(zeile());
+  wrap.append(h, tab, plus);
+  return wrap;
+}
+function modellLesen(){
+  const daten = {};
+  document.querySelectorAll("#modellBauen table.modell").forEach(tab => {
+    const zeilen = [];
+    tab.querySelectorAll("tbody tr").forEach(tr => {
+      const werte = [...tr.querySelectorAll("input")].map(i => i.value.trim());
+      if (werte.some(Boolean)) zeilen.push({werte, tr});
+    });
+    daten[tab.dataset.block] = zeilen;
+  });
+  return daten;
+}
+$("btnModellPruefen").addEventListener("click", () => {
+  if (!MODELL) return;
+  const d = modellLesen();
+  const gut = [], schlecht = [];
+  document.querySelectorAll("#modellBauen input").forEach(i => i.classList.remove("warn"));
+  const markiere = (zeile, spalte) => {
+    const inp = zeile.tr.querySelectorAll("input")[spalte];
+    if (inp) inp.classList.add("warn");
+  };
+
+  if (MODELL.typ === "er"){
+    const ent = d.entitaeten || [], bez = d.beziehungen || [];
+    if (!ent.length) schlecht.push("Keine einzige Entität eingetragen.");
+    ent.forEach(z => {
+      if (!z.werte[2]){ schlecht.push("<b>" + esc(z.werte[0]) + "</b>: kein Primärschlüssel."); markiere(z, 2); }
+      if (!z.werte[1]){ schlecht.push("<b>" + esc(z.werte[0]) + "</b>: keine Attribute."); markiere(z, 1); }
+    });
+    if (ent.length && ent.every(z => z.werte[2])) gut.push("Jede Entität hat einen Primärschlüssel.");
+    if (!bez.length) schlecht.push("Keine Beziehung eingetragen — ohne Beziehung ist es kein ER-Modell.");
+    const namen = ent.map(z => z.werte[0].toLowerCase());
+    bez.forEach(z => {
+      if (!/\d\s*:\s*(\d|n|m)/i.test(z.werte[3] || "")){
+        schlecht.push("Beziehung <b>" + esc(z.werte[1] || z.werte[0]) +
+                      "</b>: Kardinalität fehlt oder ist nicht im Format 1:n."); markiere(z, 3);
+      }
+      [0, 2].forEach(sp => {
+        const n = (z.werte[sp] || "").toLowerCase();
+        if (n && namen.length && !namen.includes(n)){
+          schlecht.push("Beziehung verweist auf <b>" + esc(z.werte[sp]) +
+                        "</b> — diese Entität steht nicht in der Tabelle."); markiere(z, sp);
+        }
+      });
+      const k = (z.werte[3] || "").toLowerCase();
+      if (/1\s*:\s*[nm]/.test(k)){
+        const nSeite = (z.werte[2] || "").toLowerCase();
+        const ziel = ent.find(e => e.werte[0].toLowerCase() === nSeite);
+        if (ziel && !ziel.werte[3])
+          schlecht.push("Bei 1:n gehört der Fremdschlüssel auf die n-Seite — <b>" +
+                        esc(z.werte[2]) + "</b> hat keinen.");
+      }
+    });
+    if (bez.length && bez.every(z => /\d\s*:\s*(\d|n|m)/i.test(z.werte[3] || "")))
+      gut.push("Alle Beziehungen haben eine Kardinalität.");
+  }
+
+  if (MODELL.typ === "klasse"){
+    const kl = d.klassen || [];
+    if (kl.length < 2) schlecht.push("Mindestens zwei Klassen eintragen.");
+    const namen = kl.map(z => z.werte[0].toLowerCase());
+    kl.forEach(z => {
+      if (!z.werte[1] && !z.werte[2]){
+        schlecht.push("<b>" + esc(z.werte[0]) + "</b>: weder Attribute noch Methoden."); markiere(z, 1);
+      }
+      const erbt = (z.werte[3] || "").toLowerCase();
+      if (erbt && !namen.includes(erbt)){
+        schlecht.push("<b>" + esc(z.werte[0]) + "</b> erbt von <b>" + esc(z.werte[3]) +
+                      "</b>, aber diese Klasse fehlt in der Tabelle."); markiere(z, 3);
+      }
+      if (z.werte[2] && !/\(\s*\)/.test(z.werte[2])){
+        schlecht.push("<b>" + esc(z.werte[0]) + "</b>: Methoden schreibt man mit Klammern, z. B. auszahlen()."); markiere(z, 2);
+      }
+    });
+    const gemeinsam = kl.filter(z => z.werte[3]).length;
+    if (gemeinsam) gut.push("Vererbung ist eingetragen (" + gemeinsam + " abgeleitete Klassen).");
+  }
+
+  if (MODELL.typ === "usecase"){
+    const ak = d.akteure || [], fa = d.faelle || [];
+    if (!ak.length) schlecht.push("Keine Akteure eingetragen.");
+    if (!fa.length) schlecht.push("Keine Anwendungsfälle eingetragen.");
+    const namen = ak.map(z => z.werte[0].toLowerCase());
+    ak.forEach(z => {
+      const g = (z.werte[1] || "").toLowerCase();
+      if (g && !namen.includes(g)){
+        schlecht.push("<b>" + esc(z.werte[0]) + "</b> generalisiert <b>" + esc(z.werte[1]) +
+                      "</b> — dieser Akteur fehlt."); markiere(z, 1);
+      }
+    });
+    fa.forEach(z => {
+      const a = (z.werte[1] || "").toLowerCase();
+      if (!a){ schlecht.push("<b>" + esc(z.werte[0]) + "</b>: kein Akteur zugeordnet."); markiere(z, 1); }
+      else if (namen.length && !namen.includes(a)){
+        schlecht.push("<b>" + esc(z.werte[0]) + "</b>: Akteur <b>" + esc(z.werte[1]) +
+                      "</b> steht nicht in der Akteurstabelle."); markiere(z, 1);
+      }
+    });
+    if (fa.some(z => /include|extend/i.test(z.werte[2] || "")))
+      gut.push("«include»/«extend»-Beziehungen sind eingetragen.");
+  }
+
+  const box = $("modellErgebnis");
+  box.innerHTML = "";
+  const liste = document.createElement("div");
+  liste.className = "modell-hinweise";
+  if (!schlecht.length && (gut.length || Object.values(d).some(x => x.length)))
+    liste.innerHTML = '<span class="ok">✓ Die Struktur ist vollständig.</span> ' +
+      (MODELL.loesung ? "Vergleiche jetzt den Inhalt mit der Musterlösung." : "") +
+      (gut.length ? "<br>" + gut.map(g => '<span class="ok">✓</span> ' + g).join("<br>") : "");
+  else
+    liste.innerHTML = schlecht.map(f => '<span class="fehlt">·</span> ' + f).join("<br>") +
+      (gut.length ? "<br>" + gut.map(g => '<span class="ok">✓</span> ' + g).join("<br>") : "");
+  box.appendChild(liste);
+});
+$("btnModellLoesung").addEventListener("click", () => {
+  if (!MODELL || !MODELL.loesung) return toast("Für diese Aufgabe gibt es keine Musterlösung.");
+  $("modellLoesungBox").hidden = false;
+  $("modellLoesungBox").open = true;
+});
+$("btnModellZurueck").addEventListener("click", () => { renderStart(); schirm("scStart"); });
+$("btnModelle").addEventListener("click", () => {
+  const sel = $("modellWahl");
+  if (!sel.options.length){
+    MODELLE.forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.key; o.textContent = m.titel;
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", () => modellStarten(sel.value));
+  }
+  modellStarten(sel.value || MODELLE[0].key);
+});
+
+/* ======================= UML-Trainer: Logik (DOM-frei) ======================= */
+/* Aktivitätsdiagramm und Klassendiagramm: Aufgabe würfeln, Antwort prüfen, Lösung zeichnen. */
+
+function umlEsc(s){ return String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+function umlZufall(a){ return a[Math.floor(Math.random() * a.length)]; }
+function umlMuenze(p){ return Math.random() < (p == null ? .5 : p); }
+
+function umlNorm(s){
+  return String(s == null ? "" : s).toLowerCase()
+    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, " ").trim();
+}
+const UML_STOPP = new Set(["der","die","das","den","dem","des","ein","eine","einen","einem","eines",
+  "und","oder","wird","werden","ist","sind","zu","zum","zur","im","in","am","an","auf","fuer","von",
+  "mit","es","er","sie","hat","haben"]);
+function umlWorte(s){ return umlNorm(s).split(" ").filter(w => w && !UML_STOPP.has(w)); }
+function umlStamm(w){ return w.length > 5 ? w.slice(0, 5) : w; }
+function umlAehnlich(a, b){
+  const na = umlNorm(a), nb = umlNorm(b);
+  if (!na || !nb) return 0;
+  if (na === nb) return 1;
+  const wa = umlWorte(a), wb = umlWorte(b);
+  if (!wa.length || !wb.length) return 0;
+  const sb = wb.map(umlStamm);
+  let treffer = 0;
+  wa.forEach(w => { if (sb.includes(umlStamm(w))) treffer++; });
+  return (2 * treffer) / (wa.length + wb.length);
+}
+const UML_SCHWELLE = 0.55;
+
+/* beidseitig eindeutige Zuordnung Soll <-> Eingabe über Namensähnlichkeit */
+function umlZuordnen(soll, eingabe){
+  const paare = [];
+  soll.forEach((s, i) => eingabe.forEach((e, j) => {
+    const w = umlAehnlich(s, e);
+    if (w >= UML_SCHWELLE) paare.push({i, j, w});
+  }));
+  paare.sort((a, b) => b.w - a.w);
+  const sollZuEin = soll.map(() => -1), einZuSoll = eingabe.map(() => -1);
+  paare.forEach(p => {
+    if (sollZuEin[p.i] === -1 && einZuSoll[p.j] === -1){ sollZuEin[p.i] = p.j; einZuSoll[p.j] = p.i; }
+  });
+  return {sollZuEin, einZuSoll};
+}
+
+/* ---------------------------------------------------------------- Aktivität */
+
+const UML_AKT_SZENARIEN = [
+  { key:"bestellung", titel:"Bestellabwicklung",
+    einleitung:"Ein Onlineshop bearbeitet eingehende Kundenbestellungen.",
+    vor:[{l:"Bestellung erfassen", s:"erfasst der Vertrieb die Bestellung"},
+         {l:"Kundendaten prüfen",  s:"werden die Kundendaten geprüft"}],
+    frage:{l:"Ware vorrätig?", s:"ob die Ware vorrätig ist"},
+    ja:[{l:"Ware verpacken", s:"wird die Ware verpackt"},
+        {l:"Ware versenden", s:"wird die Ware versendet"}],
+    nein:[{l:"Ware nachbestellen", s:"wird die Ware beim Lieferanten nachbestellt"}],
+    nach:[{l:"Rechnung erstellen", s:"erstellt die Buchhaltung die Rechnung"}],
+    par:[{l:"Lieferschein drucken", s:"wird der Lieferschein gedruckt"},
+         {l:"Versandavis senden",   s:"wird dem Kunden ein Versandavis geschickt"}],
+    abbruch:"Bestellung storniert", ende:"Bestellung abgeschlossen" },
+
+  { key:"ticket", titel:"Störungsmeldung im IT-Support",
+    einleitung:"Im IT-Support werden gemeldete Störungen bearbeitet.",
+    vor:[{l:"Störung aufnehmen", s:"nimmt der First-Level-Support die Störung auf"},
+         {l:"Ticket anlegen",    s:"wird ein Ticket im Ticketsystem angelegt"}],
+    frage:{l:"Im First Level lösbar?", s:"ob die Störung im First Level gelöst werden kann"},
+    ja:[{l:"Störung beheben", s:"behebt der First Level die Störung"}],
+    nein:[{l:"Ticket eskalieren", s:"wird das Ticket an den Second Level eskaliert"}],
+    nach:[{l:"Ticket schließen", s:"wird das Ticket geschlossen"}],
+    par:[{l:"Lösung dokumentieren", s:"wird die Lösung in der Wissensdatenbank dokumentiert"},
+         {l:"Kunde benachrichtigen", s:"wird der Kunde über die Lösung informiert"}],
+    abbruch:"Meldung verworfen", ende:"Störung erledigt" },
+
+  { key:"wareneingang", titel:"Wareneingang im Lager",
+    einleitung:"Im Lager wird eine Lieferung angenommen.",
+    vor:[{l:"Lieferung annehmen", s:"nimmt der Lagerist die Lieferung an"},
+         {l:"Lieferschein prüfen", s:"wird der Lieferschein mit der Bestellung verglichen"}],
+    frage:{l:"Lieferung vollständig?", s:"ob die Lieferung vollständig und unbeschädigt ist"},
+    ja:[{l:"Ware einlagern", s:"wird die Ware eingelagert"}],
+    nein:[{l:"Mangel reklamieren", s:"wird der Mangel beim Lieferanten reklamiert"}],
+    nach:[{l:"Wareneingang buchen", s:"wird der Wareneingang im System gebucht"}],
+    par:[{l:"Bestand aktualisieren", s:"wird der Lagerbestand aktualisiert"},
+         {l:"Einkauf informieren",   s:"wird der Einkauf informiert"}],
+    abbruch:"Lieferung zurückgewiesen", ende:"Wareneingang abgeschlossen" },
+
+  { key:"arbeitsplatz", titel:"IT-Arbeitsplatz einrichten",
+    einleitung:"Für eine neue Mitarbeiterin wird ein IT-Arbeitsplatz eingerichtet.",
+    vor:[{l:"Anforderungen aufnehmen", s:"nimmt die IT die Anforderungen der Fachabteilung auf"},
+         {l:"Hardware bestellen",      s:"wird die Hardware bestellt"}],
+    frage:{l:"Hardware geliefert?", s:"ob die Hardware geliefert wurde"},
+    ja:[{l:"Notebook aufsetzen", s:"wird das Notebook aufgesetzt"}],
+    nein:[{l:"Liefertermin nachfassen", s:"fasst der Einkauf den Liefertermin nach"}],
+    nach:[{l:"Arbeitsplatz übergeben", s:"wird der Arbeitsplatz an die Mitarbeiterin übergeben"}],
+    par:[{l:"Benutzerkonto anlegen", s:"wird das Benutzerkonto im Verzeichnisdienst angelegt"},
+         {l:"Software verteilen",    s:"wird die Standardsoftware verteilt"}],
+    abbruch:"Einrichtung abgebrochen", ende:"Arbeitsplatz einsatzbereit" },
+
+  { key:"backup", titel:"Nächtliche Datensicherung",
+    einleitung:"Die nächtliche Datensicherung läuft weitgehend automatisch ab.",
+    vor:[{l:"Sicherung starten", s:"startet der Backup-Server die Sicherung"},
+         {l:"Sicherung prüfen",  s:"wird die Sicherung auf Fehler geprüft"}],
+    frage:{l:"Sicherung fehlerfrei?", s:"ob die Sicherung fehlerfrei durchgelaufen ist"},
+    ja:[{l:"Sicherung freigeben", s:"wird die Sicherung freigegeben"}],
+    nein:[{l:"Sicherung wiederholen", s:"wird die Sicherung wiederholt"}],
+    nach:[{l:"Protokoll archivieren", s:"wird das Sicherungsprotokoll archiviert"}],
+    par:[{l:"Medium auslagern", s:"wird das Sicherungsmedium ausgelagert"},
+         {l:"Administrator benachrichtigen", s:"wird der Administrator per Mail benachrichtigt"}],
+    abbruch:"Sicherung abgebrochen", ende:"Datensicherung beendet" },
+
+  { key:"bewerbung", titel:"Bewerbungsverfahren",
+    einleitung:"Die Personalabteilung bearbeitet eingehende Bewerbungen.",
+    vor:[{l:"Bewerbung erfassen", s:"erfasst die Personalabteilung die Bewerbung"},
+         {l:"Unterlagen sichten", s:"werden die Unterlagen gesichtet"}],
+    frage:{l:"Bewerbung geeignet?", s:"ob die Bewerbung zum Anforderungsprofil passt"},
+    ja:[{l:"Gespräch vereinbaren", s:"wird ein Vorstellungsgespräch vereinbart"}],
+    nein:[{l:"Absage schreiben", s:"wird eine Absage geschrieben"}],
+    nach:[{l:"Bewerbung archivieren", s:"wird die Bewerbung archiviert"}],
+    par:[{l:"Fachabteilung einladen", s:"wird die Fachabteilung eingeladen"},
+         {l:"Besprechungsraum buchen", s:"wird ein Besprechungsraum gebucht"}],
+    abbruch:"Bewerbung abgelehnt", ende:"Verfahren abgeschlossen" },
+];
+
+const UML_AKT_VARIANTEN = ["merge", "schleife", "parallel", "gemischt"];
+
+function umlAktWuerfeln(sz, variante){
+  sz = sz || umlZufall(UML_AKT_SZENARIEN);
+  variante = variante || umlZufall(UML_AKT_VARIANTEN);
+
+  const K = [];
+  const neu = (typ, name) => { const k = {id:"k" + K.length, typ, name, aus:[]}; K.push(k); return k; };
+  const kette = liste => {
+    const ns = liste.map(x => neu("aktion", x.l));
+    for (let i = 0; i < ns.length - 1; i++) ns[i].aus.push({ziel: ns[i + 1].id});
+    return {erst: ns[0], letzt: ns[ns.length - 1]};
+  };
+
+  /* Schritte auswürfeln: der zweite Vorlauf-Schritt darf entfallen, der zweite ja-Schritt auch */
+  const vorL  = (sz.vor.length > 1 && umlMuenze(.35)) ? [sz.vor[0]] : sz.vor.slice();
+  const jaL   = (sz.ja.length  > 1 && umlMuenze(.4))  ? [sz.ja[0]]  : sz.ja.slice();
+  const neinL = sz.nein.slice(), nachL = sz.nach.slice(), parL = sz.par.slice();
+
+  const start = neu("start", "Start");
+  const vor = kette(vorL);
+  start.aus.push({ziel: vor.erst.id});
+
+  const satz = [], schritt = ["Zuerst", "Danach", "Anschließend", "Im nächsten Schritt"];
+  satz.push(sz.einleitung);
+  vorL.forEach((x, i) => satz.push(schritt[Math.min(i, 3)] + " " + x.s + "."));
+
+  if (variante === "merge"){
+    const ent = neu("entscheidung", sz.frage.l);
+    vor.letzt.aus.push({ziel: ent.id});
+    const ja = kette(jaL), nein = kette(neinL), nach = kette(nachL);
+    const ende = neu("ende", sz.ende);
+    ent.aus.push({ziel: ja.erst.id,   bed:"ja"});
+    ent.aus.push({ziel: nein.erst.id, bed:"nein"});
+    ja.letzt.aus.push({ziel: nach.erst.id});
+    nein.letzt.aus.push({ziel: nach.erst.id});
+    nach.letzt.aus.push({ziel: ende.id});
+    satz.push("Dann wird geprüft, " + sz.frage.s + ".");
+    satz.push("Ist das der Fall, " + jaL.map(x => x.s).join(" und danach ") + ".");
+    satz.push("Andernfalls " + neinL.map(x => x.s).join(" und danach ") + ".");
+    satz.push("In beiden Fällen " + nachL.map(x => x.s).join(" und danach ") + "; danach ist der Ablauf beendet.");
+  }
+
+  if (variante === "schleife"){
+    const ent = neu("entscheidung", sz.frage.l);
+    vor.letzt.aus.push({ziel: ent.id});
+    const ja = kette(jaL), nein = kette(neinL), nach = kette(nachL);
+    const ende = neu("ende", sz.ende);
+    ent.aus.push({ziel: ja.erst.id,   bed:"ja"});
+    ent.aus.push({ziel: nein.erst.id, bed:"nein"});
+    ja.letzt.aus.push({ziel: nach.erst.id});
+    nein.letzt.aus.push({ziel: vor.letzt.id, rueck:true});
+    nach.letzt.aus.push({ziel: ende.id});
+    satz.push("Dann wird geprüft, " + sz.frage.s + ".");
+    satz.push("Ist das nicht der Fall, " + neinL.map(x => x.s).join(" und danach ") +
+              "; anschließend wird der Schritt «" + vorL[vorL.length - 1].l +
+              "» wiederholt und erneut geprüft.");
+    satz.push("Ist es der Fall, " + jaL.map(x => x.s).join(" und danach ") + ".");
+    satz.push("Zum Schluss " + nachL.map(x => x.s).join(" und danach ") + "; damit ist der Ablauf beendet.");
+  }
+
+  if (variante === "parallel"){
+    const fork = neu("fork", "Parallelisierung");
+    vor.letzt.aus.push({ziel: fork.id});
+    const p1 = kette([parL[0]]), p2 = kette([parL[1]]);
+    const join = neu("join", "Synchronisation");
+    fork.aus.push({ziel: p1.erst.id}); fork.aus.push({ziel: p2.erst.id});
+    p1.letzt.aus.push({ziel: join.id}); p2.letzt.aus.push({ziel: join.id});
+    const nach = kette(nachL), ende = neu("ende", sz.ende);
+    join.aus.push({ziel: nach.erst.id});
+    nach.letzt.aus.push({ziel: ende.id});
+    satz.push("Danach laufen zwei Schritte gleichzeitig: " + parL[0].s + " und " + parL[1].s + ".");
+    satz.push("Erst wenn beide abgeschlossen sind, " + nachL.map(x => x.s).join(" und danach ") +
+              "; danach ist der Ablauf beendet.");
+  }
+
+  if (variante === "gemischt"){
+    const ent = neu("entscheidung", sz.frage.l);
+    vor.letzt.aus.push({ziel: ent.id});
+    const nein = kette(neinL), abbruch = neu("ende", sz.abbruch);
+    ent.aus.push({ziel: nein.erst.id, bed:"nein"});
+    nein.letzt.aus.push({ziel: abbruch.id});
+    const fork = neu("fork", "Parallelisierung");
+    ent.aus.push({ziel: fork.id, bed:"ja"});
+    const p1 = kette([parL[0]]), p2 = kette([parL[1]]);
+    const join = neu("join", "Synchronisation");
+    fork.aus.push({ziel: p1.erst.id}); fork.aus.push({ziel: p2.erst.id});
+    p1.letzt.aus.push({ziel: join.id}); p2.letzt.aus.push({ziel: join.id});
+    const nach = kette(nachL), ende = neu("ende", sz.ende);
+    join.aus.push({ziel: nach.erst.id});
+    nach.letzt.aus.push({ziel: ende.id});
+    satz.push("Dann wird geprüft, " + sz.frage.s + ".");
+    satz.push("Ist das nicht der Fall, " + neinL.map(x => x.s).join(" und danach ") +
+              " und der Vorgang endet mit «" + sz.abbruch + "».");
+    satz.push("Andernfalls laufen zwei Schritte gleichzeitig: " + parL[0].s + " und " + parL[1].s + ".");
+    satz.push("Erst wenn beide fertig sind, " + nachL.map(x => x.s).join(" und danach ") +
+              "; damit ist der Ablauf beendet (" + sz.ende + ").");
+  }
+
+  return {
+    art: "aktivitaet", key: sz.key, variante,
+    titel: "UML-Aktivitätsdiagramm — " + sz.titel,
+    text: satz.join(" "),
+    aufgabe: "Stellen Sie den beschriebenen Ablauf als UML-Aktivitätsdiagramm dar. " +
+             "Tragen Sie jeden Knoten mit Bezeichnung, Typ und Nachfolgern ein; " +
+             "bei einer Entscheidung gehören zu jedem Nachfolger die Bedingungen " +
+             "(z. B. ja / nein) in der gleichen Reihenfolge.",
+    knoten: K
+  };
+}
+
+const UML_TYP_LABEL = {start:"Start", aktion:"Aktion", entscheidung:"Entscheidung",
+                       fork:"Parallelisierung", join:"Synchronisation", ende:"Ende"};
+
+function umlAktText(soll){
+  const byId = {}; soll.knoten.forEach(k => byId[k.id] = k);
+  return soll.knoten.map(k =>
+    UML_TYP_LABEL[k.typ] + ": " + k.name +
+    (k.aus.length ? "  →  " + k.aus.map(e => (e.bed ? "[" + e.bed + "] " : "") +
+                                             byId[e.ziel].name).join(" / ") : "")
+  ).join("\n");
+}
+
+/* zeilen: [{werte:[name, typ, nachfolger, bedingung], idx}] */
+function umlPruefeAkt(soll, zeilen){
+  const fehler = [], gut = [], marken = [];
+  const mark = (i, sp) => marken.push([i, sp]);
+  const rows = zeilen.filter(z => z.werte.some(w => String(w).trim()));
+  if (!rows.length) return {ok:false, fehler:["Noch nichts eingetragen."], gut, marken};
+  rows.forEach(z => z.werte = z.werte.map(w => String(w).trim()));
+
+  const namen = rows.map(z => z.werte[0]);
+  rows.forEach((z, i) => { if (!z.werte[0]){ fehler.push("Zeile " + (i + 1) + ": kein Name."); mark(z.idx, 0); } });
+  namen.forEach((n, i) => {
+    if (n && namen.findIndex(m => umlNorm(m) === umlNorm(n)) !== i){
+      fehler.push("Der Name <b>" + umlEsc(n) + "</b> kommt zweimal vor — Nachfolger lassen sich dann nicht zuordnen.");
+      mark(rows[i].idx, 0);
+    }
+  });
+
+  const teile = s => String(s || "").split(/[,;\n]|→|->/).map(x => x.trim()).filter(Boolean);
+  const zeigerAuf = [];
+  rows.forEach((z, i) => {
+    const ziele = teile(z.werte[2]).map(t => {
+      let best = -1, bw = UML_SCHWELLE;
+      namen.forEach((n, j) => { const w = umlAehnlich(t, n); if (w >= bw){ bw = w; best = j; } });
+      if (best === -1){
+        fehler.push("Zeile " + (i + 1) + ": der Nachfolger <b>" + umlEsc(t) + "</b> steht in keiner Zeile.");
+        mark(z.idx, 2);
+      }
+      return best;
+    }).filter(x => x >= 0);
+    zeigerAuf.push(ziele);
+  });
+
+  const typen = rows.map(z => z.werte[1]);
+  const zaehl = t => typen.filter(x => x === t).length;
+  if (zaehl("start") !== 1)
+    fehler.push(zaehl("start") ? "Ein Aktivitätsdiagramm hat genau <b>einen</b> Startknoten — hier sind es " + zaehl("start") + "."
+                               : "Der <b>Startknoten</b> (ausgefüllter Kreis) fehlt.");
+  if (!zaehl("ende")) fehler.push("Der <b>Endknoten</b> (Kreis mit Ring) fehlt.");
+  rows.forEach((z, i) => {
+    const t = typen[i], n = zeigerAuf[i].length, bed = teile(z.werte[3]);
+    if (!t){ fehler.push("Zeile " + (i + 1) + ": kein Typ gewählt."); mark(z.idx, 1); return; }
+    if (t === "ende" && n){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b> ist ein Endknoten und darf keinen Nachfolger haben."); mark(z.idx, 2); }
+    if (t !== "ende" && !n){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b> hat keinen Nachfolger — nur der Endknoten darf ins Leere laufen."); mark(z.idx, 2); }
+    if ((t === "start" || t === "aktion" || t === "join") && n > 1){
+      fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: aus " + UML_TYP_LABEL[t] +
+                  " führt genau eine Kante heraus. Mehrere Wege gehen nur über Entscheidung oder Parallelisierung."); mark(z.idx, 2);
+    }
+    if (t === "entscheidung"){
+      if (n < 2){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: eine Entscheidung braucht mindestens zwei Nachfolger."); mark(z.idx, 2); }
+      if (bed.length !== n){
+        fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: zu jedem Nachfolger gehört eine Bedingung — " +
+                    bed.length + " Bedingung(en) auf " + n + " Nachfolger."); mark(z.idx, 3);
+      } else if (new Set(bed.map(umlNorm)).size !== bed.length){
+        fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: die Bedingungen müssen sich unterscheiden."); mark(z.idx, 3);
+      }
+    }
+    if (t === "fork" && n < 2){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: eine Parallelisierung teilt in mindestens zwei Stränge."); mark(z.idx, 2); }
+    if (t !== "entscheidung" && bed.length){
+      fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: Bedingungen stehen nur an den Kanten einer Entscheidung."); mark(z.idx, 3);
+    }
+  });
+  const eingehend = rows.map(() => 0);
+  zeigerAuf.forEach(ziele => ziele.forEach(j => eingehend[j]++));
+  rows.forEach((z, i) => {
+    if (typen[i] === "join" && eingehend[i] < 2){
+      fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: eine Synchronisation führt mindestens zwei Stränge zusammen."); mark(z.idx, 0);
+    }
+    if (typen[i] !== "start" && !eingehend[i]){
+      fehler.push("<b>" + umlEsc(z.werte[0]) + "</b> ist von keinem Knoten aus erreichbar."); mark(z.idx, 0);
+    }
+  });
+  const startIdx = typen.indexOf("start");
+  if (startIdx >= 0){
+    const gesehen = new Set([startIdx]), stapel = [startIdx];
+    while (stapel.length){ const i = stapel.pop();
+      zeigerAuf[i].forEach(j => { if (!gesehen.has(j)){ gesehen.add(j); stapel.push(j); } }); }
+    const weg = rows.length - gesehen.size;
+    if (weg > 0) fehler.push(weg + " Knoten hängen nicht am Startknoten — jeder Weg beginnt am Start.");
+  }
+
+  /* --- Inhalt gegen die gewürfelte Lösung --- */
+  const sollK = soll.knoten;
+  const z = umlZuordnen(sollK.map(k => k.name), namen);
+  const fehlt = z.sollZuEin.filter(x => x === -1).length;
+  const zuviel = z.einZuSoll.filter(x => x === -1).length;
+  if (fehlt) fehler.push("Es " + (fehlt === 1 ? "fehlt noch <b>1 Knoten</b>" : "fehlen noch <b>" + fehlt + " Knoten</b>") + " aus dem Text.");
+  if (zuviel){
+    z.einZuSoll.forEach((s, j) => { if (s === -1) mark(rows[j].idx, 0); });
+    fehler.push(zuviel + " Knoten kommen im Text so nicht vor (rot markiert).");
+  }
+
+  let typFalsch = 0, kantenFalsch = 0;
+  z.sollZuEin.forEach((j, i) => {
+    if (j === -1) return;
+    const sk = sollK[i];
+    if (typen[j] && typen[j] !== sk.typ){ typFalsch++; mark(rows[j].idx, 1); }
+    const sollZiele = new Set(sk.aus.map(e => sollK.findIndex(x => x.id === e.ziel)).filter(x => x >= 0));
+    const istZiele = new Set(zeigerAuf[j].map(k => z.einZuSoll[k]).filter(x => x >= 0));
+    const gleich = sollZiele.size === istZiele.size && [...sollZiele].every(x => istZiele.has(x));
+    if (!gleich && zeigerAuf[j].length === istZiele.size){ kantenFalsch++; mark(rows[j].idx, 2); }
+  });
+  if (typFalsch) fehler.push("Bei " + typFalsch + " Knoten passt der <b>Typ</b> nicht zum Ablauf im Text (rot markiert).");
+  if (kantenFalsch) fehler.push("Bei " + kantenFalsch + " Knoten stimmen die <b>Nachfolger</b> nicht mit dem Text überein (rot markiert).");
+
+  if (!fehlt && !zuviel) gut.push("Alle Schritte aus dem Text sind vorhanden, keine erfunden.");
+  if (!typFalsch && !fehlt) gut.push("Start, Ende, Entscheidung und Parallelisierung sitzen an der richtigen Stelle.");
+  if (!kantenFalsch && !fehlt) gut.push("Die Reihenfolge der Kanten stimmt.");
+  return {ok: !fehler.length, fehler, gut, marken};
+}
+
+/* ------------------------------------------------------------------ Klassen */
+
+const UML_KL_SZENARIEN = [
+  { key:"fuhrpark", titel:"Fuhrparkverwaltung",
+    einleitung:"Eine Spedition verwaltet ihren Fuhrpark mit einer neuen Anwendung.",
+    klassen:[
+      {n:"Fahrzeug", a:["kennzeichen","baujahr","kilometerstand*"], m:["wartungFaellig()"]},
+      {n:"PKW", erbt:"Fahrzeug", a:["sitzplaetze"], m:[]},
+      {n:"LKW", erbt:"Fahrzeug", a:["zuladung"], m:["zuladungPruefen()"]},
+      {n:"Fahrer", a:["personalnummer","name"], m:[], opt:true}],
+    assoz:[{v:"Fahrer", b:"faehrt", z:"Fahrzeug", m:"1:n",
+            s:"Ein Fahrer fährt mehrere Fahrzeuge, ein Fahrzeug wird von genau einem Fahrer gefahren."}] },
+
+  { key:"bibliothek", titel:"Bibliotheksverwaltung",
+    einleitung:"Eine Stadtbibliothek verwaltet ihren Bestand und die Ausleihen.",
+    klassen:[
+      {n:"Medium", a:["signatur","titel","erscheinungsjahr*"], m:["istVerfuegbar()"]},
+      {n:"Buch", erbt:"Medium", a:["isbn","seitenzahl*"], m:[]},
+      {n:"DVD", erbt:"Medium", a:["laufzeit"], m:[], opt:true},
+      {n:"Leser", a:["lesernummer","name"], m:[]},
+      {n:"Ausleihe", a:["ausleihdatum","rueckgabedatum"], m:["verlaengern()"]}],
+    assoz:[{v:"Leser", b:"taetigt", z:"Ausleihe", m:"1:n",
+            s:"Ein Leser tätigt mehrere Ausleihen, eine Ausleihe gehört zu genau einem Leser."},
+           {v:"Ausleihe", b:"betrifft", z:"Medium", m:"n:1",
+            s:"Jede Ausleihe betrifft genau ein Medium, ein Medium kann nacheinander mehrfach ausgeliehen werden."}] },
+
+  { key:"schulung", titel:"Schulungsverwaltung",
+    einleitung:"Ein Bildungsträger verwaltet Kurse, Dozenten und Teilnehmer.",
+    klassen:[
+      {n:"Person", a:["personalnummer","name","email*"], m:[]},
+      {n:"Teilnehmer", erbt:"Person", a:["firma"], m:[]},
+      {n:"Dozent", erbt:"Person", a:["honorar"], m:["verfuegbarkeitPruefen()"]},
+      {n:"Kurs", a:["kursnummer","thema","dauer*"], m:["platzFrei()"]}],
+    assoz:[{v:"Dozent", b:"leitet", z:"Kurs", m:"1:n",
+            s:"Ein Dozent leitet mehrere Kurse, ein Kurs wird von genau einem Dozenten geleitet."},
+           {v:"Teilnehmer", b:"bucht", z:"Kurs", m:"n:m",
+            s:"Ein Teilnehmer bucht mehrere Kurse, und ein Kurs hat mehrere Teilnehmer."}] },
+
+  { key:"lager", titel:"Lager und Beschaffung",
+    einleitung:"Ein Handelsbetrieb bildet Artikel, Lieferanten und Bestellungen ab.",
+    klassen:[
+      {n:"Artikel", a:["artikelnummer","bezeichnung","bestand*"], m:["bestandPruefen()"]},
+      {n:"Lieferant", a:["lieferantennummer","name"], m:[]},
+      {n:"Bestellung", a:["bestellnummer","bestelldatum"], m:["summeBerechnen()"]},
+      {n:"Lagerplatz", a:["platznummer","regal"], m:[], opt:true}],
+    assoz:[{v:"Lieferant", b:"liefert", z:"Artikel", m:"1:n",
+            s:"Ein Lieferant liefert mehrere Artikel, ein Artikel kommt von genau einem Lieferanten."},
+           {v:"Bestellung", b:"enthaelt", z:"Artikel", m:"n:m",
+            s:"Eine Bestellung enthält mehrere Artikel, und ein Artikel steht in mehreren Bestellungen."}] },
+
+  { key:"ticketsystem", titel:"Ticketsystem im Support",
+    einleitung:"Der IT-Support dokumentiert Tickets und die dazu geleisteten Tätigkeiten.",
+    klassen:[
+      {n:"Mitarbeiter", a:["personalnummer","name","abteilung*"], m:[]},
+      {n:"Ticket", a:["ticketnummer","betreff","status"], m:["schliessen()"]},
+      {n:"Taetigkeit", a:["beschreibung","start","ende"], m:["dauerBerechnen()"]}],
+    assoz:[{v:"Ticket", b:"umfasst", z:"Taetigkeit", m:"1:n",
+            s:"Zu einem Ticket gehören mehrere Tätigkeiten, eine Tätigkeit gehört zu genau einem Ticket."},
+           {v:"Mitarbeiter", b:"fuehrtAus", z:"Taetigkeit", m:"1:n",
+            s:"Ein Mitarbeiter führt mehrere Tätigkeiten aus, eine Tätigkeit wird von genau einem Mitarbeiter ausgeführt."}] },
+
+  { key:"versicherung", titel:"Schadensregulierung",
+    einleitung:"Eine Versicherung reguliert Schäden an unterschiedlichen Versicherungsobjekten.",
+    klassen:[
+      {n:"Versicherungsobjekt", a:["neupreis","baujahr","schadenshoehe"], m:["auszahlen()"]},
+      {n:"KFZ", erbt:"Versicherungsobjekt", a:["hersteller","laufleistung*"], m:["restwertBerechnen()"]},
+      {n:"Immobilie", erbt:"Versicherungsobjekt", a:["wohnflaeche","lagebewertung"], m:["restwertBerechnen()"]},
+      {n:"Kunde", a:["kundennummer","name"], m:[], opt:true}],
+    assoz:[{v:"Kunde", b:"versichert", z:"Versicherungsobjekt", m:"1:n",
+            s:"Ein Kunde versichert mehrere Objekte, ein Objekt gehört zu genau einem Kunden."}] },
+];
+
+function umlKlasseWuerfeln(sz){
+  sz = sz || umlZufall(UML_KL_SZENARIEN);
+  const weg = new Set();
+  sz.klassen.forEach(k => { if (k.opt && umlMuenze(.45)) weg.add(k.n); });
+  const klassen = sz.klassen.filter(k => !weg.has(k.n) && !weg.has(k.erbt)).map(k => ({
+    n: k.n, erbt: k.erbt || null, m: k.m.slice(),
+    /* mit * markierte Attribute dürfen entfallen */
+    a: k.a.filter(x => !(x.endsWith("*") && umlMuenze(.4))).map(x => x.replace(/\*$/, ""))
+  }));
+  const namen = new Set(klassen.map(k => k.n));
+  const assoz = sz.assoz.filter(a => namen.has(a.v) && namen.has(a.z))
+                        .map(a => ({v:a.v, b:a.b, z:a.z, m:a.m, s:a.s}));
+
+  const satz = [sz.einleitung];
+  klassen.filter(k => !k.erbt).forEach(k => {
+    satz.push("Zu jedem Objekt der Klasse " + k.n + " werden " + umlAufzaehlen(k.a) + " gespeichert." +
+      (k.m.length ? " Die Klasse bietet " + (k.m.length > 1 ? "die Methoden " : "die Methode ") + umlAufzaehlen(k.m) + "." : ""));
+  });
+  klassen.filter(k => k.erbt).forEach(k => {
+    satz.push(k.n + " ist eine besondere Art von " + k.erbt + " und hat zusätzlich " + umlAufzaehlen(k.a) + "." +
+      (k.m.length ? " Dazu kommt " + (k.m.length > 1 ? "die Methoden " : "die Methode ") + umlAufzaehlen(k.m) + "." : ""));
+  });
+  assoz.forEach(a => satz.push(a.s));
+
+  return {
+    art:"klasse", key: sz.key,
+    titel:"UML-Klassendiagramm — " + sz.titel,
+    text: satz.join(" "),
+    aufgabe:"Erstellen Sie das UML-Klassendiagramm: Klassen mit Attributen und Methoden in die obere " +
+            "Tabelle, Assoziationen mit Multiplizitäten (z. B. 1:n) in die untere. " +
+            "Eine Vererbung tragen Sie in der Spalte «erbt von» ein, nicht als Assoziation.",
+    klassen, assoz
+  };
+}
+function umlAufzaehlen(a){
+  if (!a.length) return "";
+  if (a.length === 1) return a[0];
+  return a.slice(0, -1).join(", ") + " und " + a[a.length - 1];
+}
+
+function umlKlasseText(soll){
+  const zeilen = soll.klassen.map(k => k.n + (k.erbt ? " (erbt von " + k.erbt + ")" : "") + ":\n" +
+    "    Attribute: " + (k.a.join(", ") || "—") + "\n" +
+    "    Methoden:  " + (k.m.join(", ") || "—"));
+  soll.assoz.forEach(a => zeilen.push(a.v + " " + umlMultSeite(a.m, 0) + " —" + a.b + "— " +
+                                      umlMultSeite(a.m, 1) + " " + a.z));
+  return zeilen.join("\n");
+}
+function umlMultSeite(m, i){ return String(m).split(":")[i]; }
+
+function umlSeiteNorm(x){
+  x = String(x || "").trim().toLowerCase();
+  if (/^(n|m|\*|0\.\.\*|1\.\.\*|0\.\.n|1\.\.n|viele|mehrere)$/.test(x)) return "n";
+  if (/^(1|0\.\.1|1\.\.1|genau1)$/.test(x)) return "1";
+  if (/^\d+$/.test(x)) return "1";
+  return null;
+}
+function umlMultNorm(s){
+  const t = String(s || "").replace(/\s/g, "").toLowerCase();
+  const p = t.split(/[:\-–—]|zu/).filter(Boolean);
+  if (p.length !== 2) return null;
+  const a = umlSeiteNorm(p[0]), b = umlSeiteNorm(p[1]);
+  return (a && b) ? a + ":" + b : null;
+}
+
+/* eingabe: {klassen:[{werte:[klasse,attribute,methoden,erbt], idx}], assoz:[{werte:[von,bez,nach,mult], idx}]} */
+function umlPruefeKlasse(soll, eingabe){
+  const fehler = [], gut = [], marken = {klassen:[], assoz:[]};
+  const mk = (i, sp) => marken.klassen.push([i, sp]);
+  const ma = (i, sp) => marken.assoz.push([i, sp]);
+  const kl = eingabe.klassen.filter(z => z.werte.some(w => String(w).trim()));
+  const az = eingabe.assoz.filter(z => z.werte.some(w => String(w).trim()));
+  kl.forEach(z => z.werte = z.werte.map(w => String(w).trim()));
+  az.forEach(z => z.werte = z.werte.map(w => String(w).trim()));
+  if (!kl.length) return {ok:false, fehler:["Noch keine Klasse eingetragen."], gut, marken};
+
+  const namen = kl.map(z => z.werte[0]);
+  const liste = s => String(s || "").split(/[,;\n]/).map(x => x.trim()).filter(Boolean);
+
+  /* --- Struktur --- */
+  if (kl.length < 2) fehler.push("Ein Klassendiagramm zeigt mindestens zwei Klassen und ihre Beziehung.");
+  kl.forEach((z, i) => {
+    if (!z.werte[0]){ fehler.push("Zeile " + (i + 1) + ": kein Klassenname."); mk(z.idx, 0); }
+    if (!z.werte[1] && !z.werte[2]){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: weder Attribute noch Methoden."); mk(z.idx, 1); }
+    liste(z.werte[2]).forEach(m => {
+      if (!/\(\s*\)/.test(m)){
+        fehler.push("<b>" + umlEsc(z.werte[0]) + "</b>: Methoden werden mit Klammern geschrieben — <b>" + umlEsc(m) + "()</b>."); mk(z.idx, 2);
+      }
+    });
+    const e = z.werte[3];
+    if (e){
+      const idx = namen.findIndex(n => umlAehnlich(n, e) >= UML_SCHWELLE);
+      if (idx === -1){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b> erbt von <b>" + umlEsc(e) + "</b> — diese Klasse steht nicht in der Tabelle."); mk(z.idx, 3); }
+      else if (idx === i){ fehler.push("<b>" + umlEsc(z.werte[0]) + "</b> kann nicht von sich selbst erben."); mk(z.idx, 3); }
+    }
+  });
+  az.forEach((z, i) => {
+    [0, 2].forEach(sp => {
+      const n = z.werte[sp];
+      if (!n){ fehler.push("Assoziation " + (i + 1) + ": Klasse fehlt."); ma(z.idx, sp); }
+      else if (!namen.some(x => umlAehnlich(x, n) >= UML_SCHWELLE)){
+        fehler.push("Assoziation zu <b>" + umlEsc(n) + "</b> — diese Klasse steht nicht in der Klassentabelle."); ma(z.idx, sp);
+      }
+    });
+    if (!umlMultNorm(z.werte[3])){
+      fehler.push("Assoziation " + (i + 1) + ": Multiplizität fehlt oder ist unklar — erwartet wird z. B. <b>1:n</b> oder <b>1..*</b>."); ma(z.idx, 3);
+    }
+  });
+  if (kl.length > 1 && !az.length && !kl.some(z => z.werte[3]))
+    fehler.push("Keine einzige Beziehung: ohne Assoziation oder Vererbung sind das lose Kästchen, kein Klassendiagramm.");
+
+  /* --- Inhalt gegen die gewürfelte Lösung --- */
+  const zu = umlZuordnen(soll.klassen.map(k => k.n), namen);
+  const fehlt = zu.sollZuEin.filter(x => x === -1).length;
+  const zuviel = zu.einZuSoll.filter(x => x === -1).length;
+  if (fehlt) fehler.push("Es " + (fehlt === 1 ? "fehlt noch <b>1 Klasse</b>" : "fehlen noch <b>" + fehlt + " Klassen</b>") + " aus dem Text.");
+  if (zuviel){
+    zu.einZuSoll.forEach((s, j) => { if (s === -1) mk(kl[j].idx, 0); });
+    fehler.push(zuviel + " Klassen kommen im Text so nicht vor (rot markiert).");
+  }
+
+  let attrFehlt = 0, methFehlt = 0, erbtFalsch = 0;
+  zu.sollZuEin.forEach((j, i) => {
+    if (j === -1) return;
+    const sk = soll.klassen[i], z = kl[j];
+    const habenA = liste(z.werte[1]);
+    const offenA = sk.a.filter(a => !habenA.some(h => umlAehnlich(h, a) >= UML_SCHWELLE));
+    if (offenA.length){ attrFehlt += offenA.length; mk(z.idx, 1); }
+    const habenM = liste(z.werte[2]);
+    const offenM = sk.m.filter(m => !habenM.some(h => umlAehnlich(h, m) >= UML_SCHWELLE));
+    if (offenM.length){ methFehlt += offenM.length; mk(z.idx, 2); }
+    const sollErbt = sk.erbt ? sk.erbt : "";
+    const istErbt = z.werte[3] || "";
+    const passt = sollErbt ? umlAehnlich(sollErbt, istErbt) >= UML_SCHWELLE : !istErbt;
+    if (!passt){ erbtFalsch++; mk(z.idx, 3); }
+  });
+  if (attrFehlt) fehler.push(attrFehlt + " Attribut(e) aus dem Text fehlen noch (betroffene Zeilen rot).");
+  if (methFehlt) fehler.push(methFehlt + " Methode(n) aus dem Text fehlen noch (betroffene Zeilen rot).");
+  if (erbtFalsch) fehler.push("Bei " + erbtFalsch + " Klasse(n) stimmt die <b>Vererbung</b> nicht mit dem Text überein.");
+
+  const gefunden = new Set();
+  let multFalsch = 0;
+  soll.assoz.forEach(a => {
+    let treffer = -1, gedreht = false;
+    az.forEach((z, j) => {
+      if (gefunden.has(j) || treffer >= 0) return;
+      const hin = umlAehnlich(a.v, z.werte[0]) >= UML_SCHWELLE && umlAehnlich(a.z, z.werte[2]) >= UML_SCHWELLE;
+      const rueck = umlAehnlich(a.v, z.werte[2]) >= UML_SCHWELLE && umlAehnlich(a.z, z.werte[0]) >= UML_SCHWELLE;
+      if (hin || rueck){ treffer = j; gedreht = !hin; }
+    });
+    if (treffer === -1) return;
+    gefunden.add(treffer);
+    const ist = umlMultNorm(az[treffer].werte[3]);
+    const sollM = gedreht ? umlMultNorm(a.m).split(":").reverse().join(":") : umlMultNorm(a.m);
+    if (ist && ist !== sollM){ multFalsch++; ma(az[treffer].idx, 3); }
+  });
+  const assozFehlt = soll.assoz.length - gefunden.size;
+  if (assozFehlt > 0) fehler.push("Es fehlen noch " + assozFehlt + " Assoziation(en) aus dem Text.");
+  if (multFalsch) fehler.push("Bei " + multFalsch + " Assoziation(en) passt die <b>Multiplizität</b> nicht zum Text (rot markiert).");
+
+  if (!fehlt && !zuviel) gut.push("Alle Klassen aus dem Text sind da, keine erfunden.");
+  if (!attrFehlt && !methFehlt && !fehlt) gut.push("Attribute und Methoden sind vollständig.");
+  if (!erbtFalsch && !fehlt) gut.push("Die Vererbung sitzt richtig.");
+  if (assozFehlt <= 0 && !multFalsch && soll.assoz.length) gut.push("Assoziationen und Multiplizitäten stimmen.");
+  return {ok: !fehler.length, fehler, gut, marken};
+}
+
+/* ------------------------------------------------------- Zeichnen (SVG) */
+
+function umlUmbruch(text, maxZeichen){
+  const w = String(text).split(" "), zeilen = [];
+  let z = "";
+  w.forEach(x => {
+    if (!z) z = x;
+    else if ((z + " " + x).length <= maxZeichen) z += " " + x;
+    else { zeilen.push(z); z = x; }
+  });
+  if (z) zeilen.push(z);
+  return zeilen.slice(0, 3);
+}
+function umlTextEl(x, y, zeilen, opt){
+  const o = opt || {};
+  const dy = 14;
+  const start = y - ((zeilen.length - 1) * dy) / 2 + 4;
+  return zeilen.map((z, i) =>
+    '<text x="' + x + '" y="' + (start + i * dy) + '" text-anchor="' + (o.anchor || "middle") +
+    '" font-size="' + (o.size || 13) + '" font-family="' + (o.font || "var(--body), sans-serif") +
+    '" font-weight="' + (o.weight || "400") + '" fill="currentColor">' + umlEsc(z) + "</text>").join("");
+}
+
+function umlAktMasse(k){
+  if (k.typ === "start") return {w: 24, h: 24};
+  if (k.typ === "ende") return {w: 30, h: 30};
+  if (k.typ === "entscheidung") return {w: Math.max(190, k.name.length * 7 + 40), h: 66};
+  if (k.typ === "fork" || k.typ === "join") return {w: 200, h: 10};
+  const zeilen = umlUmbruch(k.name, 22);
+  return {w: Math.max(150, Math.min(230, Math.max(...zeilen.map(z => z.length)) * 7.4 + 26)),
+          h: zeilen.length > 1 ? 50 : 40};
+}
+
+function umlSvgAkt(soll){
+  const K = soll.knoten, byId = {};
+  K.forEach(k => byId[k.id] = k);
+  const ebene = {}; K.forEach(k => ebene[k.id] = 0);
+  let guard = 0, wieder = true;
+  while (wieder && guard++ < 300){
+    wieder = false;
+    K.forEach(k => k.aus.forEach(e => {
+      if (e.rueck) return;
+      if (ebene[e.ziel] < ebene[k.id] + 1){ ebene[e.ziel] = ebene[k.id] + 1; wieder = true; }
+    }));
+  }
+  const maxE = Math.max(...K.map(k => ebene[k.id]));
+  const reihen = [];
+  for (let e = 0; e <= maxE; e++) reihen.push(K.filter(k => ebene[k.id] === e));
+  const spalte = 250, zeile = 100, rand = 80;
+  const maxBreit = Math.max(...reihen.map(r => r.length));
+  const breite = Math.max(520, maxBreit * spalte + 2 * rand);
+  const hoehe = 60 + maxE * zeile + 60;
+  const mitte = breite / 2;
+  const P = {};
+  reihen.forEach((r, e) => r.forEach((k, i) => {
+    P[k.id] = {x: mitte + (i - (r.length - 1) / 2) * spalte, y: 46 + e * zeile, m: umlAktMasse(k)};
+  }));
+
+  const teile = [];
+  teile.push('<defs><marker id="umlPfeil" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" ' +
+             'markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>' +
+             '<marker id="umlErbt" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="13" markerHeight="13" ' +
+             'orient="auto-start-reverse"><path d="M0 0 L12 6 L0 12 z" fill="var(--card)" stroke="currentColor" ' +
+             'stroke-width="1.4"/></marker></defs>');
+
+  /* Kanten zuerst, damit Knoten darüber liegen */
+  K.forEach(k => {
+    const a = P[k.id];
+    k.aus.forEach(e => {
+      const b = P[e.ziel];
+      const y1 = a.y + a.m.h / 2, y2 = b.y - b.m.h / 2;
+      let d, lx = (a.x + b.x) / 2, ly = y1 + 14;
+      if (e.rueck || ebene[e.ziel] <= ebene[k.id]){
+        /* Ruecksprung aussen herum, und zwar auf der Seite, auf der der Knoten aussen steht */
+        const rechtsRum = a.x >= b.x;
+        const gasse = rechtsRum ? breite - 34 : 34;
+        const xa = a.x + (rechtsRum ? a.m.w / 2 : -a.m.w / 2);
+        const xb = b.x + (rechtsRum ? b.m.w / 2 : -b.m.w / 2);
+        d = "M" + xa + " " + a.y + " H" + gasse + " V" + b.y + " H" + xb;
+        lx = gasse + (rechtsRum ? -26 : 26); ly = (a.y + b.y) / 2 - 6;
+      } else if (Math.abs(a.x - b.x) < 1){
+        d = "M" + a.x + " " + y1 + " V" + y2;
+        lx = a.x + 22; ly = (y1 + y2) / 2;
+      } else {
+        const zw = y1 + 22;
+        d = "M" + a.x + " " + y1 + " V" + zw + " H" + b.x + " V" + y2;
+        ly = zw - 6;
+      }
+      teile.push('<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="1.4" ' +
+                 'marker-end="url(#umlPfeil)"/>');
+      if (e.bed) teile.push('<text x="' + lx + '" y="' + ly + '" text-anchor="middle" font-size="12" ' +
+        'font-family="var(--data), monospace" fill="currentColor">[' + umlEsc(e.bed) + "]</text>");
+    });
+  });
+
+  K.forEach(k => {
+    const p = P[k.id], w = p.m.w, h = p.m.h, x = p.x, y = p.y;
+    if (k.typ === "start"){
+      teile.push('<circle cx="' + x + '" cy="' + y + '" r="11" fill="currentColor"/>');
+      teile.push(umlTextEl(x + 26, y, ["Start"], {anchor:"start", size:12}));
+    } else if (k.typ === "ende"){
+      teile.push('<circle cx="' + x + '" cy="' + y + '" r="14" fill="none" stroke="currentColor" stroke-width="1.6"/>');
+      teile.push('<circle cx="' + x + '" cy="' + y + '" r="8" fill="currentColor"/>');
+      teile.push(umlTextEl(x + 30, y, umlUmbruch(k.name, 22), {anchor:"start", size:12}));
+    } else if (k.typ === "fork" || k.typ === "join"){
+      teile.push('<rect x="' + (x - w / 2) + '" y="' + (y - 4) + '" width="' + w + '" height="8" fill="currentColor"/>');
+      teile.push(umlTextEl(x + w / 2 + 10, y, [k.typ === "fork" ? "Parallelisierung" : "Synchronisation"],
+                           {anchor:"start", size:11.5}));
+    } else if (k.typ === "entscheidung"){
+      const pts = [x + " " + (y - h / 2), (x + w / 2) + " " + y, x + " " + (y + h / 2), (x - w / 2) + " " + y];
+      teile.push('<polygon points="' + pts.join(" ") + '" fill="var(--card)" stroke="currentColor" stroke-width="1.6"/>');
+      teile.push(umlTextEl(x, y, umlUmbruch(k.name, 24), {size:12.5}));
+    } else {
+      teile.push('<rect x="' + (x - w / 2) + '" y="' + (y - h / 2) + '" width="' + w + '" height="' + h +
+                 '" rx="9" fill="var(--card)" stroke="currentColor" stroke-width="1.6"/>');
+      teile.push(umlTextEl(x, y, umlUmbruch(k.name, 22), {size:13}));
+    }
+  });
+
+  return '<svg class="uml-svg" viewBox="0 0 ' + breite + " " + hoehe + '" width="' + breite +
+         '" height="' + hoehe + '" role="img" aria-label="Musterlösung als Aktivitätsdiagramm">' +
+         teile.join("") + "</svg>";
+}
+
+function umlKlasseMasse(k){
+  const zeilen = [k.n].concat(k.a.concat(k.m).map(z => z + "___"));   /* Platz fuer - / + */
+  const w = Math.max(160, Math.min(300, Math.max(...zeilen.map(z => z.length)) * 7.5 + 20));
+  const kopf = 30, aH = Math.max(1, k.a.length) * 17 + 10, mH = Math.max(1, k.m.length) * 17 + 10;
+  return {w, h: kopf + aH + mH, kopf, aH, mH};
+}
+function umlRandPunkt(b, zx, zy){
+  const dx = zx - b.x, dy = zy - b.y;
+  if (!dx && !dy) return {x: b.x, y: b.y};
+  const hw = b.m.w / 2, hh = b.m.h / 2;
+  const sx = dx ? hw / Math.abs(dx) : Infinity, sy = dy ? hh / Math.abs(dy) : Infinity;
+  const s = Math.min(sx, sy);
+  return {x: b.x + dx * s, y: b.y + dy * s};
+}
+
+function umlSvgKlasse(soll){
+  const kl = soll.klassen.map(k => ({...k, m2: umlKlasseMasse(k)}));
+  const oben = kl.filter(k => !k.erbt), unten = kl.filter(k => k.erbt);
+  const luecke = 60;
+  const reihenBreite = r => r.reduce((s, k) => s + k.m2.w, 0) + Math.max(0, r.length - 1) * luecke;
+  const breite = Math.max(560, Math.max(reihenBreite(oben), reihenBreite(unten)) + 140);
+  const obenH = oben.length ? Math.max(...oben.map(k => k.m2.h)) : 0;
+  const untenH = unten.length ? Math.max(...unten.map(k => k.m2.h)) : 0;
+  const gasse = i => 32 + i * 28;                       /* eigene Spur je Assoziation */
+  const yOben = 26 + gasse(Math.max(0, soll.assoz.length - 1));
+  const yUnten = yOben + obenH + 96 + untenH / 2;
+  const hoehe = (unten.length ? yUnten + untenH / 2 : yOben + obenH) + 56;
+  const P = {};
+  const setzen = (r, cy) => {
+    let x = (breite - reihenBreite(r)) / 2;
+    r.forEach(k => { P[k.n] = {x: x + k.m2.w / 2, y: cy, m: {w: k.m2.w, h: k.m2.h}, k}; x += k.m2.w + luecke; });
+  };
+  setzen(oben, yOben + obenH / 2);
+  setzen(unten, yUnten);
+
+  const teile = [];
+  teile.push('<defs><marker id="umlErbtK" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" ' +
+             'markerHeight="14" orient="auto-start-reverse"><path d="M0 0 L12 6 L0 12 z" fill="var(--paper)" ' +
+             'stroke="currentColor" stroke-width="1.3"/></marker></defs>');
+
+  /* Vererbung: Pfeil mit leerer Dreiecksspitze zur Oberklasse */
+  unten.forEach(k => {
+    const a = P[k.n], b = P[k.erbt];
+    if (!a || !b) return;
+    const y1 = a.y - a.m.h / 2, y2 = b.y + b.m.h / 2, zw = (y1 + y2) / 2;
+    teile.push('<path d="M' + a.x + " " + y1 + " V" + zw + " H" + b.x + " V" + y2 +
+               '" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#umlErbtK)"/>');
+  });
+
+  /* Assoziationen */
+  soll.assoz.forEach((as, ai) => {
+    const a = P[as.v], b = P[as.z];
+    if (!a || !b) return;
+    const links  = a.x <= b.x ? a : b, rechts = a.x <= b.x ? b : a;
+    const mLinks  = a.x <= b.x ? umlMultSeite(as.m, 0) : umlMultSeite(as.m, 1);
+    const mRechts = a.x <= b.x ? umlMultSeite(as.m, 1) : umlMultSeite(as.m, 0);
+    if (Math.abs(a.y - b.y) < 2){
+      const roh = (ai - (soll.assoz.length - 1) / 2) * 30;
+      const grenze = Math.min(links.m.w, rechts.m.w) / 2 - 16;
+      const ox = Math.max(-grenze, Math.min(grenze, roh));
+      const xL = links.x + ox, xR = rechts.x + ox;
+      const yL = links.y - links.m.h / 2, yR = rechts.y - rechts.m.h / 2;
+      const oy = Math.min(yL, yR) - gasse(ai);
+      teile.push('<path d="M' + xL + " " + yL + " V" + oy + " H" + xR + " V" + yR +
+                 '" fill="none" stroke="currentColor" stroke-width="1.3"/>');
+      teile.push(umlTextEl((xL + xR) / 2, oy - 8, [as.b], {size:12, font:"var(--data), monospace"}));
+      teile.push(umlTextEl(xL + 10, yL - 9, [mLinks], {anchor:"start", size:12, font:"var(--data), monospace"}));
+      teile.push(umlTextEl(xR - 10, yR - 9, [mRechts], {anchor:"end", size:12, font:"var(--data), monospace"}));
+    } else {
+      /* verschiedene Reihen: unten heraus, aussen hoch, von unten in den oberen Kasten */
+      const tief = a.y > b.y ? a : b, hoch = a.y > b.y ? b : a;
+      const mTief = a.y > b.y ? umlMultSeite(as.m, 0) : umlMultSeite(as.m, 1);
+      const mHoch = a.y > b.y ? umlMultSeite(as.m, 1) : umlMultSeite(as.m, 0);
+      const rechtsRum = tief.x > breite / 2;
+      const spur = rechtsRum ? breite - 22 - ai * 26 : 22 + ai * 26;
+      const xT = tief.x + (rechtsRum ? tief.m.w / 4 : -tief.m.w / 4);
+      const xH = hoch.x + (rechtsRum ? hoch.m.w / 4 : -hoch.m.w / 4);
+      const yT = tief.y + tief.m.h / 2, unterQuer = yT + 28;
+      const yH = hoch.y + hoch.m.h / 2, oberQuer = yH + 30;
+      teile.push('<path d="M' + xT + " " + yT + " V" + unterQuer + " H" + spur + " V" + oberQuer +
+                 " H" + xH + " V" + yH + '" fill="none" stroke="currentColor" stroke-width="1.3"/>');
+      teile.push(umlTextEl(spur + (rechtsRum ? -10 : 10), oberQuer + 26 + ai * 18, [as.b],
+                           {anchor: rechtsRum ? "end" : "start", size:12, font:"var(--data), monospace"}));
+      teile.push(umlTextEl(xT + 12, yT + 16, [mTief], {anchor:"start", size:12, font:"var(--data), monospace"}));
+      teile.push(umlTextEl(xH + 12, yH + 16, [mHoch], {anchor:"start", size:12, font:"var(--data), monospace"}));
+    }
+  });
+
+  /* Kästen mit drei Feldern */
+  kl.forEach(k => {
+    const p = P[k.n]; if (!p) return;
+    const x = p.x - p.m.w / 2, y = p.y - p.m.h / 2, w = p.m.w, mm = k.m2;
+    teile.push('<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + p.m.h +
+               '" fill="var(--card)" stroke="currentColor" stroke-width="1.6"/>');
+    teile.push('<line x1="' + x + '" y1="' + (y + mm.kopf) + '" x2="' + (x + w) + '" y2="' + (y + mm.kopf) +
+               '" stroke="currentColor" stroke-width="1.2"/>');
+    teile.push('<line x1="' + x + '" y1="' + (y + mm.kopf + mm.aH) + '" x2="' + (x + w) + '" y2="' +
+               (y + mm.kopf + mm.aH) + '" stroke="currentColor" stroke-width="1.2"/>');
+    teile.push('<text x="' + p.x + '" y="' + (y + 20) + '" text-anchor="middle" font-size="13.5" ' +
+               'font-weight="700" font-family="var(--body), sans-serif" fill="currentColor">' + umlEsc(k.n) + "</text>");
+    (k.a.length ? k.a : ["—"]).forEach((a, i) =>
+      teile.push('<text x="' + (x + 11) + '" y="' + (y + mm.kopf + 19 + i * 17) + '" font-size="12.5" ' +
+                 'font-family="var(--data), monospace" fill="currentColor">- ' + umlEsc(a) + "</text>"));
+    (k.m.length ? k.m : ["—"]).forEach((m, i) =>
+      teile.push('<text x="' + (x + 11) + '" y="' + (y + mm.kopf + mm.aH + 19 + i * 17) + '" font-size="12.5" ' +
+                 'font-family="var(--data), monospace" fill="currentColor">+ ' + umlEsc(m) + "</text>"));
+  });
+
+  return '<svg class="uml-svg" viewBox="0 0 ' + breite + " " + hoehe + '" width="' + breite +
+         '" height="' + hoehe + '" role="img" aria-label="Musterlösung als Klassendiagramm">' +
+         teile.join("") + "</svg>";
+}
+
+/* ------------------------------------------------------- Bedienung (DOM) */
+
+let UML = null;
+
+const UML_SPALTEN = {
+  aktivitaet: [{ key:"knoten", label:"Knoten", spalten:[
+      {l:"Knoten (Bezeichnung)", art:"text"},
+      {l:"Typ", art:"select", optionen:[["","— wählen —"], ["start","Start"], ["aktion","Aktion"],
+        ["entscheidung","Entscheidung"], ["fork","Parallelisierung"], ["join","Synchronisation"], ["ende","Ende"]]},
+      {l:"Nachfolger (Komma-getrennt)", art:"text"},
+      {l:"Bedingung(en), gleiche Reihenfolge", art:"text"}], zeilen:8 }],
+  klasse: [
+    { key:"klassen", label:"Klassen", spalten:[
+      {l:"Klasse", art:"text"}, {l:"Attribute (Komma-getrennt)", art:"text"},
+      {l:"Methoden mit ()", art:"text"}, {l:"erbt von", art:"text"}], zeilen:5 },
+    { key:"assoz", label:"Assoziationen", spalten:[
+      {l:"von", art:"text"}, {l:"Bezeichnung", art:"text"}, {l:"nach", art:"text"},
+      {l:"Multiplizität (z. B. 1:n)", art:"text"}], zeilen:3 }]
+};
+
+function umlTabelle(def){
+  const wrap = document.createElement("div"); wrap.className = "modell-block";
+  const h = document.createElement("span"); h.className = "eyebrow"; h.textContent = def.label;
+  const tab = document.createElement("table"); tab.className = "modell";
+  tab.dataset.block = def.key;
+  tab.innerHTML = "<thead><tr>" + def.spalten.map(c => "<th>" + esc(c.l) + "</th>").join("") +
+                  "<th></th></tr></thead>";
+  const tb = document.createElement("tbody"); tab.appendChild(tb);
+  const zeile = () => {
+    const tr = document.createElement("tr");
+    def.spalten.forEach(c => {
+      const td = document.createElement("td");
+      let el;
+      if (c.art === "select"){
+        el = document.createElement("select");
+        c.optionen.forEach(([v, t]) => {
+          const o = document.createElement("option"); o.value = v; o.textContent = t; el.appendChild(o);
+        });
+      } else {
+        el = document.createElement("input"); el.type = "text";
+      }
+      el.setAttribute("aria-label", c.l);
+      td.appendChild(el); tr.appendChild(td);
+    });
+    const tdX = document.createElement("td"); tdX.className = "weg-btn";
+    const x = document.createElement("button");
+    x.className = "btn ghost klein"; x.textContent = "×"; x.title = "Zeile entfernen";
+    x.onclick = () => tr.remove();
+    tdX.appendChild(x); tr.appendChild(tdX);
+    return tr;
+  };
+  for (let i = 0; i < def.zeilen; i++) tb.appendChild(zeile());
+  const plus = document.createElement("button");
+  plus.className = "btn ghost klein"; plus.textContent = "+ Zeile";
+  plus.style.marginTop = "8px";
+  plus.onclick = () => tb.appendChild(zeile());
+  wrap.append(h, tab, plus);
+  return wrap;
+}
+function umlBlockLesen(key){
+  const tab = document.querySelector('#umlBauen table.modell[data-block="' + key + '"]');
+  const zeilen = [];
+  if (!tab) return zeilen;
+  [...tab.querySelectorAll("tbody tr")].forEach((tr, i) => {
+    const werte = [...tr.querySelectorAll("input,select")].map(e => e.value.trim());
+    zeilen.push({idx: i, werte});
+  });
+  return zeilen;
+}
+function umlMarkieren(key, marken){
+  const tab = document.querySelector('#umlBauen table.modell[data-block="' + key + '"]');
+  if (!tab) return;
+  const trs = [...tab.querySelectorAll("tbody tr")];
+  marken.forEach(([i, sp]) => {
+    const tr = trs[i]; if (!tr) return;
+    const el = [...tr.querySelectorAll("input,select")][sp];
+    if (el) el.classList.add("warn");
+  });
+}
+
+function umlNeu(art){
+  UML = (art === "klasse") ? umlKlasseWuerfeln() : umlAktWuerfeln();
+  $("umlTitel").textContent = UML.titel;
+  $("umlText").textContent = UML.text;
+  $("umlAufgabe").textContent = UML.aufgabe;
+  $("umlErgebnis").innerHTML = "";
+  $("umlLoesungBox").hidden = true;
+  $("umlLoesungBox").open = false;
+  $("umlHinweis").innerHTML = (UML.art === "aktivitaet")
+    ? "Notation: <b>Start</b> ausgefüllter Kreis · <b>Aktion</b> abgerundetes Rechteck · " +
+      "<b>Entscheidung</b> Raute, jede ausgehende Kante mit Bedingung in eckigen Klammern · " +
+      "<b>Parallelisierung/Synchronisation</b> dicker Balken (was der Fork teilt, führt der Join wieder zusammen) · " +
+      "<b>Ende</b> Kreis mit Ring. Aus Aktion und Start führt genau <i>eine</i> Kante heraus."
+    : "Notation: Kasten mit drei Feldern — Name, Attribute, Methoden mit <b>()</b>. " +
+      "<b>Vererbung</b> ist ein Pfeil mit leerer Dreiecksspitze zur Oberklasse (Spalte «erbt von»), " +
+      "keine Assoziation. An jedes Ende einer Assoziation gehört eine <b>Multiplizität</b> (1, n, 1..*).";
+  const box = $("umlBauen"); box.innerHTML = "";
+  UML_SPALTEN[UML.art].forEach(d => box.appendChild(umlTabelle(d)));
+  schirm("scUml");
+}
+
+$("btnUmlPruefen").addEventListener("click", () => {
+  if (!UML) return;
+  document.querySelectorAll("#umlBauen input,#umlBauen select").forEach(e => e.classList.remove("warn"));
+  let r;
+  if (UML.art === "aktivitaet"){
+    r = umlPruefeAkt(UML, umlBlockLesen("knoten"));
+    umlMarkieren("knoten", r.marken);
+  } else {
+    r = umlPruefeKlasse(UML, {klassen: umlBlockLesen("klassen"), assoz: umlBlockLesen("assoz")});
+    umlMarkieren("klassen", r.marken.klassen);
+    umlMarkieren("assoz", r.marken.assoz);
+  }
+  const box = $("umlErgebnis"); box.innerHTML = "";
+  const liste = document.createElement("div"); liste.className = "modell-hinweise";
+  const gut = r.gut.map(g => '<span class="ok">✓</span> ' + g).join("<br>");
+  liste.innerHTML = r.ok
+    ? '<span class="ok">✓ Das passt zum Text — sowohl die Notation als auch der Inhalt.</span>' +
+      (gut ? "<br>" + gut : "")
+    : r.fehler.map(f => '<span class="fehlt">·</span> ' + f).join("<br>") + (gut ? "<br>" + gut : "");
+  box.appendChild(liste);
+});
+
+$("btnUmlLoesung").addEventListener("click", () => {
+  if (!UML) return;
+  $("umlLoesungSvg").innerHTML = (UML.art === "aktivitaet") ? umlSvgAkt(UML) : umlSvgKlasse(UML);
+  $("umlLoesungTxt").textContent = (UML.art === "aktivitaet") ? umlAktText(UML) : umlKlasseText(UML);
+  $("umlLoesungBox").hidden = false;
+  $("umlLoesungBox").open = true;
+});
+$("btnUmlNeu").addEventListener("click", () => umlNeu(UML ? UML.art : "aktivitaet"));
+$("btnUmlZurueck").addEventListener("click", () => { renderStart(); schirm("scStart"); });
+$("btnAktivitaet").addEventListener("click", () => umlNeu("aktivitaet"));
+$("btnKlassen").addEventListener("click", () => umlNeu("klasse"));
+
+/* ======================= Karteikarten ======================= */
+let KK = {stapel: [], i: 0, offen: false};
+$("btnKK").addEventListener("click", () => {
+  const typ = $("kkTyp").value;
+  let stapel = CARDS.filter(c => typ === "alle" || c.typ === typ);
+  if ($("kkThemen").checked && GEWAEHLT.size)
+    stapel = stapel.filter(c => (c.topics || []).some(t => GEWAEHLT.has(t)));
+  if (!stapel.length) return toast("Für diese Auswahl gibt es keine Karten.");
+  stapel = stapel.map(c => [Math.random(), c]).sort((a,b) => a[0]-b[0]).map(c => c[1]);
+  KK = {stapel, i: 0, offen: false};
+  zeigeKarte(); schirm("scKK");
+});
+function kkKey(c){ return c.examId + ":" + c.subId + ":" + c.vorne.slice(0, 40); }
+function zeigeKarte(){
+  const c = KK.stapel[KK.i];
+  if (!c){ renderStart(); schirm("scStart"); return; }
+  $("kkVorne").textContent = c.vorne;
+  $("kkHinten").textContent = c.hinten;
+  $("kkHinten").hidden = true;
+  KK.offen = false;
+  const st = KKSTAT[kkKey(c)] || {richtig:0, falsch:0};
+  $("kkQuelle").textContent = c.jahr + " · " + (c.label || "") +
+    (c.topics || []).map(t => " · " + (TLABEL[t] || t)).join("") +
+    (st.richtig + st.falsch ? "   —   " + st.richtig + "× gewusst, " + st.falsch + "× nicht" : "");
+  $("kkZaehler").textContent = (KK.i + 1) + " / " + KK.stapel.length;
+}
+function kkUmdrehen(){ KK.offen = !KK.offen; $("kkHinten").hidden = !KK.offen; }
+$("kkKarte").addEventListener("click", kkUmdrehen);
+$("kkUmdrehen").addEventListener("click", e => { e.stopPropagation(); kkUmdrehen(); });
+function kkWeiter(gewusst){
+  const c = KK.stapel[KK.i];
+  if (c){
+    const k = kkKey(c);
+    const st = KKSTAT[k] || {richtig:0, falsch:0};
+    gewusst ? st.richtig++ : st.falsch++;
+    KKSTAT[k] = st; ls.set(SK.cards, KKSTAT);
+    if (!gewusst) KK.stapel.push(c);
+  }
+  KK.i++;
+  if (KK.i >= KK.stapel.length){ renderStart(); schirm("scStart"); toast("Stapel durch."); return; }
+  zeigeKarte();
+}
+$("kkRichtig").addEventListener("click", e => { e.stopPropagation(); kkWeiter(true); });
+$("kkFalsch").addEventListener("click", e => { e.stopPropagation(); kkWeiter(false); });
+$("kkEnde").addEventListener("click", e => { e.stopPropagation(); renderStart(); schirm("scStart"); });
+
+/* ======================= Export / Import ======================= */
+$("btnExport").addEventListener("click", () => {
+  const daten = {typ:"ihk-ap1-fortschritt", version:2, exportiert:new Date().toISOString(),
+                 answers:ANSWERS, scores:SCORES, timer:TIMERS, attempts:ATTEMPTS, cards:KKSTAT};
+  download("ihk-fortschritt_" + new Date().toISOString().slice(0,10) + ".json",
+           JSON.stringify(daten, null, 2), "application/json");
+  toast("Datei gespeichert — auf dem anderen Gerät importieren.");
+});
+$("btnImport").addEventListener("click", () => $("importDatei").click());
+$("importDatei").addEventListener("change", e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    let d;
+    try { d = JSON.parse(r.result); } catch { return toast("Keine gültige JSON-Datei."); }
+    if (d.typ !== "ihk-ap1-fortschritt") return toast("Das ist keine Fortschrittsdatei.");
+    const zusammen = confirm("OK = zusammenführen (deine bisherigen Antworten bleiben)\n" +
+                             "Abbrechen = alles ersetzen");
+    if (zusammen){
+      ANSWERS = {...(d.answers||{}), ...ANSWERS};
+      SCORES  = {...(d.scores||{}),  ...SCORES};
+      KKSTAT  = {...(d.cards||{}),   ...KKSTAT};
+      const bekannt = new Set(ATTEMPTS.map(a => a.datum));
+      ATTEMPTS = ATTEMPTS.concat((d.attempts || []).filter(a => !bekannt.has(a.datum)))
+                         .sort((a,b) => String(a.datum).localeCompare(String(b.datum)));
+    } else {
+      ANSWERS = d.answers || {}; SCORES = d.scores || {};
+      TIMERS = d.timer || {}; ATTEMPTS = d.attempts || []; KKSTAT = d.cards || {};
+    }
+    speichern(); ls.set(SK.attempts, ATTEMPTS); ls.set(SK.cards, KKSTAT);
+    renderStart(); schirm("scStart"); toast("Fortschritt übernommen.");
+  };
+  r.readAsText(f, "utf-8");
+  e.target.value = "";
+});
+$("btnAllesLoeschen").addEventListener("click", () => {
+  if (!confirm("Wirklich ALLE Antworten, Punkte, Durchgänge und Karteikarten-Statistiken löschen?")) return;
+  if (!confirm("Letzte Warnung — das lässt sich nicht rückgängig machen.")) return;
+  ANSWERS = {}; SCORES = {}; TIMERS = {}; ATTEMPTS = []; KKSTAT = {};
+  speichern(); ls.set(SK.attempts, ATTEMPTS); ls.set(SK.cards, KKSTAT);
+  renderStart(); toast("Alles gelöscht.");
+});
+
+/* ======================= Bedienung ======================= */
+$("btnHome").addEventListener("click", () => { clearInterval(tick); renderStart(); schirm("scStart"); });
+$("btnMehr").addEventListener("click", () => {
+  const c = $("sitTxt").classList.toggle("clamped");
+  $("btnMehr").textContent = c ? "Vollständig anzeigen" : "Weniger anzeigen";
+});
+$("btnLoes").addEventListener("click", () => {
+  SHOW_SOL = !SHOW_SOL;
+  document.querySelectorAll("details[data-sol]").forEach(d => d.open = SHOW_SOL);
+  $("btnLoes").textContent = SHOW_SOL ? "Lösungen ausblenden" : "Lösungen einblenden";
+});
+$("btnReset").addEventListener("click", () => {
+  if (VIEW.modus === "pruefung") return resetExam(VIEW.exam);
+  if (!confirm("Antworten dieser Übung löschen?")) return;
+  VIEW.items.forEach(it => {
+    delete ANSWERS[it.k]; delete SCORES[it.k];
+    (it.felder || []).forEach((f, i) => delete ANSWERS[it.k + "#" + i]);
+  });
+  speichern(); zeigeBogen(); toast("Zurückgesetzt.");
+});
+$("lupe").addEventListener("click", () => $("lupe").classList.remove("on"));
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") $("lupe").classList.remove("on");
+  if (e.altKey && e.key === "ArrowDown" && !$("scBogen").hidden){ e.preventDefault(); $("btnNaechste").click(); }
+  if (!$("scKK").hidden){
+    if (e.key === " " || e.key === "Enter"){ e.preventDefault(); kkUmdrehen(); }
+    if (e.key === "ArrowRight"){ e.preventDefault(); kkWeiter(true); }
+    if (e.key === "ArrowLeft"){ e.preventDefault(); kkWeiter(false); }
+  }
+});
+
+/* ======================= Auswertung ======================= */
+$("btnAbgeben").addEventListener("click", () => {
+  speichern();
+  const offen = VIEW.items.filter(it => !hatAntwort(it)).length;
+  if (offen && !confirm(offen + " Teilaufgabe(n) ohne Antwort. Trotzdem auswerten?")) return;
+  const t = T();
+  if (t && t.running){ t.remaining = left(); t.running = false; clearInterval(tick); speichern(); drawTimer(); }
+  SHOW_SOL = true; zeigeAuswertung();
+});
+$("btnAusZurueck").addEventListener("click", () => zeigeBogen());
+
+function zeigeAuswertung(){
+  $("ausTitel").textContent = "Auswertung — " + (VIEW.titel || "");
+  const box = $("ausErgebnis"); box.innerHTML = "";
+  VIEW.items.forEach(it => {
+    const w = document.createElement("div");
+    w.style.cssText = "background:var(--card);border:1px solid var(--rule);margin-bottom:12px;padding:14px 17px";
+    const kopf = document.createElement("div"); kopf.className = "tk-nr";
+    kopf.innerHTML = "<span>" + esc(it.fullLabel || it.label) + "</span>";
+    const h = document.createElement("span"); h.className = "herkunft";
+    h.textContent = it.exam.meta.season + " " + it.exam.meta.year;
+    kopf.appendChild(h);
+    (it.topics || []).forEach(t => {
+      const c = document.createElement("span"); c.className = "thema";
+      c.textContent = TLABEL[t] || t; kopf.appendChild(c);
+    });
+    w.appendChild(kopf);
+
+    const frage = document.createElement("div");
+    frage.style.cssText = "font-size:13.5px;color:var(--muted);margin:6px 0 10px;white-space:pre-wrap";
+    frage.textContent = it.prompt || "";
+    w.appendChild(frage);
+
+    const grid = document.createElement("div");
+    grid.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:12px";
+    if (window.matchMedia("(max-width:720px)").matches) grid.style.gridTemplateColumns = "1fr";
+    grid.appendChild(spalte("Meine Antwort", antwortText(it) || "— keine Antwort —",
+                            hatAntwort(it) ? "var(--field)" : "var(--red-soft)"));
+    const sp = spalte("Musterlösung", (it.solution && it.solution.text) || "— nicht extrahiert —",
+                      "var(--pruefer-soft)");
+    if (it.solution && it.solution.image){
+      const lb = document.createElement("button");
+      lb.className = "seite-link"; lb.style.marginTop = "9px";
+      lb.textContent = "Lösungsseite ansehen (S. " + (it.solution.solutionPage || "?") + ")";
+      lb.onclick = () => zeigeLupe(it.solution.image);
+      sp.appendChild(lb);
+    }
+    grid.appendChild(sp);
+    w.appendChild(grid);
+
+    const zeile = document.createElement("div");
+    zeile.style.cssText = "display:flex;gap:9px;align-items:center;margin-top:11px;flex-wrap:wrap";
+    const lbl = document.createElement("span");
+    lbl.className = "eyebrow"; lbl.textContent = "Punkte";
+    zeile.appendChild(lbl);
+    const wahl = document.createElement("div"); wahl.className = "punkte-wahl";
+    const max = it.maxPoints || 0;
+    for (let p = 0; p <= max; p++){
+      const b = document.createElement("button");
+      b.textContent = p; b.className = (SCORES[it.k] === p ? "an" : "");
+      b.onclick = () => {
+        SCORES[it.k] = p;
+        [...wahl.children].forEach((c, i) => c.classList.toggle("an", i === p));
+        speichern(); ausSumme();
+      };
+      wahl.appendChild(b);
+    }
+    zeile.appendChild(wahl);
+    const von = document.createElement("span");
+    von.style.cssText = "font-family:var(--data);font-size:12.5px;color:var(--muted)";
+    von.textContent = "von " + max + " BE";
+    zeile.appendChild(von);
+    w.appendChild(zeile);
+
+    const pr = it.pruefung || {};
+    if ((pr.zahlen && pr.zahlen.length) || (pr.begriffe && pr.begriffe.length))
+      w.appendChild(pruefhilfe(it, w, false));
+    box.appendChild(w);
+  });
+  ausSumme(); schirm("scAuswertung");
+}
+function spalte(titel, text, bg){
+  const d = document.createElement("div");
+  d.style.cssText = "background:" + bg + ";padding:10px 12px;border-radius:2px;white-space:pre-wrap;font-size:14px";
+  const h = document.createElement("div");
+  h.className = "eyebrow"; h.style.marginBottom = "5px"; h.textContent = titel;
+  const t = document.createElement("div"); t.textContent = text;
+  d.append(h, t); return d;
+}
+function ausSumme(){
+  const max = VIEW.items.reduce((a,s) => a + (s.maxPoints||0), 0);
+  const got = VIEW.items.reduce((a,s) => a + (SCORES[s.k] || 0), 0);
+  const offen = VIEW.items.filter(s => !hatPunkte(s)).length;
+  const proz = max ? Math.round(got / max * 100) : 0;
+  const n = note(proz);
+  $("ausUnter").innerHTML = "<b>" + got + " / " + max + " BE</b> · " + proz + "% · Note <b>" + n.note +
+    "</b> (" + n.text + ")" + (offen ? " · " + offen + " noch nicht bewertet" : "");
+  refresh();
+}
+$("btnAusSpeichern").addEventListener("click", () => {
+  const max = VIEW.items.reduce((a,s) => a + (s.maxPoints||0), 0);
+  const got = VIEW.items.reduce((a,s) => a + (SCORES[s.k] || 0), 0);
+  const proz = max ? Math.round(got / max * 100) : 0;
+  const t = T();
+  const dauer = (VIEW.exam ? (VIEW.exam.meta.durationMinutes || 90) * 60 : null);
+  ATTEMPTS.push({datum:new Date().toISOString(),
+                 examId: VIEW.exam ? VIEW.exam.examId : "uebung",
+                 titel: VIEW.titel, modus: VIEW.modus,
+                 punkte: got, maxPunkte: max, prozent: proz,
+                 minuten: (t && dauer) ? Math.round((dauer - Math.max(0, left())) / 60) : null,
+                 themen: themenErgebnis(VIEW.items)});
+  ls.set(SK.attempts, ATTEMPTS);
+  toast("Ergebnis gespeichert — sichtbar in der Statistik.");
+  renderStart(); schirm("scStart");
+});
+function themenErgebnis(items){
+  const m = {};
+  items.forEach(it => (it.topics || []).forEach(t => {
+    const e = m[t] || (m[t] = {got:0, max:0});
+    e.got += SCORES[it.k] || 0; e.max += it.maxPoints || 0;
+  }));
+  return m;
+}
+
+function markdown(){
+  const L = [];
+  const max = VIEW.items.reduce((a,s) => a + (s.maxPoints||0), 0);
+  L.push("# " + (VIEW.titel || "IHK AP1"), "");
+  L.push("- Abgegeben: " + new Date().toLocaleString("de-DE"));
+  L.push("- Maximal: " + max + " BE");
+  if (VIEW.exam) L.push("- Prüfung: " + [VIEW.exam.meta.part, VIEW.exam.meta.season,
+                                          VIEW.exam.meta.year].filter(Boolean).join(" · "));
+  L.push("");
+  L.push("> Bewerte jede Teilaufgabe gegen die Musterlösung. Gib pro Teilaufgabe:");
+  L.push("> erreichte BE, was gefehlt hat, und einen Merksatz.");
+  L.push("> Antworte am Ende mit einem Block `PUNKTE`, eine Zeile je Teilaufgabe im Format");
+  L.push("> `<id>: <punkte>` — den kann ich direkt zurück in den Simulator einfügen.");
+  L.push("");
+  if (VIEW.exam && VIEW.exam.situation && VIEW.exam.situation.text)
+    L.push("## Ausgangssituation", "", VIEW.exam.situation.text, "");
+  let curTask = null, curGroup = null;
+  VIEW.items.forEach(it => {
+    const tk = it.exam.examId + "/" + it.task.id;
+    if (tk !== curTask){
+      curTask = tk; curGroup = null;
+      L.push("", "## " + it.task.label +
+        (VIEW.modus === "uebung" ? "  (" + it.exam.meta.season + " " + it.exam.meta.year + ")" : ""));
+      if (it.task.intro) L.push("", "_" + it.task.intro + "_");
+    }
+    if (it.groupIntro && it.groupLabel !== curGroup){
+      curGroup = it.groupLabel;
+      L.push("", "**" + (it.groupLabel || "") + "** " + it.groupIntro);
+    }
+    L.push("");
+    L.push("### " + (it.fullLabel || it.label) + "  (" + (it.maxPoints ?? "?") + " BE)  `id: " + it.k + "`");
+    if ((it.topics || []).length) L.push("Themen: " + it.topics.map(t => TLABEL[t] || t).join(", "));
+    if ((it.assets || []).length) L.push("_Zu dieser Teilaufgabe gehört eine Abbildung im PDF._");
+    L.push("", "**Frage**", it.prompt || "—");
+    L.push("", "**Meine Antwort**", antwortText(it) || "_(keine Antwort)_");
+    L.push("", "**Musterlösung**", (it.solution && it.solution.text) || "_(nicht extrahiert)_");
+  });
+  L.push("");
+  return L.join("\n");
+}
+function download(name, text, mime){
+  const blob = new Blob([text], {type: mime + ";charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+$("btnAusExport").addEventListener("click", () => {
+  const stamp = new Date().toISOString().slice(0,16).replace(/[:T]/g,"-");
+  download((VIEW.exam ? VIEW.exam.examId : "uebung") + "_" + stamp + ".md", markdown(), "text/markdown");
+  toast("Markdown gespeichert.");
+});
+$("btnAusCopy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(markdown()); toast("Kopiert — direkt einfügen."); }
+  catch { download("bogen.md", markdown(), "text/markdown"); toast("Zwischenablage gesperrt — Datei gespeichert."); }
+});
+$("btnAusImport").addEventListener("click", () => {
+  const roh = prompt("Punkte einfügen — Zeilen im Format  ap1-2026-f:1aa: 3");
+  if (!roh) return;
+  let n = 0;
+  roh.split(/\r?\n/).forEach(z => {
+    const m = z.match(/([A-Za-z0-9._-]+:[A-Za-z0-9._-]+)\s*[:=]\s*(\d+)/);
+    if (!m) return;
+    const it = VIEW.items.find(x => x.k === m[1]) ||
+               VIEW.items.find(x => x.id === m[1].split(":").pop());
+    if (!it) return;
+    SCORES[it.k] = Math.min(parseInt(m[2],10), it.maxPoints || 0);
+    n++;
+  });
+  speichern();
+  toast(n ? n + " Bewertungen übernommen." : "Nichts erkannt — Format prüfen.");
+  zeigeAuswertung();
+});
+
+let toastTO = null;
+function toast(msg){
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("on");
+  clearTimeout(toastTO);
+  toastTO = setTimeout(() => t.classList.remove("on"), 3200);
+}
+
+renderStart();
+schirm("scStart");
+</script>
+</body>
+</html>

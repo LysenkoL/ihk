@@ -1,0 +1,298 @@
+{
+  "quelle": "Prüfungskatalog AP1 der IT-Berufe, gültig ab 2025 (ZPA Nord-West). Zusammenfassung: IT-Berufe-Podcast #190, https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/",
+  "stand": "2026-08",
+  "hinweis": "Правь этот файл, если каталог изменится. После правки: python tools/tag_katalog.py && python tools/build_index.py",
+  "veraltet": [
+    {
+      "key": "sql",
+      "label": "SQL / nicht-relationale Datenbanken",
+      "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+      "muster": "\\bsql\\b|select\\s+.*\\s+from|group by|\\bhaving\\b|nosql|nicht-relational"
+    },
+    {
+      "key": "raid",
+      "label": "RAID",
+      "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+      "muster": "\\braid\\b"
+    },
+    {
+      "key": "san",
+      "label": "SAN / JBOD",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "\\bsan\\b(?!\\w)|storage area network|\\bjbod\\b",
+      "hinweis": ""
+    },
+    {
+      "key": "struktogramm",
+      "label": "Struktogramm / PAP",
+      "grund": "Gestrichen — geblieben ist nur Pseudocode.",
+      "muster": "struktogramm|nassi|shneiderman|programmablaufplan|\\bpap\\b|flussdiagramm"
+    },
+    {
+      "key": "vererbung",
+      "label": "Vererbung / Klassenhierarchie (OOP)",
+      "grund": "Aus dem Katalog gestrichen — geblieben sind Klassen, Methoden, Attribute. UML-Generalisierung im Use-Case-Diagramm zählt nicht dazu.",
+      "muster": "oberklasse|unterklasse|basisklasse|klassenhierarchie|erbt von|vererbungshierarchie|abgeleitete klasse|\\bextends\\b",
+      "hinweis": ""
+    },
+    {
+      "key": "mobilfunk",
+      "label": "LTE / 5G",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "\\blte\\b|(?<![\\d.])5g\\b|mobilfunkstandard|mobilfunknetz",
+      "hinweis": ""
+    },
+    {
+      "key": "swot",
+      "label": "SWOT-Analyse",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "\\bswot\\b"
+    },
+    {
+      "key": "iso2700x",
+      "label": "ISO 2700x",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "iso\\s*2700|27001|27002"
+    },
+    {
+      "key": "swqualitaet",
+      "label": "Softwarequalitätskriterien / ISO 9126",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "iso\\s*9126|softwarequalit|qualitätskriterien der software"
+    },
+    {
+      "key": "vorgehensmodelle",
+      "label": "Vorgehensmodelle außer Wasserfall und Scrum",
+      "grund": "Nur noch Wasserfallmodell und Scrum sind im Katalog.",
+      "muster": "v-modell|spiralmodell|\\bkanban\\b|extreme programming|\\bxp-modell\\b"
+    },
+    {
+      "key": "doku",
+      "label": "Dokumentationsarten",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "dokumentationsart|dokumentationstyp|arten der dokumentation"
+    },
+    {
+      "key": "eisberg",
+      "label": "Eisbergmodell",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "eisbergmodell"
+    },
+    {
+      "key": "benchmarking",
+      "label": "Benchmarking",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "benchmarking"
+    },
+    {
+      "key": "crosssell",
+      "label": "Cross-Selling / Upselling",
+      "grund": "Aus dem Katalog gestrichen.",
+      "muster": "cross-selling|crossselling|upselling|up-selling"
+    }
+  ],
+  "reduziert": [
+    {
+      "key": "ports",
+      "label": "Ports und Protokolle",
+      "grund": "Der lange Protokoll- und Portliste wurde ersetzt durch „Netzwerkprotokolle (z. B. Ethernet, IP, DNS)\" und das OSI-Modell. Portnummern auswendig lernen ist nicht mehr nötig — OSI schon.",
+      "muster": "portnummer|port\\s*\\d{2,5}|\\bftp\\b|\\bsmtp\\b|\\bimap\\b|\\bpop3\\b|\\btelnet\\b"
+    },
+    {
+      "key": "virtualisierung",
+      "label": "Virtualisierung / Cloud",
+      "grund": "Eingeengt auf virtuelle Desktops (lokal oder in der Cloud) sowie SaaS und Desktop as a Service. Docker und Hypervisor-Typen sind nicht mehr gefordert.",
+      "muster": "\\bdocker\\b|container|hypervisor|\\bkvm\\b|vmware|typ-1|typ-2|\\biaas\\b|\\bpaas\\b"
+    }
+  ],
+  "neu": [
+    {
+      "key": "konsole",
+      "label": "Konsolenbefehle und Dateirechte",
+      "hinweis": "ls, chmod, ping, nslookup, cp, mkdir, arp, ipconfig; Rechte ugo+rwx",
+      "muster": "\\bchmod\\b|\\bnslookup\\b|\\bipconfig\\b|\\barp\\b|konsolenbefehl|kommandozeile|\\bping\\b|dateirecht|zugriffsrecht.*ugo"
+    },
+    {
+      "key": "wasserfall_scrum",
+      "label": "Wasserfallmodell und Scrum",
+      "hinweis": "Phasen, Rollen, Artefakte — nur diese beiden Modelle",
+      "muster": "wasserfallmodell|\\bscrum\\b|sprint|product owner|daily"
+    },
+    {
+      "key": "filesysteme",
+      "label": "Dateisysteme, HDD vs. SSD",
+      "hinweis": "FAT32, NTFS, APFS, ext4",
+      "muster": "\\bntfs\\b|fat32|\\bapfs\\b|\\bext4\\b|dateisystem"
+    },
+    {
+      "key": "anonymisierung",
+      "label": "Anonymisierung und Pseudonymisierung",
+      "hinweis": "Unterschied: umkehrbar oder nicht",
+      "muster": "anonymisier|pseudonymisier"
+    },
+    {
+      "key": "zahlensysteme",
+      "label": "Zahlensysteme",
+      "hinweis": "Dual, Hexadezimal, Oktal",
+      "muster": "zahlensystem|dualsystem|hexadezimal|binärzahl|oktal"
+    },
+    {
+      "key": "backuparten",
+      "label": "Backup-Arten",
+      "hinweis": "voll, inkrementell, differenziell",
+      "muster": "inkrementell|differenziell|differentiell|vollsicherung|generationenprinzip|großvater-vater-sohn"
+    },
+    {
+      "key": "schadprogramme",
+      "label": "Schadprogramme",
+      "hinweis": "Virus, Trojaner, Ransomware, DDoS",
+      "muster": "\\bmalware\\b|trojaner|ransomware|\\bddos\\b|schadsoftware|schadprogramm"
+    },
+    {
+      "key": "projektstrukturplan",
+      "label": "Projektstrukturplan",
+      "hinweis": "Zusammen mit Netzplan und Gantt im Katalog",
+      "muster": "projektstrukturplan|\\bpsp\\b|arbeitspaket"
+    },
+    {
+      "key": "haertung",
+      "label": "Härtung des Betriebssystems",
+      "muster": "härtung|hardening|gruppenrichtlinie|group polic"
+    },
+    {
+      "key": "domaene",
+      "label": "Einbindung eines PCs in eine Domäne",
+      "muster": "domäne|active directory|domänencontroller"
+    },
+    {
+      "key": "branchensoftware",
+      "label": "Branchensoftware: ERP, CRM, SCM",
+      "muster": "\\berp\\b|\\bcrm\\b|\\bscm\\b|warenwirtschaft|branchensoftware"
+    },
+    {
+      "key": "testprotokoll",
+      "label": "Testprotokoll für einen Arbeitsplatz",
+      "muster": "testprotokoll|abnahmeprotokoll|übergabeprotokoll"
+    },
+    {
+      "key": "risikomatrix",
+      "label": "Risiko-Klassifikation mit Matrix",
+      "muster": "risikomatrix|eintrittswahrscheinlichkeit|schadensausmaß|risikoklassifik"
+    },
+    {
+      "key": "tuckman",
+      "label": "Teambildung nach Tuckman",
+      "muster": "tuckman|forming|storming|norming|performing|teamphasen"
+    },
+    {
+      "key": "urheberrecht",
+      "label": "Urheberrecht",
+      "muster": "urheberrecht|urhg|lizenzrecht|\\bgpl\\b|open-source-lizenz"
+    },
+    {
+      "key": "aktivitaetsdiagramm",
+      "label": "UML-Aktivitätsdiagramm",
+      "muster": "aktivitätsdiagramm"
+    },
+    {
+      "key": "schreibtischtest",
+      "label": "Fehler im Code finden, Schreibtischtest",
+      "muster": "schreibtischtest|fehler.*(code|skript)|korrigieren sie die.*fehler|pseudocode"
+    },
+    {
+      "key": "schutzziele",
+      "label": "Schutzziele der IT-Sicherheit",
+      "hinweis": "Vertraulichkeit, Integrität, Verfügbarkeit",
+      "muster": "schutzziel|vertraulichkeit|integrität|verfügbarkeit"
+    },
+    {
+      "key": "hash",
+      "label": "Hashverfahren",
+      "muster": "\\bhash\\b|hashwert|prüfsumme"
+    },
+    {
+      "key": "zweifaktor",
+      "label": "Zwei-Faktor-Authentifizierung",
+      "muster": "zwei-faktor|zweifaktor|\\b2fa\\b|\\bmfa\\b|multi-faktor"
+    },
+    {
+      "key": "dsgvo_rechte",
+      "label": "Betroffenenrechte nach DSGVO",
+      "muster": "betroffenenrecht|auskunftsrecht|recht auf löschung|widerspruchsrecht"
+    },
+    {
+      "key": "datenmengen",
+      "label": "Übertragungsraten, -zeiten und Datenmengen berechnen",
+      "muster": "übertragungsrate|datenrate|übertragungsdauer|datenvolumen|speicherbedarf|mbit/s"
+    },
+    {
+      "key": "ki",
+      "label": "KI-Unterstützung und KI-Software",
+      "muster": "künstliche intelligenz|\\bki-|chatbot|machine learning|sprachmodell"
+    },
+    {
+      "key": "barrierefreiheit",
+      "label": "Barrierefreiheit auf Websites",
+      "muster": "barrierefrei|accessibility|\\bwcag\\b"
+    },
+    {
+      "key": "vertragsstoerungen",
+      "label": "Kaufvertrag und Vertragsstörungen",
+      "hinweis": "Erweitert von „Verzug\" auf allgemeine Vertragsstörungen; Werk- gegen Dienstvertrag",
+      "muster": "kaufvertrag|vertragsstörung|lieferverzug|mangelhafte lieferung|werkvertrag|dienstvertrag"
+    }
+  ],
+  "referenz": {
+    "quelle": "„AP Teil 1: Diese Themen musst du können!\" — Auswertung von 7 Prüfungen, Kanal ausbildung-in-der-it.de, https://www.youtube.com/watch?v=hz_lAKtsobw",
+    "basis": "7 Prüfungen, Anteil an der Gesamtpunktzahl",
+    "hinweis": "Vier Themen machen zusammen 53 % der Punkte aus; die restlichen 47 % verteilen sich auf 11 weitere Themenfelder.",
+    "anteile": {
+      "kalkulation": 15,
+      "netzwerk": 14,
+      "projekt": 12,
+      "itsicherheit": 12
+    },
+    "schwerpunkte": [
+      {
+        "thema": "kalkulation",
+        "label": "Wirtschaftlichkeit",
+        "punkte": [
+          "Kostenkalkulation: Bezugspreis, Angebotsvergleich, Stundensatz, Energiekosten",
+          "Nutzwertanalyse — eine solche Aufgabe bringt oft 10–16 BE am Stück",
+          "Rechnen mit Prozent, Rabatt und Skonto"
+        ]
+      },
+      {
+        "thema": "netzwerk",
+        "label": "Netzwerktechnik",
+        "punkte": [
+          "IPv6 — 24 % aller Netzwerkfragen: Aufbau, Verkürzen, Link-Local, Präfix",
+          "Netzwerkdiagnose: LED, ping, tracert, ipconfig, Default-Gateway, DNS",
+          "Bandbreite und Übertragungszeit — Bit/Byte, Dezimal- gegen Binärpräfix",
+          "OSI-Modell",
+          "IPv4-Grundlagen — 9 %"
+        ]
+      },
+      {
+        "thema": "projekt",
+        "label": "Projektmanagement",
+        "punkte": [
+          "Projektplanung — 45 % des Themas: Netzplantechnik und Gantt-Diagramm, kritischer Pfad, Puffer",
+          "Lasten- und Pflichtenheft — zusammen mit Projektplanung 65 % des Themas",
+          "Kommunikation mit Stakeholdern: ganze Sätze formulieren"
+        ]
+      },
+      {
+        "thema": "itsicherheit",
+        "label": "IT-Sicherheit",
+        "punkte": [
+          "Technisch-organisatorische Maßnahmen (TOM) — das größte Einzelthema",
+          "Schutzziele: Vertraulichkeit, Integrität, Verfügbarkeit — 12 %",
+          "Härtung des Betriebssystems — 12 %",
+          "Malware und Phishing — 10 %"
+        ]
+      }
+    ],
+    "prognose": "Weil SQL und RAID weggefallen sind, wird Platz frei. Der Autor rechnet damit, dass Rechenaufgaben zu Datenmengen und Übertragungsraten sowie ER-Modelle häufiger drankommen."
+  }
+}

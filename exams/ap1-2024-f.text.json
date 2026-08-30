@@ -1,0 +1,253 @@
+{
+  "examId": "ap1-2024-f",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2024,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2024-f-aufgaben.pdf",
+      "solutions": "ap1-2024-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Die Aufgaben 1 bis 4 beziehen sich auf folgende Ausgangssituation:\n\nSie sind Auszubildender in der IT-Abteilung der KustoFlex GmbH. Diese fertigt Kunststoffteile aller Art und Größen auch nach individuellen Wünschen.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Im Unternehmen KustoFlex GmbH werden fünf CAD-Arbeitsplätze gerichtet.\nSie sind in dem Projektteam, das geeignete Systeme auswählt.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Nach der Auswertung von vier Firmenangeboten ergibt sich die folgende Tabelle. Unternehmen 3 bietet ausschließlich eine Software as a Service (SaaS) Lösung an.\n\n                      Gew. | U1 Punkte/Gew. | U2 Punkte/Gew. | U3 Punkte/Gew. | U4 Punkte/Gew.\nGrafikkarte            20  | 3 / 60         | 2 / 40         | 4 / 80         | ? / 60\nArbeitsspeicher (RAM)  25  | ? / 100        | 3 / 75         | 4 / 100        | 3 / 75\nMonitor                40  | 2 / 80         | ? / 40         | 4 / 160        | 4 / ?\nPreis                  ?   | 3 / 45         | 4 / 60         | 1 / 15         | 1 / 15\nSumme                 100  | 12 / 285       | 10 / ?         | 13 / 355       | 11 / ?",
+          "prompt": "Ermitteln Sie die fehlenden Werte und eine Reihenfolge der vier Unternehmen beginnend mit der höchsten Punktzahl.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "ab)",
+          "groupLabel": "a)",
+          "prompt": "In einem Meeting wurde neu festgelegt, dass nur eine on-premise Lösung in Frage kommt.\n\nWählen Sie unter Berücksichtigung des Meetings das Unternehmen aus, das den Auftrag bekommen sollte.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Das ausgewählte Unternehmen legt folgendes Angebot vor:\n\nMonitor            450 EUR\nPC                 720 EUR\nSoftwareleasing     50 EUR  pro Monat und Arbeitsplatz\nWartungspauschale 1200 EUR  pro Jahr für alle Geräte\nRabatt 5 % auf PC und Monitor\n\nBerechnen Sie die laufenden Kosten pro Monat für die gesamten CAD-Arbeitsplätze unter der Voraussetzung, dass die Nutzungsdauer der Monitore vier Jahre und der PCs drei Jahre beträgt. Geben Sie den Rechenweg an.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Nach der Beschaffung und Lieferung sollen die Büros vor Ort eingerichtet werden.\nDie gelieferten Monitore besitzen eventuell die nachstehenden Anschlüsse.\n\nOrdnen Sie die Anschlüsse den Abbildungen zu (Abbildungen 1–4):\nHDMI:\nUSB-C:\nDVI:\nDisplayport (DP):",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Die Monitore wurden am 1. September 2023 bestellt. Es gibt keine Auftragsbestätigung und sie wurden am 7. Oktober 2023 geliefert. Die Rechnung haben Sie am 9. Oktober 2023 erhalten.\n\nErläutern Sie, zu welchem Zeitpunkt der Kaufvertrag zustande gekommen ist und begründen Sie Ihre Entscheidung.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Nennen Sie drei mögliche Inhalte, die durch einen Kaufvertrag geregelt sind (Abgrenzung von den juristischen Bestandteilen eines Kaufvertrags, z. B. Willenserklärungen).",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Die ordnungsgemäße Abwicklung des Kaufvertrages ist dem Kunden sehr wichtig.",
+          "prompt": "Nennen Sie zwei Kaufvertragsstörungen.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "fb)",
+          "groupLabel": "f)",
+          "prompt": "Geben Sie bei Ihren genannten Kaufvertragsstörungen je eine Maßnahme an, die der Kunde ergreifen kann, um diesen Störungen zu vermeiden.",
+          "sourcePage": 3,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Nach der Konfiguration des CAD-Arbeitsplatzes prüfen Sie nun die Netzwerkeinstellungen. Dazu führen Sie verschiedene Tests durch und interpretieren die Ergebnisse.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Bei einem Blick auf die Buchse der Netzwerkkarte Ihres PCs erkennen Sie rechts oben eine grüne Leuchtdiode (LED, vergl. Bild 1).\n\nInterpretieren Sie die hier zur Verfügung gestellten Informationen bzgl. der Netzwerkfunktionalität Ihres PCs.\n\nLED leuchtet durchgehend:\nLED blinkt unregelmäßig:",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Nach der Eingabe des Befehls „ipconfig /all“ auf der Kommandozeile Ihres PCs erhalten Sie u. a. die folgenden weiteren Informationen (Abb. 1).\n\nPhysische Adresse . . . . . . . : 50-1A-C5-F2-38-B7\nDHCP aktiviert. . . . . . . . . : Ja\nAutokonfiguration aktiviert . . : Ja\nVerbindungslokale IPv6-Adresse  : fe80::521a:c5ff:fef2:38b7%5(Bevorzugt)\nIPv4-Adresse  . . . . . . . . . : 192.168.0.52(Bevorzugt)\nSubnetzmaske  . . . . . . . . . : 255.255.255.0\n\nBenennen Sie die in der folgenden Tabelle aufgeführten OSI-Schichten und ordnen Sie zur Strukturierung die vorliegenden Begriffe den richtigen Schichten zu:\n– Physische Adresse\n– DHCP\n– Verbindungslokale IPv6-Adresse\n– Buchse mit LED\n\nOSI-Schicht | Name der Schicht | Begriff\n7           | ?                | ?\n4           | Transport        | TCP\n3           | ?                | ?\n2           | ?                | ?\n1           | ?                | ?",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Sie analysieren nun die in Abb. 1 angezeigte IPv6-Adresse „fe80::521a:c5ff:fef2:38b7“.\n\nNennen Sie die folgenden zugehörigen Werte:\n– Länge der IPv6-Adresse in Bits:\n– Ungekürzte Darstellung der IPv6-Adresse in Hexadezimalschreibweise:\n– Präfixlänge:\n– Interface-Identifier:",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Nennen Sie unter Bezugnahme auf Abb. 1 die Informationen, die der DHCP-Server Ihrem Client zur Verfügung stellt.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Zur weiteren Analyse Ihrer Netzwerkkonfiguration geben Sie den Befehl „arp -a“ ein und erhalten die folgende Ausgabe (Abb. 2):\n\nPS C:\\WINDOWS\\system32> arp -a\n\nSchnittstelle: 192.168.0.52 --- 0x5\n  Internetadresse      Physische Adresse      Typ\n  192.168.0.1          d4-3f-cb-8c-37-8b      dynamisch\n\nErläutern Sie anhand des Beispiels in Abb. 2 die grundlegende Aufgabe des Address Resolution Protocol (ARP) bei der Netzwerkkommunikation in einem LAN.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "f)",
+          "prompt": "Geben Sie einen geeigneten Befehl an, um von Ihrem PC aus die Erreichbarkeit der Internetadresse (siehe Abb. 2) zur prüfen.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "g)",
+          "prompt": "In den Abbildungen 1 und 2 haben Sie Informationen zu dem Datenverkehr der ARP-Kommunikation zwischen Ihrem PC und dem weiteren PC in Ihrem Netzwerk erhalten.\n\nOrdnen Sie in der folgenden Skizze die IP-Adressen und die Physischen Adressen richtig zu.\n\nEigener PC — IP-Adresse: ?  Physische Adresse: ?\nWeiterer PC in Netzwerk — IP-Adresse: ?  Physische Adresse: ?",
+          "sourcePage": 6,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Ein Kunde sendet seine Daten für ein Bauteil im PLY-Format. Da Ihnen das Format nicht bekannt ist, suchen Sie nach Informationen über das Dateiformat und seinen Aufbau.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Nennen Sie drei Möglichkeiten, um Informationen über das unbekannte Dateiformat erhalten zu können.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Sie haben erfahren, dass es sich bei dem Polygon File Format (PLY) um ein Dateiformat zur Speicherung dreidimensionaler Daten handelt. Ihr betriebseigenes CAD-System benötigt aber die Daten im OBJ oder STL-Format.\n\nNennen Sie eine Möglichkeit, wie Sie die Kundendaten in Ihrem CAD-System dennoch verwenden können.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Sie haben Informationen über den Aufbau einer PLY-Datei erhalten. Eine PLY-Datei kann im ASCII-Format oder als Binärdatei gespeichert sein.\n\nErläutern Sie den Unterschied zwischen einer Datei im ASCII Format und einer Datei im Binär Format.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "In einer PLY-Datei sind 3840 Punkte gespeichert. Jeder Punkt wird durch x, y und z Koordinaten bestimmt. Jede Koordinate wird durch einen 32-Bit-Float-Wert codiert.",
+          "prompt": "Berechnen Sie, wie viele Kibibyte Sie benötigen, um die 3.840 Punkte zu speichern. Der Speicherbedarf des Datei-Headers und Farbcodierungen sollen nicht berücksichtigt werden.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Jeder Punkt soll jetzt im RGB-Farbraum mit je 8 Bit pro Farbkanal codiert werden.\n\nBerechnen Sie, wie viele verschiedene Farben sich damit darstellen lassen.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "dc)",
+          "groupLabel": "d)",
+          "prompt": "Berechnen Sie, wie viel Prozent Speicher Sie pro Bildpunkt zusätzlich benötigen, um die Farbwerte zu speichern.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Sie werden beauftragt, das Netzteil für einen CAD-Rechner auszuwählen. Es stehen Netzteile von 400 W in 50-W-Schritten bis 1200 W zur Verfügung. Die folgenden Komponenten wurden bereits ausgewählt.\n\nZu der ermittelten Leistungsaufnahme ist ein Puffer von 10 % hinzuzurechnen.\n\nKomponente        | Max. Leistungsaufnahme in Watt je Stück | Anzahl\nMainboard         | 20                                     | 1\nProzessor         | 172                                    | 1\nProzessor-Lüfter  | 12                                     | 1\nArbeitsspeicher   | 5                                      | 4\nGrafikkarte       | 310                                    | 1\nM.2 SSD           | 5                                      | 2\nGehäuselüfter     | 8                                      | 2\n\nBerechnen Sie die ermittelte Leistungsaufnahme mit Puffer und benennen Sie das ausgewählte Netzteil.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "f)",
+          "prompt": "Der PC wird an 200 Arbeitstagen je 9 Stunden laufen. Das Netzteil hat einen Wirkungsgrad von 90 % und wird im Schnitt zu 50 % ausgelastet sein.\n\nBerechnen Sie die Stromkosten bei einem Preis von 0,40 EUR pro kWh.\n\nHinweis: Konnten Sie in e) kein Netzteil ermitteln, rechnen Sie mit 750 Watt weiter.",
+          "sourcePage": 7,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Mit Herrn Müller wurde ein neuer Mitarbeiter eingestellt, der mit dem hausinternen CAD-Programm die Realisierungsmöglichkeiten der Aufträge überprüfen soll, um eine für alle Seiten optimale Lösung zu finden.\n\nIn einigen Fällen wird von ihm erwartet, dass er für wenige Tage beim Kunden vor Ort tätig wird. Zu diesen Terminen wird ihm ein leistungsfähiger Laptop zur Verfügung gestellt.\n\nDie Erstellung und das Bearbeiten einer Konstruktionszeichnung erfordert eine große Rechnerleistung und einen hohen Speicherbedarf, sodass bei Außenterminen dies auf der lokalen Festplatte des Laptops erfolgen muss.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Herr Müller möchte seine berufsbedingten Fahrten mit Bus und Bahn und die Aufenthalte auf öffentlichen Plätzen zur Erledigung betrieblicher Arbeiten nutzen. Allerdings sind dabei zur Gewährleistung der Geheimhaltung besondere Vorsichtsmaßnahmen erforderlich.\n\nNennen Sie Herrn Müller drei geeignete Maßnahmen oder Verhaltensweisen zur Gewährleistung der Geheimhaltung. Weisen Sie dabei auf eine mögliche Folge einer Nichtbeachtung hin. Ergänzen Sie dazu die nachfolgende Tabelle.\n\nMaßnahmen oder Verhaltensweisen | Folge der Nichtbeachtung\nBeispiel: Nutzung einer Blickschutzfolie | Bildschirminhalt kann von Unberechtigten gelesen werden\n? | ?\n? | ?\n? | ?",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Herr Müller sichert seine Daten möglichst auf dem Server der KustoFlex GmbH über VPN.\n\nErklären Sie die Funktionalität des Begriffs VPN.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Herr Müller kritisiert, dass im Außendienst nicht immer eine stabile Internetverbindung zur Verfügung steht.\n\nNach den Sicherheitsrichtlinien der KustoFlex GmbH sind für lokal gespeicherte Daten Tagesvollsicherungen auf mehreren (nummerierten) externen Festplatten vorgesehen.\n\nNennen Sie Herrn Müller drei Punkte, die zu beachten sind, wenn die lokal gespeicherten Daten mithilfe von externen Festplatten möglichst zuverlässig gesichert werden sollen. Berücksichtigen Sie dabei die Datensicherheitsaspekte.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "Sie informieren Herrn Müller über „Malware“ als Oberbegriff für Schadsoftware.",
+          "prompt": "Nennen Sie drei Arten von Malware.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Weisen Sie den in Aufgabe da) genannten Arten jeweils ein spezifisches Merkmal zu.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Eine Antivirensoftware ist bereits auf dem Laptop installiert.\n\nErläutern Sie Herrn Müller drei weitere organisatorische oder technische Empfehlungen, wie man sich vor Malware schützen kann.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "f)",
+          "prompt": "Berechnen Sie zur Verdeutlichung des Zeitaufwands für Herrn Müller die Übertragungsdauer, wenn er Daten mit einem Umfang von 1 GiB aufgrund des Ergebnisses des Speedtests abspeichern möchte. Der Rechenweg ist mit anzugeben.\n\nErgebnis des Speedtests:\nDownload: 75.78 Mbps\nUpload:   50.02 Mbps\n\nRunden Sie das Ergebnis auf volle Sekunden auf und stellen Sie das Ergebnis in Minuten und Sekunden dar.",
+          "sourcePage": 9,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

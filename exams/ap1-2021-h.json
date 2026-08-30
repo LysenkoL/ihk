@@ -1,0 +1,1822 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2021-h",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2021,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2021-h-aufgaben.pdf",
+      "solutions": "ap1-2021-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie sind Mitarbeiter/-in der IT.SYS GmbH, einem Systemhaus, welches IT-Dienstleistungen für Privatpersonen und Unternehmen anbietet.\n\nEin Kunde der IT.SYS GmbH ist die Arztpraxis Care. Diese wird mit ihrer Praxis an einen neuen Standort ziehen. Dabei soll die IT-Technik zum Teil erneuert werden. Die IT.SYS GmbH wird mit der Planung und Umsetzung des Umzuges beauftragt.\n\nSie arbeiten an diesem Projekt mit und sollen die folgenden vier Aufgaben erledigen:\n– Das Projekt zur Installation der IT planen und einen Netzplan vervollständigen\n– Die Energiebilanz der neuen Hardware optimieren und Fehler in einem Skript korrigieren\n– Die Migration der bestehenden Postfächer auf den neuen E-Mail-Server vorbereiten\n– Maßnahmen zum Datenschutz und zur Datensicherung ergreifen und den Kunden beraten",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "In Vorbereitung des Umzuges arbeiten Sie an der Planung mit.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "1a",
+          "label": "a)",
+          "fullLabel": "1 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ihr Kollege sagt zu Ihnen, bei dem Umzug der Arztpraxis handelt es sich um ein Projekt.\n\nNennen Sie vier Merkmale eines Projekts.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Zielvorgabe\n\nZeitliche Begrenzung\n\nBegrenzte Ressourcen (personell, finanziell)\n\nProjektspezifische Organisationsform\n\nEinmaligkeit\n\nKomplexität",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2021-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1543,
+              "height": 708
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2021-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1203,
+              "height": 580
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Zeitliche Begrenzung",
+              "Begrenzte Ressourcen",
+              "Zielvorgabe",
+              "Projektspezifische Organisationsform",
+              "Komplexität",
+              "Einmaligkeit"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Ziele in einem Projekt sollen den SMART-Kriterien entsprechen.\n\nNennen Sie die vier weiteren SMART-Kriterien auf Deutsch oder Englisch.\n\nS  specific – spezifisch\nM\nA\nR\nT",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "S  specific – spezifisch\n\nM  measurable – messbar\n\nA  accepted- akzeptiert oder attainable – erreichbar oder attractive – attraktiv\n\nR  reasonable – realistisch\n\nT  time-bound – terminiert",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2021-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1543,
+              "height": 708
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2021-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1203,
+              "height": 580
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1c",
+          "label": "c)",
+          "fullLabel": "1 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In Vorbereitung des Projektes wird ein Netzplan erstellt. Ihr Kollege hat bereits mit der Erstellung angefangen und bittet Sie, diesen zu vervollständigen.\n\nTragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein.\n\nHinweis:\nFAZ = frühester Anfangszeitpunkt\nFEZ = frühester Endzeitpunkt\nFP  = freie Puffer (= FAZ des Nachfolgers – FEZ des aktuellen Vorgangs)\nSAZ = spätester Anfangszeitpunkt, SEZ = spätester Endzeitpunkt\nGP  = Gesamtpuffer (= SAZ – FAZ oder = SEZ – FEZ)",
+          "maxPoints": 14,
+          "answerType": "diagram",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "(1 Punkt Ergänzung eines Netzplanknotens, 2 Punkte voller Netzplanknoten)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2021-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 564,
+              "height": 526
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2021-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 254,
+              "height": 2180
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2021-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 916,
+              "height": 1028
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2021-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 222,
+              "height": 398
+            },
+            {
+              "id": "p3_f5",
+              "file": "assets/ap1-2021-h_p03_f5.png",
+              "sourcePage": 3,
+              "width": 297,
+              "height": 356
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_03.png",
+          "placeholder": "Netzplan-Knoten ausfüllen — öffne die vollständige Seite und rechne die Werte im Antwortfeld durch (z. B. „A: FAZ 0, FEZ 2, SAZ 0, SEZ 2, GP 0, FP 0“).",
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Punkt Ergänzung",
+              "Netzplanknoten",
+              "Netzplanknotens"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1d",
+          "label": "d)",
+          "fullLabel": "1 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Markieren Sie den kritischen Pfad im Netzplan.",
+          "maxPoints": 1,
+          "answerType": "diagram",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "A – B – D – G – I – J – K",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2021-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 564,
+              "height": 526
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2021-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 254,
+              "height": 2180
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2021-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 916,
+              "height": 1028
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2021-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 222,
+              "height": 398
+            },
+            {
+              "id": "p3_f5",
+              "file": "assets/ap1-2021-h_p03_f5.png",
+              "sourcePage": 3,
+              "width": 297,
+              "height": 356
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1e",
+          "label": "e)",
+          "fullLabel": "1 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Der Vorgang H, der Abbau der alten Infrastruktur, verzögert sich um vier Stunden.\n\nBeschreiben Sie die Auswirkung auf das Projektende.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Keine Auswirkung, da der Puffer von 9 Stunden die 4 Stunden Verzögerung auffängt.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2021-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1543,
+              "height": 708
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2021-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1203,
+              "height": 580
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "9 Stunden",
+                "wert": 9.0,
+                "einheit": "Stunden"
+              },
+              {
+                "text": "4 Stunden",
+                "wert": 4.0,
+                "einheit": "Stunden"
+              }
+            ],
+            "begriffe": [
+              "Keine Auswirkung",
+              "Puffer",
+              "Stunden Verzögerung",
+              "Stunden"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Im Rahmen des Umzuges sollen einige PCs neu angeschafft werden. Der Kunde soll sich zwischen zwei PC-Varianten entscheiden. Beide PC-Varianten sind nahezu baugleich bis auf das verwendete Netzteil.\n\nSie wurden damit beauftragt, für eine Besprechung die Energieeffizienz der beiden PCs unter ökonomischen Gesichtspunkten zu vergleichen.\n\nBetriebsstunden:\n– 9 Stunden pro Tag\n– Betrieb an 20 Arbeitstagen pro Monat\n\nDie beiden zu vergleichenden PCs sind wie folgt ausgestattet:\n– PC-A hat ein niedrigpreisiges Netzteil ohne Zertifikat.\n– PC-B hat ein Netzteil nach dem 80Plus Gold Standard.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "2a",
+          "label": "a)",
+          "fullLabel": "2 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Errechnen Sie die Leistung und die Energiekosten pro Monat, wenn eine kWh 30 Cent kostet.\n\nDem englischsprachigen Manual des Netzteils können Sie folgende Definition entnehmen:\nEfficiency = Useful power output / Total power input\n\nTabelle (auszufüllen):\n                                                            PC-A      PC-B\nWirkungsgrad des Netzteils bei 60 W in Prozent               43 %      76 %\nDurch die Komponenten des PCs benötigte durchschnittliche\nLeistung im Betrieb                                         60 W      60 W\nVom Netzteil bezogene Leistung aus dem Stromnetz         139,53 W     ?\nEnergiekosten pro Monat in EUR                               ?        ?",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Betriebsstunden pro Monat: 20 Tage/Monat * 9 Stunden/Tag = 180 Stunden\nPC-A\nPC-B\nWirkungsgrad des Netzteils bei 60 W in Prozent\n43 %\n76 %\nDurch die Komponenten des PCs benötigte durchschnittliche Leistung im Betrieb (9 h pro\nTag)\n60 W\n60 W\nVom Netzteil bezogene Leistung aus dem Stromnetz\n139,53 W\n60 W / 0,76 = 78,94 W\nEnergiekosten pro Monat in EUR\n180 h * 139,53 W\n* 0,3 Cent/kWh\n= 7,53 EUR\n180 h * 78,94 W *\n0,3 Cent/kWh\n= 4,26 EUR",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2021-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1533,
+              "height": 1252
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2021-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 1415,
+              "height": 868
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "20 Tage",
+                "wert": 20.0,
+                "einheit": "Tage"
+              },
+              {
+                "text": "9 Stunden",
+                "wert": 9.0,
+                "einheit": "Stunden"
+              },
+              {
+                "text": "180 Stunden",
+                "wert": 180.0,
+                "einheit": "Stunden"
+              },
+              {
+                "text": "60 W",
+                "wert": 60.0,
+                "einheit": "W"
+              },
+              {
+                "text": "139,53 W",
+                "wert": 139.53,
+                "einheit": "W"
+              },
+              {
+                "text": "78,94 W",
+                "wert": 78.94,
+                "einheit": "W"
+              },
+              {
+                "text": "7,53 EUR",
+                "wert": 7.53,
+                "einheit": "EUR"
+              },
+              {
+                "text": "4,26 EUR",
+                "wert": 4.26,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "Stromnetz",
+              "Betriebsstunden",
+              "Wirkungsgrad",
+              "Netzteils",
+              "Komponenten",
+              "Betrieb",
+              "Netzteil",
+              "Prozent"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2b",
+          "label": "b)",
+          "fullLabel": "2 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Der PC mit dem Netzteil nach dem 80Plus Gold Standard kostet in der Anschaffung 100 EUR mehr.\n\nBerechnen Sie die Dauer in Monaten, ab der sich die Anschaffung amortisiert hat.\nHinweis: Falls Sie Aufgabe a) nicht lösen konnten, rechnen Sie bei PC-A mit 6,83 EUR und bei PC-B mit 4,78 EUR.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Differenz der Energiebetriebskosten pro Monat: 7,53 EUR - 4,26 EUR = 3,27 EUR\n\nBei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung\n\n100 EUR / 3,27 EUR pro Monat = 30,58 Monate, also nach 31 Monaten.\n\nAlternativlösung:\n\nDifferenz der Energiebetriebskosten pro Monat: 6,83 EUR - 4,78 EUR = 2,05 EUR\n\nBei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung\n\n100 EUR / 2,05 EUR pro Monat = 48,78 Monate, also nach 49 Monaten.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2021-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1533,
+              "height": 1252
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2021-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 1415,
+              "height": 868
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "7,53 EUR",
+                "wert": 7.53,
+                "einheit": "EUR"
+              },
+              {
+                "text": "4,26 EUR",
+                "wert": 4.26,
+                "einheit": "EUR"
+              },
+              {
+                "text": "3,27 EUR",
+                "wert": 3.27,
+                "einheit": "EUR"
+              },
+              {
+                "text": "100 EUR",
+                "wert": 100.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "30,58 Monate",
+                "wert": 30.58,
+                "einheit": "Monate"
+              },
+              {
+                "text": "6,83 EUR",
+                "wert": 6.83,
+                "einheit": "EUR"
+              },
+              {
+                "text": "4,78 EUR",
+                "wert": 4.78,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2,05 EUR",
+                "wert": 2.05,
+                "einheit": "EUR"
+              },
+              {
+                "text": "48,78 Monate",
+                "wert": 48.78,
+                "einheit": "Monate"
+              }
+            ],
+            "begriffe": [
+              "Monaten",
+              "Differenz",
+              "Energiebetriebskosten",
+              "Anschaffungspreis",
+              "Anschaffung",
+              "Monat",
+              "Monate",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2c",
+          "label": "c)",
+          "fullLabel": "2 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Machen Sie drei weitere Vorschläge zur Senkung der Energiekosten des IT-Arbeitsplatzes.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "arbeitsplatz",
+            "hardware"
+          ],
+          "solution": {
+            "text": "Verwendung von schaltbaren Steckdosen zur Vermeidung von Energiekosten im Standby-Betrieb\n\nVerwendung von Monitoren mit Energieeffizienz Label (A, A+, A++, etc. oder neues Label von A - G)\n\nVerwendung von Thin Clients\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2021-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 990,
+              "height": 142
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2021-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 328,
+              "height": 132
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2021-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1405,
+              "height": 889
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Energieeffizienz Label",
+              "Steckdosen",
+              "Standby-Betrieb",
+              "Monitoren",
+              "Label",
+              "Vermeidung",
+              "Energiekosten",
+              "Thin Clients"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Bei der Installation der Geräte stellen Sie fest, dass folgende Geräte über eine einzige Mehrfachsteckdose mit der Aufschrift „maximal 16 A“ angeschlossen werden sollen.\n– 3 PCs mit einer maximalen Leistungsaufnahme von jeweils 180 W\n– Ein Drucker mit einer maximalen Leistungsaufnahme von 400 W\n– Eine Kaffeemaschine mit einer maximalen Leistungsaufnahme von 1.200 W\n– Klimagerät mit einer maximalen Leistungsaufnahme von 2.000 W\n\nWeisen Sie durch eine Rechnung nach, dass diese Geräte nicht gleichzeitig betrieben werden können.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "software"
+          ],
+          "solution": {
+            "text": "Eine Steckdose mit 16 A darf mit maximal 16 A x 230 V = 3.680 Watt belastet werden.\n\n3 x 180 Watt + 400 Watt + 1.200 Watt + 2.000 Watt = 4.140 Watt ist zu viel.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2021-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 990,
+              "height": 142
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2021-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 328,
+              "height": 132
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2021-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1405,
+              "height": 889
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "16 A",
+                "wert": 16.0,
+                "einheit": "A"
+              },
+              {
+                "text": "230 V",
+                "wert": 230.0,
+                "einheit": "V"
+              },
+              {
+                "text": "3.680 Watt",
+                "wert": 3680.0,
+                "einheit": "Watt"
+              },
+              {
+                "text": "180 Watt",
+                "wert": 180.0,
+                "einheit": "Watt"
+              },
+              {
+                "text": "400 Watt",
+                "wert": 400.0,
+                "einheit": "Watt"
+              },
+              {
+                "text": "1.200 Watt",
+                "wert": 1200.0,
+                "einheit": "Watt"
+              },
+              {
+                "text": "2.000 Watt",
+                "wert": 2000.0,
+                "einheit": "Watt"
+              },
+              {
+                "text": "4.140 Watt",
+                "wert": 4140.0,
+                "einheit": "Watt"
+              }
+            ],
+            "begriffe": [
+              "4.140",
+              "3.680",
+              "Eine Steckdose",
+              "1.200",
+              "2.000"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für den gewählten Rechner wird eine Datensicherung erstellt. Ihr Kollege hat das folgende Skript erstellt, welches eine Warnung ausgeben soll, wenn der Speicherplatz auf dem Ziellaufwerk Z unter 15 % fällt.\n\nErstelltes Skript:\n  $Drive = Get-Volume -DriveLetter Z\n  $Prozent=($Drive.SizeRemaining/$Drive.Size)* 1000\n  if($Prozent -gt 15)\n  {\n      Write-Host „Es sind weniger als 15% Speicherplatz frei.“\n  }\n  else\n  {\n      Write-Host „Es ist genügend Speicherplatz verfügbar.“\n  }\n\nLeider funktioniert das Skript nicht wie gewünscht und bringt eine Warnmeldung, obwohl das Laufwerk nur zu 50 % gefüllt ist.\n\nLesen Sie sich die folgende Anleitung (manual) durch und korrigieren Sie die zwei Fehler.\n\nManual: To use a comparison operator, specify the values that you want to compare together with an operator that separates these values. The Shell includes the following comparison operators:\n  -eq  equals\n  -ne  not equals\n  -gt  greater than\n  -ge  greater than or equal\n  -lt  less than\n  -le  less than or equal\nNote:\nWrite-Host produce a display output.\nGet-Volume return a Volume object that match the specified criteria.",
+          "maxPoints": 8,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Erstelltes Skript\nFalsche Zeilen korrigieren\n$Drive = Get-Volume -DriveLetter Z\n$Prozent=($Drive.SizeRemaining/$Drive.Size)\n* 1000\n$Prozent=($Drive.SizeRemaining/$Drive.\nSize)*100\nif($Prozent -gt 15)\nif($Prozent -lt 15)\n{\n    Write-Host „Es sind weniger als 15%\nSpeicherplatz frei.“\n}\nelse\n{\nWrite-Host „Es ist genügend Speicherplatz\nverfügbar.“\n    }",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2021-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 1678
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Speicherplatz",
+              "Falsche Zeilen",
+              "Volume",
+              "Erstelltes Skript",
+              "Write-Host",
+              "Prozent"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Die Arztpraxis Care benötigt Unterstützung bei der Auswahl notwendiger IT. Die Arztpraxis beauftragt Sie, sie bzgl. der Auswahl von Hardware- und Softwarekomponenten zu unterstützen.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Grundlage für einen möglichen Auftrag an die IT.SYS GmbH ist ein Lastenheft der Arztpraxis Care, das die spezifischen Anforderungen des Auftraggebers an den potenziellen Auftragnehmer beschreibt.\n\nBenennen Sie fünf inhaltliche Aspekte, die in solch einem Lastenheft üblicherweise enthalten sind.",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Zum Beispiel:\n\nKurzvorstellung des Auftraggebers\n\nDefinition des Projektziels\n\nBeschreibung der bestehenden IT-Infrastruktur\n\nZeitrahmen der Umsetzung des Projekts\n\nFunktionale Anforderungen\n\nRahmenparameter IT-Security und Datenschutz",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2021-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 1678
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Rahmenparameter",
+              "Projektziels",
+              "Security",
+              "Funktionale Anforderungen",
+              "Kurzvorstellung",
+              "Infrastruktur",
+              "Definition",
+              "Umsetzung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ba",
+          "label": "ba)",
+          "fullLabel": "3 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Eines der Projektziele ist die Ablösung eines veralteten E-Mail-Systems in der Arztpraxis Care. Ein wesentlicher Aspekt ist hierbei die Migration der bestehenden Postfächer auf den neuen E-Mail-Server. Aus organisatorischen Gründen kann eine solche Migration nur außerhalb der gewöhnlichen Öffnungszeiten der Praxis durchgeführt werden. Die Praxis ist wochentags von 18.00 – 8.00 Uhr geschlossen.\n\nFür betreffende Arbeiten beauftragt die IT.SYS GmbH einen Subunternehmer, der diese unter der Woche durchführen soll. Der Dienstleister verlangt für seine Tätigkeit 130 EUR/h. Die Migration eines Postfachs dauert wegen umfangreicher manueller Nacharbeiten im Schnitt zwei Stunden. In Summe sind 20 Postfächer zu migrieren.",
+          "prompt": "Berechnen Sie die Gesamtkosten für die Migration, die die IT.SYS GmbH berücksichtigen müsste.\n\nDer Rechenweg ist anzugeben.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "projekt",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Gesamtkosten: 20 * 2 * 130 EUR = 40 * 130 EUR = 5.200 EUR",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2021-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1576,
+              "height": 878
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2021-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1405,
+              "height": 644
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2021-h_p07_f3.png",
+              "sourcePage": 7,
+              "width": 1202,
+              "height": 196
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "130 EUR",
+                "wert": 130.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "5.200 EUR",
+                "wert": 5200.0,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "Gesamtkosten",
+              "5.200",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bb",
+          "label": "bb)",
+          "fullLabel": "3 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Ermitteln Sie, nach wie vielen Tagen die Migration frühestens abgeschlossen ist, wenn das Subunternehmen zwei Angestellte mit einer täglichen Arbeitszeit von 8 h pro Tag einsetzt.\n\nDer Rechenweg ist anzugeben.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "projekt"
+          ],
+          "solution": {
+            "text": "Gesamtdauer: 20 * 2 = 40 h -> 40 / 8 = 5 Tage = 5 Tage / 2 Arbeiter => 2,5 Tage\n\nAufgerundet 3 Tage auch als richtig anzusehen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2021-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1576,
+              "height": 878
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2021-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1405,
+              "height": 644
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2021-h_p07_f3.png",
+              "sourcePage": 7,
+              "width": 1202,
+              "height": 196
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "5 Tage",
+                "wert": 5.0,
+                "einheit": "Tage"
+              },
+              {
+                "text": "2,5 Tage",
+                "wert": 2.5,
+                "einheit": "Tage"
+              },
+              {
+                "text": "3 Tage",
+                "wert": 3.0,
+                "einheit": "Tage"
+              }
+            ],
+            "begriffe": [
+              "Arbeiter",
+              "Aufgerundet",
+              "Gesamtdauer"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3c",
+          "label": "c)",
+          "fullLabel": "3 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Mit dem Auftraggeber wird diskutiert, ob gewisse Arbeiten der IT.SYS GmbH remote durchgeführt werden sollen.\n\nNennen Sie zwei Vorteile sowie zwei Nachteile von remote gegenüber einer Vor-Ort-Wartung.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "projekt",
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Vorteile:\n\nGeringere Kosten – Fahrtkosten, Reisezeit, Spesen\n\nEinfachere Einbindung weiterer Spezialisten bei Bedarf\n\nSchonung interner Ressourcen – Büro, Konferenzraum\n\nKontaktvermeidung\n\nu. a.\n\nNachteile:\n\nRisiko im Bereich Datenschutz, da Patientendaten abgegriffen werden könnten\n\nZusätzliche Kosten für eine gesicherte Verbindung\n\nWartung bei Verbindungsproblemen nicht möglich\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2021-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1576,
+              "height": 878
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2021-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1405,
+              "height": 644
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2021-h_p07_f3.png",
+              "sourcePage": 7,
+              "width": 1202,
+              "height": 196
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Geringere Kosten",
+              "Bedarf",
+              "Einfachere Einbindung",
+              "Risiko",
+              "Schonung",
+              "Kontaktvermeidung",
+              "Bereich Datenschutz",
+              "Verbindungsproblemen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3d",
+          "label": "d)",
+          "fullLabel": "3 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Auf allen Arbeitsplätzen in der Arztpraxis soll eine neue Software-Suite für die Bereiche Textverarbeitung, Tabellenkalkulation und Präsentationen installiert werden. Eine weitere Aufgabe der IT.SYS GmbH ist es, die Mitarbeiter in der Praxis in diese Programme einzuweisen.\n\nBeschreiben Sie drei von den vier vorgegebenen Möglichkeiten, wie die betreffenden Inhalte vermittelt werden können.\n\n(1) Schulung am Arbeitsplatz:\n(2) Webinare:\n(3) Video-Tutorien:\n(4) Multiplikatoren-Schulung:",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "kommunikation"
+          ],
+          "solution": {
+            "text": "z. B.\n\nSchulung am Arbeitsplatz: Die Einweisung erfolgt während der Arbeitszeit vor Ort.\n\nWebinare: festgelegt von der Zeit, findet online statt, interaktiv\n\nVideo-Tutorien: zeitlich flexibel und unabhängig genutzt von den anderen Mitarbeitern, keine Interaktion möglich\n\nMultiplikatoren-Schulung: Schulung ausgewählter Mitarbeiter, die ihr Wissen an die anderen Mitarbeiter weitergeben sollen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2021-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1416,
+              "height": 388
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2021-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 212,
+              "height": 142
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2021-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 265,
+              "height": 143
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2021-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 143
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2021-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 377
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Webinare",
+              "Video-Tutorien",
+              "Multiplikatoren-Schulung",
+              "Arbeitszeit",
+              "Interaktion",
+              "Wissen",
+              "Einweisung",
+              "Schulung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3e",
+          "label": "e)",
+          "fullLabel": "3 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Der Praxisinhaber hat von seinem IT-Dienstleister gehört, dass durch den Verbund mehrerer Festplatten verschiedene RAID-Level gebildet werden können. Besonders wichtig für die Arztpraxis ist es, dass eine hohe Verfügbarkeit der Daten vorhanden ist. Besonders der Ausfall einer Festplatte soll kompensiert werden. Gleichzeitig soll sich der Anteil der Speicherkapazität für die Nutzdaten auf den Festplatten nicht so stark reduzieren.\n\nHinsichtlich dieser Prioritäten beraten Sie den Praxisinhaber und stellen die RAID-Level 0, 1 und 5 vor.\n\nErklären Sie dem Praxisinhaber die Grundfunktionen der drei RAID-Level-Arten und begründen Sie, für welches RAID-Level sich der Praxisinhaber entscheiden sollte.",
+          "maxPoints": 7,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Erklärung, jeweils 2 Punkte (Gesamt: 6 Punkte), Entscheidungsauswahl 1 Punkt\n\nRAID 0\n\n\u0007Kommt für die Arztpraxis nicht in Frage, dieses Level ist nur für den schnellen Datenzugriff optimiert, Data Striping wird verwendet, dadurch\nErhöhung der Datentransferrate, keine Erhöhung der Datensicherheit\n\nRAID 1\n\nKäme nur für eine Priorität in die Auswahl für die Arztpraxis\n\nVerkraftet den Ausfall einer Festplatte, Mirroring, d. h. vollständige Spiegelung der Daten auf weiteren Platten\n\nSpeicherkapazität für die Nutzdaten reduziert anteilsmäßig, z. B. um 50 %\n\nRAID 5\n\nKäme für beide Prioritäten in die Auswahl für die Arztpraxis\n\nVerkraftet den Ausfall einer Festplatte, Zerlegung der Nutzdaten in Blöcke mit Paritätsinformationen\n\nVerringerung der Speicherkapazität für die Nutzdaten bei z. B. drei Festplatten bei ca. 33 %\n\nEntscheidung: RAID 5",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2021-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1416,
+              "height": 388
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2021-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 212,
+              "height": 142
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2021-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 265,
+              "height": 143
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2021-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 143
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2021-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 377
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "RAID"
+            ],
+            "treffer": [
+              "raid"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "6 Punkte",
+                "wert": 6.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Speicherkapazität",
+              "Kommt",
+              "Verringerung",
+              "Gesamt",
+              "Datenzugriff",
+              "Spiegelung",
+              "Datensicherheit",
+              "Entscheidungsauswahl"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Die IT.SYS GmbH hat von der Arztpraxis Care auch noch den Auftrag erhalten, Datenschutz und Datensicherheit zu gewährleisten und gegebenenfalls Maßnahmen zu ergreifen. Sie werden beauftragt, sich dieser Aufgabe anzunehmen.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In einem ersten Schritt informieren Sie sich über allgemeine Grundlagen der Informationssicherheit. Als wichtige Schutzziele werden hier u. a. Vertraulichkeit, Integrität und Verfügbarkeit genannt. Sie klären nun, welches Schutzziel der jeweiligen Sicherheitsmaßnahme zugeordnet werden kann. Setzen Sie dazu pro Zeile jeweils ein Kreuz und geben Sie eine Begründung für Ihre Zuordnung an.\n\nSicherheitsmaßnahmen (Schutzziel + Begründung angeben):\n1. Sichere Passwörter wählen — Beispiel: Vertraulichkeit, „Der Zugriff Fremder auf die Benutzerdaten wird besser geschützt.“\n2. Regelmäßige Datensicherung der Patientendaten\n3. Verschlüsselung der Festplatten\n4. Zentrale Bearbeitung wichtiger Dokumente auf Server\n5. Hashwertüberprüfung bei Softwareinstallation",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit",
+            "software"
+          ],
+          "solution": {
+            "text": "Schutzmaßnahme\nVertraulichkeit\nIntegrität\nVerfügbarkeit\nBegründung\nSichere Passwörter wählen\nx\nDer Zugriff Fremder auf die Benutzerdaten wird besser geschützt.\nRegelmäßige Datensicherung der Patien-\ntendaten\nx\nDaten können bei Verlust der Originaldaten wiederhergestellt\nwerden.\nVerschlüsselung der Festplatten\nx\nInhaltliche Nutzung der Daten ist für unberechtigte Benutzer\nnicht möglich.\nZentrale Bearbeitung wichtiger Doku-\nmente auf Server\nx\nKein unterschiedlicher Bearbeitungsstand der Dokumente (z. B.\nauf Clients).\nHashwertüberprüfung bei Softwarein-\nstallation\nx\nWenn der zusammen mit der Software übermittelte Hashwert\nidentisch ist mit dem berechneten Hashwert, kann man davon\nausgehen, dass die Software keinen eingeschleusten Trojaner\nbeinhaltet.\n\nAndere Lösungen mit sinnvollen Begründungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2021-h_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1576,
+              "height": 1327
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2021-h_p09_f2.png",
+              "sourcePage": 9,
+              "width": 595,
+              "height": 154
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Patien",
+              "Hashwertüberprüfung",
+              "Sichere Passwörter",
+              "Originaldaten",
+              "Zugriff Fremder",
+              "Zentrale Bearbeitung",
+              "Dokumente",
+              "Bearbeitungsstand"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4b",
+          "label": "b)",
+          "fullLabel": "4 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Im IT-Grundschutz-Kompendium des Bundesamtes für Sicherheit in der Informationstechnik (BSI) finden Sie Basis-Anforderungen zur Absicherung eines PC-Clients.\n\nNennen Sie je eine Maßnahme, mit denen die folgenden Anforderungen umgesetzt werden könnten.\n– Aktivieren von Autoupdate-Mechanismen:\n– Differenzieren von Benutzerrollen (Rollentrennung):",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Aktivieren von Autoupdate-Mechanismen: z. B. Windows Updates aktivieren, Update der Virensignaturen aktivieren\n\nDifferenzieren von Benutzerrollen (Rollentrennung): z. B keine normalen Tätigkeiten mit Administratorrechten durchführen, Installationen\nund Systemänderungen nur durch Administratoren mit Administratorrechten, nur lesender Zugriff auf Systemdateien für Benutzer.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2021-h_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1576,
+              "height": 1327
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2021-h_p09_f2.png",
+              "sourcePage": 9,
+              "width": 595,
+              "height": 154
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Autoupdate-Mechanismen",
+              "Systemänderungen",
+              "Administratorrechten",
+              "Virensignaturen",
+              "Systemdateien",
+              "Benutzerrollen",
+              "Rollentrennung",
+              "Windows Updates"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Im Rahmen einer Schutzbedarfsanalyse versuchen Sie zu ermitteln, wie wichtig die verwendeten unternehmensrelevanten IT-Anwendungen für den Fortgang des Geschäftsprozesses sind, um das Maß an benötigtem Schutz zu definieren.\n\nSchutzbedarfskategorien:\n– Niedrig bis mittel: Die Schadensauswirkungen sind begrenzt und überschaubar.\n– Hoch: Die Schadensauswirkungen können beträchtlich sein.\n– Sehr hoch: Die Schadensauswirkungen können ein existenziell bedrohliches, katastrophales Ausmaß erreichen.\n\nIn einer Tabelle wurde bereits der Schutzbedarf verschiedener IT-Anwendungen zugewiesen.\nFügen Sie jeweils eine mögliche Begründung für den gewählten Schutzbedarf hinzu.\n\n1. Prüfziffernverfahren bei der Übermittlung der Krankenversicherungsnummer — Integrität, hoch — Beispiel: „Verfälschte Daten bei der Übertragung können zu fehlerhaften Abrechnungen führen.“\n2. Textverarbeitung — Verfügbarkeit, mittel — ?\n3. Software zur telemedizinischen Beratung über Videokonferenz — Vertraulichkeit, hoch — ?\n4. Patientendatenverarbeitung — Integrität, sehr hoch — ?",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "IT-Anwendung\nSchutzbedarfsfeststellung\nGrundwert\nSchutzbedarf\nBegründung\nPrüfziffernverfahren bei der Übermittlung\nder Krankenversicherungsnummer\nIntegrität\nhoch\nz. B.: Verfälschte Daten bei der Übertragung können\nzu fehlerhaften Abrechnungen führen.\nTextverarbeitung\nVerfügbarkeit\nmittel\nz. B.: Patientenbriefe und Rechnungen können nur\nverspätet erstellt werden.\nSoftware zur telemedizinischen Beratung\nüber Videokonferenz\nVertraulichkeit\nhoch\nz. B.: Das Bekanntwerden kann die Betroffenen\nerheblich beeinträchtigen.\nPatientendatenverarbeitung\nIntegrität\nsehr hoch\nz. B.: Fehlerhafte Einträge können zu fehlerhaften\nDiagnosen und Behandlungen führen.\n\nAndere Begründungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2021-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1426,
+              "height": 783
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2021-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 285,
+              "height": 174
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2021-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 174
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2021-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 206
+            },
+            {
+              "id": "p10_f5",
+              "file": "assets/ap1-2021-h_p10_f5.png",
+              "sourcePage": 10,
+              "width": 435,
+              "height": 174
+            },
+            {
+              "id": "p10_f6",
+              "file": "assets/ap1-2021-h_p10_f6.png",
+              "sourcePage": 10,
+              "width": 381,
+              "height": 175
+            },
+            {
+              "id": "p10_f7",
+              "file": "assets/ap1-2021-h_p10_f7.png",
+              "sourcePage": 10,
+              "width": 467,
+              "height": 185
+            },
+            {
+              "id": "p10_f8",
+              "file": "assets/ap1-2021-h_p10_f8.png",
+              "sourcePage": 10,
+              "width": 1405,
+              "height": 281
+            },
+            {
+              "id": "p10_f9",
+              "file": "assets/ap1-2021-h_p10_f9.png",
+              "sourcePage": 10,
+              "width": 1415,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Videokonferenz",
+              "Krankenversicherungsnummer",
+              "Andere Begründungen",
+              "Fehlerhafte Einträge",
+              "Grundwert",
+              "Patientendatenverarbeitung",
+              "Patientenbriefe",
+              "Diagnosen"
+            ]
+          },
+          "felder": [
+            {
+              "label": "2. Textverarbeitung — Verfügbarkeit, mittel",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "3. Software zur telemedizinischen Beratung über Videokonferenz — Vertraulichkeit, hoch",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "4. Patientendatenverarbeitung — Integrität, sehr hoch",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "4d",
+          "label": "d)",
+          "fullLabel": "4 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Arzthelferin an der Rezeption möchte von Ihnen wissen, für welche Art von Daten ein besonderer Schutz gesetzlich vorgeschrieben ist.\n\nGeben Sie der Arzthelferin Auskunft und benennen Sie hierzu eine rechtliche Grundlage.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Bei personenbezogenen Daten, Patientendaten, Mitarbeiterdaten\n\nBundesdatenschutzgesetz oder DSGVO",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2021-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1426,
+              "height": 783
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2021-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 285,
+              "height": 174
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2021-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 174
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2021-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 206
+            },
+            {
+              "id": "p10_f5",
+              "file": "assets/ap1-2021-h_p10_f5.png",
+              "sourcePage": 10,
+              "width": 435,
+              "height": 174
+            },
+            {
+              "id": "p10_f6",
+              "file": "assets/ap1-2021-h_p10_f6.png",
+              "sourcePage": 10,
+              "width": 381,
+              "height": 175
+            },
+            {
+              "id": "p10_f7",
+              "file": "assets/ap1-2021-h_p10_f7.png",
+              "sourcePage": 10,
+              "width": 467,
+              "height": 185
+            },
+            {
+              "id": "p10_f8",
+              "file": "assets/ap1-2021-h_p10_f8.png",
+              "sourcePage": 10,
+              "width": 1405,
+              "height": 281
+            },
+            {
+              "id": "p10_f9",
+              "file": "assets/ap1-2021-h_p10_f9.png",
+              "sourcePage": 10,
+              "width": 1415,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Mitarbeiterdaten",
+              "Patientendaten",
+              "Bundesdatenschutzgesetz",
+              "DSGVO",
+              "Daten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4e",
+          "label": "e)",
+          "fullLabel": "4 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Führen Sie zwei Kriterien an, die ein sicheres Passwort erfüllen sollte. Beschreiben Sie auch, warum diese Kriterien für eine höhere Sicherheit sorgen.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "z. B.\n\nAusreichende Länge  schwer zu ermitteln!\n\nVerwendung von Sonderzeichen  Erhöhung des Zeichenvorrats  schwieriger zu entschlüsseln\n\nUnsinnige Zeichenketten verwenden (keine festen Begriffe)  Softwareunterstütztes Ausspionieren mit Wörterbuch wird erschwert\n\nUnterschiedliche Passwörter für unterschiedliche Zugänge verwenden  Risikominimierung bei Bekanntwerden eines Passwortes\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2021-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1426,
+              "height": 783
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2021-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 285,
+              "height": 174
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2021-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 174
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2021-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 360,
+              "height": 206
+            },
+            {
+              "id": "p10_f5",
+              "file": "assets/ap1-2021-h_p10_f5.png",
+              "sourcePage": 10,
+              "width": 435,
+              "height": 174
+            },
+            {
+              "id": "p10_f6",
+              "file": "assets/ap1-2021-h_p10_f6.png",
+              "sourcePage": 10,
+              "width": 381,
+              "height": 175
+            },
+            {
+              "id": "p10_f7",
+              "file": "assets/ap1-2021-h_p10_f7.png",
+              "sourcePage": 10,
+              "width": 467,
+              "height": 185
+            },
+            {
+              "id": "p10_f8",
+              "file": "assets/ap1-2021-h_p10_f8.png",
+              "sourcePage": 10,
+              "width": 1405,
+              "height": 281
+            },
+            {
+              "id": "p10_f9",
+              "file": "assets/ap1-2021-h_p10_f9.png",
+              "sourcePage": 10,
+              "width": 1415,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ausreichende Länge",
+              "Zeichenvorrats",
+              "Softwareunterstütztes Ausspionieren",
+              "Risikominimierung",
+              "Passwortes",
+              "Begriffe",
+              "Zugänge",
+              "Unsinnige Zeichenketten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4fa",
+          "label": "fa)",
+          "fullLabel": "4 fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Die Gebührenabrechnungssoftware ist so eingerichtet, dass der Datenbestand freitags beim Herunterfahren des PCs auf einer speziell eingerichteten Partition der Festplatte gesichert wird.",
+          "prompt": "Ihr Teamleiter beauftragt Sie, der Leiterin des Praxismanagements die Risiken aufzuzeigen.\n\nBeschreiben Sie zwei der Risiken.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit",
+            "hardware"
+          ],
+          "solution": {
+            "text": "Keine zeitliche und räumliche Trennung der gesicherten Daten vorhanden\n\nWöchentlicher Sicherungszyklus zu lange, Rekonstruktion bei Datensicherung kaum möglich bzw. sehr aufwendig",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2021-h_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1395,
+              "height": 281
+            },
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2021-h_p11_f2.png",
+              "sourcePage": 11,
+              "width": 212,
+              "height": 143
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2021-h_p11_f3.png",
+              "sourcePage": 11,
+              "width": 830,
+              "height": 142
+            },
+            {
+              "id": "p11_f4",
+              "file": "assets/ap1-2021-h_p11_f4.png",
+              "sourcePage": 11,
+              "width": 1181,
+              "height": 239
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Rekonstruktion",
+              "Wöchentlicher Sicherungszyklus",
+              "Trennung",
+              "Datensicherung",
+              "Keine",
+              "Daten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4fb",
+          "label": "fb)",
+          "fullLabel": "4 fb)",
+          "groupLabel": "f)",
+          "groupIntro": null,
+          "prompt": "Unterbreiten Sie der Leiterin einen konkreten Verbesserungsvorschlag.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Externe Sicherung\n\nSicherungskonzept mit zumindest täglicher Sicherung der veränderten Daten\n\n\u0007Alle relevanten Daten müssen regelmäßig auf geeignete externe Medien gesichert werden. Das externe Medium ist „abzumelden“ und\nsicher an einem anderen Ort zu verwahren.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2021-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2021-h_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1395,
+              "height": 281
+            },
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2021-h_p11_f2.png",
+              "sourcePage": 11,
+              "width": 212,
+              "height": 143
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2021-h_p11_f3.png",
+              "sourcePage": 11,
+              "width": 830,
+              "height": 142
+            },
+            {
+              "id": "p11_f4",
+              "file": "assets/ap1-2021-h_p11_f4.png",
+              "sourcePage": 11,
+              "width": 1181,
+              "height": 239
+            }
+          ],
+          "pageImage": "assets/ap1-2021-h_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Externe Sicherung",
+              "Sicherungskonzept",
+              "Medien",
+              "Medium",
+              "Sicherung",
+              "Daten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

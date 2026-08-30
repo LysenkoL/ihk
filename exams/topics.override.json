@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "examId": "topics.override",
+  "meta": {
+    "maxPoints": 100,
+    "durationMinutes": 90,
+    "part": "AP1"
+  },
+  "situation": {
+    "text": "",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [],
+  "gradingScale": "ihk-100",
+  "ap1-2025-f:1ab": [
+    "hardware",
+    "kalkulation"
+  ],
+  "ap1-2025-f:2bb": [
+    "itsicherheit"
+  ],
+  "ap1-2025-f:3ab": [
+    "projekt"
+  ],
+  "ap1-2025-h:1da": [
+    "daten",
+    "kalkulation"
+  ],
+  "ap1-2025-h:1db": [
+    "daten",
+    "kommunikation"
+  ],
+  "ap1-2025-h:3d": [
+    "itsicherheit"
+  ],
+  "ap1-2025-h:4cb": [
+    "programmierung"
+  ],
+  "ap1-2021-h:3bb": [
+    "kalkulation",
+    "projekt"
+  ],
+  "ap1-2021-h:4fb": [
+    "itsicherheit"
+  ],
+  "ap1-2022-f:2gc": [
+    "hardware"
+  ],
+  "ap1-2022-f:3fb": [
+    "netzwerk"
+  ],
+  "ap1-2022-h:1aa": [
+    "kalkulation"
+  ],
+  "ap1-2022-h:1ab": [
+    "kalkulation"
+  ],
+  "ap1-2022-h:2bb": [
+    "daten",
+    "kalkulation"
+  ],
+  "ap1-2024-f:1ab": [
+    "software",
+    "kalkulation"
+  ]
+}

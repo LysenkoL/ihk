@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "examId": "scan-test",
+  "meta": {
+    "title": "Test",
+    "part": "AP1",
+    "year": 2026,
+    "season": "",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "detectedPoints": 26,
+    "engine": "vision",
+    "sourceFiles": {
+      "tasks": "test_scan.pdf",
+      "solutions": null
+    }
+  },
+  "situation": {
+    "text": "Sie absolvieren Ihre Ausbildung bei der Kortmann IT-Service GmbH.",
+    "assets": []
+  },
+  "attachments": [
+    {
+      "id": "anl1",
+      "sourcePage": 2,
+      "label": "Anlage 1",
+      "caption": "Netzwerkplan",
+      "file": "assets/scan-test_p02_anlage1.png",
+      "width": 1521,
+      "height": 562
+    }
+  ],
+  "tasks": [
+    {
+      "id": "a1",
+      "label": "Aufgabe 1",
+      "intro": "Auswahl und Beschaffung der Hardware",
+      "maxPoints": 14,
+      "subtasks": [
+        {
+          "id": "1_1",
+          "label": "1.1",
+          "prompt": "Nennen Sie drei Kriterien fuer die Auswahl der Arbeitsplatzrechner.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "solution": {
+            "text": "Leistung (CPU, RAM), Garantie und Servicelevel, Energieeffizienz. Je Kriterium 1 Punkt.",
+            "extractionConfidence": "high"
+          },
+          "needsReview": false,
+          "sourcePage": 2
+        },
+        {
+          "id": "1_2",
+          "label": "1.2",
+          "prompt": "Berechnen Sie die Gesamtkosten bei 8<?>9 EUR je Geraet.",
+          "maxPoints": 8,
+          "answerType": "text",
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "solution": null,
+          "needsReview": true,
+          "sourcePage": 2
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "label": "Aufgabe 2",
+      "intro": "Anschluss und Inbetriebnahme",
+      "maxPoints": 12,
+      "subtasks": [
+        {
+          "id": "2_1",
+          "label": "2.1",
+          "prompt": "Erstellen Sie ein ER-Modell fuer die Terminverwaltung.",
+          "maxPoints": 12,
+          "answerType": "diagram",
+          "assets": [
+            {
+              "id": "s2_1",
+              "file": "assets/scan-test_p02_s1.png",
+              "sourcePage": 2,
+              "width": 1390,
+              "height": 469
+            }
+          ],
+          "pageImage": "assets/scan-test_seite_02.png",
+          "placeholder": null,
+          "solution": null,
+          "needsReview": true,
+          "sourcePage": 2
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

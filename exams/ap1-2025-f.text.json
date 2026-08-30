@@ -1,0 +1,380 @@
+{
+    "examId": "ap1-2025-f",
+    "schemaVersion": "1.0",
+    "meta": {
+      "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+      "part": "AP1",
+      "year": 2025,
+      "season": "Frühjahr",
+      "durationMinutes": 90,
+      "totalPoints": 100
+    },
+    "tasks": [
+      {
+        "id": "1",
+        "title": "1. Aufgabe",
+        "maxPoints": 25,
+        "situation": "Drei Rechtsanwälte sind gerade dabei, eine Gemeinschaftskanzlei zu eröffnen. Ihr gemeinsames Bestreben besteht darin, eine bestmögliche Betreuung ihrer Mandanten durch Nutzung der aktuellen technischen Möglichkeiten zu bieten.\nDa Ihr Ausbildungsbetrieb, die Innova DVTech 2000 OHG als innovatives Beratungsunternehmen im IT-Support bekannt ist, erhalten Sie den Auftrag der IT-technischen Betreuung.\nBearbeiten Sie die folgenden Aufgaben:\n- Auswahl und Anschluss eines Multifunktionsgerätes\n- Datensicherheit im E-Mail-Verkehr\n- Aufbau und Betrieb einer Webseite\n- Einsatz von KI wirtschaftlich und technisch vorbereiten",
+        "attachments": [],
+        "subtasks": [
+          {
+            "id": "1aa",
+            "label": "aa)",
+            "maxPoints": 6,
+            "prompt": "In der Kanzlei sollen neue Multifunktionsgeräte angeschafft werden. Die Kanzlei druckt im Monat ca. 2.000 Seiten Schwarz/Weiß und 500 Seiten Farbe aus. Die Kanzleileitung legt großen Wert auf eine hohe Druckqualität, geringe Wartungskosten und eine hohe Druck- bzw. Scangeschwindigkeit.\nIhnen werden drei verschiedene Modelle mit den u. a. folgenden technischen Daten angeboten.\nVervollständigen Sie aufgrund der vorliegenden Werte die Entscheidungsmatrix zur Auswahl des geeignetsten Multifunktionsgeräts. Bestimmen Sie für jedes Kriterium pro Zeile eine Rangfolge der Multifunktionsgeräte, indem Sie die Werte von 1 bis 3 vergeben, wobei 3 der beste und 1 der schlechteste Wert ist.",
+            "sourcePage": 2,
+            "solution": {
+              "text": "Geschwindigkeit Druck: 1, 3, 2\nGeschwindigkeit Scan: 1, 3, 2\nWartungskosten: 1, 3, 2\nPreis: 1, 2, 3\nErgebnis: 4, 11, 9\nMatrix: je komplett richtige Spalte 2 Punkte",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1ab",
+            "label": "ab)",
+            "maxPoints": 1,
+            "prompt": "Nennen Sie das Gerät, das Sie aufgrund der Entscheidungsmatrix auswählen.",
+            "sourcePage": 2,
+            "solution": {
+              "text": "Das Modell 2 wird gewählt, weil es gemäß Entscheidungsmatrix am besten bewertet wurde.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1ac",
+            "label": "ac)",
+            "maxPoints": 3,
+            "prompt": "Das gewählte Gerät soll gekauft werden.\nFolgende Vorgaben gibt es:\nKosten für den Druck komplett 0,05 EUR pro Seite S/W und 0,07 EUR Farbe mit 36 Monaten Nutzungsdauer.\nBerechnen Sie die Kosten je Monat mit Angabe des Rechenweges unter der Voraussetzung, dass das Multifunktionsgerät drei Jahre genutzt wird. Runden Sie das Ergebnis auf ganze EUR.",
+            "sourcePage": 3,
+            "solution": {
+              "text": "Kosten je Monat bei Kauf: 2.844 EUR / 36 Monate + 0,07 EUR * 500 + 0,05 EUR * 2.000 +10,00 EUR = 224,00 EUR\nFalls ein anderes Multifunktionsgerät gewählt ist, ist dies ein Folgefehler und kein Abzug.\nWeitere zulässige Rechnungen:\nKosten je Monat bei Kauf: 1.656 EUR / 36 Monate + 0,07 EUR * 500 + 0,05 EUR * 2.000 +15 EUR = 196,00 EUR\nKosten je Monat bei Kauf: 3.456 EUR / 36 Monate + 0,07 EUR * 500 + 0,05 EUR * 2.000 +50 EUR = 281,00 EUR",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1b",
+            "label": "b)",
+            "maxPoints": 4,
+            "prompt": "Nach der Beschaffung der Multifunktionsgeräte für die Kanzlei sollen diese vor Ort eingerichtet werden.\nDie gelieferten Multifunktionsgeräte besitzen die nachfolgenden Anschlüsse.\nOrdnen Sie die Anschlüsse den Abbildungen 1 bis 4 zu.",
+            "sourcePage": 3,
+            "solution": {
+              "text": "RJ45: 2\nUSB Typ A: 1\nUSB Typ C: 4\nKaltgerätebuchse: 3",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1c",
+            "label": "c)",
+            "maxPoints": 2,
+            "prompt": "Auf den Multifunktionsgeräten sind die beiden folgenden Symbole abgebildet.\nBenennen Sie die beiden Symbole.",
+            "sourcePage": 3,
+            "solution": {
+              "text": "Symbol 1: WLAN\nSymbol 2: Bluetooth",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1d",
+            "label": "d)",
+            "maxPoints": 2,
+            "prompt": "In der Kanzlei wurde entschieden, dass die Multifunktionsgeräte per LAN in das Netzwerk eingebunden werden. Das Multifunktionsgerät mit dem Namen „Druckstation 1“ kann von den PCs im Netzwerk nicht erreicht werden.\nDie letzte mögliche IP-Adresse im Netz wird für das Gateway genutzt. Daher soll die vorletzte für „Druckstation 1“ genutzt werden.\nErgänzen Sie die nachfolgende Grafik mit der vorletzten möglichen IP-Adresse im Netz, damit „PC 1“ und „PC 2“ das Multifunktionsgerät nutzen können.",
+            "sourcePage": 4,
+            "solution": {
+              "text": "IP-Adresse 192.168.100.61",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1ea",
+            "label": "ea)",
+            "maxPoints": 4,
+            "prompt": "Zum Thema Sicherheitsmaßnahmen finden Sie den folgenden englischen Text des Herstellers:\nWhether you're an individual user or part of an organization, these measures will help protect your system. First the Security Baseline adds extra security enhancements to the existing protocols. You can download and install it from the Security Compliance Toolkit. By doing so, recommended security configurations will be applied to your system. Further on strong, unique passwords are crucial to prevent unauthorized access. Avoid using simple or easily guessable passwords. Also, the built-in Firewall filters incoming and outgoing network traffic. Make sure it's enabled to block unwanted connections. Additionally, regular updates are essential to patch security vulnerabilities and fix bugs. Enable automatic updates to ensure your system stays protected. Further on the Memory Integrity feature protects against memory-based attacks. It monitors RAM for unwanted changes and prevents malicious code injection.\nNennen Sie vier Sicherheitsmaßnahmen, die im obigen Text beschrieben werden.",
+            "sourcePage": 4,
+            "solution": {
+              "text": "- Download und Installation des Security Compliance Toolkit (oder auch: der Software zu Einhaltung der Sicherheitsvorschriften)\n- Nutzung komplexer Passwörter\n- Aktivierung der BS-internen Firewall\n- Regelmäßiges Aktualisieren des Betriebssystems.\n- Aktivieren der Memory Integrity Features\nAntworten sind in Deutsch oder Englisch möglich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "1eb",
+            "label": "eb)",
+            "maxPoints": 3,
+            "prompt": "Bei der Anlage der Benutzerkonten für die Endanwender wird vorgeschlagen, gleich allen Benutzern Adminrechte zu geben, damit sie sich nicht so oft beim IT-Support melden müssen.\nErläutern Sie einen Grund, warum dieses Vorgehen aus Sicherheitsgründen nicht zu empfehlen ist.",
+            "sourcePage": 4,
+            "solution": {
+              "text": "- Der betreffende Rechner und damit das ganze Netzwerk wären damit anfälliger gegen Malware.\n- Anwender könnte die Rechte missbräuchlich benutzen und Aktionen durchführen, die aus Unternehmenssicht nicht gewünscht sind.",
+              "extractionConfidence": "high"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "2. Aufgabe",
+        "maxPoints": 20,
+        "situation": "Die Rechtsanwälte wünschen sich die Möglichkeit, mit ihren Mandanten bei Bedarf auch verschlüsselt kommunizieren zu können. Sie beraten die Rechtsanwälte.",
+        "attachments": [],
+        "subtasks": [
+          {
+            "id": "2aa",
+            "label": "aa)",
+            "maxPoints": 1,
+            "prompt": "Die E-Mail-Kommunikation zwischen Rechtsanwalt und Mandanten unterliegt erhöhten Sicherheitsanforderungen.\nNennen Sie dafür eine rechtliche Grundlage.",
+            "sourcePage": 5,
+            "solution": {
+              "text": "z. B. DSGVO, Bundesdatenschutzgesetz",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2ab",
+            "label": "ab)",
+            "maxPoints": 2,
+            "prompt": "Beschreiben Sie den Zweck dieser rechtlichen Grundlage.",
+            "sourcePage": 5,
+            "solution": {
+              "text": "z. B. Schutz personenbezogener Daten",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2ba",
+            "label": "ba)",
+            "maxPoints": 4,
+            "prompt": "Ein Anwalt hat von einem Mandanten per E-Mail einen öffentlichen Schlüssel für die Einrichtung einer sicheren Kommunikation erhalten und bittet Sie um Unterstützung bei der Verwendung.\nBeschreiben Sie die Vorgehensweise bei der asymmetrischen Verschlüsselung und Entschlüsselung zur Übertragung von E-Mails vom Anwalt zum Mandanten anhand der folgenden Skizze.",
+            "sourcePage": 5,
+            "solution": {
+              "text": "Die Nachricht des Anwalts wird mit dem öffentlichen Schlüssel des Mandanten verschlüsselt. Die empfangene Nachricht wird mit dem privaten Schlüssel des Mandanten entschlüsselt.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2bb",
+            "label": "bb)",
+            "maxPoints": 1,
+            "prompt": "Nennen Sie das IT-Schutzziel, welches durch die beschriebene Verwendung der Schlüssel erreicht werden kann.",
+            "sourcePage": 5,
+            "solution": {
+              "text": "Vertraulichkeit der E-Mail.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2bc",
+            "label": "bc)",
+            "maxPoints": 2,
+            "prompt": "Nennen Sie einen Vorteil und einen Nachteil der asymmetrischen Verschlüsselung im Vergleich zu einer symmetrischen Verschlüsselung.",
+            "sourcePage": 5,
+            "solution": {
+              "text": "Vorteil: keine gesicherte Übertragung eines geheimen Schlüssels notwendig\nNachteil: Verschlüsselung und Entschlüsselung erfordern einen höheren Rechenaufwand.\nWeitere Lösungen sind möglich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2c",
+            "label": "c)",
+            "maxPoints": 4,
+            "prompt": "Für den praktischen Einsatz der E-Mail-Verschlüsselung suchen Sie nun eine geeignete Software. Zur Verfügung steht ein Produkt unter einer Open-Source-Lizenz und eine proprietäre Software des Betriebssystem-Herstellers.\nNennen Sie jeweils zwei Vorteile dieser Lizenzmodelle.",
+            "sourcePage": 6,
+            "solution": {
+              "text": "Open-Source:\nGgf. kostenlos, öffentlicher Source-Code kann von allen Interessierten geprüft und verbessert werden\nProprietäre Software:\nGgf. bessere Zusammenarbeit mit weiterer Software des Herstellers, ggf. gesicherter Service, ggf. zukunftssicherer durch kommerziellen Hersteller",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2da",
+            "label": "da)",
+            "maxPoints": 4,
+            "prompt": "Eine ausgewählte E-Mail-Client-Software soll auf dem Rechner des Anwalts installiert und eingerichtet werden.\nAuf der Website des Software-Anbieters wird neben einer Installationsdatei auch ein Hashwert angeboten.\nErläutern Sie den Zweck der Verwendung eines Hashwerts beim Softwaredownload.",
+            "sourcePage": 6,
+            "solution": {
+              "text": "Nach dem Download kann beim Nutzer der Hashwert erneut berechnet werden. Dieser wird mit dem angebotenen Hashwert verglichen, um mögliche Fehler oder Datenmanipulationen bei der Datenübertragung zu identifizieren (Integrität).",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "2db",
+            "label": "db)",
+            "maxPoints": 2,
+            "prompt": "Bei der Einrichtung der Software werden Ihnen die beiden Protokolle IMAP und POP3 angeboten.\nGeben Sie eine Begründung dafür an, dass Sie sich für die Variante IMAP entscheiden.",
+            "sourcePage": 6,
+            "solution": {
+              "text": "IMAP ermöglicht beim Abruf den Verbleib einer E-Mail-Kopie auf dem Server. Dadurch ist eine Bearbeitung des Mailpostfachs ggf. von mehreren Clients aus möglich.",
+              "extractionConfidence": "high"
+            }
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "3. Aufgabe",
+        "maxPoints": 30,
+        "situation": "Die Anwaltskanzlei möchte ihren Mandanten eine bestmögliche Betreuung durch Nutzung der aktuellen technischen Möglichkeiten bieten. Dafür soll eine Website aufgebaut werden. Sie arbeiten an der Planung mit.",
+        "attachments": [],
+        "subtasks": [
+          {
+            "id": "3aa",
+            "label": "aa)",
+            "maxPoints": 9,
+            "prompt": "Sie werden beauftragt, einen Netzplan für den Aufbau der Website der Anwaltskanzlei zu erstellen.\nEs gibt bereits einen Entwurf, den Sie vervollständigen sollen.\nTragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein.",
+            "sourcePage": 7,
+            "solution": {
+              "text": "9 Punkte – 2 Punkte je vollständigen richtigen Netzknoten, 1 Punkt für die richtige Ergänzung von G.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "3ab",
+            "label": "ab)",
+            "maxPoints": 1,
+            "prompt": "Nennen Sie die Vorgänge des kritischen Pfads",
+            "sourcePage": 6,
+            "solution": {
+              "text": "Kritischen Pfad: A-B-D-E-I-J",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "3b",
+            "label": "b)",
+            "maxPoints": 3,
+            "prompt": "Die zukünftige Website soll als dynamische Website erstellt werden.\nErläutern Sie den Unterschied gegenüber einer statischen Website.",
+            "sourcePage": 8,
+            "solution": {
+              "text": "Eine dynamische Website generiert Inhalte zur Laufzeit auf der Grundlage von Benutzerinteraktionen oder anderen Parametern, während eine statische Website zuvor erstellte Inhalte anzeigt, die unverändert bleiben.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "3c",
+            "label": "c)",
+            "maxPoints": 3,
+            "prompt": "Nennen Sie drei Programmiersprachen, die für die Entwicklung von dynamischen Webinhalten verwendet werden.",
+            "sourcePage": 8,
+            "solution": {
+              "text": "- JavaScript\n- PHP\n- Python\n- Ruby\n- Java Enterprise Edition\n- u. a.\nHinweis: HTML und CSS sind keine Programmiersprachen.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "3d",
+            "label": "d)",
+            "maxPoints": 6,
+            "prompt": "Die Webseitenaufrufe werden durch eine bereits programmierte Funktion ausgewertet. Sie werden beauftragt, einen Schreibtischtest durchzuführen.\ndef analytics_berechnen(besucher, seitenaufrufe, besucherSuchmaschinen, anzahlBounces):\n  durchschnittSeitenaufrufeProBesucher = seitenaufrufe / besucher\n  prozentsatzSuchmaschinenBesucher = (besucherSuchmaschinen / besucher) * 100\n  nonBounceRate = ((besucher - anzahlBounces) / besucher) * 100\n  return (durchschnittSeitenaufrufeProBesucher, prozentsatzSuchmaschinenBesucher, nonBounceRate)\nAufruf:\nergebnis = analytics_berechnen(12000, 33000, 5562, 7554)\nRückgabewerte:\nDurchschnittliche Seitenaufrufe pro Besucher:\nProzentsatz der Besucher, die über Suchmaschinen kommen:\nNon-Bounce-Rate (Prozentsatz der Sitzungen mit mehr als einem Seitenaufruf):\nBerechnen Sie die drei Rückgabewerte des folgenden Funktionsaufrufs. Geben Sie die Rückgabewerte der Funktion mit zwei Nachkommastellen an.",
+            "sourcePage": 8,
+            "solution": {
+              "text": "Rückgabewerte:\nDurchschnittliche Seitenaufrufe pro Besucher: 2,75\nProzentsatz der Besucher, die über Suchmaschinen kommen: 46,35 %\nNon-Bounce-Rate (Prozentsatz der Sitzungen mit mehr als einem Seitenaufruf): 37,05 %",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "3e",
+            "label": "e)",
+            "maxPoints": 8,
+            "prompt": "In einer weiteren Funktion soll die Webseite bewertet werden. Dafür wurde der folgende Pseudocode erstellt:\nFunktion bewertung_webseite(ladezeit, html_valid, mobile_freundlich, seo_optimierung):\n...\nGeben Sie die Rückgabe der Funktion bei den folgenden Aufrufen an.\n1. bewertung_webseite(1.5, Wahr, Wahr, 80)\n2. bewertung_webseite(3.0, Wahr, Falsch, 45)",
+            "sourcePage": 9,
+            "solution": {
+              "text": "1. Ergebnis: „Gut, SEO könnte besser sein“\n2. Ergebnis: „Langsam und nicht mobilfreundlich“",
+              "extractionConfidence": "high"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "title": "4. Aufgabe",
+        "maxPoints": 25,
+        "situation": "Die Kanzlei ist bestrebt, stets up to date zu bleiben und offen für Innovationen zu sein. Daher wird auch der Einsatz von KI geprüft.",
+        "attachments": [],
+        "subtasks": [
+          {
+            "id": "4a",
+            "label": "a)",
+            "maxPoints": 6,
+            "prompt": "Bei Anfrage eines Mandanten nach einem Beratungstermin ist folgender grober Ablauf vorgesehen:\n1. Erfassen/Aktualisieren der Mandantendaten\n2. Grobe Erfassung des Rechtsfalls durch einen Anwaltsgehilfen\n3. Terminvereinbarung für das Erstgespräch\n4. Kurze Vorabrecherche durch einen Rechtsanwalt\n5. Erstberatung durch einen Rechtsanwalt\nIn dem Ablauf soll nach Möglichkeiten gesucht werden, KI sinnvoll unterstützend einzusetzen. Eine Recherche hat folgendes Ergebnis geliefert:\n„Open-ended tasks are completed without human assistance. The system learns independently from its experiences and thus improves its performance.“\nWählen Sie drei Stellen des Ablaufs und beschreiben Sie jeweils, wie KI sinnvoll zum Einsatz kommen kann.\nHinweis: Auch bei Ablaufschritt 1 ist ein weiteres Beispiel möglich!",
+            "sourcePage": 10,
+            "solution": {
+              "text": "1. Erfassen/Aktualisieren der Mandantendaten bei der Anfrage: z. B. Recherche nach Informationen über den Mandanten, Übersetzungshilfe bei fremdsprachigen Anrufern, Abfragen von Kontaktdaten und Sachverhaltsinformationen\n2. Inhaltliche Erfassung und Formulierung des Rechtsfalls durch einen Anwaltsgehilfen: Vorerfassung des individuellen Rechtsfalls durch KI-gestützten Dialog mit den Mandanten, Abfragen von relevanten Sachverhaltsinformationen rund um die Uhr, Abruf und dem Zuordnen von Nachrichten zur jeweiligen Akte\n3. Suche nach passenden Terminvorschlägen und Terminvereinbarung mit den Mandanten für das Erstgespräch: Zuweisen eines freien Termins eines Anwalts mit den meisten Erfahrungen in diesem Bereich, Rechtsschutz klären, Verträge und Vertragsklauseln prüfen und erstellen\n4. Vorabrecherche durch einen Rechtsanwalt: Zusammenfassung von Gesetzestexten, Relevante Urteile suchen und zusammenfassen, Recherche zum aktuellen fallbezogenen Gesetzgebungsverfahren in Deutschland, Zusammenfassung zu relevanten Urteilen\n5. Qualifizierte Erstberatung des Mandanten durch einen Rechtsanwalt: Ermittlung der Erfolgschancen vor Gericht, Ermittlung von Referenz-Rechtsfällen, Mandantenanschreiben mit Erläuterung des Urteils in verständlicher Sprache, Anschreiben zum empfohlenen weiteren Vorgehen, Information über die Einlegung eines Rechtsmittels\nAuch andere Antworten sind möglich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4b",
+            "label": "b)",
+            "maxPoints": 2,
+            "prompt": "Einige Mitarbeiter der Kanzlei stehen dem Einsatz von KI skeptisch gegenüber.\nErläutern Sie einen möglichen Vorteil für die Mitarbeiter.",
+            "sourcePage": 10,
+            "solution": {
+              "text": "- Fehlerhäufigkeit wird geringer und damit erhöht sich die Effektivität der eigenen Arbeitsleistung.\n- Man schafft sich durch die gewonnene Zeit mehr Freiraum für höherqualifizierte Tätigkeiten.\nAuch andere Antworten sind möglich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4c",
+            "label": "c)",
+            "maxPoints": 4,
+            "prompt": "Der Kanzlei liegt ein Angebot über einen KI-Chatbot für Anwälte vor:\n- Monatliche Kosten: 100,00 EUR/User\n- Jährliche dreistündige individuelle (Pflicht)Schulung: 1.800,00 EUR\nErrechnen Sie die jährlichen Kosten des Chatbot-Anbieters für die drei Anwälte der Kanzlei. Berücksichtigen Sie neben den Kosten auch den entgangenen Umsatz durch die Pflichtschulung bei einem Stundensatz von 200 EUR.",
+            "sourcePage": 11,
+            "solution": {
+              "text": "Kosten pro Jahr:\n(100 EUR * 12 Monate+ 1.800 EUR + 200 EUR/Std. * 3 Std.) x 3\n= 3.600 EUR * 3\n= 10.800 EUR\nDie Angabe von Benennung beim Rechenweg ist nicht erforderlich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4d",
+            "label": "d)",
+            "maxPoints": 4,
+            "prompt": "Der Kanzlei wird ein KI-Chatbot angeboten, der auf der Homepage platziert kostenlos Rechtsauskunft gibt und dabei unter Berücksichtigung der Erfolgsaussichten versucht, weitere Mandanten für die Kanzlei zu gewinnen.\nBeschreiben Sie einen Vorteil und einen Nachteil dieses Chatbots für die Kanzlei.",
+            "sourcePage": 11,
+            "solution": {
+              "text": "Mögliche Nachteile:\n- Eine oberflächliche Beratung könnte zu einem negativen Image für die Kanzlei führen.\n- Potenzielle Mandanten könnten sich auf die Nutzung des Chatbots beschränken.\n- Der persönliche Kontakt geht verloren.\nMögliche Vorteile:\n- Gewinnung von Mandanten, deren Kontakt über den Chatbot hergestellt wird.\n- Angebot einer kostenlosen Erstberatung für die Mandanten ohne Beanspruchung von personellen Ressourcen ist gegeben.\n- 24/7-Erreichbarkeit ist gegeben.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4ea",
+            "label": "ea)",
+            "maxPoints": 3,
+            "prompt": "Die KI-Anwendung wird auf einem Cloud-Server gehostet. Sie sollen eine gesicherte Verbindung zu dem Server erstellen.\nDie folgenden Serverdaten liegen vor:\nDX43 vCPU\nRAM 16 GB\nIPv4: 32.42.230.33\nNVMe SSD 160 GB\nGeben Sie mithilfe der Porttabelle die notwendigen Einstellungen in dem folgenden Formular an, um mit dem Server eine gesicherte Verbindung aufzubauen.",
+            "sourcePage": 11,
+            "solution": {
+              "text": "Host Name (or IP address): 32.42.230.33\nPort: 22\nConnection type: SSH",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4eb",
+            "label": "eb)",
+            "maxPoints": 2,
+            "prompt": "Begründen Sie, warum Sie sich nicht für die übrigen angebotenen Verbindungstypen entschieden haben.",
+            "sourcePage": 12,
+            "solution": {
+              "text": "Die Verbindungstypen Serial und Telnet sind unverschlüsselt.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4fa",
+            "label": "fa)",
+            "maxPoints": 2,
+            "prompt": "Es bot sich die Gelegenheit, den Mandantenstamm einer aufgelösten Kanzlei zu übernehmen. Die Mandantentabelle beinhaltet jedoch Redundanzen.\nErklären Sie den Begriff Redundanzen.",
+            "sourcePage": 12,
+            "solution": {
+              "text": "Mehrfachspeicherungen von Daten\nAuch andere Formulierungen sind möglich.",
+              "extractionConfidence": "high"
+            }
+          },
+          {
+            "id": "4fb",
+            "label": "fb)",
+            "maxPoints": 2,
+            "prompt": "Beschreiben Sie ein Problem, welches durch Redundanzen entstehen kann.",
+            "sourcePage": 12,
+            "solution": {
+              "text": "Änderungen müssen an mehreren Stellen vorgenommen werden. Wird eine übersehen, entstehen Inkonsistenzen.\nErhöhter Zeitaufwand bei der Durchführung von Änderungen.\nUngewollte Nebeneffekte beim Einfügen, Löschen oder Ändern von Daten\nAuch andere Antworten sind möglich.",
+              "extractionConfidence": "high"
+            }
+          }
+        ]
+      }
+    ]
+  }

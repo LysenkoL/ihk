@@ -1,0 +1,232 @@
+{
+  "examId": "ap1-2024-h",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2024,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2024-h-aufgaben.pdf",
+      "solutions": "ap1-2024-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie sind Auszubildender der Identify OHG, die sich auf die Herstellung von elektronischen Schlüsselsystemen und Ausweisen unter Beachtung höchster Sicherheitsanforderungen spezialisiert hat.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Zur Vorbereitung der Absicherung eines Besprechungsraums informieren Sie sich u. a. über Maßnahmen aus dem BSI IT-Grundschutz-Kompendium und wirken an der Umsetzung mit.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Zur Absicherung des Besprechungsraums soll u. a. eine automatische Zutrittskontrolle an der Eingangstür eingerichtet werden.\n\nNennen Sie drei technische Möglichkeiten, um eine automatische Zutrittskontrolle zu gewährleisten.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Beschreiben Sie die Sicherheitsrisiken der folgenden Situationen.\n\n1. Geöffnete Fenster und Türen nach Verlassen des Besprechungsraums — Beispiel: „Informationen in Papierform oder IT-Geräte können durch Diebstahl in falsche Hände geraten.“\n2. Nutzung durch externe Personen — ?\n3. Lose verlegte Kabel — ?\n4. Nutzung von BYOD (Bring Your Own Device) — ?",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Ein PC soll für die Durchführung von Präsentationen mit einem Anzeigegerät verbunden werden. Der BSI-Grundschutz empfiehlt, den Präsentationsrechner in dem Besprechungsraum sicher zu konfigurieren.\n\nBegründen Sie die folgenden vorgeschlagenen Maßnahmen.\n– Nutzung einer Minimalkonfiguration mit festgelegter Anwendungssoftware:\n– Anschluss an ein vom LAN der Institution getrenntes Datennetz:",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "Sie erhalten vom Netzwerkadministrator der Identify OHG die folgenden Vorgaben für die Netzwerkkonfiguration des Präsentationsrechners. Die Adressvergabe soll statisch erfolgen, um eine spätere Fernwartung zu vereinfachen.\n\nNetzwerk:     192.168.20.0/24\nDHCP-Range:   192.168.20.20 - 192.168.20.254\nRouter:       192.168.20.1",
+          "prompt": "Bei der Analyse des PCs wird Ihnen jedoch die IP-Adresse 169.254.122.115 angezeigt.\n\nBegründen Sie diese „Vorkonfiguration“.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Markieren Sie bzw. passen Sie die Konfiguration entsprechend der Vorgaben des Administrators in der folgenden Eingabemaske an.\n\n( ) IP-Adresse automatisch beziehen\n( ) Folgende IP-Adresse verwenden:\n    IP-Adresse:      ___.___.___.___\n    Subnetzmaske:    ___.___.___.___\n    Standardgateway: ___.___.___.___",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "dc)",
+          "groupLabel": "d)",
+          "prompt": "Entsprechend der BSI-Empfehlungen ist das IP-Netz des Präsentationsrechners vom Firmennetz getrennt. Im Besprechungsraum befindet sich eine unbeschriftete Netzwerk-Doppeldose. Hier wird auf der einen Seite das Firmennetz, auf der anderen Seite das Netz für den Präsentationsrechner zur Verfügung gestellt. Ihre Aufgabe besteht nun darin, die richtige RJ-45-Buchse (links oder rechts) der Netzwerkdose zu ermitteln und zu beschriften. Ihnen steht dazu ein Patchkabel und der Präsentationsrechner mit seiner Kommandozeile zur Verfügung.\n\nBeschreiben Sie Ihre Vorgehensweise stichpunktartig.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "dd)",
+          "groupLabel": "d)",
+          "prompt": "Für die Einrichtung weiterer Maßnahmen der IT-Sicherheit im Netzwerk benötigt Ihr Administrator die MAC-Adresse des Präsentationsrechners.\n\nGeben Sie einen möglichen Konsolenbefehl an, um die Adresse zu ermitteln und nennen Sie ein Beispiel für eine MAC-Adresse in strukturierter hexadezimaler Darstellung.\n\nKonsolenbefehl:\nMAC-Adresse:",
+          "sourcePage": 4,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Die Identify OHG benötigt eine neue Software für ihre Schließsysteme. Sie arbeiten in der Abteilung Softwareentwicklung bei der Planung der neuen Software mit. Dabei erstellen Sie auch eine Kostenübersicht für einen Kunden.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "In der Softwareentwicklungsabteilung des Unternehmens gibt es derzeit einen personellen Engpass. Die Identify OHG denkt über eine Fremdvergabe nach.\n\nNennen Sie zwei Argumente, die gegen eine Fremdvergabe sprechen.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Es wird beschlossen, die Software selbst zu entwickeln. Die Entwicklungsabteilung fragt, in welcher Programmiersprache die Software entwickelt werden soll.\n\nNennen Sie ein allgemeingültiges Kriterium, welches für die Auswahl der Programmiersprache von Bedeutung ist und geben Sie dazu eine kurze Begründung an.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Zur Auswahl der Programmiersprachen stehen Compiler- und Interpreter-Sprachen.\n\nErläutern Sie den wesentlichen Unterschied zwischen den beiden Übersetzungsarten.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Sie werden beauftragt, für die Schlüsselsystemsoftware ein UML-Anwendungsfalldiagramm (Use-Case) zu erstellen. Die folgenden Anforderungen liegen vor:\n\n– Der Mitarbeiter kann Türen öffnen und Türen zuschließen. Dabei findet immer eine Berechtigungsprüfung statt.\n– Der Administrator kann alles, was ein Mitarbeiter kann. Zusätzlich kann er die Türschlösser programmieren. Dabei findet immer eine Berechtigungsprüfung statt.\n\nErgänzen Sie das gegebene UML-Anwendungsfalldiagramm.\n(Vorgegeben ist: Akteur „Mitarbeiter“ → Use-Case „Tür öffnen“ innerhalb des Systems.)",
+          "sourcePage": 5,
+          "answerType": "diagram",
+          "placeholder": "Diagramm-Aufgabe: beschreibe im Antwortfeld Akteure, Use-Cases und die Beziehungen (include / generalization), z. B. „Administrator generalisiert Mitarbeiter; ‚Tür öffnen‘ «include» ‚Berechtigung prüfen‘ …“."
+        },
+        {
+          "label": "e)",
+          "prompt": "Ihr Kollege hat gerade die Methode bool checkAuthority(int id, int roomNr) erstellt. Diese übergibt eine Mitarbeiter-ID und eine Raumnummer, um abzufragen, ob für diesen Raum eine Zutrittsberechtigung besteht.\n\nErmitteln und begründen Sie den Rückgabewert, der bei Aufruf der Funktion mit id = 3 und roomNr = 236 geliefert wird.\n\nHinweis:\nDie Funktion greift auf ein globales zweidimensionales Array keyData[][] zu. In der ersten Spalte steht die Mitarbeiter-ID. Die folgenden Spalten enthalten die Räume, für die eine Zutrittsberechtigung besteht. Der Zeilen- und Spaltenindex beginnt bei 0. Es gibt keine Kopfzeile im Array, sie dient nur zur Erläuterung.\n\nMitarbeiter-ID | Room1 | Room2 | Room3 | Room4 | Room5 | Room6 | Roomxx\n1              | 223   | 312   | 154   | 47    | 124   | 236   | 334\n2              | 103   | 401   | 14    | 236   | 56    |       |\n3              | 20    | 312   | 235   | 17    | 124   | 32    |\n\nPseudocode\n1  Funktion checkAuthority(id, roomNr)\n2      Für i von 0 bis (AnzahlZeilen von keyData) - 1\n3          Für j von 1 bis (AnzahlBelegteSpalten von keyData) - 1\n4              Wenn id gleich keyData[i][0] und roomNr gleich keyData[i][j] dann\n5                  Rückgabe True\n6              Ende Wenn\n7          Ende Für\n8      Ende Für\n9      Rückgabe False\n10 Ende Funktion",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "f)",
+          "prompt": "Eine Schule hat eine Anfrage zur Ausstattung ihres Schließsystems gestellt. Die benötigten Komponenten sind:\n\n– 65 Schließzylinder zu einem Stückpreis von 512,00 EUR (Nettopreis).\n– 80 Transponder zu einem Stückpreis von 39,00 EUR (Nettopreis).\n– Ein Programmiergerät zum Preis von 2.300,00 EUR (Nettopreis).\n– Eine Administrationssoftware, die eine jährliche Lizenzgebühr von 349,00 EUR (Nettopreis) hat.\n\nBerechnen Sie die Gesamtkosten für die Schule über einen Zeitraum von fünf Jahren. Geben Sie sowohl den Nettopreis als auch den Bruttopreis bei 19 % Mehrwertsteuer an. Der Rechenweg ist anzugeben.",
+          "sourcePage": 6,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Die Identify OHG möchte Computer kaufen und Sie begleiten den Beschaffungsprozess. Ferner soll der Arbeitsspeicher bestehender Laptops erweitert werden.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Ein Angebot für die zehn Computer beläuft sich auf 12.000 EUR.\n\nDie Identify OHG entschließt sich zum Kauf der Computer auf Kredit und erhält von der Kleinstadt-Bank ein Angebot für ein Ratendarlehen.\n\nNominalzins: 6 % jährlich\nLaufzeit:    36 Monate\nTilgung:     jeweils in gleichen Beträgen zum Jahresende\n\nErmitteln Sie für den genannten Darlehensbetrag die jährlichen Zahlungen und die fälligen Gesamtzinsen sowie die Zahlungen insgesamt.\n\nTabelle (auszufüllen): Zeitraum | Restschuld EUR | Zinsen EUR | Tilgung EUR | Zahlungen/12 Monate EUR\n01.04.2025 - 31.03.2026\n01.04.2026 - 31.03.2027\n01.04.2027 - 31.03.2028\nSumme                    |                | ?          | 12.000      | ?",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Der Abteilungsleiter der Entwicklungsabteilung der Identify OHG möchte, dass in Zukunft alle entwickelten Anwendungen auf der firmeninternen Cloud ausgerollt werden. Darum müssen alle Anwendungen auch mit entsprechenden Tools entwickelt und getestet werden. Aus den Hardwareanforderungen eines dieser Tools geht hervor, dass die Laptops der Entwickler folgende Bedingungen erfüllen müssen:\n– Windows 11\n– 32 GB RAM\n\nDer aktuelle Laptop der Entwickler verfügt über die folgenden Eckdaten:\n– Prozessor:      Intel® Core™ i5-1335U Prozessor der 13. Generation\n– Betriebssystem: Windows 11 Professional (64 Bit)\n– Grafik:         Integrierte Intel® UHD-Grafik\n– Arbeitsspeicher: 16 GB DDR4-3200MHz\n– Massenspeicher: 1 TB HDD\n– WLAN:           Intel® Wi-Fi 6 AX201 2x2 AX und Bluetooth® 5.1\n\nDer Abteilungsleiter hat sich dazu entschieden, dass die vorhandenen Laptops um den benötigten Arbeitsspeicher erweitert werden. Der Laptop verfügt über einen weiteren Slot für einen weiteren Arbeitsspeicher-Riegel. Von dem Hardware-Dienstleister der Identify OHG bekommen Sie folgende drei Arbeitsspeicher angeboten:\n\nArbeitsspeicher 1 – 82,20 EUR: 16 GB DDR5-6000MHz\nArbeitsspeicher 2 – 75,70 EUR: 16 GB DDR4-5600MHz\nArbeitsspeicher 3 – 31,80 EUR: 16 GB DDR4-3200MHz",
+          "prompt": "Erklären Sie die Kompatibilität für jeden der drei Arbeitsspeicher mit dem vorhandenen Laptop.\n\nArbeitsspeicher 1:\nArbeitsspeicher 2:\nArbeitsspeicher 3:",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Begründen Sie, welchen Arbeitsspeicher Sie dem Abteilungsleiter zur Anschaffung empfehlen.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "bc)",
+          "groupLabel": "b)",
+          "prompt": "Sie schlagen dem Abteilungsleiter vor, die HDD im Laptop mit einer SSD zu ersetzen.\n\nNennen Sie drei Vorteile einer SSD gegenüber einer HDD.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Bei der Korrespondenz mit dem Hardwarelieferanten werden häufig E-Mails ausgetauscht. Sie warnen die Anwender darum vor Phishingmails.",
+          "prompt": "Beschreiben Sie eine Gefahr durch Phishingmails.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "cb)",
+          "groupLabel": "c)",
+          "prompt": "Nennen Sie drei Anzeichen, an denen der User erkennen kann, dass es sich um eine Phishingmail handelt.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "cc)",
+          "groupLabel": "c)",
+          "prompt": "Nennen Sie zwei Maßnahmen, die Sie dem Unternehmen zum Schutz vor Phishingmails empfehlen.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "cd)",
+          "groupLabel": "c)",
+          "prompt": "Nennen Sie zwei Maßnahmen, die das Unternehmen den Mitarbeitern beim Empfang von Mails vorgibt, um sich vor Phishingmail zu schützen.",
+          "sourcePage": 8,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Alle Vorgänge des Produktionsprozesses müssen dokumentiert werden. Als Grundlage wird ein Datenmodell erstellt.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Bei der Identify OHG ist auch bei internen Aufträgen ein Lasten- und Pflichtenheft üblich.\n\nErklären Sie jeweils den Zweck von Lasten- und Pflichtenheft und führen Sie jeweils ein konkretes Beispiel für den Inhalt an. Tragen Sie Ihr Ergebnis in nachfolgende Tabelle ein.\n\n              | Lastenheft | Pflichtenheft\nZweck         |            |\nBeispiel für  |            |\nmöglichen     |            |\nInhalt        |            |",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Erweitern Sie das unten angegebene Datenmodell redundanzfrei um die vorliegenden Angaben. Geben Sie auch die Kardinalitäten an.\n\nAngaben zur Datenbank:\nDie Bearbeitung eines Auftrags darf immer nur von einem einzigen Mitarbeiter erfolgen. Neben seinem Namen ist auch der Vorname zu erfassen. Jeder Auftrag hat einen Beginn und ein Ende der Bearbeitung.\nIn jeder Entitätsmenge soll eine eindeutige Identifizierung durch einen Primärschlüssel möglich sein.\n\n(Gegeben: Entität „Mitarbeiter“ mit Attributen „Mitarbeiter-ID (PS)“ und „Mitarbeiter_Name“, Beziehung „bearbeitet“ mit Kardinalität 1 auf Mitarbeiter-Seite.)",
+          "sourcePage": 9,
+          "answerType": "diagram",
+          "placeholder": "ER-Modell: beschreibe im Antwortfeld Entitäten, Attribute (inkl. Primärschlüssel), Beziehung und Kardinalitäten in Worten."
+        },
+        {
+          "label": "c)",
+          "prompt": "Da sich die Störungen an einer Maschine häufen, soll eine neue zur Herstellung von Ausweiskarten beschafft werden. Es werden Überlegungen zur Beschaffung über Leasing angestellt.\n\nBeschreiben Sie drei Vorteile der Beschaffung über Leasing.",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Nach Ablauf der Leasingdauer bieten sich bezüglich der weiteren Nutzung der Maschine mehrere Möglichkeiten.\n\nBeschreiben Sie zwei dieser Möglichkeiten.",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Ein Kollege informiert Sie, dass die Maschine trotz ihrer technischen Veralterung, der Störungen und ihrer erhöhten Ausschussproduktion weiter genutzt werden kann.\n\nBei der Beschaffung der Maschine spielen nicht nur finanzielle, sondern auch ökologische Aspekte eine Rolle.\n\nBeschreiben Sie zwei ökologische Aspekte, die bei einer Neuinvestition zu beachten sind.",
+          "sourcePage": 10,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

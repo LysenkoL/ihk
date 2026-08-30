@@ -1,0 +1,228 @@
+{
+  "examId": "ap1-2023-f",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2023,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2023-f-aufgaben.pdf",
+      "solutions": "ap1-2023-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie arbeiten in der SecuRita AG, einem Unternehmen des Finanzsektors. Hier steht eine Neustrukturierung der Arbeitsplätze unter Beachtung von Datensicherheit und Datenschutz an.\n\nDabei sollen Sie die folgenden Aufgaben erledigen:\n1. Nutzwertanalyse, Vergleich Endgeräte\n2. Bezugspreisermittlung mit Gegenüberstellung von Kauf und Leasing\n3. Datenschutz und Datensicherheit\n4. Einsatz von KI bei der Schadensabwicklung, Lasten- und Pflichtenheft, UML, SELECT",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Das Unternehmen plant, seine Arbeitsumgebungen zu modernisieren. Das bisher genutzte Großraumbüro mit festen Arbeitsplätzen soll durch eine flexible Struktur ersetzt werden. Dafür sollen verschiedene Modelle für Arbeitsplatzrechner mithilfe einer Nutzwertanalyse verglichen werden. Die zur Auswahl stehenden Modelle finden Sie im Belegsatz.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Nennen Sie pro Modell je einen Vor- und einen Nachteil.\n\n                | Vorteil | Nachteil\nNotebook        |         |\nAll-in-One-PC   |         |\nThin-Client     |         |\nDesktop-Rechner |         |",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Analysieren Sie die zur Verfügung stehenden Modelle und ergänzen Sie die Nutzwertanalyse in den Zellen mit den fehlenden Punkten (weiße Felder). Jeder Punktwert kann nur einmal vergeben werden.\n(1-4 Punkte möglich, 1: am schlechtesten, 4: am besten)\n\nBerechnen Sie anschließend für jedes Modell die Summe der gewichteten Punkte.\n\nNr | Kriterium                     | Gewichtung | Notebook P/gP | All-in-One P/gP | Thin-Client P/gP | Desktop P/gP\n1  | Platzbedarf                   | 15 %       | 2 / 0,3       | 3 / 0,45        | ? / ?            | ? / ?\n2  | Ergonomie                     | 20 %       | 2 / 0,4       | ? / ?           | 4 / 0,8          | ? / ?\n3  | Performance                   | 10 %       | 3 / 0,3       | ? / ?           | 2 / 0,2          | ? / ?\n4  | Verfügbarkeit                 | 20 %       | 4 / 0,8       | 2 / 0,4         | 1 / 0,2          | 3 / 0,6\n5  | Kosten f. Wartung/Erweiterung | 15 %       | 2 / 0,3       | ? / ?           | 4 / ?            | ? / ?\n6  | Preis                         | 20 %       | ? / ?         | ? / ?           | ? / ?            | ? / ?\n   | Auswertung                    | 100 %      | ?             | ?               | ?                | ?\n\ngP: gewichtete Punkte",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Entscheiden Sie sich für eines der Modelle unter Berücksichtigung der geplanten Modernisierung der Arbeitsumgebung. Begründen Sie Ihre Entscheidung.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Geben Sie ein weiteres sinnvolles Kriterium für die Nutzwertanalyse an. Begründen Sie Ihren Vorschlag.",
+          "sourcePage": 3,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Für die Mitarbeiter sollen 3.500 neue Notebooks bezogen werden.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Von den Standard-Lieferanten wurden folgende drei Angebote eingeholt:\n\n                    | Notebooks-günstiger.de | SMART Notebooks | Tech-ware\nListen-EK-Preis/Stk.| 886,31 EUR             | 901,25 EUR      | 1.071,00 EUR\nLieferantenrabatt   | 0 %                    | 0 %             | 20 %\nLieferantenskonto   | 0 %                    | 0 %             | 2 %\nLieferbedingungen   | frachtfrei             | frei Haus       | ab Werk\n\nFür alle Angebote gelten die folgenden Lieferkosten durch die Spedition Lieferschnell GmbH:\n– Rollgeld zur Verladestation: 45 EUR pro 100 Stück\n– Fracht: 100 EUR pro 100 Stück\n– Rollgeld ab Entladestation: 55 EUR pro 100 Stück\n\nKostenübernahme:\nfrei Haus, frei Lager, frei Werk: Gesamte Kosten trägt der Verkäufer\nfrei, frachtfrei: Rollgeld + Fracht trägt der Verkäufer, Rollgeld ab Entladestation trägt der Käufer\nab Lager, ab Werk: Gesamte Kosten trägt der Käufer",
+          "prompt": "Ermitteln Sie den Bezugspreis der einzelnen Anbieter pro Notebook durch Ergänzung der leeren Felder in der folgenden Tabelle.\n\n                       | notebooks-guenstiger.de | SMART Notebooks | Tech-ware\nListen-EK-Preis/Stk. Brutto | 886,31 EUR         | 901,25 EUR      | 1.071,00 EUR\nLieferantenrabatt      | 0,00 EUR                | 0,00 EUR        | ?\n= Zieleinkaufspreis    | 886,31 EUR              | 901,25 EUR      | ?\nLieferantenskonto      | 0,00 EUR                | 0,00 EUR        | ?\n= Bareinkaufspreis     | 886,31 EUR              | 901,25 EUR      | ?\nBezugskosten           | ?                       | ?               | ?\n= Bezugspreis          | ?                       | ?               | ?",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "ab)",
+          "groupLabel": "a)",
+          "prompt": "Es wurde ein Lieferant mit einem höheren Bezugspreis gewählt.\n\nNennen Sie drei mögliche Gründe.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Sie erhalten ein weiteres Angebot. Die Best-IT-Service GmbH bietet die 3.500 Notebooks zu einem Gesamtpreis von 300.000,00 EUR an, alternativ einen Leasingvertrag über fünf Jahre mit einer monatlichen Leasingrate von 6.000,00 EUR mit Kaufoption.",
+          "prompt": "Beschreiben Sie das Grundprinzip von Leasing und erklären Sie dabei die Eigentums- und Besitzverhältnisse.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Vergleichen Sie den Kaufpreis mit den Gesamtkosten des Leasings.\n\nErmitteln Sie den Differenzbetrag.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "bc)",
+          "groupLabel": "b)",
+          "prompt": "Nennen Sie drei Vorteile, die für einen Leasingvertrag sprechen.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "bd)",
+          "groupLabel": "b)",
+          "prompt": "Erläutern Sie den Begriff Kaufoption.",
+          "sourcePage": 4,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Sie informieren sich darüber, wie Sie bei den PCs in Ihrem Betrieb auf der Ebene der Betriebssysteme die Sicherheit verbessern könnten. Zur Einordnung der Funktionsebenen eines PCs wird häufig ein Schichten- oder ein Schalenmodell verwendet.\n\nBenennen Sie im nebenstehenden Modell eine Schicht oberhalb und eine Schicht unterhalb des Betriebssystems.\n\nBeschreiben Sie mithilfe der folgenden Tabelle jeweils eine Funktion Ihrer oben benannten Schichten.\n\nSchicht | Funktion\n?       | ?\n?       | ?",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Bei Ihren Recherchen zur Sicherheit rund um das Betriebssystem treffen Sie auf eine Information des Bundesamts für Sicherheit in der Informationstechnik (BSI). Beim Lesen des Textes ergeben sich die unten aufgeführten Fragen.\n\n„Ein Großteil der erfolgreichen Angriffe auf IT-Systeme mit Microsoft Windows 10 lässt sich bereits mit den im Betriebssystem vorhandenen Bordmitteln erkennen oder verhindern. Um die nötige Konfiguration des Betriebssystems zu erleichtern, hat das Bundesamt für Sicherheit in der Informationstechnik (BSI) im Rahmen der „Studie zu Systemaufbau, Protokollierung, Härtung und Sicherheitsfunktionen in Windows 10“ (SiSyPHuS Win10) Handlungsempfehlungen zur Absicherung der Windows-Systeme in deutscher und englischer Sprache veröffentlicht. Ein Fokus bei der Erstellung lag auf der einfachen Umsetzung und praktischen Anwendung. Daher stellt das BSI die empfohlenen Konfigurationseinstellungen als direkt in Windows importierbare Gruppenrichtlinienobjekte (GPO) zum Download bereit – ein Service, der schnell und sicher ist.“\n(Quelle: bsi.bund.de, veröffentlicht am 03. Mai 2021)",
+          "prompt": "Nennen Sie zwei allgemeine Aufgaben des BSI.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Erklären Sie den Begriff der „Härtung“ eines Betriebssystems.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "bc)",
+          "groupLabel": "b)",
+          "prompt": "Nennen Sie zwei Beispiele für eine Härtung eines Betriebssystems.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "bd)",
+          "groupLabel": "b)",
+          "prompt": "Nennen Sie zwei Systemwerkzeuge („Bordmittel“) eines Betriebssystems, mit denen die IT-Sicherheit erhöht werden kann.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "be)",
+          "groupLabel": "b)",
+          "prompt": "Beschreiben Sie, wozu Gruppenrichtlinien auf einem Arbeitsplatzrechner eingesetzt werden können.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Das BSI gibt weiterhin auch Empfehlungen zur Konfiguration der Protokollierung von Aktivitäten an den einzelnen Rechnern.",
+          "prompt": "Beschreiben Sie, inwiefern eine Protokollierung (Logging) zur Erhöhung der IT-Sicherheit beitragen kann.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "cb)",
+          "groupLabel": "c)",
+          "prompt": "Beschreiben Sie die besonderen Anforderungen an den Datenschutz, die bei der Protokollierung beachtet werden müssen.",
+          "sourcePage": 6,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Die SecuRita AG möchte zukünftig die Möglichkeit bieten, Schadensfälle schnell und einfach online zu regulieren. Zum Einsatz soll ein Chatbot kommen, der über künstliche Intelligenz verfügt.\n\nDazu soll in einem ersten Schritt eine Übersicht über die Vorteile und Nachteile eines Chatbot unter wirtschaftlichen und sozialen Aspekten erstellt werden.\n\nGeben Sie in jedem Feld ein zutreffendes Argument an.\n\nKI unterstützter Chatbot | Vorteile | Nachteile\nwirtschaftliche Aspekte  |          |\nsoziale Aspekte          |          |",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Die SecuRita AG hat sich für den Einsatz des Chatbots entschieden. Dazu soll in einem ersten Schritt ein Lastenheft erstellt werden.",
+          "prompt": "Beschreiben Sie zwei Unterschiede zwischen einem Lastenheft und einem Pflichtenheft.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Sie wirken an der Erstellung des Lastenheftes mit.\n\nNennen Sie zwei weitere Inhalte, die neben der Ausgangssituation in ein Lastenheft gehören.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Im nächsten Schritt wird ein Entwurf eines UML-Klassendiagramms für die Schadensregulierung erstellt. Für die Versicherungsfälle KFZ und Immobilie sollen eigene Klassen entworfen werden.\n\nDie Klasse KFZ hat die Eigenschaften:\n– Hersteller\n– Typschlüssel\n– Neupreis\n– Baujahr\n– Laufleistung\n– Schadenshöhe\nund Methoden:\n– restwertBerechnen()\n– auszahlen()\n\nDie Klasse Immobilie hat die Eigenschaften:\n– Neupreis\n– Baujahr\n– Wohnfläche\n– Lagebewertung\n– Schadenshöhe\nund Methoden:\n– restwertBerechnen()\n– getLagebewertung()\n– auszahlen()\n\nAufgabe: Erstellen Sie eine sinnvolle Klassenhierarchie mit einer gemeinsamen Oberklasse „Versicherungsobjekt“.\n\nHinweis: Die Restwertberechnung erfolgt beim KFZ und bei der Immobilie unterschiedlich. Zusätzliche Methoden, Konstruktoren und Zugriffsmodifikatoren sind nicht erforderlich.",
+          "sourcePage": 8,
+          "answerType": "diagram",
+          "placeholder": "Klassendiagramm: gib im Antwortfeld je Klasse Name, Attribute und Methoden an und beschreibe die Vererbung (z. B. „KFZ erbt von Versicherungsobjekt“)."
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "Bei der Schadenregulierung im KFZ-Bereich werden die notwendigen Informationen in einer relationalen Datenbank gespeichert. Wichtig dabei ist die Zuordnung der Versicherungsnehmer zu den jeweiligen KFZ-Daten. So werden zum Beispiel unter dem Attribut Fahrzeugtyp die Fahrzeuge nach SUV, Limousine, Geländewagen oder Cabriolet unterschieden. Das Attribut „Garage“ wird mit dem Datentyp BOOLEAN abgespeichert. Ein Teilauszug aus dieser Datenbank sehen Sie in dem Entity-Relationship-Modell auf der Seite.\n\nEntitäten und Attribute (Auszug):\nVersicherungsnehmer (VNID, Name, Vorname, Geburtsdatum, PLZ, Ort, Straße, HNR, Telefon, E-Mail)\nFahrzeug (VID#, Kennzeichen, Leistung_KW, Hubraum, Neuwert, Baujahr, Rahmennummer, Fahrzeugtyp, Hersteller)\nKFZ_Versicherung (VID, VNID#, km_Leistung, Versicherung_Summe, Vertragsbeginn, Garage)\nBeziehungen: Versicherungsnehmer 1 —abgeschlossen— n KFZ_Versicherung; Fahrzeug 1 —gehört— 1 KFZ_Versicherung\n\nPK bezeichnet ein Primärschlüsselattribut (unterstrichen), FK ein Fremdschlüsselattribut (nachgestelltes #).",
+          "prompt": "Sie erhalten von der Versicherungszentrale den Auftrag, die durchschnittliche Versicherungssumme über alle KFZ-Versicherungsverträge zu ermitteln.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Sie erhalten von der Versicherungszentrale den Auftrag, die Versicherungsnummern (VID) zu ermitteln, welche im Mai 2022 abgeschlossen wurden und eine maximale Versicherungssumme von über 100.000,00 EUR beinhalten. Alle Fahrzeuge, die in einer Garage abgestellt werden, sollen in dieser Abfrage nicht angezeigt werden.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "sourcePage": 9,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

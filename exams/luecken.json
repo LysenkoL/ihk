@@ -1,0 +1,265 @@
+{
+  "stand": "2026-08",
+  "quelle": "Prüfungskatalog AP1 der IT-Berufe, gültig ab 2025 (ZPA Nord-West). Zusammenfassung: IT-Berufe-Podcast #190, https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/",
+  "themen": [
+    {
+      "key": "anonymisierung",
+      "label": "Anonymisierung und Pseudonymisierung",
+      "hinweis": "Unterschied: umkehrbar oder nicht",
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "barrierefreiheit",
+      "label": "Barrierefreiheit auf Websites",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "dsgvo_rechte",
+      "label": "Betroffenenrechte nach DSGVO",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "filesysteme",
+      "label": "Dateisysteme, HDD vs. SSD",
+      "hinweis": "FAT32, NTFS, APFS, ext4",
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "domaene",
+      "label": "Einbindung eines PCs in eine Domäne",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "projektstrukturplan",
+      "label": "Projektstrukturplan",
+      "hinweis": "Zusammen mit Netzplan und Gantt im Katalog",
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "risikomatrix",
+      "label": "Risiko-Klassifikation mit Matrix",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "tuckman",
+      "label": "Teambildung nach Tuckman",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "testprotokoll",
+      "label": "Testprotokoll für einen Arbeitsplatz",
+      "hinweis": null,
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "wasserfall_scrum",
+      "label": "Wasserfallmodell und Scrum",
+      "hinweis": "Phasen, Rollen, Artefakte — nur diese beiden Modelle",
+      "n": 0,
+      "be": 0,
+      "beispiele": []
+    },
+    {
+      "key": "backuparten",
+      "label": "Backup-Arten",
+      "hinweis": "voll, inkrementell, differenziell",
+      "n": 1,
+      "be": 3,
+      "beispiele": [
+        "ap1-2024-f:4c"
+      ]
+    },
+    {
+      "key": "branchensoftware",
+      "label": "Branchensoftware: ERP, CRM, SCM",
+      "hinweis": null,
+      "n": 1,
+      "be": 2,
+      "beispiele": [
+        "ap1-2023-h:1bb"
+      ]
+    },
+    {
+      "key": "aktivitaetsdiagramm",
+      "label": "UML-Aktivitätsdiagramm",
+      "hinweis": null,
+      "n": 1,
+      "be": 9,
+      "beispiele": [
+        "ap1-2025-h:2ba"
+      ]
+    },
+    {
+      "key": "urheberrecht",
+      "label": "Urheberrecht",
+      "hinweis": null,
+      "n": 1,
+      "be": 4,
+      "beispiele": [
+        "ap1-2025-f:2c"
+      ]
+    },
+    {
+      "key": "zweifaktor",
+      "label": "Zwei-Faktor-Authentifizierung",
+      "hinweis": null,
+      "n": 1,
+      "be": 4,
+      "beispiele": [
+        "ap1-2023-h:3b"
+      ]
+    },
+    {
+      "key": "hash",
+      "label": "Hashverfahren",
+      "hinweis": null,
+      "n": 3,
+      "be": 14,
+      "beispiele": [
+        "ap1-2021-h:4a",
+        "ap1-2025-f:2da",
+        "ap1-2025-h:3h"
+      ]
+    },
+    {
+      "key": "haertung",
+      "label": "Härtung des Betriebssystems",
+      "hinweis": null,
+      "n": 4,
+      "be": 10,
+      "beispiele": [
+        "ap1-2023-f:3ba",
+        "ap1-2023-f:3bb",
+        "ap1-2023-f:3bc",
+        "ap1-2023-f:3be"
+      ]
+    },
+    {
+      "key": "zahlensysteme",
+      "label": "Zahlensysteme",
+      "hinweis": "Dual, Hexadezimal, Oktal",
+      "n": 4,
+      "be": 17,
+      "beispiele": [
+        "ap1-2022-h:3b",
+        "ap1-2024-f:2c",
+        "ap1-2024-h:1dd",
+        "ap1-2026-f:2c"
+      ]
+    },
+    {
+      "key": "schadprogramme",
+      "label": "Schadprogramme",
+      "hinweis": "Virus, Trojaner, Ransomware, DDoS",
+      "n": 6,
+      "be": 21,
+      "beispiele": [
+        "ap1-2021-h:4a",
+        "ap1-2024-f:4da",
+        "ap1-2024-f:4db",
+        "ap1-2024-f:4e"
+      ]
+    },
+    {
+      "key": "vertragsstoerungen",
+      "label": "Kaufvertrag und Vertragsstörungen",
+      "hinweis": "Erweitert von „Verzug\" auf allgemeine Vertragsstörungen; Werk- gegen Dienstvertrag",
+      "n": 7,
+      "be": 15,
+      "beispiele": [
+        "ap1-2022-h:1f",
+        "ap1-2024-f:1d",
+        "ap1-2024-f:1e",
+        "ap1-2024-f:1fa"
+      ]
+    },
+    {
+      "key": "schreibtischtest",
+      "label": "Fehler im Code finden, Schreibtischtest",
+      "hinweis": null,
+      "n": 8,
+      "be": 41,
+      "beispiele": [
+        "ap1-2021-h:2e",
+        "ap1-2024-h:2e",
+        "ap1-2025-f:3d",
+        "ap1-2025-f:3e"
+      ]
+    },
+    {
+      "key": "ki",
+      "label": "KI-Unterstützung und KI-Software",
+      "hinweis": null,
+      "n": 9,
+      "be": 35,
+      "beispiele": [
+        "ap1-2023-f:4a",
+        "ap1-2023-f:4ba",
+        "ap1-2024-f:3a",
+        "ap1-2025-f:4a"
+      ]
+    },
+    {
+      "key": "konsole",
+      "label": "Konsolenbefehle und Dateirechte",
+      "hinweis": "ls, chmod, ping, nslookup, cp, mkdir, arp, ipconfig; Rechte ugo+rwx",
+      "n": 9,
+      "be": 34,
+      "beispiele": [
+        "ap1-2022-f:3fc",
+        "ap1-2022-h:3e",
+        "ap1-2024-f:2b",
+        "ap1-2024-f:2e"
+      ]
+    },
+    {
+      "key": "schutzziele",
+      "label": "Schutzziele der IT-Sicherheit",
+      "hinweis": "Vertraulichkeit, Integrität, Verfügbarkeit",
+      "n": 11,
+      "be": 62,
+      "beispiele": [
+        "ap1-2021-h:4a",
+        "ap1-2021-h:4c",
+        "ap1-2022-f:1b",
+        "ap1-2022-f:4b"
+      ]
+    },
+    {
+      "key": "datenmengen",
+      "label": "Übertragungsraten, -zeiten und Datenmengen berechnen",
+      "hinweis": null,
+      "n": 12,
+      "be": 42,
+      "beispiele": [
+        "ap1-2022-f:2fb",
+        "ap1-2022-f:3d",
+        "ap1-2022-f:4e",
+        "ap1-2022-h:2ba"
+      ]
+    }
+  ]
+}

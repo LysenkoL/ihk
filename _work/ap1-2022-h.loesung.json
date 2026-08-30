@@ -1,0 +1,173 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 23,
+    "subtasks": [
+      { "label": "aa)", "maxPoints": 1, "seite": 2, "text": "Oligopol" },
+      { "label": "ab)", "maxPoints": 1, "seite": 2, "text": "Polypol" },
+      {
+        "label": "b)",
+        "maxPoints": 6,
+        "seite": 2,
+        "text": "Projektschritte, z. B.            | Inhaltlicher Aspekt, z. B.\n1. Projektinitiierung             | Identifikation eines Problembereiches\n2. Beschreibung des Istzustands   | Nachteile beim aktuellen Ablauf\n3. Definition des Sollkonzepts    | Ziel der verbesserten Abläufe festlegen\n4. Planung                        | Modellierung der Phasen\n5. Umsetzung                      | Einführung der geänderten Abläufe\n6. Überprüfung der Zielerreichung | Prüfung der durch die Prozessänderung erreichten Wirkung\n7. Ausblick                       | Fixierung weiterer Möglichkeiten der Prozessoptimierung"
+      },
+      {
+        "label": "c)",
+        "maxPoints": 3,
+        "seite": 2,
+        "text": "z. B.\nAnteilseigner: Bereitschaft zur Finanzierung des Projekts\nMitarbeiter: Akzeptanz des Projekts bei der Durchführung\nLieferanten: Realisierbarkeit vollautomatisierter Bestellungen"
+      },
+      {
+        "label": "d)",
+        "maxPoints": 5,
+        "seite": 2,
+        "text": "Vorteile (z. B.):\n– mehr Erfahrung des externen Beraters aufgrund dessen Spezialisierung\n– geringere Zusatzbelastung des Personals\n– normkonforme Lösungen\n– höhere Methodenkompetenz\n– bessere Risikoeinschätzung\n\nNachteile (z. B.):\n– zusätzliche Kosten\n– Know-how außerhalb des Unternehmens\n– Abhängigkeit von externen Stellen\n– fehlende Kenntnisse über interne Abläufe und Strukturen\n– mehr Schnittstellen in der Kommunikation\n– zusätzlicher Aufwand mit Datenschutz, z. B. Zutrittskontrolle"
+      },
+      {
+        "label": "e)",
+        "maxPoints": 5,
+        "seite": 2,
+        "text": "140.000 EUR / ((260 – 30 – 5 – 5) * 7,8) = 81,59 EUR"
+      },
+      {
+        "label": "f)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "Werkvertrag, da dieser ergebnisabhängig ist; bei einem Dienstvertrag genügt die Arbeitsleistung."
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "Zahl der Aufnahmen pro Tag:\nAnzahl der Scanner auf 508 mm Breite: 1 Scanner mit einer Breite von 50,8 cm\nAnzahl der Aufnahmen bei 30,48 m Karton pro Minute: 100 Aufnahmen pro Scanner zu 30,48 cm pro Minute\nAnzahl der Aufnahmen pro Stunde: 6.000 = 1 Scanner * 100 Aufnahmen pro Minute * 60 Minuten\nAnzahl der Aufnahmen pro Arbeitstag von 12 Stunden: 72.000 = 6.000 * 12 Stunden\n\nErgebnis: 72.000 Aufnahmen/Tag"
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "Datenvolumen pro Scan\ninch/cm 2,54 | Bildpunkte/Pixel 400\nBreite 50,80 cm = 20 inch = 8.000 Bildpunkte\nLänge  30,48 cm = 12 inch = 4.800 Bildpunkte\n\nPixel/Scan:        38.400.000 Pixel   (1 Punkt)\n16 Bit Farbtiefe: 614.400.000 Bit     (1 Punkt)\ndurch 8:           76.800.000 Byte    (1 Punkt)\ndurch 1.024:           75.000 KiB     (0,5 Punkte)\ndurch 1.024:            73,25 MiB     (0,5 Punkte)"
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "Datenvolumen pro Tag\n72.000 Scans/Tag * 73,25 MiB = 5.274.000,00 MiB\ndurch 1.024 = 5.150,39 GiB\ndurch 1.024 = 5,029678345 TiB\naufgerundet = 6 TiB\n\nErsatzrechnung mit 100.000 Scans/Tag und 70 MiB:\n7.000.000,00 MiB → 6.835,94 GiB → 6,675720215 TiB → aufgerundet 7 TiB"
+      },
+      {
+        "label": "ca)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "RAID-Level: RAID 5\nRechenweg: Nutzung der kleinsten gemeinsamen Kapazität der Platten (2 Punkte)\n(9 - 1) x 2 TB = 16 TB\n\nNettospeicherkapazität: 16 TB (2 Punkte)"
+      },
+      {
+        "label": "cb)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "20 TiB\n\nRechenweg:\n2 x 3 TiB = 6 TiB\n7 x 2 TiB = 14 TiB\n6 TiB + 14 TiB = 20 TiB"
+      },
+      {
+        "label": "cc)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "– Ein RAID-Controller ist nicht erforderlich.\n– Volle Ausnutzung der Speicherkapazitäten bei unterschiedlichen Plattengrößen.\n– Keine identischen Platten erforderlich.\n– Relativ einfache Erweiterung möglich.\n– Die Nennung weiterer Vorteile ist möglich."
+      },
+      {
+        "label": "d)",
+        "maxPoints": 3,
+        "seite": 4,
+        "text": "– SAN besitzt höhere Performance\n– Erlaubt zeitnahe Datensicherung\n– Ein SAN arbeitet blockorientiert und ist für alle Anwendungen und Betriebssysteme kompatibel\n– Sehr gute Ressourcenauslastung, da viele Systeme gleichzeitig zugreifen können\n– Besonders geeignet für häufige Zugriffe\n– Bietet Maximum an Skalierbarkeit\n– Unabhängig vom Standort und zentraler Verwaltung\n– Unterbrechungsfreie Online-Erweiterung von Daten-Volumen möglich\n– Die Verwaltung des SAN kann vom Arbeitsplatz des Administrators geschehen"
+      },
+      {
+        "label": "e)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "pro offenes Feld 1 Punkt\n\nQR-Code\nVorteil: einfach zu erstellen; kostengünstig; umfangreiche Datenmenge zur Beschreibung möglich\nNachteil: kann bei Verschmutzung oder Sichtbehinderung nicht gelesen werden\n\nRFID-Chip\nVorteil: Auslesen auch ohne direkten Sichtkontakt möglich; umfangreiche Datenmenge zur Beschreibung möglich\nNachteil: relativ aufwendig in der Herstellung der RFID-Chips; kostenintensiv"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 28,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 2,
+        "seite": 5,
+        "text": "z. B.\n– Nahezu uneingeschränkte Adresszahl\n– Weltweite Erreichbarkeit einzelner Komponenten\n– Verbesserte Integration von Sicherheitsmaßnahmen wie IPSec\n– Verschlankung des Protokoll-Headers"
+      },
+      {
+        "label": "b)",
+        "maxPoints": 4,
+        "seite": 5,
+        "text": "(je 2 Punkte)\nUngekürztes Standortpräfix: 2001:0da8:5f2d\nUngekürzte Teilnetz-ID: 0028"
+      },
+      { "label": "c)", "maxPoints": 2, "seite": 5, "text": "2^16" },
+      {
+        "label": "d)",
+        "maxPoints": 6,
+        "seite": 5,
+        "text": "Router mit Standard-Gateway: 2001:da8:5f2d:29::1/64\n\nSwitch\n  Adresse: 2001:da8:5f2d:29::2/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nSensor mit Netzwerkanschluss\n  Adresse: 2001:da8:5f2d:29::18/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nSteuerung mit Netzwerkanschluss\n  Adresse: 2001:da8:5f2d:29::19/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nIndustrie-PC\n  Adresse: 2001:da8:5f2d:29::20/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nAndere Lösungen sind möglich."
+      },
+      {
+        "label": "e)",
+        "maxPoints": 2,
+        "seite": 5,
+        "text": "z. B. ping ::1 , ping 2001:da8:5f2d:29::1"
+      },
+      {
+        "label": "f)",
+        "maxPoints": 2,
+        "seite": 5,
+        "text": "Es handelt sich um eine automatisch vergebene Link-Local-(Unicast)-Adresse."
+      },
+      {
+        "label": "g)",
+        "maxPoints": 10,
+        "seite": 5,
+        "text": "Kriterien     | Gew. | Noteplus AG P/gP | Notebook-Clever.de P/gP | PC-Genie KG P/gP\nBezugspreis   | 11   | 3 / 33           | 2 / 22                  | 1 / 11\nLieferzeit    |  8   | 1 / 8            | 2 / 16                  | 3 / 24\nQualität      |  9   | 2 / 18           | 1 / 9                   | 3 / 27\nErfahrung     |  5   | 1 / 5            | 2 / 10                  | 3 / 15\nSumme         |      | 64               | 57                      | 77\n\nEntscheidung: PC-Genie KG, Frankfurt (höchste Punktzahl 77)"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "aa)",
+        "maxPoints": 3,
+        "seite": 6,
+        "text": "SELECT Width, Length, Thickness, Quantity FROM ProductionData WHERE OrderID = 736298;"
+      },
+      {
+        "label": "ab)",
+        "maxPoints": 4,
+        "seite": 6,
+        "text": "SELECT Thickness, COUNT(*) AS „Anzahl Wellpappen\" FROM ProductionData\nGROUP BY Thickness\nHAVING Thickness = 2;"
+      },
+      {
+        "label": "ac)",
+        "maxPoints": 4,
+        "seite": 6,
+        "text": "SELECT SUM(Quantity) AS „Gesamtanzahl\"\nFROM ProductionData\nWHERE Width = 200 AND Length = 300 AND Thickness = 2\nGROUP BY Width;\n\nHinweis für den Prüfer: statt GROUP BY Width geht auch GROUP BY Length oder GROUP BY Thickness."
+      },
+      {
+        "label": "b)",
+        "maxPoints": 7,
+        "seite": 6,
+        "text": "launchTask(result[])\n1  launchTask(result[])\n2  int i = 0\n3  bool emergencyStop = getEmergencyStop()\n4  setRollerDim(result[0], result[1], result[2])\n5  wiederhole solange i < result[3] und emergencyStop = false\n6      rollerStart()\n7      emergencyStop = getEmergencyStop()\n8      i = i + 1\n\nZeile 4, 6 und 8 je 1 Punkt, Zeile 5 und 7 je 2 Punkte.\nHinweis: Die Zeilen 6, 7 und 8 dürfen in der Reihenfolge vertauscht werden."
+      },
+      {
+        "label": "c)",
+        "maxPoints": 6,
+        "seite": 6,
+        "text": "Kardinalität: 1 Punkt | Kennzeichnung Primärschlüssel in beiden Tabellen: 2 Punkte | Attribute: 3 Punkte\n\nWalzanlage (WID = Primärschlüssel)\n  Attribute: Spezifikation, Bezeichnung, Baujahr\n\nProduktionsdaten (OrderID = Primärschlüssel)\n  Attribute: Breite, Länge, Dicke, Zeitstempel, WID\n\nBeziehung: Walzanlage 1 —liefern— n Produktionsdaten\n\nHinweis: Fremdschlüssel# optional, nicht in der Aufgabenstellung gefordert."
+      }
+    ]
+  }
+]

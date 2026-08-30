@@ -1,0 +1,50 @@
+{
+  "quelle": "Noel Sanchez, «AP Teil 1: Diese Themen musst du können!» — Auswertung von 7 Prüfungen nach Anteil an der Gesamtpunktzahl. https://www.youtube.com/watch?v=hz_lAKtsobw",
+  "stand": "2026-08",
+  "hinweis": "Anker: vier Themen mit gemessenem Prozentanteil. Die restlichen 47 % werden im Interface proportional zur Häufigkeit in dieser Sammlung verteilt. Правь anker, если появятся точные цифры по остальным темам.",
+
+  "anker": {
+    "kalkulation":  { "prozent": 15, "name": "Wirtschaftlichkeit", "rang": 1 },
+    "netzwerk":     { "prozent": 14, "name": "Netzwerktechnik",    "rang": 2 },
+    "projekt":      { "prozent": 12, "name": "Projektmanagement",  "rang": 3 },
+    "itsicherheit": { "prozent": 12, "name": "IT-Sicherheit",      "rang": 3 }
+  },
+
+  "schwerpunkte": {
+    "kalkulation": [
+      "Kostenkalkulation: Bezugspreis, Angebotsvergleich, Stundensatz, Rabatt und Skonto, Energiekosten",
+      "Nutzwertanalyse — sehr beliebt, gibt 10–16 BE am Stück und ist gut lernbar"
+    ],
+    "netzwerk": [
+      "IPv6 — 24 % aller Netzwerkfragen: Aufbau, Kürzen, Link-Local, Präfix",
+      "Netzwerkdiagnose: LED an der Karte, ping, tracert, ipconfig, «Netzwerk nicht erreichbar»",
+      "OSI-Modell",
+      "Bandbreite und Übertragungszeit: Mbit ↔ MB ↔ MiB, Dezimal- gegen Binärpräfix",
+      "IPv4-Grundlagen — 9 %"
+    ],
+    "projekt": [
+      "Projektplanung — 45 % des Themas: Netzplantechnik und Gantt, kritischer Pfad, Puffer, Projektphasen",
+      "Lasten- und Pflichtenheft — zusammen mit Projektplanung 65 % des Themas",
+      "Kommunikation mit Stakeholdern: Vier-Ohren-Modell, Formulierungen für Kunden"
+    ],
+    "itsicherheit": [
+      "Technisch-organisatorische Maßnahmen (TOM) — der größte Block",
+      "Schutzziele: Vertraulichkeit, Integrität, Verfügbarkeit — 12 %",
+      "Härtung des Betriebssystems — 12 %",
+      "Malware und Phishing — 10 %"
+    ]
+  },
+
+  "punktebringer": [
+    { "was": "Nutzwertanalyse", "be": "10–16", "thema": "kalkulation",
+      "hinweis": "Höchste Einzelpunktzahl in sieben Prüfungen. Teilpunkte für jeden Rechenschritt." },
+    { "was": "Netzplantechnik", "be": "10–14", "thema": "projekt",
+      "hinweis": "FAZ/FEZ/SAZ/SEZ, Puffer, kritischer Pfad. Im Simulator gibt es dafür den Netzplan-Trainer." },
+    { "was": "ER-Modell", "be": "6–9", "thema": "daten",
+      "hinweis": "Kann an Gewicht gewinnen, weil SQL und RAID aus AP1 gestrichen wurden." },
+    { "was": "Bandbreite und Datenmengen", "be": "4–9", "thema": "daten",
+      "hinweis": "Umrechnung Dezimal- gegen Binärpräfix. Der wahrscheinlichste Ersatz für die weggefallenen Rechenaufgaben." },
+    { "was": "Leistungsaufnahme und Energiekosten", "be": "4–7", "thema": "kalkulation",
+      "hinweis": "Watt, kWh, Wirkungsgrad, USV — ebenfalls ein Kandidat für mehr Gewicht." }
+  ]
+}

@@ -1,0 +1,1441 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2026-f",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2026,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "AP1-2026-F.pdf",
+      "solutions": "AP_Teil1_2026_Frühjahr_Lsg.pdf"
+    },
+    "detectedPoints": 100
+  },
+  "situation": {
+    "text": "Die Aufgaben 1 bis 4 beziehen sich auf die folgende Ausgangssituation:\n\nSie sind Auszubildender im Systemhaus Novo-Sys-Tech OHG. Das Angebot umfasst neben dem Verkauf von Hard- und Software auch den technischen Support und Beratung einschließlich der Umsetzung von IT-Projekten.\n\nEiner Ihrer Stammkunden, die Pulling AG, ein Zulieferbetrieb der Pharma-Industrie, hat für ihren Vertrieb ein Logistikzentrum gebaut. Die Novo-Sys-Tech OHG erhält den Auftrag, die IT-Infrastruktur zu planen und einzurichten. Sie wurden dem Team zugewiesen, das für die Arbeitsplätze zuständig ist, die sich um das richtige Verladen der Waren kümmert.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Es wurden zur Überwachung Videokameras des abgebildeten Typs beschafft, die von Ihnen aus technischer Sicht analysiert und konfiguriert werden sollen.\nSpecifications:",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "1aa",
+          "label": "aa)",
+          "fullLabel": "1 aa)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In der Spezifikation finden Sie die folgende Angabe: „no default passwords\".\nBeschreiben Sie zwei mögliche Konsequenzen dieser Voreinstellung.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Mögliche Lösungen:\n– Es muss ein geeignetes eigenes Passwort eingestellt werden, welches den Sicherheitsbedingungen entspricht.\n– Es wird nicht auf allen Geräten des Herstellers dasselbe Passwort verwendet.\n– Wenn nicht selbstständig ein Passwort gesetzt wird, ist der Zugang meist nicht möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2026-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1555,
+              "height": 1371
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Sicherheitsbedingungen",
+              "Zugang",
+              "Herstellers",
+              "Geräten",
+              "Passwort"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ab",
+          "label": "ab)",
+          "fullLabel": "1 ab)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Leistungsaufnahme der Kamera wird für drei Varianten angegeben (vergleiche Specifications „Power Consumption\"):\nTypical 5 W | Max. without heater, with IR 13 W | Max. with heater, with IR 24 W\n\nNennen Sie den Zweck, warum hier Varianten mit „IR\" bzw. „heater\" angeboten werden.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Die IR (Infrarot)-Option kann für Nachtaufnahmen eingesetzt werden.\nDie Heizung dient ggf. dem Schutz vor Vereisung und Beschlag bei niedrigen Außentemperaturen.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2026-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 337
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "IR",
+              "Nachtaufnahmen",
+              "Beschlag",
+              "Heizung",
+              "Option",
+              "Außentemperaturen",
+              "Infrarot",
+              "Vereisung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ac",
+          "label": "ac)",
+          "fullLabel": "1 ac)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Kamera in der Variante „with heater, with IR\" soll über das Netzwerk mit Strom versorgt werden (PoE, Power over Ethernet).\n\nWählen Sie für die spätere Beschaffung eines geeigneten Switches aus der folgenden Tabelle den passenden IEEE 802 Standard aus und berechnen Sie die zu erwartende maximale Stromstärke in mA bei einer Spannung von 48V. Formel: P = U * I.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Die Betriebsart „with heater\" benötigt max. 24 W. Dies kann nur von der Version 802.3at erfüllt werden.\nI = 24W / 48V = 0,500A = 500mA",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2026-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1597,
+              "height": 1902
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "24 W",
+                "wert": 24.0,
+                "einheit": "W"
+              },
+              {
+                "text": "24W",
+                "wert": 24.0,
+                "einheit": "W"
+              },
+              {
+                "text": "48V",
+                "wert": 48.0,
+                "einheit": "V"
+              },
+              {
+                "text": "0,500A",
+                "wert": 0.5,
+                "einheit": "A"
+              },
+              {
+                "text": "500mA",
+                "wert": 500.0,
+                "einheit": "mA"
+              }
+            ],
+            "begriffe": [
+              "Version",
+              "Betriebsart",
+              "802.3at"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ad",
+          "label": "ad)",
+          "fullLabel": "1 ad)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für die Kamera soll der Wert „Resolution & Frame Rate 1920x1080@30fps\" eingestellt werden. Das Video soll als „Live-Stream\" über das Netzwerk übertragen werden.\n\nBerechnen Sie die erforderliche Datenübertragungsrate in Mbit/s bei einer Farbtiefe von 24bit und einer Komprimierung auf 30 %. Runden Sie Ihr Ergebnis auf volle Mbit/s. Der Rechenweg ist anzugeben.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Dr = 1920x1080x24bitx30/1000/1000x0,3 = 447,8976 Mbit/s -> 448 Mbit/s",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 3,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "447,8976 Mbit/s",
+                "wert": 447.8976,
+                "einheit": "Mbit/s"
+              },
+              {
+                "text": "448 Mbit/s",
+                "wert": 448.0,
+                "einheit": "Mbit/s"
+              }
+            ],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Aufnahmen von vier Kameras sollen für 72 Stunden gespeichert werden.\n\nBerechnen Sie die notwendige Speicherkapazität in TiB. Falls Sie die Aufgabe ad) nicht lösen konnten, rechnen Sie mit der Übertragungsrate von 482 Mbit/s. Runden Sie Ihr Ergebnis auf. Der Rechenweg ist anzugeben.",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Dm = 4 x 448 x 1000 x 1000 x 60 x 60 x 72 / 8 / 1024 / 1024 / 1024 / 1024 TiB\n= 52,81 TiB -> 53 TiB\nDm alternativ = 56,81 TiB -> 57 TiB",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 3,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1024 TiB",
+                "wert": 1024.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "52,81 TiB",
+                "wert": 52.81,
+                "einheit": "TiB"
+              },
+              {
+                "text": "53 TiB",
+                "wert": 53.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "56,81 TiB",
+                "wert": 56.81,
+                "einheit": "TiB"
+              },
+              {
+                "text": "57 TiB",
+                "wert": 57.0,
+                "einheit": "TiB"
+              }
+            ],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ca",
+          "label": "ca)",
+          "fullLabel": "1 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Die vier Kamerabilder sollen auf vier Monitoren zur Anzeige gebracht werden, um die an- und abfahrenden LKW beobachten zu können. Das I/O-Panel des vorhandenen PCs im Tower-Gehäuse bietet die unten abgebildeten Schnittstellen.\n\nBei Ihrer Recherche stoßen Sie auf die folgende Anschlussmöglichkeit:\nDaisy chaining monitors allow you to connect multiple displays in a series using a single video output from your computer. Instead of connecting each monitor directly to your computer, you connect the first monitor to the computer and then link each subsequent monitor to the previous one. To daisy chain monitors, you'll need displays that support DisplayPort / Thunderbolt Multi-Stream Transport (MST).",
+          "prompt": "Nennen Sie einen Vorteil dieser Verbindungsart.",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "z. B. Geringer Verkabelungsaufwand, aufgeräumter Arbeitsplatz",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2026-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1480,
+              "height": 530
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Geringer Verkabelungsaufwand",
+              "Arbeitsplatz"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1cb",
+          "label": "cb)",
+          "fullLabel": "1 cb)",
+          "groupLabel": "c)",
+          "groupIntro": "Die vier Kamerabilder sollen auf vier Monitoren zur Anzeige gebracht werden, um die an- und abfahrenden LKW beobachten zu können. Das I/O-Panel des vorhandenen PCs im Tower-Gehäuse bietet die unten abgebildeten Schnittstellen.\n\nBei Ihrer Recherche stoßen Sie auf die folgende Anschlussmöglichkeit:\nDaisy chaining monitors allow you to connect multiple displays in a series using a single video output from your computer. Instead of connecting each monitor directly to your computer, you connect the first monitor to the computer and then link each subsequent monitor to the previous one. To daisy chain monitors, you'll need displays that support DisplayPort / Thunderbolt Multi-Stream Transport (MST).",
+          "prompt": "Erläutern Sie die technische Voraussetzung für die Nutzung dieser Verbindungsart.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Unterstützung von Multi-Stream Transport (MST) auf dem Thunderbolt-Port oder DisplayPort des PCs und den Anschlüssen der Monitore.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 4,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Anschlüssen",
+              "MST",
+              "Multi-Stream Transport",
+              "Monitore",
+              "Thunderbolt-Port",
+              "Unterstützung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1cc",
+          "label": "cc)",
+          "fullLabel": "1 cc)",
+          "groupLabel": "c)",
+          "groupIntro": "Die vier Kamerabilder sollen auf vier Monitoren zur Anzeige gebracht werden, um die an- und abfahrenden LKW beobachten zu können. Das I/O-Panel des vorhandenen PCs im Tower-Gehäuse bietet die unten abgebildeten Schnittstellen.\n\nBei Ihrer Recherche stoßen Sie auf die folgende Anschlussmöglichkeit:\nDaisy chaining monitors allow you to connect multiple displays in a series using a single video output from your computer. Instead of connecting each monitor directly to your computer, you connect the first monitor to the computer and then link each subsequent monitor to the previous one. To daisy chain monitors, you'll need displays that support DisplayPort / Thunderbolt Multi-Stream Transport (MST).",
+          "prompt": "Verbinden Sie in der nachfolgenden Skizze die vier Monitore nach dem Daisy-Chaining-Verfahren mit einer dafür geeigneten Schnittstelle.",
+          "maxPoints": 2,
+          "answerType": "diagram",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Mögliche Lösungen: Verkettung der vier Monitore untereinander, der erste Monitor am PC angeschlossen – entweder über den Thunderbolt-Port oder über den DisplayPort des I/O-Panels.\n(Im Lösungsbogen als zwei Zeichnungen dargestellt: Variante Thunderbolt und Variante DisplayPort.)",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2026-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 1000,
+              "height": 167
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2026-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1426,
+              "height": 466
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Panels",
+              "Variante",
+              "Verkettung",
+              "Variante Thunderbolt",
+              "Lösungsbogen",
+              "Zeichnungen",
+              "Monitore",
+              "Monitor"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Es sollen noch weitere Kameras installiert werden. Sie stimmen sich mit dem Netzwerkadministrator bezüglich der IP-Adressierung ab.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "2a",
+          "label": "a)",
+          "fullLabel": "2 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ihr Netzwerkadministrator gibt ihnen für die erste Kamera die IP-Adresse vor 192.168.16.52 /25:\nErrechnen Sie\nSubnetzmaske:\nAnzahl nutzbarer IP-Adressen:\nNetzadresse:\nBroadcast-Adresse:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Subnetzmaske: 255.255.255.128\nAnzahl Hosts: 126\nNetzadresse: 192.168.16.0\nBroadcast-Adresse: 192.168.16.127",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 5,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Broadcast-Adresse",
+              "16.0",
+              "255.128",
+              "Anzahl Hosts",
+              "16.127",
+              "Netzadresse",
+              "255.255",
+              "Subnetzmaske"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Subnetzmaske",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Anzahl nutzbarer IP-Adressen",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Netzadresse",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Broadcast-Adresse",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2b",
+          "label": "b)",
+          "fullLabel": "2 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beim Versuch, eine Webseite aufzurufen, gibt es einen Fehler.\nBevor Sie sich detailliert mit dem Problem befassen, sollen die folgenden Fehlerursachen vorab ausgeschlossen werden.\n\nFüllen Sie die folgende Tabelle, indem Sie für die genannten Fehler eine mögliche Überprüfung und eine Fehlerbehebung angeben.\n\nZeilen: Gateway-Adresse ist falsch (vorgegeben) | Patchkabel am Laptop defekt | Netzwerkadresse passt nicht bzw. ist nicht in der richtigen Range | die Netzwerkdose ist nicht „gepatcht\" | Namensauflösung funktioniert nicht",
+          "maxPoints": 8,
+          "answerType": "diagram",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Patchkabel am Laptop defekt →\n  Überprüfung: Diode an den Netzwerkbuchse überprüfen (blinkt nicht)\n  Behebung: Austausch des defekten Netzwerkkabels\n\nNetzwerkadresse passt nicht →\n  Überprüfung: Überprüfen Netzwerkadresse mit einem geeigneten Befehl, z. B. ipconfig\n  Behebung: Korrekte Netzwerkadresse zuweisen bzw. zuweisen lassen\n\nNetzwerkdose ist nicht „gepatcht\" →\n  Überprüfung: Network-Analyzer oder funktionierenden Rechner an zu überprüfender Netzwerkdose anschließen\n  Behebung: Netzwerkdose patchen lassen / Netzwerkdose wechseln\n\nNamensauflösung funktioniert nicht →\n  Überprüfung: Ping setzen auf z. B. google.de, Befehl nslookup nutzen o. ä.\n  Behebung: DNS-Server überprüfen (Ticket aufsetzen)\n\nAlternative Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2026-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1576,
+              "height": 1597
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Netzwerkdose",
+              "Netzwerkbuchse",
+              "Network-Analyzer",
+              "Netzwerkadresse",
+              "Überprüfen Netzwerkadresse",
+              "Behebung",
+              "Netzwerkkabels",
+              "Korrekte Netzwerkadresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2c",
+          "label": "c)",
+          "fullLabel": "2 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Bei Ihrem Kunden gibt es sowohl Netze, die sowohl IPv4 als auch IPv6-Adressierungen verwenden.\n\nBeschreiben Sie zwei Unterschiede zwischen den Protokollen IPv4 und IPv6.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "– Adresslänge: IPv4 verwendet 32-Bit-Adressen, IPv6 128-Bit-Adressen\n– Adressraum: Aus der längeren IP-Adresse von IPv6 ergibt sich eine viel größere Anzahl möglicher Adressen\n– Adressnotationen werden unterschiedlich dargestellt: IPv4 in Dezimalform, durch Punkte getrennt (Beispiel: 192.168.0.1); IPv6 in hexadezimaler Form, durch Doppelpunkte getrennt (Beispiel: 2001:0db8:85a3:0000:0000:8a2e:0370:7334)\n– Netzwerkkonfiguration: IPv4 erfordert eine manuelle Konfiguration oder DHCP, IPv6 unterstützt die automatische Konfiguration durch Stateless Address Autoconfiguration (SLAAC)\n– Schlankerer Headeraufbau in IPv6, damit schnellere Übertragung möglich.\n\nAuch andere sinnvolle/mögliche Lösungen möglich",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 5,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Doppelpunkte",
+              "Stateless Address",
+              "Adresslänge",
+              "Schlankerer Headeraufbau",
+              "Adressraum",
+              "SLAAC",
+              "Adressnotationen",
+              "Autoconfiguration"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Erläutern Sie eine Möglichkeit, IPv4 und IPv6 kombiniert zu betreiben.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Dual-Stack: Bei dieser Methode werden sowohl IPv4- als auch IPv6-Adressen auf denselben Geräten und Netzwerken verwendet. Jedes Gerät hat sowohl eine IPv4- als auch eine IPv6-Adresse und kann somit mit beiden Protokollen kommunizieren.\n\nTunneling: Kapselung IPv6-Pakete innerhalb von IPv4-Paketen (oder umgekehrt). Beispiel: 6to4 IPv6-Pakete werden über ein IPv4-Netzwerk transportiert.\n\nWeitere Lösungen sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2026-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 872,
+              "height": 178
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Tunneling",
+              "Netzwerken",
+              "Paketen",
+              "Protokollen",
+              "Dual-Stack",
+              "Jedes Gerät",
+              "Kapselung",
+              "Pakete"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie bekommen von einem anderen Auszubildenden einen fertigen Netzplan für die Einrichtung eines Netzwerkes übergeben. Neben dem Netzplan befindet sich folgende Legende zum Aufbau eines Prozessschrittes:\nFAZ = frühester Anfangszeitpunkt, FEZ = frühester Endzeitpunkt, SAZ = spätester Anfangszeitpunkt, SEZ = spätester Endzeitpunkt, GP = Gesamtpuffer = SAZ – FAZ oder SEZ – FEZ, FP = Freier Puffer = FAZ (Nachfolger) – FEZ\n\nNach sorgfältiger Prüfung bemerken Sie Fehler in dem Netzplan. Ein Fehler wurde bereits von einem Kollegen gefunden und ausgebessert.\n\nKorrigieren Sie die drei weiteren fehlerhaften Zahlen nach dem gleichen Vorgehen und tragen Sie die Fehler in der nachfolgenden Tabelle ein.",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Prozessschritt | Fehler bei | Korrektur\nB | FAZ | 7   (bereits vorgegeben)\nD | GP  | 5\nF | SAZ | 17\nF | SEZ | 20\n\n1 Punkt für „Prozessschritt\" und „Fehler bei\" zusammen je Zeile\n1 Punkt für „Korrektur\" je Zeile\nHinweis: Falls im Netzplan nur formale Fehler gefunden sind, sind diese auch als richtig zu bewerten, z. B. GP in Netzknoten F.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2026-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1490,
+              "height": 1991
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "GP",
+              "SEZ",
+              "Prozessschritt",
+              "SAZ",
+              "FAZ",
+              "Falls",
+              "Netzplan",
+              "Korrektur"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Vor dem Haupttor befindet sich ein Parkplatz als Wartebereich für die An- und Ablieferungen. Dieser gehört zum Betriebsgelände. Hier befinden sich Kameras zur Steuerung des Lieferverkehrs.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Verwendung von Kameras mit Aufnahmen unterliegt grundsätzlich rechtlichen Vorgaben.\nBeschreiben Sie eine damit verbundene Verpflichtung.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "– Keine Aufnahmen von Personen im öffentlichen Bereich\n– Erhöhte Schutzmaßnahmen beim Speichern und Verarbeitung der Videoaufnahmen\n– Aufstellen eines Schildes mit dem Hinweis auf die Videoüberwachung\n– Zulässige Speicherzeiten sind zu berücksichtigen\n\nAuch andere Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Videoüberwachung",
+              "Schildes",
+              "Zulässige Speicherzeiten",
+              "Erhöhte Schutzmaßnahmen",
+              "Videoaufnahmen",
+              "Speichern",
+              "Keine Aufnahmen",
+              "Bereich"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ba",
+          "label": "ba)",
+          "fullLabel": "3 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Durch die Video-Erfassung der LKWs sollen die bevorstehenden An- und Ablieferungen unterstützt werden.",
+          "prompt": "Erläutern Sie eine Möglichkeit, wie die An- und Ablieferungen durch die Video-Erfassung unterstützt werden können.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "ki",
+            "daten"
+          ],
+          "solution": {
+            "text": "Das Video-System registriert die Ankunft eines LKWs für eine neue An- oder Ablieferung. Ermittlung der konkreten Bestellung aufgrund der Kameraaufnahmen, z. B. über KI-gestützte Zuordnung. Vorschlag von Maßnahmen zur bestmöglichen Abwicklung der Lieferung, z. B. Zuweisung der Ladestelle.\n\nNeben der oben geschilderten Lösung können auch andere Möglichkeiten der Unterstützung akzeptiert werden, z. B.: Mithilfe des Video-Systems erfolgt eine automatisierte Erfassung der Daten zu den An- und Ablieferungen, z. B. Datum, Uhrzeit. Diese können in einer Datenbank gespeichert werden. Dies erspart die manuelle Erfassung und kann später auch zu Beweiszwecken herangezogen werden.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2026-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1522,
+              "height": 1058
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Video-Systems",
+              "Zuweisung",
+              "Ablieferung",
+              "Datenbank",
+              "Erfassung",
+              "Vorschlag",
+              "Ankunft",
+              "Uhrzeit"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bb",
+          "label": "bb)",
+          "fullLabel": "3 bb)",
+          "groupLabel": "b)",
+          "groupIntro": "Durch die Video-Erfassung der LKWs sollen die bevorstehenden An- und Ablieferungen unterstützt werden.",
+          "prompt": "Nennen Sie zwei wirtschaftliche Vorteile, die sich durch einen verbesserten Ablauf der An- und Ablieferungen für die Pulling AG ergeben könnten.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "– Zuordnung günstiger Anfahrtsstellen zum Be- und Entladen\n– Zügige Abwicklung des Be- und Entladens\n– Reduzierung der LKW-Standzeiten\n– Schnellere Auslieferung der Kundenbestellungen\n– Schnellere Verfügbarkeit der bestellten Ware\n– Bessere Auslastung der Be- und Entladestellen\n\nAuch andere Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Entladens",
+              "Schnellere Auslieferung",
+              "Schnellere Verfügbarkeit",
+              "Zügige Abwicklung",
+              "Standzeiten",
+              "Kundenbestellungen",
+              "Entladen",
+              "Bessere Auslastung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ca",
+          "label": "ca)",
+          "fullLabel": "3 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Die Produkte der Pulling AG werden von Unternehmen der Pharmaindustrie zur Weiterverarbeitung benötigt. Daher ist eine pünktliche Lieferung nötig.",
+          "prompt": "Beschreiben Sie ein Recht, das die Kunden der Pulling AG bei einer verspäteten Lieferung (Lieferverzug) in Anspruch nehmen könnten.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "– Die Kunden bestehen auf Lieferung.\n– Die Kunden verzichten auf Lieferung der Ware, haben keine Zahlungsverpflichtung und treten somit vom Kaufvertrag zurück.\n– Die Kunden erhalten Schadensersatz als Ausgleich für die nicht erbrachte Leistung.\n– Die Kunden bekommen den durch den Lieferverzug entstandenen Schaden ersetzt.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2026-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1522,
+              "height": 1079
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ausgleich",
+              "Schadensersatz",
+              "Zahlungsverpflichtung",
+              "Schaden",
+              "Kaufvertrag",
+              "Lieferverzug",
+              "Leistung",
+              "Lieferung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3cb",
+          "label": "cb)",
+          "fullLabel": "3 cb)",
+          "groupLabel": "c)",
+          "groupIntro": "Die Produkte der Pulling AG werden von Unternehmen der Pharmaindustrie zur Weiterverarbeitung benötigt. Daher ist eine pünktliche Lieferung nötig.",
+          "prompt": "Auch wenn die Kunden der Pulling AG ihre Rechte in Anspruch nehmen, kann sich der Lieferverzug durch den Imageverlust negativ auf die Pulling AG auswirken.\nBeschreiben Sie eine negative Konsequenz, die sich aus dem Imageverlust ergeben könnte.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "– Probleme bei der Gewinnung von Neukunden\n– Umsatzrückgang durch den Absprung von Kunden\n– Probleme bei der Mitarbeitergewinnung\n\nAuch andere Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Absprung",
+              "Neukunden",
+              "Umsatzrückgang",
+              "Mitarbeitergewinnung",
+              "Probleme",
+              "Gewinnung",
+              "Kunden"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3da",
+          "label": "da)",
+          "fullLabel": "3 da)",
+          "groupLabel": "d)",
+          "groupIntro": "Aufgrund technischer Probleme mussten drei Kameras ausgetauscht werden. Die Netzwerkeinstellungen wurden gemäß nachfolgender Tabelle vorgenommen:\nKamera 1 – 192.168.178.100/24 – Süd\nKamera 2 – 192.168.178.104/24 – Nord\nKamera 3 – 192.168.178.107/24 – West",
+          "prompt": "Beschreiben Sie, wie sich die oben genannten IP-Adressen in Bezug auf deren öffentlichen Erreichbarkeit im Internet verhalten.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Es handelt sich um private IP-Adressen, die im lokalen Netzwerk verwendet und im Internet nicht geroutet werden und daher nicht öffentlich im Internet erreichbar sind.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 8,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Internet",
+              "Adressen",
+              "Netzwerk",
+              "IP"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3db",
+          "label": "db)",
+          "fullLabel": "3 db)",
+          "groupLabel": "d)",
+          "groupIntro": "Aufgrund technischer Probleme mussten drei Kameras ausgetauscht werden. Die Netzwerkeinstellungen wurden gemäß nachfolgender Tabelle vorgenommen:\nKamera 1 – 192.168.178.100/24 – Süd\nKamera 2 – 192.168.178.104/24 – Nord\nKamera 3 – 192.168.178.107/24 – West",
+          "prompt": "Der nachfolgende Screenshot deutet auf Probleme mit einer Kamera im Netzwerk hin.\nNennen Sie einen kritischen Wert des nachfolgenden Screenshots und beschreiben Sie ein mögliches Problem, das aufgrund dieses kritischen Werts auftreten könnte.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "466 (ms) (1 Punkt)\nInstabilität, z. B. Ruckeln oder Einfrieren der Bildübertragung\nTimeouts in Form von Verbindungsabbrüchen (2 Punkte)\nAuch andere sinnvolle Antworten (z. B. 863 ms als konkrete Antwortzeit) möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2026-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 905,
+              "height": 1222
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Verbindungsabbrüchen",
+              "Ruckeln",
+              "Einfrieren",
+              "Instabilität",
+              "Antwortzeit",
+              "Bildübertragung",
+              "Timeouts"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ea",
+          "label": "ea)",
+          "fullLabel": "3 ea)",
+          "groupLabel": "e)",
+          "groupIntro": "Die Arbeitsplätze einiger Mitarbeiter werden umorganisiert und nach Möglichkeit digitalisiert. Gerade bei den Personen mit jahrzehntelanger Erfahrung sind Befürchtungen erkennbar, der neuen Situation nicht gewachsen zu sein. Die Veränderungen sollen durch ein Change Management organisiert werden. Dazu haben Sie folgenden Text gefunden:\n\nChange management (CM) is a discipline that focuses on managing changes within an organization. Change management involves implementing approaches to prepare and support individuals, teams, and leaders in making organizational change. Change management is useful when organizations are considering major changes such as restructure, redirecting or redefining resources, updating or refining business process and systems, or introducing or updating digital technology.\nQuelle: Change management - Wikipedia",
+          "prompt": "In dem Text werden Beispiele aufgeführt, in denen für Unternehmen ein Änderungsmanagement nützlich sein könnte.\nBenennen Sie drei Beispiele.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Entscheidend ist die sinngemäße Benennung der Schlüsselbegriffe „Umstrukturierung\", „Ressourcen\", „Geschäftsprozesse und -systeme\" und „digitale Technologien\", die durch den Ausdruck „such as\" als Beispiele genannt werden.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2026-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1588,
+              "height": 1061
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Entscheidend",
+              "Technologien",
+              "Schlüsselbegriffe",
+              "Ausdruck",
+              "Geschäftsprozesse",
+              "Umstrukturierung",
+              "Beispiele",
+              "Benennung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3eb",
+          "label": "eb)",
+          "fullLabel": "3 eb)",
+          "groupLabel": "e)",
+          "groupIntro": "Die Arbeitsplätze einiger Mitarbeiter werden umorganisiert und nach Möglichkeit digitalisiert. Gerade bei den Personen mit jahrzehntelanger Erfahrung sind Befürchtungen erkennbar, der neuen Situation nicht gewachsen zu sein. Die Veränderungen sollen durch ein Change Management organisiert werden. Dazu haben Sie folgenden Text gefunden:\n\nChange management (CM) is a discipline that focuses on managing changes within an organization. Change management involves implementing approaches to prepare and support individuals, teams, and leaders in making organizational change. Change management is useful when organizations are considering major changes such as restructure, redirecting or redefining resources, updating or refining business process and systems, or introducing or updating digital technology.\nQuelle: Change management - Wikipedia",
+          "prompt": "Die Pulling AG beabsichtigt, auf ein leistungsfähigeres Warenerfassungssystem umzusteigen. Dabei wird als Alternative zur Sofortumstellung ein befristeter Parallelbetrieb diskutiert.\nBeschreiben Sie einen generellen Nachteil der Sofortumstellung gegenüber dem Parallelbetrieb.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk",
+            "software"
+          ],
+          "solution": {
+            "text": "– Auftretende Software-Störungen wirken sich stärker auf die betrieblichen Abläufe aus.\n– Erhöhter Erfolgsdruck auf die Mitarbeiter\n\nAuch andere Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 9,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Erhöhter Erfolgsdruck",
+              "Auftretende Software-Störungen",
+              "Abläufe",
+              "Mitarbeiter"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ec",
+          "label": "ec)",
+          "fullLabel": "3 ec)",
+          "groupLabel": "e)",
+          "groupIntro": "Die Arbeitsplätze einiger Mitarbeiter werden umorganisiert und nach Möglichkeit digitalisiert. Gerade bei den Personen mit jahrzehntelanger Erfahrung sind Befürchtungen erkennbar, der neuen Situation nicht gewachsen zu sein. Die Veränderungen sollen durch ein Change Management organisiert werden. Dazu haben Sie folgenden Text gefunden:\n\nChange management (CM) is a discipline that focuses on managing changes within an organization. Change management involves implementing approaches to prepare and support individuals, teams, and leaders in making organizational change. Change management is useful when organizations are considering major changes such as restructure, redirecting or redefining resources, updating or refining business process and systems, or introducing or updating digital technology.\nQuelle: Change management - Wikipedia",
+          "prompt": "Aktuell sind einige Arbeitsplätze wie auf dem folgenden Bild ausgestattet. Es soll nun das Arbeiten an den Bildschirmarbeitsplätzen erleichtert werden.\nNennen Sie vier Maßnahmen, um den Arbeitsplatz ergonomischer zu gestalten.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "arbeitsplatz"
+          ],
+          "solution": {
+            "text": "– Große, höhenverstellbare und separate Bildschirme\n– Mehrere Bildschirme\n– Gute Auflösung\n– Höhenverstellbare Tische\n– Ergonomischer Stuhl\n\nAuch andere Antworten sind möglich.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2026-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1331,
+              "height": 858
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ergonomischer Stuhl",
+              "Mehrere Bildschirme",
+              "Höhenverstellbare Tische",
+              "Große",
+              "Gute Auflösung",
+              "Bildschirme"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Die Novo-Sys-Tech OHG möchte eine Versandsoftware entwickeln, welche die Kosten für Pakete berechnet.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die neue Versandsoftware kann objektorientiert oder prozedural programmiert werden.\nNennen Sie zwei Vorteile objektorientierter Programmiersprachen gegenüber prozeduraler Programmiersprachen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "– Bessere Wiederverwendbarkeit\n– Leichtere Erweiterbarkeit\n– Bessere Wartbarkeit\n– Vererbung\n– Kapselung\n– Polymorphismus\n– u. a.",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 10,
+          "assets": [],
+          "pageImage": null,
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Polymorphismus",
+              "Leichtere Erweiterbarkeit",
+              "Bessere Wartbarkeit",
+              "Bessere Wiederverwendbarkeit",
+              "Kapselung",
+              "Vererbung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4ba",
+          "label": "ba)",
+          "fullLabel": "4 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Es soll eine Klasse ShippingCalculator erstellt werden, welche die Berechnung der Versandkosten der Pakete übernimmt.",
+          "prompt": "Die Klasse ShippingCalculator soll die folgenden Attribute besitzen:\n– maxWeight: Das maximale Gewicht des Pakets in Kilogramm.\n– expressSurcharge: Der Zuschlag für eine Express Sendung in EUR.\n– upTo10kg: Der Preis für ein Paket bis 10kg.\n– above10kg: Der Preis für ein Paket über 10kg.\nAlle Attribute haben den Datentyp double.\nDie öffentlich sichtbare Methode calculateShippingCost ist bereits eingetragen.\n\nErgänzen Sie das folgende UML-Klassendiagramm mit Klassennamen, Attributen und entsprechenden Datentypen. Die Sichtbarkeit aller Attribute soll mit private angegeben werden.",
+          "maxPoints": 5,
+          "answerType": "diagram",
+          "topics": [
+            "programmierung"
+          ],
+          "solution": {
+            "text": "ShippingCalculator\n– maxWeight: double\n– expressSurcharge: double\n– upTo10kg: double\n– above10kg: double\n+ calculateShippingCost (packages: List<Package>): double\n\n1 Punkt Klassenname\n4 x 1 Punkt Attribut mit Rückgabewert und Sichtbarkeit private (-)",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2026-f_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1437,
+              "height": 569
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2026-f_p10_f3.png",
+              "sourcePage": 10,
+              "width": 733,
+              "height": 378
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2026-f_p10_f4.png",
+              "sourcePage": 10,
+              "width": 297,
+              "height": 261
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Sichtbarkeit",
+              "Package",
+              "Punkt Klassenname",
+              "Punkt Attribut",
+              "Rückgabewert"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4bb",
+          "label": "bb)",
+          "fullLabel": "4 bb)",
+          "groupLabel": "b)",
+          "groupIntro": "Es soll eine Klasse ShippingCalculator erstellt werden, welche die Berechnung der Versandkosten der Pakete übernimmt.",
+          "prompt": "Im Konstuktor der Klasse werden die Attribute mit den folgenden Werten initialisiert:\nmaxWeight=31.5\nexpressSurcharge=12.95\nupTo10kg=6.98\nabove10kg=13.98\n\nDie Frachtkosten werden mit der folgenden Funktion berechnet:\n\nFUNCTION calculateShippingCost(packages)\n    totalCost = 0\n    FOR EACH package IN packages\n        weight = package[\"weight\"]\n        isExpress = package[\"isExpress\"]\n\n        IF weight > maxWeight THEN\n            PRINT \"Error: Package exceeds the maximum weight.\"\n        ELSE\n            IF weight <= 10 THEN\n                cost = upTo10kg\n            ELSE\n                cost = above10kg\n            END IF\n\n            IF isExpress THEN\n                cost = cost + expressSurcharge\n            END IF\n\n            totalCost = totalCost + cost\n        END IF\n    END FOR\n\n    IF totalCost >= 40 THEN   // Discount starting at 40€\n        totalCost = totalCost * 0.875\n    END IF\n\n    RETURN totalCost\nEND FUNCTION\n\nGegeben sind die folgenden Werte:\npackages = [\n    {\"weight\": 3.2, \"isExpress\": TRUE },   // Paket 1\n    {\"weight\": 8.0, \"isExpress\": FALSE },  // Paket 2\n    {\"weight\": 12.0, \"isExpress\": TRUE }   // Paket 3\n]\n\nBerechnen Sie die Preise der 3 Pakete und den Gesamtpreis für die gegebenen Werte unter Verwendung der gegebenen Funktion calculateShippingCost.\n\nPreis Paket 1:\nPreis Paket 2:\nPreis Paket 3:\nGesamtpreis:",
+          "maxPoints": 10,
+          "answerType": "text",
+          "topics": [
+            "programmierung",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Preis Paket 1: 6,98 EUR + 12,95 EUR = 19,93 EUR   (2 Punkte)\nPreis Paket 2: 6,98 EUR                          (2 Punkte)\nPreis Paket 3: 13,98 EUR + 12,95 EUR = 26,93 EUR (2 Punkte)\n\nSumme der Pakete 1 bis 3: 19,93 EUR + 6,98 EUR + 26,93 EUR = 53,84 EUR\nDa 53,84 > 40 ist: 53,84 EUR * 0,875 = 47,11 EUR\nDer Gesamtpreis für die 3 Pakete beträgt 47,11 EUR   (4 Punkte)",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2026-f_p11_f2.png",
+              "sourcePage": 11,
+              "width": 232,
+              "height": 144
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2026-f_p11_f3.png",
+              "sourcePage": 11,
+              "width": 222,
+              "height": 144
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "6,98 EUR",
+                "wert": 6.98,
+                "einheit": "EUR"
+              },
+              {
+                "text": "12,95 EUR",
+                "wert": 12.95,
+                "einheit": "EUR"
+              },
+              {
+                "text": "19,93 EUR",
+                "wert": 19.93,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "13,98 EUR",
+                "wert": 13.98,
+                "einheit": "EUR"
+              },
+              {
+                "text": "26,93 EUR",
+                "wert": 26.93,
+                "einheit": "EUR"
+              },
+              {
+                "text": "53,84 EUR",
+                "wert": 53.84,
+                "einheit": "EUR"
+              },
+              {
+                "text": "47,11 EUR",
+                "wert": 47.11,
+                "einheit": "EUR"
+              },
+              {
+                "text": "4 Punkte",
+                "wert": 4.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Preis Paket",
+              "Gesamtpreis",
+              "Pakete",
+              "Summe",
+              "EUR"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Preis Paket 1",
+              "maxPoints": 2.5
+            },
+            {
+              "label": "Preis Paket 2",
+              "maxPoints": 2.5
+            },
+            {
+              "label": "Preis Paket 3",
+              "maxPoints": 2.5
+            },
+            {
+              "label": "Gesamtpreis",
+              "maxPoints": 2.5
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Versandinformationen sollen in einer Datenbank gespeichert werden.\nDazu soll ein Entity-Relationship-Diagramm (ER-Diagramm) erstellt werden, welche die nachfolgenden Annahmen berücksichtigt.\n\nArtikel werden auf mehreren LKW verladen. In der Datenbank soll eine Artikelnummer (AID), der Artikelname, das Einzelgewicht pro Artikel, eine Fahrzeugnummer (LID), das LKW-Kennzeichen, LKW-Typ, die Verladezeit und die Menge pro Artikel gespeichert werden.\n\nErgänzen Sie das Entity-Relationship-Diagramm für diese Anforderungen.\nHinweis: Kennzeichnen Sie in geeigneter Weise die jeweiligen notwendigen Primärschlüssel.",
+          "maxPoints": 8,
+          "answerType": "diagram",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "Entität Artikel mit AID (PK), Name, Gewicht.\nEntität LKW mit LID (PK), LKW-Kennzeichen, LKW-Typ.\nBeziehung „verladen\" zwischen Artikel und LKW, Kardinalität n:m, mit den Attributen Verladezeit und Menge_pro_Artikel an der Beziehung.\n\nBeziehung zeichnen und benennen        (2 Punkte)\nN:M Kardinalität                       (1 Punkt)\nKennzeichnung der PKs pro Entität      (je 1 Punkt, 2 Punkte)\nRestliche Attribute richtig zugeordnet (je 0,5 Punkte, 3 Punkte)",
+            "extractionConfidence": "high"
+          },
+          "sourcePage": 12,
+          "assets": [
+            {
+              "id": "p12_f2",
+              "file": "assets/ap1-2026-f_p12_f2.png",
+              "sourcePage": 12,
+              "width": 403,
+              "height": 303
+            },
+            {
+              "id": "p12_f3",
+              "file": "assets/ap1-2026-f_p12_f3.png",
+              "sourcePage": 12,
+              "width": 403,
+              "height": 282
+            }
+          ],
+          "pageImage": "assets/ap1-2026-f_seite_12.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "0,5 Punkte",
+                "wert": 0.5,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "3 Punkte",
+                "wert": 3.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Kennzeichnung",
+              "PK",
+              "LID",
+              "Entität Artikel",
+              "Artikel",
+              "Gewicht",
+              "Kennzeichen",
+              "Restliche Attribute"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

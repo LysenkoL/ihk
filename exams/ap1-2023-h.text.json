@@ -1,0 +1,276 @@
+{
+  "examId": "ap1-2023-h",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2023,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2023-h-aufgaben.pdf",
+      "solutions": "ap1-2023-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie absolvieren Ihre Ausbildung bei der OptiSoft-XXL GmbH. Diese hat sich als Systemhaus darauf spezialisiert, Software für Handwerksbetriebe herzustellen und anzupassen. Die Geschäftsleitung legt großen Wert auf eine umfassende Kundenbetreuung. Bisher beschränkte sich diese im Wesentlichen auf die üblichen Öffnungszeiten des Unternehmens. Zur Verbesserung der Konkurrenzfähigkeit soll ein 24/7-Service als eigene Abteilung mit passenden PC-Arbeitsplätzen eingerichtet werden.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Die OptiSoft-XXL GmbH möchte ihre Servicequalität verbessern. Der bestehende Prozess zeigt Schwachstellen. Zuerst unterziehen Sie den Prozess der Störungsmeldungen einer Ist-Analyse.\n\nHierzu erhalten Sie von der IT-Abteilung die folgenden Informationen:\n– Kunden senden Störungsmeldungen.\n– Die Störungsmeldungen werden von der IT-Abteilung erfasst.\n– Die IT-Abteilung erstellt die Arbeitsplanung für die kommende Woche freitags. Dies beinhaltet auch immer eine Priorisierung.\n– Die Arbeitsaufträge werden vom Serviceteam bearbeitet. Dies beinhaltet immer eine Rückmeldung.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Ergänzen Sie das bereits angefangene UML-Anwendungsfalldiagramm (Use Case Diagram) um die fehlenden Anwendungsfälle und Bezeichnungen der Akteure.\n\n(Vorgegeben sind u. a. die Use-Cases „Störungsmeldung erfassen“ und „Arbeitsauftrag bearbeiten“, der Akteur „Serviceteam“ sowie zwei «include»-Beziehungen; zwei Akteur-Bezeichnungen und drei Use-Cases sind leer.)",
+          "sourcePage": 2,
+          "answerType": "diagram",
+          "placeholder": "Use-Case-Diagramm: benenne im Antwortfeld die fehlenden Akteure und Anwendungsfälle sowie ihre Beziehungen (z. B. „Akteur links = Kunde; Use-Case ‚Störungsmeldung senden‘ «include» …“)."
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Aktuell müssen die Störungsmeldungen als E-Mail gesendet werden. Diese werden in einer Tabellenkalkulation verwaltet. Einmal in der Woche am Freitag erfolgt die Arbeitsplanung. Die Arbeitszeit des Serviceteams ist von montags – freitags von 8.00 bis 17:00 Uhr.",
+          "prompt": "Beschreiben Sie zwei Kritikpunkte an diesem Ablauf.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Nennen Sie zwei geeignete Maßnahmen, um die Servicequalität zu verbessern.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Sie sind sich unsicher, ob die vorgeschlagenen Maßnahmen ausreichend sind.\n\nNennen Sie drei Methoden für eine Bedarfsanalyse, um die Kundenbedürfnisse zu identifizieren.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "Der zukünftig bessere Service wird ohne höhere Kosten nicht zu erreichen sein.\nBeantworten Sie die nachfolgenden Fragen auf Deutsch anhand des englischsprachigen Artikels.\n\nIt is important to pay attention to the prices you set for your services, because they can determine the success of your business. If you price your services too high, you may be rejected by customers and fail to find sales, no matter how good they are. On the other hand, if you set your prices too low, you will not cover your costs. There is no set method for pricing services. Here are four points they should consider for service pricing.\n– Calculate your costs.\n– Know your customers.\n– Look at the market.\n– Choose a pricing model.",
+          "prompt": "Benennen Sie eine Gefahr, die bei zu hohen Service-Preisen besteht.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Benennen Sie eine Gefahr, die bei zu niedrigen Service-Preisen besteht.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "dc)",
+          "groupLabel": "d)",
+          "prompt": "Nennen Sie die vier im Text genannten Aspekte zur Service-Preis-Bestimmung.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Nach der vorgenommenen Preiserhöhung ruft ein Kunde an und sagt zu Ihnen: „Die Service-Preise sind ihr Geld nicht wert!“.\n\nBeurteilen Sie diese Aussage nach dem 4-Ohren-Modell.\n1. Sachaspekt:\n2. Selbstaussage:\n3. Beziehungsaspekt:\n4. Appell:",
+          "sourcePage": 4,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Zur Realisierung des 24/7-Services gilt es im Vorfeld u. a., die Rahmenbedingungen zur Telearbeit zu klären. Sie wirken hierbei mit.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Der Teamleiter möchte zur Telearbeit PCs verwenden.\n\nWas ist darüber hinaus noch nötig, um am Telearbeitsplatz die anfallenden betrieblichen Aufgaben erledigen zu können?\nNennen und begründen Sie zwei weitere Anschaffungen oder Maßnahmen.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Ein Kollege unterbreitet den Vorschlag, Tablets zum Einsatz im Homeoffice anzuschaffen.\n\nErläutern Sie anhand von zwei Aspekten, warum die Anforderungen an einen Bildschirmarbeitsplatz durch ein Tablet nicht erfüllt werden.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Als Kompromiss hat man sich auf den Einsatz von Notebooks geeinigt.\n\nBeschreiben Sie zwei Möglichkeiten bzw. Ergänzungen, die Arbeit mit den Notebooks ergonomischer zu gestalten.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Als Vorbereitung für das anstehende Gespräch mit dem Betriebsrat sollen Sie Vor- und Nachteile von Homeoffice für die Beschäftigten zusammentragen.\n\nTragen Sie in die nachfolgende Tabelle jeweils zwei mögliche Vorteile und zwei Nachteile ein.\n\nVorteile von Homeoffice für die Beschäftigten | Nachteile von Homeoffice für die Beschäftigten",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Im Rahmen des 24/7-Services will die OptiSoft-XXL GmbH ihre Hotline zur angebotenen Software um die Zeit zwischen 20:00 Uhr und 06:00 Uhr erweitern. Für diese Zeit ist für den First-, Second- und Third-Level-Support die häusliche Erreichbarkeit als Bereitschaftszeit jeweils eines Mitarbeiters erforderlich.\n\nJeder Anruf wird zunächst vom First-Level-Support entgegengenommen und dann gegebenenfalls weitergeleitet. Auch wenn dies der Fall ist, soll dieser zusätzliche Service den Kunden als einheitlicher Minutenpreis angeboten werden. Weitere mögliche Kosten und Nachbereitungszeiten zu den Anrufen sollen nicht berücksichtigt werden.\n\nBerechnen Sie, zu welchem einheitlichen Minutensatz kalkuliert werden muss, um die Kosten der Tabellenangaben exakt zu decken. Der Rechenweg muss nachvollziehbar sein. Runden Sie gegebenenfalls auf den nächsten Cent auf.\n\n                                            | First-Level | Second-Level | Third-Level\nStundensatz für die Bereitschaft in EUR     | 12,00       | 15,00        | 20,00\nMinutensatz bei Anruf in EUR                | 0,50        | 1,00         | 1,50\nDurchschnittliche Anrufzeit in Minuten\npro Nachtschicht                            | 150         | 100          | 50",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "f)",
+          "prompt": "Die Kostenpflichtigkeit der Hotline zu dieser Software muss den Kunden kommuniziert werden.\n\nFormulieren Sie (in ganzen Sätzen) zwei überzeugende Argumente, die als Text für eine E-Mail verwendet werden können.",
+          "sourcePage": 6,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Bei der Nutzung Ihres firmeneigenen Laptops als heimbasierten Telearbeitsplatz ist es u. a. wichtig, den Schutz der Kundendaten zu gewährleisten.",
+      "maxPoints": 22,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Nennen Sie dazu zwei in Deutschland für den Datenschutz relevante gesetzliche Grundlagen.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Das Bundesamt für Sicherheit in der Informationstechnik (BSI) gibt Anforderungen zum Schutz von Informationen für die Telearbeit vor und stellt dazu Umsetzungshinweise zur Verfügung.\n\nNennen Sie jeweils ein Beispiel für eine sinnvolle technisch-organisatorische Maßnahme aus den folgenden Bereichen.\n\nZugriffsschutz auf mobile Datenträger — Beispiel: Verschlüsselung der lokalen SSD\nZutrittsschutz Telearbeitsplatz — ?\nSichere Anmeldung am Laptop — ?\nSichere Datenkommunikation — ?\nTransport von Datenträgern — ?",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Zur Umsetzung des Zugriffsschutzes auf mobile Datenträger gibt Ihnen Ihr Arbeitgeber vor, Ihre lokale SSD zu verschlüsseln. Dazu sollen Sie das in Ihrem Laptop vorhandene Trusted Platform Module (TPM) und eine Verschlüsselungssoftware verwenden. Das TPM dient hier als Schlüsselspeicher. Beim Start des PCs soll das Laufwerk jeweils durch ein Passwort entsperrt werden. Für den Fall, dass Sie Ihren PC nicht entsperren können, wird ein Wiederherstellungsschlüssel getrennt aufbewahrt.",
+          "prompt": "Nennen Sie zwei Kriterien für ein sicheres Passwort.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "cb)",
+          "groupLabel": "c)",
+          "prompt": "Bei der Einrichtung der Verschlüsselungssoftware müssen Sie auswählen, wie der Wiederherstellungsschlüssel gesichert werden soll.\n\nBeurteilen Sie die vorgeschlagenen Verfahren, indem Sie stichwortartig jeweils einen charakteristischen Vorteil und einen Nachteil nennen.\n\nAuf PC in Textdatei speichern — Vorteil: Kein zusätzlicher Speicher erforderlich / Nachteil: Kann im Wiederherstellungsfall ggf. nicht mehr erreicht werden\nIn Cloud-Speicher hochladen — ?\nAuf USB-Stick speichern — ?\nWiederherstellungsschlüssel ausdrucken — ?",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "cc)",
+          "groupLabel": "c)",
+          "prompt": "Der Algorithmus der Verschlüsselungssoftware unterstützt die beiden Sicherheitsziele Vertraulichkeit und Integrität.\n\nBeschreiben Sie, was dies in Bezug auf die Daten auf der SSD bedeutet.",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "cd)",
+          "groupLabel": "c)",
+          "prompt": "Beurteilen Sie, inwiefern das beschriebene Verschlüsselungssystem die Daten auf der SSD im Fall eines Diebstahls des gesamten Laptops sichert.",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "da)",
+          "groupLabel": "d)",
+          "groupIntro": "Zum Aufbau einer sicheren Verbindung von Ihrem Telearbeitsplatz auf einen Server im Firmennetz sollen Sie ein VPN verwenden. Zusätzlich erhalten Sie von Ihrem Arbeitgeber ein für Sie persönlich ausgestelltes digitales Zertifikat.",
+          "prompt": "Beschreiben Sie den sicherheitstechnischen Vorteil eines Virtual Private Network (VPN).",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "db)",
+          "groupLabel": "d)",
+          "prompt": "Beschreiben Sie die von Ihrem Arbeitgeber mithilfe des digitalen Zertifikats geplante Identifizierung.",
+          "sourcePage": 11,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Zur Verwaltung der Serviceanfragen soll ein neues Ticketsystem eingeführt werden.",
+      "maxPoints": 28,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Ihre Aufgabe in der Planungsabteilung ist es, den Ablauf des Projektes zu überwachen.",
+          "prompt": "Nennen Sie jeweils zwei wesentliche Merkmale von Gantt-Diagramm und Netzplan.",
+          "sourcePage": 12,
+          "answerType": "text"
+        },
+        {
+          "label": "ab)",
+          "groupLabel": "a)",
+          "prompt": "Bringen Sie die folgenden Vorgänge einer Planungsliste in die richtige Reihenfolge:\n\n1 – Test und Validation\n2 – Entwurf der Verteilung im Netz\n3 – Logischer Entwurf\n4 – Konzeptioneller Entwurf\n5 – Anwendung und Wartung\n6 – Physischer Entwurf/Implementierung\n\nTragen Sie hierzu die Ziffern in der richtigen Reihenfolge ein.\n(Startpunkt vorgegeben: Anforderungsanalyse → __ __ __ __ __ __)",
+          "sourcePage": 12,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Für eine Projektplanung erhalten Sie die folgenden Informationen in einem Gantt-Diagramm vorgelegt:\n\nEin Projekt beginnt mit dem Vorgang A. Nachdem dieser Vorgang nach drei Tagen abgeschlossen ist, folgen drei parallele Vorgänge: B hat sechs Tage, D dauert acht Tage, E hat fünf Tage Dauer. B hat den Nachfolger C mit vier Tagen, an den sich der Vorgang F mit drei Tagen anschließt. C und D haben zusammen mit E den gemeinsamen Nachfolger F mit drei Tagen. Auf F folgt noch der Vorgang G mit zwei Tagen.\n\nDanach ist das Projekt beendet.",
+          "prompt": "Erstellen Sie mithilfe der Vorgänge ein Gantt-Diagramm und zeichnen Sie die Abhängigkeiten ein.",
+          "sourcePage": 12,
+          "answerType": "diagram",
+          "placeholder": "Gantt-Diagramm: gib im Antwortfeld für jeden Vorgang A–G Start- und Endtag an (z. B. „A: Tag 1–3, B: Tag 4–9, …“) und nenne die Abhängigkeiten."
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Ermitteln Sie, nach wie vielen Tagen das Projekt frühestens beendet werden kann.",
+          "sourcePage": 12,
+          "answerType": "text"
+        },
+        {
+          "label": "bc)",
+          "groupLabel": "b)",
+          "prompt": "Ermitteln Sie, welcher Vorgang den größten Puffer in Tagen hat.",
+          "sourcePage": 12,
+          "answerType": "text"
+        },
+        {
+          "label": "ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Die zugehörige Datenbank soll nun erstellt werden. Teile des Datenbankentwurfs wurden bereits in einem Entity-Relationship-Diagramm (ERD) umgesetzt.\n\nDie Bearbeitung eines Tickets erfolgt in der Regel in einer oder mehreren zum Ticket gehörenden Tätigkeiten, welche durch Mitarbeiter der Serviceabteilung durchgeführt werden. Dieser Umstand soll nun noch zusätzlich in dem Ticketsystem abgebildet werden.\n\nZu jeder Tätigkeit soll eine ausführliche Beschreibung der durchgeführten Arbeiten und ein Ergebnis der Aktion gespeichert werden. Start und Ende der Tätigkeiten sollen festgehalten werden.\n\nHinweise zum bestehenden Teil des ERD:\nZu einem Ticket wird erfasst, zu welchem Kunden das Ticket gehört, welcher Mitarbeiter der IT-Abteilung es angelegt hat, wann es erfasst wurden sowie eine Beschreibung des Problems. Jedes Ticket bekommt außerdem eine Priorität und einen aktuellen Zustand der Bearbeitung zugeordnet.",
+          "prompt": "Ergänzen Sie das ERD um die fehlenden Elemente zur Abbildung der Tätigkeiten in der Datenbank.\n\n(Im ERD bereits vorhanden: Entitäten Kunde, Mitarbeiter, Ticket, Taetigkeiten mit Beziehungen „eröffnet“, „erfasst“, „führt zu“, „führt aus“; bei Taetigkeiten fehlen drei Attribute und die Kardinalitäten.)",
+          "sourcePage": 13,
+          "answerType": "diagram",
+          "placeholder": "ER-Diagramm: nenne im Antwortfeld die fehlenden Attribute von „Taetigkeiten“ (inkl. Fremdschlüssel) und die Kardinalitäten der Beziehungen."
+        },
+        {
+          "label": "cb)",
+          "groupLabel": "c)",
+          "prompt": "Sie erhalten von der Geschäftsleitung den Auftrag, aus statistischen Gründen die Anzahl der Tickets pro Priorität zu ermitteln. Die Ausgabe soll die Priorität und die dazugehörige Anzahl enthalten.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "sourcePage": 14,
+          "answerType": "text"
+        },
+        {
+          "label": "cc)",
+          "groupLabel": "c)",
+          "prompt": "Dem Unternehmen ist bekannt, wie viele Kunden es insgesamt hat. Nun möchte die Geschäftsleitung den Prozentsatz der Kunden ausrechnen, die Tickets eröffnet haben. Dazu muss die Anzahl der Kunden mit einem Ticket in der Ticketdatenbank bestimmt werden.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "sourcePage": 14,
+          "answerType": "text"
+        },
+        {
+          "label": "cd)",
+          "groupLabel": "c)",
+          "prompt": "Sie erhalten von der Geschäftsleitung den Auftrag zu ermitteln, welche offenen Tickets (Zustand=offen) einen Erfassungsmonat haben, der mehr als zwei Monate zurückliegt.\n\nAnalysieren Sie die vorliegende Abfrage und beschreiben Sie das zu erwartende Ergebnis.\n\nSELECT Problembeschreibung, Prioritaet, Zustand, ErfassungDatum FROM\nTicket WHERE Month(NOW())-Month(ErfassungDatum) > 2 AND Zustand=\"offen\"\nORDER BY ErfassungDatum ASC;",
+          "sourcePage": 14,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

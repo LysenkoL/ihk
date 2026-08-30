@@ -1,0 +1,462 @@
+{
+  "schemaVersion": 1,
+  "examId": "ap1-2025-h",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2025,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2025-h-aufgaben.pdf",
+      "solutions": null
+    }
+  },
+  "situation": {
+    "text": "Die Aufgaben 1 bis 4 beziehen sich auf die folgende Ausgangssituation:\n\nSie absolvieren Ihre Ausbildung in der IT-Abteilung der Apothekengruppe Curatia, die Filialen in ganz Deutschland unterhält. Zusätzlich betreibt die Curatia einen Onlineshop.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Die Curatia beabsichtigt, eine weitere Filiale zu eröffnen. Dabei sind Sie bei der Beschaffung und Einrichtung der Kassensysteme mit eingebunden. Ihnen wird der auf Seite 3 abgebildete Beleg zugeleitet.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Auf dem Beleg sind mehrere kaufmännisch relevante Zeitpunkte vermerkt.\nNennen Sie unter Angabe des Datums die Vorgänge, die bereits stattgefunden haben.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 3,
+          "solution": {
+            "text": "05.09.2025: Bestellung der Ware\n10.09.2025: Lieferung der Ware\n11.09.2025: Rechnungsstellung",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie gleichen die Rechnungspositionen ab.\nBeschreiben Sie dazu drei mögliche Kontrollvorgänge.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "sourcePage": 3,
+          "solution": {
+            "text": "- Abgleich Artikelbezeichnung der Bestellung mit der Lieferung.\n- Vergleichen der Menge bzw. Einheit der Bestellung mit der Lieferung.\n- Prüfung des Einzelpreises mit dem in der Bestellung vereinbarten Einzelpreis.\n- Prüfung des Umsatzsteuersatzes der Position, ob regulärer oder ermäßigter Steuersatz.\nAchtung: Der Abgleich betrifft nur die Rechnungspositionen!",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ca)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Auf der Rechnung ist die Möglichkeit angegeben, Skonto in Anspruch zu nehmen.\nBerechnen Sie den Skontobetrag, der abgezogen werden kann. Runden Sie das Ergebnis kaufmännisch auf zwei Stellen hinter dem Komma.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "1.130,20 EUR * 0,02 = 22,604 EUR = 22,60 EUR",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "cb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Neben Skonto gibt es als Preisnachlass auch noch den Rabatt.\nBeschreiben Sie zwei mögliche Gründe, einen Rabatt zu erhalten.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "- Mengenrabatt: Bei Absatz einer bestimmten Menge erfolgt der Rabatt\n- Neukundenrabatt: Nachlass, um neue Kunden zu gewinnen\n- Schüler-, Studentenrabatt: Nachlass für bestimmte Personengruppen\n- Zeitrabatte wie Frühbezugsrabatt: Sie werden für frühzeitige Vertragsabschlüsse gewährt\n- Treuerabatt: Langjährige Kunden erhalten Vergünstigungen\n- Web-/Online-Rabatt: Für online bestellte Produkte\nWeitere Lösungen sind möglich.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "da)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Im unteren Bereich der Rechnung ist ein QR-Code abgebildet.\nNennen Sie zwei mögliche Informationen, die sich hinter einem QR-Code (GiroCode) auf einer Rechnung verbergen können.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "Der Code beinhaltet alle Daten einer (SEPA-)Überweisung:\n- Begünstigter/Zahlungsempfänger\n- IBAN\n- BIC\n- Verwendungszweck\n- Rechnungsbetrag\n- u. a.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "db)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Erleichterungen, die die Nutzung des Codes bei Bezahlung bietet.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "- Fehlerfreie Übernahme der Überweisungsdaten für den Zahlungspflichtigen.\n- Keine manuelle Eingabe der Überweisungsdaten notwendig.\n- Zuordnung des Zahlungseingangs besser möglich.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ea)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Es soll ein neues Verfahren zur Rechnungsbearbeitung eingeführt werden. Dabei werden Vorgänge automatisiert und die Beschäftigten so entlastet. Dennoch gibt es Bedenken vonseiten der Beschäftigten.\nNennen Sie zwei mögliche Ursachen für die Ablehnung der neuen Prozesse.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "- Angst vor Wegrationalisieren des eigenen Arbeitsplatzes.\n- Bedenken, den geänderten Anforderungen nicht gewachsen zu sein\n- Fehlende Bereitschaft, gewohnte Abläufe/Routinen zu ändern\n- Angst vor mehr Leistungsdruck durch freigewordene Zeitressourcen\n- Befürchtung, die Kontrolle über die Aufgaben zu verlieren\nAuch andere sinnvolle Antworten sind möglich.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "eb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Curatia nimmt die Befürchtungen der Beschäftigten ernst.\nBeschreiben Sie zwei Maßnahmen, den Bedenken der Beschäftigten entgegenzuwirken.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 4,
+          "solution": {
+            "text": "- Frühzeitige Kommunikation bezüglich der Umstellung\n- Motivierende Herangehensweise, z. B. durch Aufzeigen einer Aufwertungsmöglichkeit des eigenen Arbeitsplatzes\n- (Permanente) Mitarbeiterqualifizierung (mit Fortbildungsmanagement) zur Nutzung des neuen Verfahrens\n- Klare Handlungsanweisung/Bedienungsanleitungen\n- Einsatz von Spezialisten als Multiplikatoren für direkten Austausch bei Fragen und Problemen\n- Einbeziehung der Mitarbeiter, z. B. Abfrage von Wünschen und Herausforderungen\n- Transparenz über damit erreichte Verbesserungen, z. B. Wegfall stupider Arbeiten\nAuch andere sinnvolle Antworten sind möglich.",
+            "extractionConfidence": "high"
+          }
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Digitale Rechnungsmanagementsysteme bieten Sicherheitsmaßnahmen wie Verschlüsselung und Zugriffskontrollen, um die Vertraulichkeit und Integrität der Daten zu gewährleisten. Deswegen wurde Ihr Ausbilder von der Geschäftsleitung beauftragt, zusammen mit Ihnen die Umstellung auf ein digitales Rechnungsmanagementsystem zu prüfen.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Vorteile und zwei Nachteile der digitalen Rechnung innerhalb eines automatischen Rechnungsmanagementsystems.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 5,
+          "solution": {
+            "text": "Vorteile:\n- Effizienzsteigerung\n- Kosteneinsparungen\n- Einfacher Zugriff und bessere Nachverfolgbarkeit\n- Integration\n- Nachhaltigkeit\n- Vermeiden von Medienbrüchen\nandere Antworten möglich\n\nNachteile:\n- Anfangsinvestitionen\n- Sicherheitsrisiken, z. B. Datenmissbrauch\n- Bedenken wegen Veränderungen\n- Schulungskosten\nandere Antworten möglich",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ba)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Als Auszubildender der IT-Abteilung sollen Sie zusammen mit den Fachleuten aus der Buchhaltung den Rechnungseingangsprozess darstellen.\nDer Prozess nach Rechnungseingang läuft wie folgt ab:\n- Nach dem Rechnungseingang erfolgt eine automatische Prüfung.\n- Ist die Prüfung nicht ok, erfolgt eine Ablehnung und der Prozess wird beendet.\n- Sonst wird geprüft, ob der Betrag größer oder gleich 1.000 EUR ist.\n- Falls ja, erfolgt eine manuelle Prüfung.\n- Ist die Rechnung gemäß manueller Prüfung nicht ok, erfolgt eine Ablehnung und der Prozess wird ebenfalls beendet.\n- Ist der Betrag < 1.000 EUR oder ist die manuelle Prüfung ok, wird gleichzeitig die Rechnung bezahlt und archiviert.\n- Anschließend ist der Prozess beendet.\nErstellen Sie auf der nächsten Seite ein UML-Aktivitätsdiagramm zum oben beschriebenen Ablauf.",
+          "maxPoints": 9,
+          "answerType": "text",
+          "sourcePage": 6,
+          "solution": {
+            "text": "Automatische Prüfung mit zugehöriger Entscheidung: 2 Punkte\nManuelle Prüfung mit zugehöriger Entscheidung: 2 Punkte\nBezahlen, Archivieren, Parallelisierung, Ablehnung, Endknoten: je 1 Punkt\n(Diagrammprüfung erfolgt visuell anhand des Lösungshinweises)",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "bb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie zwei Argumente, die für einen möglichen Einsatz einer automatischen Rechnungsprüfung mit KI-Unterstützung sprechen.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 7,
+          "solution": {
+            "text": "- KI-Systeme sind lernende Systeme: Sie erkennen Muster im Verhalten der Zahlungspflichtigen.\n- Zeitersparnis: KI kann zeitraubende manuelle Prüfungen automatisieren, wodurch Mitarbeiter sich auf andere Aufgaben konzentrieren können.\n- Kostenreduktion: Durch die Automatisierung der Rechnungsprüfung können Fehler reduziert und die Effizienz gesteigert werden.\n- Fehlerreduktion: KI-Systeme sind in der Lage, Rechnungen präzise zu analysieren und Fehler zu erkennen, die bei manuellen Prüfungen übersehen werden können.\n- Skalierbarkeit: KI-Lösungen können problemlos an das Wachstum des Unternehmens angepasst werden, ohne dass zusätzliche personelle Ressourcen erforderlich sind.\nWeitere Gründe sind möglich.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ca)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In der Apothekengruppe Curatia gehen pro Stunde durchschnittlich 14 Rechnungen über den Rechnungseingangsprozess ein. Die Rechnungen kommen rund um die Uhr an und eine eingegangene Rechnung benötigt durchschnittlich 124 kB Speicherplatz.\nErmitteln Sie den benötigten Speicherbedarf pro Tag in KiB. Das Ergebnis ist auf ganze KiB zu runden. Der Rechenweg ist anzugeben.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 8,
+          "solution": {
+            "text": "24 Stunden x 14 Scans = 336 Scans/Tag (1 Punkt)\n124 kB x 336 Scans/Tag x 1.000 / 1.024 = 40.687,5 KiB = 40.688 KiB (2 Punkte)",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "cb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Durch den Einsatz einer Komprimierungsmethode lässt sich der Speicherbedarf der archivierten Rechnungen um 30 % verringern.\nErmitteln Sie den gesamten Speicherbedarf für ein Jahr (365 Tage) in GiB.\nFalls bei Teilaufgabe a) kein Ergebnis berechnet wurde, ist mit einem täglichen Speicherbedarf von 50.000 KiB zu rechnen. Das Endergebnis ist auf zwei Nachkommastellen zu runden. Der Rechenweg ist anzugeben.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 8,
+          "solution": {
+            "text": "40.688 KiB x 365 Tage = 14.851.120 KiB (1 Punkt)\n14.851.120 KiB / 1.024 / 1.024 * 0,7 = 9,9149... GiB = 9,92 GiB (2 Punkte)\nAlternativ:\n50.000 KiB x 365 Tage = 18.250.000 KiB (1 Punkt)\n18.250.000 / 1.024 / 1.024 * 0,7 = 12,1832... GiB = 12,19 GiB (2 Punkte)",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "cc)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die IT-Abteilung hat beschlossen, den benötigten Speicher für die Archivierung extern zu beziehen. Es liegt ein Angebot vor, welches pro 5 GiB Speicherplatz Jahreskosten von 21,00 EUR umfasst.\nErmitteln Sie die voraussichtlichen Gesamtkosten für die Archivierung über einen Zeitraum von zehn Jahren, basierend auf einem jährlichen Speicherbedarf von 15 GiB.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 8,
+          "solution": {
+            "text": "15 GiB / 5 GiB = 3-mal das Angebot pro Jahr\n3 * 10 Jahre = 30-mal das Angebot in zehn Jahren\n30 * 21 EUR = 630 EUR",
+            "extractionConfidence": "high"
+          }
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "In der Apotheke soll ein Kartenterminal eingerichtet und in das vorhandene Netzwerk integriert werden.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Begründen Sie, inwiefern das Einlesen von Patientendaten mithilfe der elektronischen Gesundheitskarte erhöhten Sicherheitsanforderungen unterliegt und nennen Sie dafür eine rechtliche Grundlage.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 9,
+          "solution": {
+            "text": "2 Punkte für Begründung: Die Daten unterliegen dem besonderen Schutz personenbezogener Daten. Die Verarbeitung bedarf der Einwilligung.\n1 Punkt für rechtliche Grundlage: z. B. DSGVO, BDSG.\nAuch möglich: § 291 SGB V. Anforderungen an die Sicherheit der Datenübertragung und die Zugriffskontrollen für Anwendungen der eGK.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie verschaffen sich einen Überblick über die Authentifizierungsmittel Fingerabdrucksensor, Passwort und Chipkarte. Ergänzen Sie in der Tabelle die fehlenden Angaben.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 9,
+          "solution": {
+            "text": "Passwort:\n- Vorteil: Keine Hilfsmittel bei der Mitführung notwendig, kein Lesegerät erforderlich.\n- Sicherheitsrisiko: Kann verraten, ausgespäht oder geknackt werden (Phishing).\n\nChipkarte:\n- Vorteil: Kann zusätzlich Daten speichern, z. B. Medikationsplan; kann z. B. an pflegende Personen ausgeliehen werden.\n- Sicherheitsrisiko: Kann gestohlen und von Fremden missbräuchlich genutzt werden.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Der Hersteller des Kartenterminals empfiehlt, vor der Inbetriebnahme ein Softwareupdate durchzuführen. Beschreiben Sie einen Grund für diese Maßnahme.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 10,
+          "solution": {
+            "text": "- Softwarefehler werden behoben, interne Fehler treten seltener auf.\n- Das System wird gegenüber Angriffen gehärtet.\n- System wird auf aktuelle Anforderungen hin angepasst.\nWeitere Lösungen sind zulässig.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Eine weitere Empfehlung des Terminal-Herstellers lautet, auf eine sichere Lieferkette zu achten, um Gerätemanipulationen zu verhindern.\nBeschreiben Sie ein mögliches Risiko manipulierter Geräte bezüglich der IT-Sicherheit.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 10,
+          "solution": {
+            "text": "z. B. unbemerkter Einbau von Abhöreinrichtungen, Deaktivierung von Sicherheitsfunktionen",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ea)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für das Kartenterminal wird ein Netzteil 24 V/0,5 A mitgeliefert. Alternativ kann das Gerät auch über einen USB-Port mit 5 V versorgt werden. Der PC nutzt weitere USB-Geräte wie Tastatur, Maus, Scanner usw.\nErmitteln Sie rechnerisch, welcher Strom auf diesem Anschluss für eine dem Netzteil entsprechende stabile Leistungsversorgung zur Verfügung gestellt werden müsste.\nFormel: P = U * I",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 10,
+          "solution": {
+            "text": "P_Netzteil = 24 V * 0,5 A = 12 W\nI_USB = 12 W / 5 V = 2,4 A",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "eb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beim Betrieb des Kartenterminals treten Störungen auf.\nBegründen Sie einen möglichen Zusammenhang zwischen den Störungen und der Stromversorgung über den USB-Port.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 10,
+          "solution": {
+            "text": "Über den USB-Port müssten für das Kartenterminal 2,4 A bereitgestellt werden. Je nach USB-Port (A, C) kann es sein, dass diese Stromstärke nicht erreicht wird.\nDaher ist evtl. eine stabile Stromversorgung für das Terminal nicht gewährleistet. Wenn möglich sollte die Verwendung des Netzteils bevorzugt werden.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Konfigurieren Sie die Netzwerkschnittstelle des Kartenterminals, um mit dem PC, dem Konnektor und dem Router kommunizieren zu können. Verwenden Sie die letzte mögliche IPv4-Adresse.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 11,
+          "solution": {
+            "text": "IP-Adresse: 172.16.10.254\nSubnetzmaske: 255.255.255.0\nStandard-Gateway: 172.16.10.1",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "g)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie möchten nun das Kartenterminal mithilfe eines Patchkabels an die richtige Netzwerkdose anschließen. Im Verkaufsraum finden Sie zwei RJ45-Doppeldosen mit den folgenden Bezeichnungen: ...\nIm Netzwerkschrank sind Switch und Patchfeld wie folgt verbunden: ...\nWählen Sie einen geeigneten Anschluss für Ihr Patchkabel in den Netzwerkdosen aus und begründen Sie Ihre Wahl.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 11,
+          "solution": {
+            "text": "Die beiden Anschlüsse 3 und 4 sind am Patchfeld nicht „gepatcht“, d. h. nicht mit dem Switch verbunden. Daher ist nur die Verwendung der Anschlüsse Verkauf - 5 oder Verkauf - 6 möglich. Alternativ müssten die Patchkabel im Rack umgesteckt werden.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "h)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ein weiterer Einsatzbereich des Kartenterminals ist die Erstellung einer „elektronischen Unterschrift“ (Signatur).\nBeschreiben Sie die prinzipielle Vorgehensweise bei der Erstellung und Überprüfung einer Signatur zwischen Apotheke und Rechenzentrum anhand der folgenden Skizze.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "sourcePage": 12,
+          "solution": {
+            "text": "- Der Hashwert der Nachricht wird berechnet und mit dem privaten Schlüssel der Apotheke verschlüsselt. Diese Signatur wird zusammen mit der Nachricht versendet.\n- Der Server entschlüsselt mit dem öffentlichen Schlüssel der Apotheke die empfangene Signatur und erhält so den ursprünglichen Hashwert zu der Nachricht.\n- Funktioniert die Entschlüsselung der Signatur mit dem öffentlichen Schlüssel der Apotheke, so ist der Absender korrekt, die Authentizität ist nachgewiesen.\n- Anschließend wird auf Basis der empfangenen Nachricht deren Hashwert erneut berechnet. Stimmt der neu berechnete Hashwert mit dem entschlüsselten Hashwert überein, so wurden die Daten bei der Übertragung nicht verändert. Damit ist die Integrität der Nachricht nachgewiesen.\nAuch folgende Formulierung genügt den Anforderungen:\n- Die Nachricht wird mit dem privaten Schlüssel der Apotheke signiert und dann versendet.\n- Der Server überprüft die Signatur mit dem öffentlichen Schlüssel der Apotheke und sichert somit die eindeutige Herkunft.",
+            "extractionConfidence": "high"
+          }
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Sie entwickeln Software für die Apothekengruppe Curatia. Ihre Aufgabe ist es, eine Datenbank zu entwickeln, welche die Daten der Apotheken verwaltet.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Vor dem Entwurf der Datenbank informieren Sie sich in einer Fachzeitschrift.\nIn relational databases, tables are linked together by keys. A primary key is a unique identifier for each record in a table and ensures that each record is unique. For example, an identification number can be used as a primary key. A foreign key is also used to link tables together by referring to a primary key in another table. This link allows data from different tables to be linked and used together in queries. Creating these relationships between tables enables efficient data organisation and reduces redundancy. For example, a customer ID in an orders table can be linked to a customer details table so that both order and customer information can be accessed with a single query.\nBeantworten Sie die folgenden Fragen mit Bezug zu dem gegebenen englischen Text auf Deutsch:\nBeschreiben Sie die Funktion eines Primärschlüssels in einer Tabelle.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 13,
+          "solution": {
+            "text": "Ein Primärschlüssel ist ein eindeutiger Bezeichner für jeden Datensatz in einer Tabelle.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ab)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie den Zweck von Fremdschlüsseln in relationalen Datenbanken.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 13,
+          "solution": {
+            "text": "Ein Fremdschlüssel wird verwendet, um Tabellen zu verknüpfen, indem er auf einen Primärschlüssel in einer anderen Tabelle verweist.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ac)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie den Vorteil des Verknüpfens von Tabellen in einer Datenbank.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 13,
+          "solution": {
+            "text": "Das Verknüpfen von Tabellen ermöglicht eine effiziente Datenorganisation und verringert Redundanz.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In der Apotheke Curatia sollen Sie für interne Zwecke einen Ausschnitt aus dem Datenmodell erstellen, der den Zusammenhang zwischen Wirkstoffen, Medikamenten und Lieferanten darstellt. Dabei ist Folgendes zu berücksichtigen:\n- Ein Medikament kann aus mehreren Wirkstoffen bestehen.\n- Ein Wirkstoff kann in mehreren Medikamenten verwendet werden.\n- Es soll erfasst werden, welcher Lieferant das entsprechende Medikament liefern kann.\n- Ein Lieferant kann mehrere Medikamente liefern.\n- Das einzelne Medikament wird immer von einem Lieferanten geliefert.\n- Die entsprechende Dosierung des jeweiligen Wirkstoffes im Medikament soll abgebildet werden.\nModellieren Sie die oben beschriebene Datenstruktur in der CHEN-Notation. Geben Sie die Kardinalitäten zwischen den Entitäten an und ordnen Sie die Mindestattribute den entsprechenden Tabellen richtig zu. Ihr Kollege hat Ihnen bereits die Entität Medikamente vorgegeben.\nErweitern Sie das vorgegebene Datenmodell.\nHinweise:\nBestimmen Sie alle notwendigen Primärschlüssel (unterstrichenes Attribut). Fremdschlüssel müssen nicht angegeben werden.\nNachfolgende Mindestinhalte sollen in der Datenbank abgespeichert werden:\nPZN Pharmazentralnummer – eindeutige ID für das Medikament\nWID WirkstoffID – eindeutige ID für den Wirkstoff\nNameM Name des Medikamentes\nNameW Name des Wirkstoffs\nLagerbestand Anzahl der Medikamente im Lager\nPreis Preis des Medikamentes\nDatum Verfallsdatum des Medikamentes\nLID Lieferant ID – eindeutige ID für den Lieferanten\nDosierungseinheit Einheit der Dosierung (z. B. mg, ml)\nDosierung Dosierung des Wirkstoffs im Medikament\nNameL Name des Lieferanten\nIBAN Internationale Bankkontonummer des Lieferanten",
+          "maxPoints": 8,
+          "answerType": "text",
+          "sourcePage": 14,
+          "solution": {
+            "text": "Zwei Entitäten jeweils 1 P.\nZwei Kardinalitäten 2 Punkte\nPrimärschlüsselangabe in allen drei Tabellen 1 Punkt\nSinnvolle Zuordnung der Attribute pro Entität 2 Punkte\nAttribut Dosierung in die Zwischentabelle 1 Punkt\nAndere Lösungen sind möglich (Auflösung Zwischentabelle).\n(Diagrammprüfung erfolgt visuell anhand des Lösungshinweises)",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "ca)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ein Mitarbeiter erstellt einen Algorithmus, um den Lagerbestand der Medikamente in allen Filialen zu überprüfen. Er verwendet folgenden Quellcode:\nZeile 1 FUNCTION checkInventory(data, limit):\nZeile 2 FOR each medicine IN data:\nZeile 3 IF medicine.quantity < limit:\nZeile 4 PRINT medicine.name, \" is below the limit.\"\nZeile 5 END FUNCTION\nErläutern Sie die Zeilen zwei, drei und vier dieses Algorithmus.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 14,
+          "solution": {
+            "text": "Zeile 2: Durchläuft jedes Medikament in der übergebenen Datenstruktur.\nZeile 3: Überprüft, ob die Menge des Medikaments unter dem festgelegten Limit liegt.\nZeile 4: Gibt eine Warnung mit dem Namen des Medikaments aus, wenn es unter dem Limit liegt.\nAndere Formulierungen sind möglich",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "cb)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Führen Sie einen Schreibtischtest durch und geben Sie die Ausgabe für die folgenden Eingabedaten aus, die in einem assoziativen Array (Dictionary) mit dem Namen 'data' und der Integervariable 'limit' gespeichert sind.\nlimit = 25\ndata = [\n{name: 'Paracetamol', quantity: 50},\n{name: 'ASS', quantity: 22},\n{name: 'Pantoprazol', quantity: 25},\n{name: 'Ibuprofen', quantity: 30}\n]",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 15,
+          "solution": {
+            "text": "ASS is below the limit.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "da)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Jede Medikamentenbestellung besteht aus mehreren Produkten, wobei für jedes Produkt der Name, der Preis pro Einheit und die bestellte Menge angegeben sind. Der folgende Pseudocode ist eine Funktion, die den Gesamtpreis einer Bestellung berechnen soll:\nFunktion berechneGesamtpreis(bestellung):\n  gesamtpreis = 0\n  Für jedes Produkt in bestellung:\n    gesamtpreis = gesamtpreis * (Produkt.Preis * Produkt.Menge)\n  Rückgabe gesamtpreis\nEnde Funktion\nErläutern Sie, warum der aktuelle Pseudocode nicht korrekt funktioniert.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "sourcePage": 15,
+          "solution": {
+            "text": "Der 'gesamtpreis' wird zu Beginn auf 0 gesetzt und dann in der Schleife immer mit dem Produkt aus Preis und Menge multipliziert. Da jede Multiplikation mit 0 stets 0 ergibt, bleibt der 'gesamtpreis' immer 0. Das Produkt aus Preis und Menge muss addiert werden.\nAndere Formulierungen sind möglich.",
+            "extractionConfidence": "high"
+          }
+        },
+        {
+          "label": "db)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Korrigieren Sie die fehlerhafte Zeile im Pseudocode, damit die Funktion den Gesamtpreis korrekt berechnet.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "sourcePage": 15,
+          "solution": {
+            "text": "gesamtpreis = gesamtpreis + (Produkt.Preis * Produkt.Menge)\nKorrektur auch direkt im Quellcode möglich",
+            "extractionConfidence": "high"
+          }
+        }
+      ]
+    }
+  ]
+}

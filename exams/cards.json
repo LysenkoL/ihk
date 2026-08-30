@@ -1,0 +1,2154 @@
+{
+  "karten": [
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie vier Merkmale eines Projekts.",
+      "hinten": "Zielvorgabe\n\nZeitliche Begrenzung\n\nBegrenzte Ressourcen (personell, finanziell)\n\nProjektspezifische Organisationsform\n\nEinmaligkeit\n\nKomplexität",
+      "examId": "ap1-2021-h",
+      "subId": "1a",
+      "label": "1 a)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "A  accepted- akzeptiert oder attainable",
+      "hinten": "erreichbar oder attractive – attraktiv",
+      "examId": "ap1-2021-h",
+      "subId": "1b",
+      "label": "1 b)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die Auswirkung auf das Projektende.",
+      "hinten": "Keine Auswirkung, da der Puffer von 9 Stunden die 4 Stunden Verzögerung auffängt.",
+      "examId": "ap1-2021-h",
+      "subId": "1e",
+      "label": "1 e)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Vorteile sowie zwei Nachteile von remote gegenüber einer Vor-Ort-Wartung.",
+      "hinten": "Vorteile:\n\nGeringere Kosten – Fahrtkosten, Reisezeit, Spesen\n\nEinfachere Einbindung weiterer Spezialisten bei Bedarf\n\nSchonung interner Ressourcen – Büro, Konferenzraum\n\nKontaktvermeidung\n\nu. a.\n\nNachteile:\n\nRisiko im Bereich Datenschutz, da Patientendaten abgegriffen werden könnten\n\nZusätzliche Kosten für eine gesicherte Verbindung\n\nWartung bei Verbindungsproblemen nicht möglich\n\nu. a.",
+      "examId": "ap1-2021-h",
+      "subId": "3c",
+      "label": "3 c)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "projekt",
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Schulung am Arbeitsplatz",
+      "hinten": "Die Einweisung erfolgt während der Arbeitszeit vor Ort.",
+      "examId": "ap1-2021-h",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Webinare",
+      "hinten": "festgelegt von der Zeit, findet online statt, interaktiv",
+      "examId": "ap1-2021-h",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Video-Tutorien",
+      "hinten": "zeitlich flexibel und unabhängig genutzt von den anderen Mitarbeitern, keine Interaktion möglich",
+      "examId": "ap1-2021-h",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Multiplikatoren-Schulung",
+      "hinten": "Schulung ausgewählter Mitarbeiter, die ihr Wissen an die anderen Mitarbeiter weitergeben sollen",
+      "examId": "ap1-2021-h",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Aktivieren von Autoupdate-Mechanismen",
+      "hinten": "z. B. Windows Updates aktivieren, Update der Virensignaturen aktivieren",
+      "examId": "ap1-2021-h",
+      "subId": "4b",
+      "label": "4 b)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "software",
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei der Risiken.",
+      "hinten": "Keine zeitliche und räumliche Trennung der gesicherten Daten vorhanden\n\nWöchentlicher Sicherungszyklus zu lange, Rekonstruktion bei Datensicherung kaum möglich bzw. sehr aufwendig",
+      "examId": "ap1-2021-h",
+      "subId": "4fa",
+      "label": "4 fa)",
+      "jahr": "Herbst 2021",
+      "topics": [
+        "itsicherheit",
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die drei Schritte für den Einbau der CPU.",
+      "hinten": "Hebel öffnen\n\nCPU vorsichtig einsetzen\n\nHebel schließen.",
+      "examId": "ap1-2022-f",
+      "subId": "2aa",
+      "label": "2 aa)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, welche beiden Punkte beim Schritt 2 besonders zu beachten sind.",
+      "hinten": "Die CPU nicht mit Gewalt einsetzen.\n\nDer Pfeil auf der Oberseite des Prozessors muss mit dem Pfeil auf dem Prozessorsockel übereinstimmen.",
+      "examId": "ap1-2022-f",
+      "subId": "2ab",
+      "label": "2 ab)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie, welche Aufgabe die Wärmeleitpaste hat.",
+      "hinten": "Die Wärmeleitpaste soll kleine Unebenheiten auf den Kontaktflächen ausgleichen, da Luft ein schlechter Wärmeleiter ist.",
+      "examId": "ap1-2022-f",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie, was Sie beim Einsetzen der beiden Speicherriegel beachten müssen, damit der RAM im Dual Channel Modus arbeitet.",
+      "hinten": "\u0007Man sollte im Handbuch nachschauen, wie die Belegung der Kanäle ist, bspw. Einsetzen der beiden RAM-Riegel in den Slot A1 und B1 oder\nin A2 und B2.\n\nDie beiden RAM-Riegel (Kanäle) müssen die gleiche Speichergröße haben.",
+      "examId": "ap1-2022-f",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie einen Vorteil und einen Nachteil einer M.2 SSD gegenüber einer SATA SSD.",
+      "hinten": "Vorteil:\n\nSchneller\n\nKompakte Bauweise\n\nNachteil:\n\nTeurer\n\nMeist nur ein oder zwei Anschlüsse auf dem Motherboard vorhanden",
+      "examId": "ap1-2022-f",
+      "subId": "2d",
+      "label": "2 d)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, welche Besonderheit der umrahmte USB-Anschluss hat.",
+      "hinten": "Dieser Anschluss wird für das BIOS (Uefi) Update benutzt.",
+      "examId": "ap1-2022-f",
+      "subId": "2fa",
+      "label": "2 fa)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Vorteile des USB-C Anschlusses gegenüber dem USB-3 Anschluss.",
+      "hinten": "Höhere Datenrate\n\nHöhere Stromversorgung\n\nBeidseitig steckbar",
+      "examId": "ap1-2022-f",
+      "subId": "2fb",
+      "label": "2 fb)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den Begriff „Logische Prozessoren“.",
+      "hinten": "\u0007Die logischen Prozessoren sind eine Teilung der physikalischen CPU-Kerne und dienen dazu, mehrere Threads gleichzeitig in einem\n­Prozessorkern auszuführen (Hyperthreading).",
+      "examId": "ap1-2022-f",
+      "subId": "2ga",
+      "label": "2 ga)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "hardware",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie allgemein die Aufgabe eines „Cache“-Speichers.",
+      "hinten": "Ein Cache-Speicher ist ein schneller Zwischenspeicher. Der Cache reduziert die Anzahl der Zugriffe auf ein langsameres Speichermedium.",
+      "examId": "ap1-2022-f",
+      "subId": "2gb",
+      "label": "2 gb)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei wesentliche Informationen, die Sie vom Administrator erfragen müssen, um das Notebook im WLAN anmelden zu können.",
+      "hinten": "SSID des WLAN-Netzes\n\nPre-shared-key (PSK) oder auch Passwort möglich",
+      "examId": "ap1-2022-f",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Interpretation",
+      "hinten": "OSI-Schicht 1 fehlerfrei, Fehler liegt in einer höheren Schicht",
+      "examId": "ap1-2022-f",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie einen Wert, welcher der OSI-Schicht 1 zuzuordnen ist und interpretieren Sie diesen bezüglich seiner Funktionalität.",
+      "hinten": "Wert:\n\nMedienstatus vorhanden\n\nSignalqualität hoch\n\nAktivität (gesendete und empfangene Daten) Datenübertragungsrate hoch\n\nInterpretation: OSI-Schicht 1 fehlerfrei, Fehler liegt in einer höheren Schicht",
+      "examId": "ap1-2022-f",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die Herkunft der Adresse 50-1A-C5-F2-38-B7.",
+      "hinten": "Hier handelt es sich um die der Netzwerkkarte vom Hersteller fest zugeordnete MAC-Adresse.",
+      "examId": "ap1-2022-f",
+      "subId": "3ea",
+      "label": "3 ea)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die Herkunft der Adresse fe80::85e1:1ec1:c9e2:3cbb.",
+      "hinten": "Hier handelt es sich um eine link-lokale IPv6-Adresse, die sich der Rechner unabhängig vom Netz selbst zugewiesen hat.",
+      "examId": "ap1-2022-f",
+      "subId": "3eb",
+      "label": "3 eb)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die Bezeichnung des Servers, der hier durch den Befehl zur Erneuerung der IP-Adresse kontaktiert wurde.",
+      "hinten": "DHCP-Server",
+      "examId": "ap1-2022-f",
+      "subId": "3fa",
+      "label": "3 fa)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie den von Ihnen ermittelten Fehler.",
+      "hinten": "Fehlerursache war die fehlende Zuteilung einer IP",
+      "examId": "ap1-2022-f",
+      "subId": "3fc",
+      "label": "3 fc)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie vier Leistungsmerkmale einer Workspace-Management-Software anhand des oben zitierten Textes.",
+      "hinten": "Softwareverteilung\n\nSoftwarekonfiguration\n\nUpdatemanagement\n\nPatchmanagement\n\nLizenzmanagement\n\nInventur",
+      "examId": "ap1-2022-f",
+      "subId": "4a",
+      "label": "4 a)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Vor- und Nachteile einer cloudbasierten Software gegenüber der on-premises.",
+      "hinten": "Vorteile:\n\nKosteneinsparung durch geringere Investitionskosten\n\nStets aktuelle Software\n\nBessere Skalierbarkeit\n\nAnbieter übernimmt gegebenenfalls die Sicherung der Daten\n\nu. a.\n\nNachteile\n\nFehlende Verfügbarkeit bei Störung des Internetzuganges\n\nAbhängigkeit vom Cloud-Anbieter\n\nMöglicherweise Speicherung der Daten im Ausland\n\nZiel für Hackerangriffe\n\nu. a.",
+      "examId": "ap1-2022-f",
+      "subId": "4b",
+      "label": "4 b)",
+      "jahr": "Frühjahr 2022",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die aktuell vorliegende Marktform.",
+      "hinten": "Oligopol",
+      "examId": "ap1-2022-h",
+      "subId": "1aa",
+      "label": "1 aa)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die neue Marktform, mit der die Package AG zukünftig rechnen sollte.",
+      "hinten": "Polypol",
+      "examId": "ap1-2022-h",
+      "subId": "1ab",
+      "label": "1 ab)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Anteilseigner",
+      "hinten": "Bereitschaft zur Finanzierung des Projekts",
+      "examId": "ap1-2022-h",
+      "subId": "1c",
+      "label": "1 c)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "projekt",
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Mitarbeiter",
+      "hinten": "Akzeptanz des Projekts bei der Durchführung",
+      "examId": "ap1-2022-h",
+      "subId": "1c",
+      "label": "1 c)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "projekt",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie drei Gruppen von Stakeholdern mit deren Einfluss auf das Projekt.",
+      "hinten": "z. B.\nAnteilseigner: Bereitschaft zur Finanzierung des Projekts\nMitarbeiter: Akzeptanz des Projekts bei der Durchführung\nLieferanten: Realisierbarkeit vollautomatisierter Bestellungen",
+      "examId": "ap1-2022-h",
+      "subId": "1c",
+      "label": "1 c)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "projekt",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei technologische Vorteile der IPv6-Adressierung gegenüber IPv4, die für den Einsatz im Bereich IoT relevant sein können.",
+      "hinten": "z. B.\n– Nahezu uneingeschränkte Adresszahl\n– Weltweite Erreichbarkeit einzelner Komponenten\n– Verbesserte Integration von Sicherheitsmaßnahmen wie IPSec\n– Verschlankung des Protokoll-Headers",
+      "examId": "ap1-2022-h",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Geben Sie an, wie viele Teilnetze mit der gegebenen IPv6-Adresse gebildet werden können.",
+      "hinten": "2^16",
+      "examId": "ap1-2022-h",
+      "subId": "3c",
+      "label": "3 c)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Entscheidung",
+      "hinten": "PC-Genie KG, Frankfurt (höchste Punktzahl 77)",
+      "examId": "ap1-2022-h",
+      "subId": "3g",
+      "label": "3 g)",
+      "jahr": "Herbst 2022",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Begründung",
+      "hinten": "Thin Client unterstützt am besten einen wechselnden Arbeitsplatz.",
+      "examId": "ap1-2023-f",
+      "subId": "1c",
+      "label": "1 c)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "hardware",
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei mögliche Gründe.",
+      "hinten": "z. B.\n– Höhere Zuverlässigkeit\n– Großzügigeres Kulanzverhalten\n– Guter Service\n– Niedrige Reklamationsquote",
+      "examId": "ap1-2023-f",
+      "subId": "2ab",
+      "label": "2 ab)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie das Grundprinzip von Leasing und erklären Sie dabei die Eigentums- und Besitzverhältnisse.",
+      "hinten": "Zeitlich begrenztes, vertraglich vereinbartes Nutzungsrecht an Gebäuden oder beweglichen Anlagegütern. (2 Punkte)\nEigentümer ist der Leasinggeber. (1 Punkt)\nBesitzer ist der Leasingnehmer. (1 Punkt)",
+      "examId": "ap1-2023-f",
+      "subId": "2ba",
+      "label": "2 ba)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Vorteile, die für einen Leasingvertrag sprechen.",
+      "hinten": "z. B.\n– Liquidität wird zunächst nur in Höhe der ersten Rate gebunden\n– Eigenkapital wird nicht gemindert\n– Kreditspielraum bleibt erhalten\n– Schnellere Anpassung an den technischen Fortschritt\n– Keine Sicherheiten notwendig, da der Leasinggeber Eigentümer bleibt\n– Durch feste Leasingraten wird die Planung erleichtert\n– Steuerliche Vorteile",
+      "examId": "ap1-2023-f",
+      "subId": "2bc",
+      "label": "2 bc)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den Begriff Kaufoption.",
+      "hinten": "Nach Vertragsablauf kann der Leasingnehmer den gemieteten Gegenstand zum Restwert oder Buchwert übernehmen.",
+      "examId": "ap1-2023-f",
+      "subId": "2bd",
+      "label": "2 bd)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei allgemeine Aufgaben des BSI.",
+      "hinten": "– Anlaufstelle für Unternehmen und Bürger zum Thema IT-Sicherheit\n– Erarbeitung von Standards zur IT-Sicherheit\n– Schutz der IT-Systeme des Bundes\n– Nennung weiterer Aufgaben laut Sicherheitsgesetz möglich",
+      "examId": "ap1-2023-f",
+      "subId": "3ba",
+      "label": "3 ba)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "software",
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erklären Sie den Begriff der „Härtung“ eines Betriebssystems.",
+      "hinten": "Reduktion von Angriffsmöglichkeiten, z. B. durch Deaktivierung von nicht notwendigen Diensten.",
+      "examId": "ap1-2023-f",
+      "subId": "3bb",
+      "label": "3 bb)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Beispiele für eine Härtung eines Betriebssystems.",
+      "hinten": "– Entfernung oder Deaktivierung von für den Betrieb nicht zwingend erforderlichen Softwarekomponenten\n– Reduzierung von Rechten und ihrer Vererbung auf das minimal notwendige Maß\n– Nutzung von Verschlüsselung, z. B. für Datenübertragung\n– Alle nicht benötigten Benutzerkonten löschen\n– Alle nicht benötigten Ports schließen",
+      "examId": "ap1-2023-f",
+      "subId": "3bc",
+      "label": "3 bc)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "software",
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Systemwerkzeuge („Bordmittel“) eines Betriebssystems, mit denen die IT-Sicherheit erhöht werden kann.",
+      "hinten": "– Firewall\n– Virenschutz\n– Datensicherung\n– Benutzerverwaltung\n– u. a.",
+      "examId": "ap1-2023-f",
+      "subId": "3bd",
+      "label": "3 bd)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "itsicherheit",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, wozu Gruppenrichtlinien auf einem Arbeitsplatzrechner eingesetzt werden können.",
+      "hinten": "– Digitale Richtlinie für verschiedene Einstellungen (Computer und Benutzer).\n– Gruppenrichtlinien (Group Policies) erlauben den Administratoren die Vorgabe von Einstellungen zentral für einen oder mehrere Rechner. Die Einstellungen werden im Rechner festgeschrieben und können durch Anwender nicht geändert werden.\n– Nennung von konkreten Einstellungen sind auch korrekt (z. B. Passworteinstellungen, Sperrung von Konfigurationsmöglichkeiten).",
+      "examId": "ap1-2023-f",
+      "subId": "3be",
+      "label": "3 be)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, inwiefern eine Protokollierung (Logging) zur Erhöhung der IT-Sicherheit beitragen kann.",
+      "hinten": "Identifikation von Fehlern und unerlaubten Aktivitäten und Zuordnung zu entsprechenden Zeiten und Benutzern.",
+      "examId": "ap1-2023-f",
+      "subId": "3ca",
+      "label": "3 ca)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "netzwerk",
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die besonderen Anforderungen an den Datenschutz, die bei der Protokollierung beachtet werden müssen.",
+      "hinten": "Es dürfen Daten nur begrenzt gespeichert und ausgewertet werden. Nennung von konkreten Beispielen sind auch korrekt (z. B. Grundsatz der Datensparsamkeit).",
+      "examId": "ap1-2023-f",
+      "subId": "3cb",
+      "label": "3 cb)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "netzwerk",
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei Unterschiede zwischen einem Lastenheft und einem Pflichtenheft.",
+      "hinten": "Das Lastenheft enthält die Anforderungen des Auftraggebers. Es beschreibt, was der Auftraggeber vom Auftragnehmer erwartet.\nAufgabe des Pflichtenheftes ist die Beschreibung der Leistungen, mit denen der Auftragnehmer die im Lastenheft genannten Anforderungen erfüllen will, wie und womit das Vorhaben realisiert wird. Das Pflichtenheft enthält die Leistungen, zu denen sich der Auftragnehmer verpflichtet.",
+      "examId": "ap1-2023-f",
+      "subId": "4ba",
+      "label": "4 ba)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei weitere Inhalte, die neben der Ausgangssituation in ein Lastenheft gehören.",
+      "hinten": "Inhalt Lastenheft:\n– Ausgangssituation\n– Liste von Anforderungen\n– Rahmenbedingungen\n– Beschreibung von Schnittstellen\n– Qualitätsziele\n– Zeitziele\n– Budget\n– u. a.",
+      "examId": "ap1-2023-f",
+      "subId": "4bb",
+      "label": "4 bb)",
+      "jahr": "Frühjahr 2023",
+      "topics": [
+        "projekt",
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei Kritikpunkte an diesem Ablauf.",
+      "hinten": "Beschreibungen zu folgenden Kritikpunkten:\n\nLangsame Reaktion bei dringenden Störungen\n\nKontaktaufnahme nur per Mail möglich\n\nDaten in der Tabellenkalkulation nicht transparent und revisionssicher\n\nu. a.",
+      "examId": "ap1-2023-h",
+      "subId": "1ba",
+      "label": "1 ba)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei geeignete Maßnahmen, um die Servicequalität zu verbessern.",
+      "hinten": "Einführung eines Ticketsystems\n\nEinführung eines CRM-Systems\n\nSchnellere Bearbeitung dringender Notfälle\n\nEinführung eines Premiumservices mit schneller Reaktionszeit\n\nEinführung eines Schichtsystem zur 24/7-Betreuung\n\nu. a.",
+      "examId": "ap1-2023-h",
+      "subId": "1bb",
+      "label": "1 bb)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Methoden für eine Bedarfsanalyse, um die Kundenbedürfnisse zu identifizieren.",
+      "hinten": "Interviews durchführen\n\nSchriftliche Befragungen (online oder postalisch)\n\nFokusgruppe interviewen\n\nBeschwerden auswerten\n\nMedien analysieren\n\nu. a.",
+      "examId": "ap1-2023-h",
+      "subId": "1c",
+      "label": "1 c)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie eine Gefahr, die bei zu hohen Service-Preisen besteht.",
+      "hinten": "Kunden gehen verloren./Sie können von Kunden abgewiesen werden.",
+      "examId": "ap1-2023-h",
+      "subId": "1da",
+      "label": "1 da)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "kalkulation",
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie eine Gefahr, die bei zu niedrigen Service-Preisen besteht.",
+      "hinten": "Die OptiSoft-XXL GmbH arbeitet nicht kostendeckend./Sie wird ihre Kosten nicht decken.",
+      "examId": "ap1-2023-h",
+      "subId": "1db",
+      "label": "1 db)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die vier im Text genannten Aspekte zur Service-Preis-Bestimmung.",
+      "hinten": "Berechnen/Kalkulieren Sie Ihre Kosten.\n\nKenne deinen Kunden.\n\nDen Markt beobachten /Schauen Sie sich den Markt an.\n\nWählen Sie ein Preismodell.",
+      "examId": "ap1-2023-h",
+      "subId": "1dc",
+      "label": "1 dc)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen und begründen Sie zwei weitere Anschaffungen oder Maßnahmen.",
+      "hinten": "z. B.\n\nHeadset zum Senden und Empfangen von akustischen Signalen, z. B. bei Videokonferenzen\n\nKamera zur Übertragung des eigenen Bildes\n\nTelefon für betriebliche Gespräche\n\nDrucker für betriebliche Ausdrucke\n\nErgonomischer Bürostuhl zur Vermeidung von gesundheitlichen Schäden\n\nBlendfreie Lichtquelle für ermüdungsfreies Arbeiten\n\nGesicherter Internetanschluss zur datenschutzkonformen Kommunikation",
+      "examId": "ap1-2023-h",
+      "subId": "2a",
+      "label": "2 a)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie anhand von zwei Aspekten, warum die Anforderungen an einen Bildschirmarbeitsplatz durch ein Tablet nicht erfüllt werden.",
+      "hinten": "Antworten u. a. in folgenden Bereichen möglich:\n\nErgonomie\n\nAnschlussmöglichkeiten\n\nSoftwarenutzung\n\nLeistung",
+      "examId": "ap1-2023-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei Möglichkeiten bzw. Ergänzungen, die Arbeit mit den Notebooks ergonomischer zu gestalten.",
+      "hinten": "Einsatz einer ergonomischen Tastatur\n\nEinsatz einer ergonomischen Maus\n\nZusätzlicher Bildschirm\n\nDockingstation\n\nu. a.\n\nOder weitere sinnvolle Antworten",
+      "examId": "ap1-2023-h",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie dazu zwei in Deutschland für den Datenschutz relevante gesetzliche Grundlagen.",
+      "hinten": "\u0007Z. B. Bundesdatenschutzgesetz, DSGVO, Strafgesetzbuch (Vorbereitung des Ausspähens und Abfangens von Daten), Grundgesetz (Art. 10\nFernmeldegeheimnis), Landesdatenschutzgesetz",
+      "examId": "ap1-2023-h",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Kriterien für ein sicheres Passwort.",
+      "hinten": "Z. B. Mindestlänge acht Zeichen, besteht aus Groß-/Kleinbuchstaben und Sonderzeichen, Passwort ist nicht in Wörterbuch zu finden o. Ä.",
+      "examId": "ap1-2023-h",
+      "subId": "3ca",
+      "label": "3 ca)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Vertraulichkeit",
+      "hinten": "Die Daten auf der SSD können nur von berechtigten Personen eingesehen werden.",
+      "examId": "ap1-2023-h",
+      "subId": "3cc",
+      "label": "3 cc)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit",
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Integrität",
+      "hinten": "Eine Veränderung der gespeicherten Daten kann bemerkt werden.",
+      "examId": "ap1-2023-h",
+      "subId": "3cc",
+      "label": "3 cc)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, was dies in Bezug auf die Daten auf der SSD bedeutet.",
+      "hinten": "Vertraulichkeit: Die Daten auf der SSD können nur von berechtigten Personen eingesehen werden.\n\nIntegrität: Eine Veränderung der gespeicherten Daten kann bemerkt werden.",
+      "examId": "ap1-2023-h",
+      "subId": "3cc",
+      "label": "3 cc)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie den sicherheitstechnischen Vorteil eines Virtual Private Network (VPN).",
+      "hinten": "Eine sichere Datenübertragung auch über ein unsicheres Netz kann gewährleistet werden.",
+      "examId": "ap1-2023-h",
+      "subId": "3da",
+      "label": "3 da)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit",
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die von Ihrem Arbeitgeber mithilfe des digitalen Zertifikats geplante Identifizierung.",
+      "hinten": "Das digitale Zertifikat dient der Authentifizierung des Mitarbeiters am Telearbeitsplatz gegenüber dem Server im Firmennetz.",
+      "examId": "ap1-2023-h",
+      "subId": "3db",
+      "label": "3 db)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie jeweils zwei wesentliche Merkmale von Gantt-Diagramm und Netzplan.",
+      "hinten": "Gantt-Diagramm:\n\nBessere Visualisierung des zeitlichen Ablaufs\n\nNutzbar für Terminplanung\n\nDarstellung in Balkenform\n\nNetzplan:\n\nÜbersichtliche Darstellung der Abhängigkeiten von Projektphasen\n\nFrühester, spätester Anfangszeitpunkt im Netzplan dargestellt\n\nBesserer Vergleich der einzelnen Projektphasen\n\nAndere Antworten sind möglich.",
+      "examId": "ap1-2023-h",
+      "subId": "4aa",
+      "label": "4 aa)",
+      "jahr": "Herbst 2023",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie, zu welchem Zeitpunkt der Kaufvertrag zustande gekommen ist und begründen Sie Ihre Entscheidung.",
+      "hinten": "Der Kaufvertrag ist mit der Lieferung 7. Oktober zustande gekommen. (1 Punkt)\nBegründung: Die Bestellung gilt hierbei als Antrag (1. Willenserklärung), die Lieferung (schlüssiges Handeln, 2. übereinstimmende Willenserklärung) als Annahme. (1 Punkt)",
+      "examId": "ap1-2024-f",
+      "subId": "1d",
+      "label": "1 d)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei mögliche Inhalte, die durch einen Kaufvertrag geregelt sind (Abgrenzung von den juristischen Bestandteilen eines Kaufvertrags, z. B. Willenserklärungen).",
+      "hinten": "– Kaufgegenstand (oder auch Sache, Kaufsache, Beschaffenheit der Ware)\n– Menge\n– Kaufpreis\n– Zahlungsbedingungen\n– Lieferbedingungen\n– Liefertermin\n– u. a.\n\nJe Nennung 1 Punkt, maximal 3 Punkte",
+      "examId": "ap1-2024-f",
+      "subId": "1e",
+      "label": "1 e)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Kaufvertragsstörungen.",
+      "hinten": "– Lieferverzug\n– Mangelhafte Lieferung",
+      "examId": "ap1-2024-f",
+      "subId": "1fa",
+      "label": "1 fa)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "LED leuchtet durchgehend",
+      "hinten": "Es wurde eine erfolgreiche physikalische Netzwerkverbindung zwischen zwei Netzwerkports (der Netzwerkkarte und einem Switch) hergestellt.",
+      "examId": "ap1-2024-f",
+      "subId": "2a",
+      "label": "2 a)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie unter Bezugnahme auf Abb. 1 die Informationen, die der DHCP-Server Ihrem Client zur Verfügung stellt.",
+      "hinten": "IPv4-Adresse, Subnetzmaske. Angabe der konkreten Werte ist auch möglich.",
+      "examId": "ap1-2024-f",
+      "subId": "2d",
+      "label": "2 d)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie anhand des Beispiels in Abb. 2 die grundlegende Aufgabe des Address Resolution Protocol (ARP) bei der Netzwerkkommunikation in einem LAN.",
+      "hinten": "Ermittlung der zugehörigen MAC-Adresse (hier nur: d4-3f-cb-8c-37-8b) zu den IP-Adressen (hier nur: 192.168.0.1).",
+      "examId": "ap1-2024-f",
+      "subId": "2e",
+      "label": "2 e)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Möglichkeiten, um Informationen über das unbekannte Dateiformat erhalten zu können.",
+      "hinten": "– Online-Recherche mit Suchmaschine\n– Frage in Foren oder Online-Communities\n– Anfrage beim Hersteller\n– Fachliteratur\n– Handbücher\n– Chatbot wie z. B. ChatGPT\n– u. a.",
+      "examId": "ap1-2024-f",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "daten"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie eine Möglichkeit, wie Sie die Kundendaten in Ihrem CAD-System dennoch verwenden können.",
+      "hinten": "– Importmöglichkeiten des CAD-Programms\n– Exportmöglichkeit eines CAD-Programms\n– Dateiformatkonverter benutzen (online oder offline)\n– Eigenen Konverter programmieren\n– u. a.",
+      "examId": "ap1-2024-f",
+      "subId": "3b",
+      "label": "3 b)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "daten"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "ASCII-Format",
+      "hinten": "Eine Datei im ASCII-Format speichert Daten als ASCII-Zeichen, die mit jedem Texteditor geöffnet und bearbeitet werden können. (2 Punkte)",
+      "examId": "ap1-2024-f",
+      "subId": "3c",
+      "label": "3 c)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Binärdatei",
+      "hinten": "Eine Binärdatei speichert Daten in einem binären Format, die nur mit der entsprechenden Anwendung verarbeitet werden kann. (2 Punkte)",
+      "examId": "ap1-2024-f",
+      "subId": "3c",
+      "label": "3 c)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den Unterschied zwischen einer Datei im ASCII Format und einer Datei im Binär Format.",
+      "hinten": "ASCII-Format: Eine Datei im ASCII-Format speichert Daten als ASCII-Zeichen, die mit jedem Texteditor geöffnet und bearbeitet werden können. (2 Punkte)\nBinärdatei: Eine Binärdatei speichert Daten in einem binären Format, die nur mit der entsprechenden Anwendung verarbeitet werden kann. (2 Punkte)",
+      "examId": "ap1-2024-f",
+      "subId": "3c",
+      "label": "3 c)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "VPN (Virtual Private Network)",
+      "hinten": "Eine Netzwerkverbindung ohne eigene physische Verbindung, die von Unberechtigten nicht einsehbar ist.",
+      "examId": "ap1-2024-f",
+      "subId": "4b",
+      "label": "4 b)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erklären Sie die Funktionalität des Begriffs VPN.",
+      "hinten": "VPN (Virtual Private Network): Eine Netzwerkverbindung ohne eigene physische Verbindung, die von Unberechtigten nicht einsehbar ist.\nSinngemäß auch gültig:\n– Verschlüsselte Verbindung unter Nutzung des öffentlichen Netzes (Internet)\n– Eine Technologie, die eine sichere Verbindung über das Internet zwischen einem Gerät (z. B. Computer, Smartphone) und einem entfernten Netzwerk herstellt.",
+      "examId": "ap1-2024-f",
+      "subId": "4b",
+      "label": "4 b)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Viren",
+      "hinten": "Software, die den Programmcode eines ursprünglich unschädlichen Programms befällt und sich selbst verbreitet.",
+      "examId": "ap1-2024-f",
+      "subId": "4da",
+      "label": "4 da)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit",
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Wurm",
+      "hinten": "Wird nach Infektion selbst aktiv und breitet sich aus.",
+      "examId": "ap1-2024-f",
+      "subId": "4da",
+      "label": "4 da)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit",
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Trojaner",
+      "hinten": "Eingebettet in eine meist nützliche Software; Trojaner wird durch Start dieser Software aktiv.",
+      "examId": "ap1-2024-f",
+      "subId": "4da",
+      "label": "4 da)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Arten von Malware.",
+      "hinten": "Nennen: (3 x 1 Punkt), z. B.\n– Viren: Software, die den Programmcode eines ursprünglich unschädlichen Programms befällt und sich selbst verbreitet.\n– Wurm: Wird nach Infektion selbst aktiv und breitet sich aus.\n– Trojaner: Eingebettet in eine meist nützliche Software; Trojaner wird durch Start dieser Software aktiv.\n– Spyware, Adware, Backdoor, Scareware, Ransomware, Keylogger, Riskware, Archivbomben, Dropper",
+      "examId": "ap1-2024-f",
+      "subId": "4da",
+      "label": "4 da)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit",
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Merkmal",
+      "hinten": "(3 x 1 Punkt), passend zu den in da) genannten Arten, z. B.",
+      "examId": "ap1-2024-f",
+      "subId": "4db",
+      "label": "4 db)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Virus",
+      "hinten": "befällt den Programmcode eines anderen Programms und verbreitet sich selbst",
+      "examId": "ap1-2024-f",
+      "subId": "4db",
+      "label": "4 db)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Spyware",
+      "hinten": "spioniert Inhalte und Aktivitäten aus",
+      "examId": "ap1-2024-f",
+      "subId": "4db",
+      "label": "4 db)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Ransomware",
+      "hinten": "blockiert den Zugriff bzw. verschlüsselt Dateien und fordert Lösegeld",
+      "examId": "ap1-2024-f",
+      "subId": "4db",
+      "label": "4 db)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Keylogger",
+      "hinten": "protokolliert Tastatureingaben und stellt sie Dritten bereit",
+      "examId": "ap1-2024-f",
+      "subId": "4db",
+      "label": "4 db)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie Herrn Müller drei weitere organisatorische oder technische Empfehlungen, wie man sich vor Malware schützen kann.",
+      "hinten": "z. B.\n– Keine unbekannten Datenträger benutzen, die infizierte Dateien enthalten könnten\n– Kein Download von unsicheren Quellen\n– Keine Ausführung aktiver Inhalte von Dateien (z. B. Makros, E-Mail-Anhänge)\n– AdBlocker nutzen\n– Regelmäßig Updates von Betriebssystem und Anwendungen installieren\n– Mitarbeiter sensibilisieren",
+      "examId": "ap1-2024-f",
+      "subId": "4e",
+      "label": "4 e)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Umrechnung auf Minuten und Sekunden",
+      "hinten": "172 Sekunden (2 Minuten und 52 Sekunden): 1 Punkt",
+      "examId": "ap1-2024-f",
+      "subId": "4f",
+      "label": "4 f)",
+      "jahr": "Frühjahr 2024",
+      "topics": [
+        "daten",
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei technische Möglichkeiten, um eine automatische Zutrittskontrolle zu gewährleisten.",
+      "hinten": "Mit Fingerabdrucksensor\n\nÜber eine Stimmenerkennung\n\nDurch die Eingabe eines Zahlencodes\n\nDurch die Verwendung eines Kartenscanners\n\nWeitere Lösungen sind möglich.",
+      "examId": "ap1-2024-h",
+      "subId": "1a",
+      "label": "1 a)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Argumente, die gegen eine Fremdvergabe sprechen.",
+      "hinten": "Weitergabe von Know-how\n\nAbhängigkeit von Dritten\n\nHöherer Abstimmungs-/Verwaltungsaufwand\n\nSicherheits- und Datenschutzbedenken\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "2a",
+      "label": "2 a)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Anforderungen des Projekts",
+      "hinten": "Einige Sprachen eignen sich besser für bestimmte Anwendungsfälle und Aufgaben als andere.",
+      "examId": "ap1-2024-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Entwicklerfähigkeiten",
+      "hinten": "Haben wir Entwickler mit Erfahrung in der ausgewählten Programmiersprache?",
+      "examId": "ap1-2024-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Verfügbare Tools und Frameworks",
+      "hinten": "Die Verwendung von passenden Tools und Frameworks kann die Entwicklung erheblich vereinfachen",
+      "examId": "ap1-2024-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zukünftige Perspektive",
+      "hinten": "Wird die Programmiersprache weiter gepflegt und unterstützt?",
+      "examId": "ap1-2024-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie ein allgemeingültiges Kriterium, welches für die Auswahl der Programmiersprache von Bedeutung ist und geben Sie dazu eine kurze Begründung an.",
+      "hinten": "Anforderungen des Projekts – Einige Sprachen eignen sich besser für bestimmte Anwendungsfälle und Aufgaben als andere.\n\nEntwicklerfähigkeiten – Haben wir Entwickler mit Erfahrung in der ausgewählten Programmiersprache?\n\nVerfügbare Tools und Frameworks – Die Verwendung von passenden Tools und Frameworks kann die Entwicklung erheblich vereinfachen\nund beschleunigen.\n\nZukünftige Perspektive – Wird die Programmiersprache weiter gepflegt und unterstützt?\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den wesentlichen Unterschied zwischen den beiden Übersetzungsarten.",
+      "hinten": "Compiler-Sprachen übersetzen den Code im Voraus in Maschinencode, was eine schnelle Ausführung ermöglicht.\n\nInterpreter-Sprachen interpretieren und führen den Code zeilenweise zur Laufzeit aus.",
+      "examId": "ap1-2024-h",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Arbeitsspeicher 1",
+      "hinten": "DDR4 und DDR5 sind nicht miteinander kompatibel.",
+      "examId": "ap1-2024-h",
+      "subId": "3ba",
+      "label": "3 ba)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "hardware",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Vorteile einer SSD gegenüber einer HDD.",
+      "hinten": "Schnellere Lese- und Schreibgeschwindigkeiten\n\nSpürbarer Leistungsschub bei Wechsel von HDD\n\nGeringer Energiebedarf\n\nLautlos-Betrieb\n\nKompakte Bauform\n\nKein Datenverlust durch Erschütterung\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "3bc",
+      "label": "3 bc)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie eine Gefahr durch Phishingmails.",
+      "hinten": "Es können Zugangsdaten gestohlen werden, dadurch können Angreifer an sicherheitskritische Informationen gelangen.",
+      "examId": "ap1-2024-h",
+      "subId": "3ca",
+      "label": "3 ca)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Anzeichen, an denen der User erkennen kann, dass es sich um eine Phishingmail handelt.",
+      "hinten": "Fehler in der Mail\n\nKeine persönliche Anrede\n\nAufbau von Zeitdruck, z. B. durch Fristsetzungen\n\nAufforderung zur Eingabe von persönlichen Daten\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "3cb",
+      "label": "3 cb)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Maßnahmen, die Sie dem Unternehmen zum Schutz vor Phishingmails empfehlen.",
+      "hinten": "Bei der Wahl des E-Mail-Programms auf gute Spamfilter achten\n\nPhishing-Angriffe zu Übungszwecken simulieren\n\nSchulung der Mitarbeiter\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "3cc",
+      "label": "3 cc)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Maßnahmen, die das Unternehmen den Mitarbeitern beim Empfang von Mails vorgibt, um sich vor Phishingmail zu schützen.",
+      "hinten": "Keine Übermittlung von User/Passwort per E-Mail\n\nKeine Links aus E-Mails ausführen\n\nKeine Anhänge aus unbekannten Quellen ausführen\n\nVerdachtsfälle an die IT melden\n\nu. a.",
+      "examId": "ap1-2024-h",
+      "subId": "3cd",
+      "label": "3 cd)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei dieser Möglichkeiten.",
+      "hinten": "Der Leasingnehmer gibt die Maschine an den Leasinggeber zurück.\n\nDer Leasingvertrag kann unter Anpassung der Leasingraten verlängert und die Maschine weiter genutzt werden.\n\nDer Leasingnehmer kann die Maschine dem Leasinggeber abkaufen.\n\nDie Maschine wird nach Ablauf der Vertragslaufzeit gegen einen anderen Vertragsgegenstand ausgewechselt.\n\nAuch andere sinnvolle Antworten sind möglich.",
+      "examId": "ap1-2024-h",
+      "subId": "4d",
+      "label": "4 d)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "kalkulation",
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei ökologische Aspekte, die bei einer Neuinvestition zu beachten sind.",
+      "hinten": "Neue Maschinen …\n\nkönnten einen geringeren Energieverbrauch haben.\n\nbenötigen u. U. aufgrund der geringeren Ausschussquote weniger Material.\n\nweisen geringere Emissionswerte (Lärm, Wärmestrahlung, Staub, Schmutz etc.) auf.\n\nverbrauchen bei deren Produktion zusätzliche Ressourcen.\n\nerzwingen meist die Entsorgung der alten Maschinen.\n\nAuch andere Lösungen sind möglich.",
+      "examId": "ap1-2024-h",
+      "subId": "4e",
+      "label": "4 e)",
+      "jahr": "Herbst 2024",
+      "topics": [
+        "arbeitsplatz",
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Matrix",
+      "hinten": "je komplett richtige Spalte 2 Punkte",
+      "examId": "ap1-2025-f",
+      "subId": "1aa",
+      "label": "aa)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "kalkulation",
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie das Gerät, das Sie aufgrund der Entscheidungsmatrix auswählen.",
+      "hinten": "Das Modell 2 wird gewählt, weil es gemäß Entscheidungsmatrix am besten bewertet wurde.",
+      "examId": "ap1-2025-f",
+      "subId": "1ab",
+      "label": "ab)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "hardware",
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie die beiden Symbole.",
+      "hinten": "Symbol 1: WLAN\nSymbol 2: Bluetooth",
+      "examId": "ap1-2025-f",
+      "subId": "1c",
+      "label": "c)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "netzwerk",
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie vier Sicherheitsmaßnahmen, die im obigen Text beschrieben werden.",
+      "hinten": "- Download und Installation des Security Compliance Toolkit (oder auch: der Software zu Einhaltung der Sicherheitsvorschriften)\n- Nutzung komplexer Passwörter\n- Aktivierung der BS-internen Firewall\n- Regelmäßiges Aktualisieren des Betriebssystems.\n- Aktivieren der Memory Integrity Features\nAntworten sind in Deutsch oder Englisch möglich.",
+      "examId": "ap1-2025-f",
+      "subId": "1ea",
+      "label": "ea)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie einen Grund, warum dieses Vorgehen aus Sicherheitsgründen nicht zu empfehlen ist.",
+      "hinten": "- Der betreffende Rechner und damit das ganze Netzwerk wären damit anfälliger gegen Malware.\n- Anwender könnte die Rechte missbräuchlich benutzen und Aktionen durchführen, die aus Unternehmenssicht nicht gewünscht sind.",
+      "examId": "ap1-2025-f",
+      "subId": "1eb",
+      "label": "eb)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie dafür eine rechtliche Grundlage.",
+      "hinten": "z. B. DSGVO, Bundesdatenschutzgesetz",
+      "examId": "ap1-2025-f",
+      "subId": "2aa",
+      "label": "aa)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie den Zweck dieser rechtlichen Grundlage.",
+      "hinten": "z. B. Schutz personenbezogener Daten",
+      "examId": "ap1-2025-f",
+      "subId": "2ab",
+      "label": "ab)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die Vorgehensweise bei der asymmetrischen Verschlüsselung und Entschlüsselung zur Übertragung von E-Mails vom Anwalt zum Mandanten anhand der folgenden Skizze.",
+      "hinten": "Die Nachricht des Anwalts wird mit dem öffentlichen Schlüssel des Mandanten verschlüsselt. Die empfangene Nachricht wird mit dem privaten Schlüssel des Mandanten entschlüsselt.",
+      "examId": "ap1-2025-f",
+      "subId": "2ba",
+      "label": "ba)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie das IT-Schutzziel, welches durch die beschriebene Verwendung der Schlüssel erreicht werden kann.",
+      "hinten": "Vertraulichkeit der E-Mail.",
+      "examId": "ap1-2025-f",
+      "subId": "2bb",
+      "label": "bb)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie einen Vorteil und einen Nachteil der asymmetrischen Verschlüsselung im Vergleich zu einer symmetrischen Verschlüsselung.",
+      "hinten": "Vorteil: keine gesicherte Übertragung eines geheimen Schlüssels notwendig\nNachteil: Verschlüsselung und Entschlüsselung erfordern einen höheren Rechenaufwand.\nWeitere Lösungen sind möglich.",
+      "examId": "ap1-2025-f",
+      "subId": "2bc",
+      "label": "bc)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie jeweils zwei Vorteile dieser Lizenzmodelle.",
+      "hinten": "Open-Source:\nGgf. kostenlos, öffentlicher Source-Code kann von allen Interessierten geprüft und verbessert werden\nProprietäre Software:\nGgf. bessere Zusammenarbeit mit weiterer Software des Herstellers, ggf. gesicherter Service, ggf. zukunftssicherer durch kommerziellen Hersteller",
+      "examId": "ap1-2025-f",
+      "subId": "2c",
+      "label": "c)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den Zweck der Verwendung eines Hashwerts beim Softwaredownload.",
+      "hinten": "Nach dem Download kann beim Nutzer der Hashwert erneut berechnet werden. Dieser wird mit dem angebotenen Hashwert verglichen, um mögliche Fehler oder Datenmanipulationen bei der Datenübertragung zu identifizieren (Integrität).",
+      "examId": "ap1-2025-f",
+      "subId": "2da",
+      "label": "da)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "software",
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie die Vorgänge des kritischen Pfads",
+      "hinten": "Kritischen Pfad: A-B-D-E-I-J",
+      "examId": "ap1-2025-f",
+      "subId": "3ab",
+      "label": "ab)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "projekt"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie den Unterschied gegenüber einer statischen Website.",
+      "hinten": "Eine dynamische Website generiert Inhalte zur Laufzeit auf der Grundlage von Benutzerinteraktionen oder anderen Parametern, während eine statische Website zuvor erstellte Inhalte anzeigt, die unverändert bleiben.",
+      "examId": "ap1-2025-f",
+      "subId": "3b",
+      "label": "b)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie drei Programmiersprachen, die für die Entwicklung von dynamischen Webinhalten verwendet werden.",
+      "hinten": "- JavaScript\n- PHP\n- Python\n- Ruby\n- Java Enterprise Edition\n- u. a.\nHinweis: HTML und CSS sind keine Programmiersprachen.",
+      "examId": "ap1-2025-f",
+      "subId": "3c",
+      "label": "c)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie einen möglichen Vorteil für die Mitarbeiter.",
+      "hinten": "- Fehlerhäufigkeit wird geringer und damit erhöht sich die Effektivität der eigenen Arbeitsleistung.\n- Man schafft sich durch die gewonnene Zeit mehr Freiraum für höherqualifizierte Tätigkeiten.\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2025-f",
+      "subId": "4b",
+      "label": "b)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie einen Vorteil und einen Nachteil dieses Chatbots für die Kanzlei.",
+      "hinten": "Mögliche Nachteile:\n- Eine oberflächliche Beratung könnte zu einem negativen Image für die Kanzlei führen.\n- Potenzielle Mandanten könnten sich auf die Nutzung des Chatbots beschränken.\n- Der persönliche Kontakt geht verloren.\nMögliche Vorteile:\n- Gewinnung von Mandanten, deren Kontakt über den Chatbot hergestellt wird.\n- Angebot einer kostenlosen Erstberatung für die Mandanten ohne Beanspruchung von personellen Ressourcen ist gegeben.\n- 24/7-Erreichbarkeit ist gegeben.",
+      "examId": "ap1-2025-f",
+      "subId": "4d",
+      "label": "d)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "kalkulation",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erklären Sie den Begriff Redundanzen.",
+      "hinten": "Mehrfachspeicherungen von Daten\nAuch andere Formulierungen sind möglich.",
+      "examId": "ap1-2025-f",
+      "subId": "4fa",
+      "label": "fa)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie ein Problem, welches durch Redundanzen entstehen kann.",
+      "hinten": "Änderungen müssen an mehreren Stellen vorgenommen werden. Wird eine übersehen, entstehen Inkonsistenzen.\nErhöhter Zeitaufwand bei der Durchführung von Änderungen.\nUngewollte Nebeneffekte beim Einfügen, Löschen oder Ändern von Daten\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2025-f",
+      "subId": "4fb",
+      "label": "fb)",
+      "jahr": "Frühjahr 2025",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie unter Angabe des Datums die Vorgänge, die bereits stattgefunden haben.",
+      "hinten": "05.09.2025: Bestellung der Ware\n10.09.2025: Lieferung der Ware\n11.09.2025: Rechnungsstellung",
+      "examId": "ap1-2025-h",
+      "subId": "1a",
+      "label": "1 a)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Achtung",
+      "hinten": "Der Abgleich betrifft nur die Rechnungspositionen!",
+      "examId": "ap1-2025-h",
+      "subId": "1b",
+      "label": "1 b)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Mengenrabatt",
+      "hinten": "Bei Absatz einer bestimmten Menge erfolgt der Rabatt",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Neukundenrabatt",
+      "hinten": "Nachlass, um neue Kunden zu gewinnen",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zeitrabatte wie Frühbezugsrabatt",
+      "hinten": "Sie werden für frühzeitige Vertragsabschlüsse gewährt",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Treuerabatt",
+      "hinten": "Langjährige Kunden erhalten Vergünstigungen",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Web-/Online-Rabatt",
+      "hinten": "Für online bestellte Produkte",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei mögliche Gründe, einen Rabatt zu erhalten.",
+      "hinten": "- Mengenrabatt: Bei Absatz einer bestimmten Menge erfolgt der Rabatt\n- Neukundenrabatt: Nachlass, um neue Kunden zu gewinnen\n- Schüler-, Studentenrabatt: Nachlass für bestimmte Personengruppen\n- Zeitrabatte wie Frühbezugsrabatt: Sie werden für frühzeitige Vertragsabschlüsse gewährt\n- Treuerabatt: Langjährige Kunden erhalten Vergünstigungen\n- Web-/Online-Rabatt: Für online bestellte Produkte\nWeitere Lösungen sind möglich.",
+      "examId": "ap1-2025-h",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei mögliche Informationen, die sich hinter einem QR-Code (GiroCode) auf einer Rechnung verbergen können.",
+      "hinten": "Der Code beinhaltet alle Daten einer (SEPA-)Überweisung:\n- Begünstigter/Zahlungsempfänger\n- IBAN\n- BIC\n- Verwendungszweck\n- Rechnungsbetrag\n- u. a.",
+      "examId": "ap1-2025-h",
+      "subId": "1da",
+      "label": "1 da)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "daten",
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Erleichterungen, die die Nutzung des Codes bei Bezahlung bietet.",
+      "hinten": "- Fehlerfreie Übernahme der Überweisungsdaten für den Zahlungspflichtigen.\n- Keine manuelle Eingabe der Überweisungsdaten notwendig.\n- Zuordnung des Zahlungseingangs besser möglich.",
+      "examId": "ap1-2025-h",
+      "subId": "1db",
+      "label": "1 db)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "daten",
+        "kommunikation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei mögliche Ursachen für die Ablehnung der neuen Prozesse.",
+      "hinten": "- Angst vor Wegrationalisieren des eigenen Arbeitsplatzes.\n- Bedenken, den geänderten Anforderungen nicht gewachsen zu sein\n- Fehlende Bereitschaft, gewohnte Abläufe/Routinen zu ändern\n- Angst vor mehr Leistungsdruck durch freigewordene Zeitressourcen\n- Befürchtung, die Kontrolle über die Aufgaben zu verlieren\nAuch andere sinnvolle Antworten sind möglich.",
+      "examId": "ap1-2025-h",
+      "subId": "1ea",
+      "label": "1 ea)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "arbeitsplatz",
+        "ki"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Vorteile und zwei Nachteile der digitalen Rechnung innerhalb eines automatischen Rechnungsmanagementsystems.",
+      "hinten": "Vorteile:\n- Effizienzsteigerung\n- Kosteneinsparungen\n- Einfacher Zugriff und bessere Nachverfolgbarkeit\n- Integration\n- Nachhaltigkeit\n- Vermeiden von Medienbrüchen\nandere Antworten möglich\n\nNachteile:\n- Anfangsinvestitionen\n- Sicherheitsrisiken, z. B. Datenmissbrauch\n- Bedenken wegen Veränderungen\n- Schulungskosten\nandere Antworten möglich",
+      "examId": "ap1-2025-h",
+      "subId": "2a",
+      "label": "2 a)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "kalkulation",
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "KI-Systeme sind lernende Systeme",
+      "hinten": "Sie erkennen Muster im Verhalten der Zahlungspflichtigen.",
+      "examId": "ap1-2025-h",
+      "subId": "2bb",
+      "label": "2 bb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zeitersparnis",
+      "hinten": "KI kann zeitraubende manuelle Prüfungen automatisieren, wodurch Mitarbeiter sich auf andere Aufgaben konzentrieren können.",
+      "examId": "ap1-2025-h",
+      "subId": "2bb",
+      "label": "2 bb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Kostenreduktion",
+      "hinten": "Durch die Automatisierung der Rechnungsprüfung können Fehler reduziert und die Effizienz gesteigert werden.",
+      "examId": "ap1-2025-h",
+      "subId": "2bb",
+      "label": "2 bb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Fehlerreduktion",
+      "hinten": "KI-Systeme sind in der Lage, Rechnungen präzise zu analysieren und Fehler zu erkennen, die bei manuellen Prüfungen übersehen werden können.",
+      "examId": "ap1-2025-h",
+      "subId": "2bb",
+      "label": "2 bb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Skalierbarkeit",
+      "hinten": "KI-Lösungen können problemlos an das Wachstum des Unternehmens angepasst werden, ohne dass zusätzliche personelle Ressourcen erforderlich sind.",
+      "examId": "ap1-2025-h",
+      "subId": "2bb",
+      "label": "2 bb)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "ki"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Auch möglich",
+      "hinten": "§ 291 SGB V. Anforderungen an die Sicherheit der Datenübertragung und die Zugriffskontrollen für Anwendungen der eGK.",
+      "examId": "ap1-2025-h",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "datenschutz"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Sicherheitsrisiko",
+      "hinten": "Kann verraten, ausgespäht oder geknackt werden (Phishing).",
+      "examId": "ap1-2025-h",
+      "subId": "3b",
+      "label": "3 b)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie ein mögliches Risiko manipulierter Geräte bezüglich der IT-Sicherheit.",
+      "hinten": "z. B. unbemerkter Einbau von Abhöreinrichtungen, Deaktivierung von Sicherheitsfunktionen",
+      "examId": "ap1-2025-h",
+      "subId": "3d",
+      "label": "3 d)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie die Funktion eines Primärschlüssels in einer Tabelle.",
+      "hinten": "Ein Primärschlüssel ist ein eindeutiger Bezeichner für jeden Datensatz in einer Tabelle.",
+      "examId": "ap1-2025-h",
+      "subId": "4aa",
+      "label": "4 aa)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "daten"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie den Zweck von Fremdschlüsseln in relationalen Datenbanken.",
+      "hinten": "Ein Fremdschlüssel wird verwendet, um Tabellen zu verknüpfen, indem er auf einen Primärschlüssel in einer anderen Tabelle verweist.",
+      "examId": "ap1-2025-h",
+      "subId": "4ab",
+      "label": "4 ab)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "daten"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie den Vorteil des Verknüpfens von Tabellen in einer Datenbank.",
+      "hinten": "Das Verknüpfen von Tabellen ermöglicht eine effiziente Datenorganisation und verringert Redundanz.",
+      "examId": "ap1-2025-h",
+      "subId": "4ac",
+      "label": "4 ac)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "daten"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zeile 2",
+      "hinten": "Durchläuft jedes Medikament in der übergebenen Datenstruktur.",
+      "examId": "ap1-2025-h",
+      "subId": "4ca",
+      "label": "4 ca)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zeile 3",
+      "hinten": "Überprüft, ob die Menge des Medikaments unter dem festgelegten Limit liegt.",
+      "examId": "ap1-2025-h",
+      "subId": "4ca",
+      "label": "4 ca)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Zeile 4",
+      "hinten": "Gibt eine Warnung mit dem Namen des Medikaments aus, wenn es unter dem Limit liegt.",
+      "examId": "ap1-2025-h",
+      "subId": "4ca",
+      "label": "4 ca)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie die Zeilen zwei, drei und vier dieses Algorithmus.",
+      "hinten": "Zeile 2: Durchläuft jedes Medikament in der übergebenen Datenstruktur.\nZeile 3: Überprüft, ob die Menge des Medikaments unter dem festgelegten Limit liegt.\nZeile 4: Gibt eine Warnung mit dem Namen des Medikaments aus, wenn es unter dem Limit liegt.\nAndere Formulierungen sind möglich",
+      "examId": "ap1-2025-h",
+      "subId": "4ca",
+      "label": "4 ca)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie, warum der aktuelle Pseudocode nicht korrekt funktioniert.",
+      "hinten": "Der 'gesamtpreis' wird zu Beginn auf 0 gesetzt und dann in der Schleife immer mit dem Produkt aus Preis und Menge multipliziert. Da jede Multiplikation mit 0 stets 0 ergibt, bleibt der 'gesamtpreis' immer 0. Das Produkt aus Preis und Menge muss addiert werden.\nAndere Formulierungen sind möglich.",
+      "examId": "ap1-2025-h",
+      "subId": "4da",
+      "label": "4 da)",
+      "jahr": "Herbst 2025",
+      "topics": [
+        "programmierung"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie zwei mögliche Konsequenzen dieser Voreinstellung.",
+      "hinten": "Mögliche Lösungen:\n– Es muss ein geeignetes eigenes Passwort eingestellt werden, welches den Sicherheitsbedingungen entspricht.\n– Es wird nicht auf allen Geräten des Herstellers dasselbe Passwort verwendet.\n– Wenn nicht selbstständig ein Passwort gesetzt wird, ist der Zugang meist nicht möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "1aa",
+      "label": "1 aa)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "itsicherheit"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie den Zweck, warum hier Varianten mit „IR\" bzw. „heater\" angeboten werden.",
+      "hinten": "Die IR (Infrarot)-Option kann für Nachtaufnahmen eingesetzt werden.\nDie Heizung dient ggf. dem Schutz vor Vereisung und Beschlag bei niedrigen Außentemperaturen.",
+      "examId": "ap1-2026-f",
+      "subId": "1ab",
+      "label": "1 ab)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie einen Vorteil dieser Verbindungsart.",
+      "hinten": "z. B. Geringer Verkabelungsaufwand, aufgeräumter Arbeitsplatz",
+      "examId": "ap1-2026-f",
+      "subId": "1ca",
+      "label": "1 ca)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie die technische Voraussetzung für die Nutzung dieser Verbindungsart.",
+      "hinten": "Unterstützung von Multi-Stream Transport (MST) auf dem Thunderbolt-Port oder DisplayPort des PCs und den Anschlüssen der Monitore.",
+      "examId": "ap1-2026-f",
+      "subId": "1cb",
+      "label": "1 cb)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Überprüfung",
+      "hinten": "Diode an den Netzwerkbuchse überprüfen (blinkt nicht)",
+      "examId": "ap1-2026-f",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Behebung",
+      "hinten": "Austausch des defekten Netzwerkkabels",
+      "examId": "ap1-2026-f",
+      "subId": "2b",
+      "label": "2 b)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Adresslänge",
+      "hinten": "IPv4 verwendet 32-Bit-Adressen, IPv6 128-Bit-Adressen",
+      "examId": "ap1-2026-f",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Adressraum",
+      "hinten": "Aus der längeren IP-Adresse von IPv6 ergibt sich eine viel größere Anzahl möglicher Adressen",
+      "examId": "ap1-2026-f",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Netzwerkkonfiguration",
+      "hinten": "IPv4 erfordert eine manuelle Konfiguration oder DHCP, IPv6 unterstützt die automatische Konfiguration durch Stateless Address Autoconfiguration (SLAAC)",
+      "examId": "ap1-2026-f",
+      "subId": "2c",
+      "label": "2 c)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Dual-Stack",
+      "hinten": "Bei dieser Methode werden sowohl IPv4- als auch IPv6-Adressen auf denselben Geräten und Netzwerken verwendet. Jedes Gerät hat sowohl eine IPv4- als auch eine IPv6-Adresse und kann somit mit beiden Protokollen kommunizieren.",
+      "examId": "ap1-2026-f",
+      "subId": "2d",
+      "label": "2 d)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "begriff",
+      "vorne": "Tunneling",
+      "hinten": "Kapselung IPv6-Pakete innerhalb von IPv4-Paketen (oder umgekehrt). Beispiel: 6to4 IPv6-Pakete werden über ein IPv4-Netzwerk transportiert.",
+      "examId": "ap1-2026-f",
+      "subId": "2d",
+      "label": "2 d)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Erläutern Sie eine Möglichkeit, IPv4 und IPv6 kombiniert zu betreiben.",
+      "hinten": "Dual-Stack: Bei dieser Methode werden sowohl IPv4- als auch IPv6-Adressen auf denselben Geräten und Netzwerken verwendet. Jedes Gerät hat sowohl eine IPv4- als auch eine IPv6-Adresse und kann somit mit beiden Protokollen kommunizieren.\n\nTunneling: Kapselung IPv6-Pakete innerhalb von IPv4-Paketen (oder umgekehrt). Beispiel: 6to4 IPv6-Pakete werden über ein IPv4-Netzwerk transportiert.\n\nWeitere Lösungen sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "2d",
+      "label": "2 d)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie eine damit verbundene Verpflichtung.",
+      "hinten": "– Keine Aufnahmen von Personen im öffentlichen Bereich\n– Erhöhte Schutzmaßnahmen beim Speichern und Verarbeitung der Videoaufnahmen\n– Aufstellen eines Schildes mit dem Hinweis auf die Videoüberwachung\n– Zulässige Speicherzeiten sind zu berücksichtigen\n\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3a",
+      "label": "3 a)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "hardware"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei wirtschaftliche Vorteile, die sich durch einen verbesserten Ablauf der An- und Ablieferungen für die Pulling AG ergeben könnten.",
+      "hinten": "– Zuordnung günstiger Anfahrtsstellen zum Be- und Entladen\n– Zügige Abwicklung des Be- und Entladens\n– Reduzierung der LKW-Standzeiten\n– Schnellere Auslieferung der Kundenbestellungen\n– Schnellere Verfügbarkeit der bestellten Ware\n– Bessere Auslastung der Be- und Entladestellen\n\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3bb",
+      "label": "3 bb)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie ein Recht, das die Kunden der Pulling AG bei einer verspäteten Lieferung (Lieferverzug) in Anspruch nehmen könnten.",
+      "hinten": "– Die Kunden bestehen auf Lieferung.\n– Die Kunden verzichten auf Lieferung der Ware, haben keine Zahlungsverpflichtung und treten somit vom Kaufvertrag zurück.\n– Die Kunden erhalten Schadensersatz als Ausgleich für die nicht erbrachte Leistung.\n– Die Kunden bekommen den durch den Lieferverzug entstandenen Schaden ersetzt.",
+      "examId": "ap1-2026-f",
+      "subId": "3ca",
+      "label": "3 ca)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie eine negative Konsequenz, die sich aus dem Imageverlust ergeben könnte.",
+      "hinten": "– Probleme bei der Gewinnung von Neukunden\n– Umsatzrückgang durch den Absprung von Kunden\n– Probleme bei der Mitarbeitergewinnung\n\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3cb",
+      "label": "3 cb)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "kalkulation"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie, wie sich die oben genannten IP-Adressen in Bezug auf deren öffentlichen Erreichbarkeit im Internet verhalten.",
+      "hinten": "Es handelt sich um private IP-Adressen, die im lokalen Netzwerk verwendet und im Internet nicht geroutet werden und daher nicht öffentlich im Internet erreichbar sind.",
+      "examId": "ap1-2026-f",
+      "subId": "3da",
+      "label": "3 da)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie einen kritischen Wert des nachfolgenden Screenshots und beschreiben Sie ein mögliches Problem, das aufgrund dieses kritischen Werts auftreten könnte.",
+      "hinten": "466 (ms) (1 Punkt)\nInstabilität, z. B. Ruckeln oder Einfrieren der Bildübertragung\nTimeouts in Form von Verbindungsabbrüchen (2 Punkte)\nAuch andere sinnvolle Antworten (z. B. 863 ms als konkrete Antwortzeit) möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3db",
+      "label": "3 db)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Benennen Sie drei Beispiele.",
+      "hinten": "Entscheidend ist die sinngemäße Benennung der Schlüsselbegriffe „Umstrukturierung\", „Ressourcen\", „Geschäftsprozesse und -systeme\" und „digitale Technologien\", die durch den Ausdruck „such as\" als Beispiele genannt werden.",
+      "examId": "ap1-2026-f",
+      "subId": "3ea",
+      "label": "3 ea)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Beschreiben Sie einen generellen Nachteil der Sofortumstellung gegenüber dem Parallelbetrieb.",
+      "hinten": "– Auftretende Software-Störungen wirken sich stärker auf die betrieblichen Abläufe aus.\n– Erhöhter Erfolgsdruck auf die Mitarbeiter\n\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3eb",
+      "label": "3 eb)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "netzwerk",
+        "software"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie vier Maßnahmen, um den Arbeitsplatz ergonomischer zu gestalten.",
+      "hinten": "– Große, höhenverstellbare und separate Bildschirme\n– Mehrere Bildschirme\n– Gute Auflösung\n– Höhenverstellbare Tische\n– Ergonomischer Stuhl\n\nAuch andere Antworten sind möglich.",
+      "examId": "ap1-2026-f",
+      "subId": "3ec",
+      "label": "3 ec)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "arbeitsplatz"
+      ]
+    },
+    {
+      "typ": "frage",
+      "vorne": "Nennen Sie zwei Vorteile objektorientierter Programmiersprachen gegenüber prozeduraler Programmiersprachen.",
+      "hinten": "– Bessere Wiederverwendbarkeit\n– Leichtere Erweiterbarkeit\n– Bessere Wartbarkeit\n– Vererbung\n– Kapselung\n– Polymorphismus\n– u. a.",
+      "examId": "ap1-2026-f",
+      "subId": "4a",
+      "label": "4 a)",
+      "jahr": "Frühjahr 2026",
+      "topics": [
+        "hardware"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "examId": "ap1-2022-f",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2022,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2022-f-aufgaben.pdf",
+      "solutions": "ap1-2022-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie absolvieren eine Ausbildung bei der AllRound AG, einem im Jahr 1985 gegründeten IT-Systemhaus mit 720 Mitarbeiterinnen und Mitarbeitern in weltweiten Niederlassungen. Nach einer Krisensituation, einem Wechsel in der Geschäftsführung und einer Neuausrichtung hat die AllRound AG sich zum Anbieter größerer und internationaler IT-Projekte entwickelt.\n\nEin Außendienstmitarbeiter hat erfahren, dass bei der Rullix GmbH eine Aktualisierung der IT-Gesamtkonzeption ansteht. Die Rullix GmbH produziert und vertreibt Bauteile im Bereich der E-Mobilität und besitzt weltweit mehrere Standorte. Da sie nicht über ausreichende Personalkapazitäten für die eigene Durchführung verfügt, soll dieses Projekt extern vergeben werden. Der Außendienstmitarbeiter hat bereits die Möglichkeit eines Erstkontaktes hergestellt mit dem Ziel, die Rullix GmbH als Kunden zu gewinnen.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Als Vorbereitung auf das Erstgespräch mit der Rullix GmbH soll zunächst die AllRound AG allgemein und dann das Leistungsangebot vorgestellt werden, um die Eignung der AllRound AG für diesen Auftrag herauszustellen.\n\nSie sollen eine Präsentationsfolie für die allgemeine Unternehmensdarstellung der AllRound AG erstellen, um für den gewünschten Auftrag einen möglichst guten Eindruck zu hinterlassen. Aus der eingangs beschriebenen Situation sind dazu drei geeignete betriebliche Informationen herauszustellen, um diese auf der Folie als möglichst präsentationsgeeignete Stichpunkte anzuführen. Dabei soll jeder einzelne Stichpunkt eine Botschaft vermitteln. Die inhaltliche Vorlage für die gestalterische Umsetzung soll in Form von Aufzählungspunkten erfolgen, wie in dem Beispiel bereits angedeutet ist.\n\nVorgegeben — Folienbereich: „– Seit 1985 am Markt“\nVorgegeben — Notizbereich, Botschaften: „z. B.: Beständigkeit durch über 35 Jahre Marktpräsenz und jahrzehntelange Erfahrung garantiert langfristige Partnerschaften auch in der Zukunft.“",
+          "prompt": "Vermerken Sie im Notizbereich drei inhaltliche Botschaften, welche Sie aus der obigen Situationsbeschreibung in Ihrer Präsentationsfolie zum Ausdruck bringen wollen.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "ab)",
+          "groupLabel": "a)",
+          "prompt": "Ergänzen Sie den Folienbereich um die drei zur Botschaft passenden Aufzählungspunkte.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Aus dem Unternehmensportfolio der AllRound AG sind Ihnen folgende Begriffe im Gedächtnis:\n– Industrie 4.0\n– Support in den Bereichen Prozess- und IT-Management\n– Migrationsunterstützung\n– Big Data\n– Cloud-Hosting in allen Varianten\n– Beratung im Hinblick auf DSGVO und BDSG\n– Webhosting\n– Remarketing von IT-Geräten\n\nDie Leistungsangebote der AllRound AG sollen dem Kunden nicht nur erklärt, sondern auch sprachlich überzeugend formuliert werden.\n\nWählen Sie aus den obenstehenden Begriffen drei aus und beschreiben Sie diese dem zukünftigen Kunden so, dass die einzelnen Leistungsangebote möglichst auftrags- und nutzenbezogen erläutert werden.\n\nBeispiel — Industrie 4.0: „Wir optimieren Ihren Produktionsprozess durch Nutzung intelligenter Informations- und Kommunikationstechnik. Angestrebt wird die Schaffung einer möglichst hohen Flexibilität durch eine weitgehend selbstorganisierte Produktion.“",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Die AllRound AG soll ein Angebot für das Projekt zur kompletten Neuorganisation der Verwaltung und der IT-Gesamtkonzeption der Rullix GmbH erstellen.",
+          "prompt": "Schildern Sie analog des Beispiels, warum folgende Informationen für die Erstellung des Angebots benötigt werden:\n\nBeispiel — Räumliche Gegebenheiten: „Bestimmung der Entfernungen, um den logistischen Aufwand abschätzen zu können“\n– Lastenheft: ?\n– Geplanter Zeitrahmen: ?\n– Ergebnisse der Ist-Analyse: ?",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "cb)",
+          "groupLabel": "c)",
+          "prompt": "Zur Erstellung eines Angebots werden auch formale Informationen benötigt, z. B. die Adresse.\n\nWelche formale Information könnte darüber hinaus auch noch erforderlich sein?",
+          "sourcePage": 4,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Das Angebot wurde angenommen. Nach der Beschaffung einzelner Hardwarekomponenten besteht Ihre Aufgabe nun darin, die Standardarbeitsplätze zu konfigurieren. Sie sollen einzelne Komponenten einbauen und die Schnittstellen der Computer identifizieren.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Sie möchten die CPU in den CPU-Sockel des Mainboards einbauen. Dazu lesen Sie sich die folgende Anleitung durch.\n\nCPU installation:\nTo fit the processor in the socket, first lift the lever. The CPU fits in only one correct orientation. Make sure the arrow on top of the processor is aligned with the arrow on the processor socket. Do not force the CPU into the socket to prevent bending the connectors on the socket and damaging the CPU. Gently push the processor into place. Push the lever down to secure the processor.\n\n(Dazu drei Abbildungen: 1. Hebel anheben, 2. CPU einsetzen, 3. Hebel schließen.)",
+          "prompt": "Nennen Sie die drei Schritte für den Einbau der CPU.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "ab)",
+          "groupLabel": "a)",
+          "prompt": "Beschreiben Sie, welche beiden Punkte beim Schritt 2 besonders zu beachten sind.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Nach dem Einsetzen der CPU auf das Mainboard wollen Sie den CPU-Kühler montieren. Dem CPU-Kühler liegt eine kleine Tube Wärmeleitpaste bei.\n\nErläutern Sie, welche Aufgabe die Wärmeleitpaste hat.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Sie möchten nun den DDR 4 Arbeitsspeicher in die Slots des Motherboards einsetzen. Sie haben zwei DDR 4 RAM Riegel und möchten den RAM im Dual Channel Modus betreiben. Auf dem Motherboard sehen Sie die folgenden Slots (von oben nach unten): DIMM B1, DIMM B2, DIMM A1, DIMM A2.\n\nErläutern Sie, was Sie beim Einsetzen der beiden Speicherriegel beachten müssen, damit der RAM im Dual Channel Modus arbeitet.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Als Datenspeicher haben Sie sich für eine SSD entschieden. Zur Wahl steht eine SATA SSD und eine M.2 SSD.\n\nNennen Sie einen Vorteil und einen Nachteil einer M.2 SSD gegenüber einer SATA SSD.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Nachdem der PC fertig zusammengebaut ist, möchten Sie den Monitor an die Grafikkarte anschließen. Sie sehen an der Grafikkarte die abgebildeten Anschlüsse (mit A, B und C markiert).\n\nUm welche Anschlüsse handelt es sich bei den mit A, B und C markierten Schnittstellen?\nNennen Sie die korrekten Bezeichnungen/Abkürzungen.\n\nA:\nB:\nC:",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "fa)",
+          "groupLabel": "f)",
+          "groupIntro": "An der Rückseite des PC sehen Sie die abgebildeten Anschlüsse (u. a. mehrere USB-Buchsen, davon eine umrahmt, sowie ein 2.5G-Netzwerkanschluss).",
+          "prompt": "Beschreiben Sie, welche Besonderheit der umrahmte USB-Anschluss hat.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "fb)",
+          "groupLabel": "f)",
+          "prompt": "Nennen Sie zwei Vorteile des USB-C Anschlusses gegenüber dem USB-3 Anschluss.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "ga)",
+          "groupLabel": "g)",
+          "groupIntro": "Sie testen den PC. Der Taskmanager zeigt die folgenden Daten:\nBasisgeschwindigkeit: 3,40 GHz\nSockets: 1\nKerne: 16\nLogische Prozessoren: 32\nVirtualisierung: Aktiviert\nL1-Cache: 1,0 MB\nL2-Cache: 8,0 MB\nL3-Cache: 64,0 MB",
+          "prompt": "Erläutern Sie den Begriff „Logische Prozessoren“.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "gb)",
+          "groupLabel": "g)",
+          "prompt": "Beschreiben Sie allgemein die Aufgabe eines „Cache“-Speichers.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "gc)",
+          "groupLabel": "g)",
+          "prompt": "Geben Sie die Taktfrequenz von 3,4 GHz in Hertz an.",
+          "sourcePage": 7,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Ihre Aufgabe besteht darin, für ein Notebook einen Netzwerkzugriff ins Firmen-WLAN einzurichten. Hierbei handelt es sich um ein WLAN mit WPA-PSK oder auch WPA Personal.\n\nNennen Sie zwei wesentliche Informationen, die Sie vom Administrator erfragen müssen, um das Notebook im WLAN anmelden zu können.",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Zur Authentifizierung von Nutzern im WLAN gibt es neben dem WPA-PSK-Verfahren auch das EAP-Verfahren, welches auch als WPA-Enterprise-RADIUS bezeichnet wird.\n\nNennen Sie je einen Vor- bzw. Nachteil und geben Sie eine Empfehlung, in welcher Unternehmensgröße es vorwiegend eingesetzt werden sollte.\n\nBeispiel — WPA-PSK: Vorteil „Einfach umzusetzen“ / Nachteil „Unsicher, da PW mit steigender Anzahl von Nutzern schnell bekannt werden kann“ / Unternehmensgröße „Kleine Unternehmen mit wenigen Mitarbeitern“\nGesucht — EAP/WPA-Enterprise-RADIUS: Vorteil? Nachteil? Unternehmensgröße?",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Sie versuchen, die Verbindung über das WLAN herzustellen, was leider zunächst nicht gelingt. Ihre Idee ist nun, eine Fehleranalyse basierend auf den verschiedenen Schichten des OSI-Modells durchzuführen.\n\nErgänzen Sie zur Vorbereitung die leeren Felder in der folgenden Tabelle.\nHinweis: Geben Sie pro Feld jeweils nur ein passendes Beispiel an.\n\nOSI-Schicht Nr. | OSI-Schicht Name | Verwendete Protokolle | Verwendete Adressen | Möglicher Fehler\n7               | ?                | ?                     | –                   | ?\n4               | Transportschicht | TCP/UDP               | Ports               | Verlust eines Segments\n3               | ?                | ?                     | ?                   | ?\n2               | ?                | ?                     | ?                   | ?\n1               | ?                | –                     | –                   | Medium getrennt",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Sie überprüfen nun den Zustand der Netzwerkverbindung. Angezeigt wird u. a.:\nIPv4-Konnektivität: Kein Netzwerkzugriff | IPv6-Konnektivität: Kein Netzwerkzugriff | Medienstatus: Aktiviert | Kennung (SSID): Vodafone-5D2D | Dauer: 4 Tage 22:09:30 | Übertragungsrate: 144,0 MBit/s | Signalqualität: gut\n\nEntsprechend Ihres Plans starten Sie Ihre Fehlersuche im OSI-Modell von unten nach oben (Bottom-up), beginnend mit Schicht 1. Im obenstehenden Bild suchen Sie dazu Informationen über den Zustand der Verbindung.\n\nBenennen Sie einen Wert, welcher der OSI-Schicht 1 zuzuordnen ist und interpretieren Sie diesen bezüglich seiner Funktionalität.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "ea)",
+          "groupLabel": "e)",
+          "groupIntro": "Sie starten nun das Konsolenfenster zur Analyse der OSI-Schichten 2 und 3 und erhalten nach der Eingabe eines Befehls zur Anzeige der Netzwerkkonfiguration die folgende Ausgabe:\n\nDrahtlos-LAN-Adapter WLAN:\n  Verbindungsspezifisches DNS-Suffix:\n  Beschreibung . . . . . . . . . : Marvell AVASTAR Wireless-AC Network Controller\n  Physische Adresse . . . . . . .: 50-1A-C5-F2-38-B7\n  DHCP aktiviert. . . . . . . . .: Ja\n  Autokonfiguration aktiviert . .: Ja\n  Verbindungslokale IPv6-Adresse .: fe80::85e1:1ec1:c9e2:3cbb%5(Bevorzugt)\n\nTrotz des fehlenden Netzwerkzugriffs werden zwei Adressen angezeigt.",
+          "prompt": "Beschreiben Sie die Herkunft der Adresse 50-1A-C5-F2-38-B7.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "eb)",
+          "groupLabel": "e)",
+          "prompt": "Beschreiben Sie die Herkunft der Adresse fe80::85e1:1ec1:c9e2:3cbb.",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Bei Ihrer Fehleranalyse legen Sie nun Ihren Fokus auf die Analyse der höheren OSI-Schichten.\n\nNach Eingabe des Befehls zur Erneuerung der IP-Adresse wird nun die folgende Information angezeigt:\n\nDrahtlos-LAN-Adapter WLAN:\n  Verbindungsspezifisches DNS-Suffix:\n  Verbindungslokale IPv6-Adresse . : fe80::85e1:1ec1:c9e2:3cbb%5\n  IPv4-Adresse . . . . . . . . . . : 192.168.0.52\n  Subnetzmaske . . . . . . . . . . : 255.255.255.0\n  Standardgateway . . . . . . . . .: 192.168.0.1",
+          "prompt": "Sie setzen Ihre Fehleranalyse nun fort.\n\nNennen Sie die Bezeichnung des Servers, der hier durch den Befehl zur Erneuerung der IP-Adresse kontaktiert wurde.",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "fb)",
+          "groupLabel": "f)",
+          "prompt": "Geben Sie die nachfolgenden Adressen des hier angegebenen Hosts an.\n\nNetzadresse:\nHostadresse:\nBroadcastadresse:",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "fc)",
+          "groupLabel": "f)",
+          "prompt": "Um die nun veränderte Situation zu prüfen, geben Sie den Befehl „ping 192.168.0.1“ ein und erhalten die folgende Ausgabe:\n\nPing wird ausgeführt für 192.168.0.1 mit 32 Bytes Daten:\nAntwort von 192.168.0.1: Bytes=32 Zeit=9ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=8ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=9ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=6ms TTL=64\n\nPing-Statistik für 192.168.0.1:\n  Pakete: Gesendet = 4, Empfangen = 4, Verloren = 0 (0% Verlust),\nCa. Zeitangaben in Millisek.: Minimum = 6ms, Maximum = 9ms, Mittelwert = 8ms\n\nSie analysieren die Ergebnisse Ihrer gesamten Fehlersuche.\n\nBenennen Sie den von Ihnen ermittelten Fehler.",
+          "sourcePage": 10,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Die AllRound AG plant, für die automatisierte Konfiguration der Standardarbeitsplätze eine Workspace-Management-Software einzusetzen.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Über die Workspace-Management-Software informieren Sie sich mit dem folgenden Text:\n\nWorkspace management systems prepare the PC by installation and configuration, so that the user can immediately work with the programs. Prerequisite for the automatic installation are customized setups (packages), which do not require user input. The packages are installed and configured by a software distribution agent, which must be located on each PC. The patch management controls the administration and automatic installation of patches and updates. The integrated license management combines the data of available and actually used licenses and can thus not only prevent the procurement of neither too few nor too many software licenses. The data collection during the inventory is done remotely. It can also make use of proven network management tools such as SNMP. It is therefore not necessary for the responsible personnel to obtain physical access to the individual devices, as it is the case with an inventory. The data stock can be continuously updated by the automatic collection and not only once a year.\n\nNennen Sie vier Leistungsmerkmale einer Workspace-Management-Software anhand des oben zitierten Textes.",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Die Workspace-Management-Software wird cloudbasiert oder on-premises angeboten.\n\nNennen Sie zwei Vor- und Nachteile einer cloudbasierten Software gegenüber der on-premises.",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Für die Workspace-Management-Software können die Lizenzen von einem externen Anbieter für 25,00 EUR je Lizenz und Jahr bezogen werden.\n\nFür die Eigenentwicklung wird ein Personalaufwand von 12.000 Stunden veranschlagt. Die jährliche Wartung wird mit 140 Stunden pro Jahr über einen Zeitraum von zehn Jahren veranschlagt. Eine Mitarbeiterstunde wird mit dem internen Kostensatz von 75 EUR berechnet.\n\nAb welcher Lizenzanzahl ist die Eigenentwicklung über einen Zeitraum von zehn Jahren günstiger als der Fremdbezug? (Lohnsteigerungen und Erhöhung der Lizenzpreise sollen nicht berücksichtigt werden.)",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Sie planen, eine eigene Lösung für eine automatisierte Konfiguration der Standardarbeitsplätze zu programmieren. Aus einer Datenbank werden alle zu konfigurierenden PCs ausgelesen. Danach wird für jeden PC aus der Datenbank die zu installierende Software abgefragt und auf dem PC installiert.\n\nEs gibt die folgenden Variablen:\nPCNr        Ganzzahl – Laufvariable\nSoftwareNr  Ganzzahl – Laufvariable\n\nEs gibt die folgenden Felder (Array):\nPCListe[]        Stringliste mit den Namen der PC\nSoftwareListe[]  Stringliste mit den Namen der Software\n\nEs stehen Ihnen die folgenden Funktionen zur Verfügung:\ngetPC() – liefert eine Liste von PC-Namen aus der Datenbank\ngetSoftware(String) – liefert zu dem angefragten PC eine Liste der zu installierenden Software\ninstallSoftware(String, String) – installiert die im ersten String angegebene Software auf dem im zweiten String übergebenen PC\n\nTragen Sie die Anweisungen folgerichtig in das nebenstehende Struktogramm ein.\n\n1. installSoftware(SoftwareListe[SoftwareNr], PCListe[PCNr])\n2. Solange SoftwareNr < Anzahl der Elemente in SoftwareListe[]\n3. PCListe[] = getPC()\n4. PCNr = PCNr + 1\n5. PCNr = 0\n6. SoftwareListe[] = getSoftware(PCListe[PCNr])\n7. SoftwareNr = 0\n8. SoftwareNr = SoftwareNr + 1\n9. Solange PCNr < Anzahl der Elemente in PCListe[]",
+          "sourcePage": 12,
+          "answerType": "diagram",
+          "placeholder": "Struktogramm: gib im Antwortfeld die Reihenfolge der neun Anweisungen an — von oben nach unten, mit Einrückung für die Schleifen (z. B. „3, 5, 9 → 6, 7, 2 → 1, 8 …“)."
+        },
+        {
+          "label": "e)",
+          "prompt": "Die Datenbank soll in der Cloud gesichert werden.\n\nBerechnen Sie die Zeit in Minuten, die für die Übertragung der 100 MiByte großen Datei bei einer VDSL-Leitung mit 100 Mbit/s download und 40 Mbit/s upload benötigt wird.\n\nDas Ergebnis ist auf volle Sekunden aufzurunden.\nDer Rechenweg ist anzugeben.",
+          "sourcePage": 14,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

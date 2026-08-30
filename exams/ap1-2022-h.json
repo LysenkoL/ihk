@@ -1,0 +1,2082 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2022-h",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2022,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2022-h-aufgaben.pdf",
+      "solutions": "ap1-2022-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Ihr Ausbildungsbetrieb, die Package AG, produziert und handelt mit Verpackungsmaterial. Um dem Marktpotenzial aufgrund der enorm gestiegenen Nachfrage gerecht zu werden, hat die Geschäftsleitung Investitionen zur Steigerung der Produktionskapazitäten beschlossen. Dies soll vor allem durch eine Erhöhung des Automatisierungsgrads erreicht werden, die weitreichende Auswirkungen auf die künftige Gestaltung und Ausstattung der Arbeitsplätze in der Produktion haben wird. Für diese Aufgabe wurde daher eine eigene Arbeitsgruppe gebildet.\n\nSie wurden in diese Arbeitsgruppe aufgenommen.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "",
+      "maxPoints": 23,
+      "subtasks": [
+        {
+          "id": "1aa",
+          "label": "aa)",
+          "fullLabel": "1 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Die Marktsituation der Package AG ist aktuell noch gekennzeichnet durch wenige Anbieter aber viele Nachfrager.",
+          "prompt": "Nennen Sie die aktuell vorliegende Marktform.",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Oligopol",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2022-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1534,
+              "height": 579
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2022-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 958,
+              "height": 185
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2022-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 985
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Oligopol"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ab",
+          "label": "ab)",
+          "fullLabel": "1 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Es ist jedoch festzustellen, dass immer mehr Anbieter auf den Markt drängen.\n\nNennen Sie die neue Marktform, mit der die Package AG zukünftig rechnen sollte.",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Polypol",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2022-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1534,
+              "height": 579
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2022-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 958,
+              "height": 185
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2022-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 985
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Polypol"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Um bei dem komplexen Vorhaben den Überblick zu behalten, legt die Arbeitsgruppe Projektschritte (z. B. Projektinitiierung) fest.\n\nBeschreiben Sie in nachvollziehbaren Stichpunkten zu jedem Projektschritt einen inhaltlichen Aspekt, der durchzuführen ist.\n\nProjektschritte, z. B.            | Inhaltlicher Aspekt, z. B.\n1. Projektinitiierung             | Identifikation eines Problembereiches\n2. Beschreibung des Istzustands   | ?\n3. Definition des Sollkonzepts    | ?\n4. Planung                        | ?\n5. Umsetzung                      | ?\n6. Überprüfung der Zielerreichung | ?\n7. Ausblick                       | ?",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Projektschritte, z. B.            | Inhaltlicher Aspekt, z. B.\n1. Projektinitiierung             | Identifikation eines Problembereiches\n2. Beschreibung des Istzustands   | Nachteile beim aktuellen Ablauf\n3. Definition des Sollkonzepts    | Ziel der verbesserten Abläufe festlegen\n4. Planung                        | Modellierung der Phasen\n5. Umsetzung                      | Einführung der geänderten Abläufe\n6. Überprüfung der Zielerreichung | Prüfung der durch die Prozessänderung erreichten Wirkung\n7. Ausblick                       | Fixierung weiterer Möglichkeiten der Prozessoptimierung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2022-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1534,
+              "height": 579
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2022-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 958,
+              "height": 185
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2022-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 985
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Problembereiches",
+              "Prozessänderung",
+              "Inhaltlicher Aspekt",
+              "Projektschritte",
+              "Prozessoptimierung",
+              "Istzustands",
+              "Projektinitiierung",
+              "Wirkung"
+            ]
+          },
+          "felder": [
+            {
+              "label": "2. Beschreibung des Istzustands — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "3. Definition des Sollkonzepts — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "4. Planung — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "5. Umsetzung — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "6. Überprüfung der Zielerreichung — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "7. Ausblick — Inhaltlicher Aspekt, z. B.",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "1c",
+          "label": "c)",
+          "fullLabel": "1 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "„Stakeholder\" beeinflussen die Machbarkeit von Projekten.\n\nBeschreiben Sie drei Gruppen von Stakeholdern mit deren Einfluss auf das Projekt.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "projekt",
+            "ki"
+          ],
+          "solution": {
+            "text": "z. B.\nAnteilseigner: Bereitschaft zur Finanzierung des Projekts\nMitarbeiter: Akzeptanz des Projekts bei der Durchführung\nLieferanten: Realisierbarkeit vollautomatisierter Bestellungen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2022-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 883,
+              "height": 195
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2022-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 927,
+              "height": 281
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2022-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 499,
+              "height": 164
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2022-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1407,
+              "height": 655
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Bereitschaft",
+              "Bestellungen",
+              "Akzeptanz",
+              "Anteilseigner",
+              "Realisierbarkeit",
+              "Finanzierung",
+              "Lieferanten",
+              "Durchführung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1d",
+          "label": "d)",
+          "fullLabel": "1 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In der Projektgruppe wird die Einbindung eines externen Projektberaters diskutiert.\n\nWelche Vorteile und Nachteile sind damit verbunden? Nennen Sie insgesamt fünf Vor- und/oder Nachteile, z. B. zwei Vorteile und drei Nachteile.",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "datenschutz",
+            "hardware"
+          ],
+          "solution": {
+            "text": "Vorteile (z. B.):\n– mehr Erfahrung des externen Beraters aufgrund dessen Spezialisierung\n– geringere Zusatzbelastung des Personals\n– normkonforme Lösungen\n– höhere Methodenkompetenz\n– bessere Risikoeinschätzung\n\nNachteile (z. B.):\n– zusätzliche Kosten\n– Know-how außerhalb des Unternehmens\n– Abhängigkeit von externen Stellen\n– fehlende Kenntnisse über interne Abläufe und Strukturen\n– mehr Schnittstellen in der Kommunikation\n– zusätzlicher Aufwand mit Datenschutz, z. B. Zutrittskontrolle",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2022-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 883,
+              "height": 195
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2022-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 927,
+              "height": 281
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2022-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 499,
+              "height": 164
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2022-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1407,
+              "height": 655
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Beraters",
+              "Zutrittskontrolle",
+              "Methodenkompetenz",
+              "Zusatzbelastung",
+              "Spezialisierung",
+              "Personals",
+              "Risikoeinschätzung",
+              "Strukturen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1e",
+          "label": "e)",
+          "fullLabel": "1 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Alternativ zu internen Fachkräften kann aus dem Büro des Projektberaters vergleichbares Personal zu einem effektiven Stundensatz von 85 EUR beauftragt werden.\n\nBerechnen Sie den effektiven Stundensatz der internen Fachkräfte mit nachfolgenden Angaben:\n– 260 Arbeitstage pro Jahr,\n– 7,8 Std. pro Tag,\n– 30 Urlaubstage pro Jahr,\n– 5 Krankheitstage pro Jahr,\n– 5 Feiertage pro Jahr,\n– Jahreskosten eines Arbeitnehmers 140.000 EUR",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "140.000 EUR / ((260 – 30 – 5 – 5) * 7,8) = 81,59 EUR",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2022-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 883,
+              "height": 195
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2022-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 927,
+              "height": 281
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2022-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 499,
+              "height": 164
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2022-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1407,
+              "height": 655
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "140.000 EUR",
+                "wert": 140000.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "81,59 EUR",
+                "wert": 81.59,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "140.000",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1f",
+          "label": "f)",
+          "fullLabel": "1 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Es stellt sich die Frage, ob mit dem Projektberater ein Dienstvertrag oder Werkvertrag abgeschlossen werden soll.\n\nGeben Sie eine begründete Empfehlung.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Werkvertrag, da dieser ergebnisabhängig ist; bei einem Dienstvertrag genügt die Arbeitsleistung.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2022-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 883,
+              "height": 195
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2022-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 927,
+              "height": 281
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2022-h_p03_f3.png",
+              "sourcePage": 3,
+              "width": 499,
+              "height": 164
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2022-h_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1407,
+              "height": 655
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Werkvertrag",
+              "Dienstvertrag",
+              "Arbeitsleistung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Die Package AG plant die Anschaffung einer kleinen Fertigungslinie für Karton, welche mit einer Arbeitsbreite von 508 mm und einer Produktionsgeschwindigkeit von 30,48 m/min Karton auf Rollen produziert. Die Anlage soll zwölf Stunden pro Tag produktiv sein.\n\nKarton wird zum Teil aus Altpapier hergestellt, Unreinheiten wirken sich auf die Qualität des Kartons aus. Zur Qualitätssicherung wird die erzeugte Kartonbahn fortlaufend durch eine Kamera gescannt. Die entstandenen Bilder werden ausgewertet und anschließend gespeichert. Bei erkannten Verfärbungen der Oberfläche oder Einschlüssen im Karton werden die aktuellen Rollen als mindere Qualität eingestuft.\n\nErfasste Scanfläche: 50,80 cm breit x 30,48 cm lang\nAuflösung: 400 dpi x 400 dpi\nFarbtiefe: 16 Bit\n1 Inch: 2,54 cm",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "2a",
+          "label": "a)",
+          "fullLabel": "2 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ermitteln Sie zunächst die Zahl der Scans/Aufnahmen pro Tag. Der Rechenweg ist anzugeben.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Zahl der Aufnahmen pro Tag:\nAnzahl der Scanner auf 508 mm Breite: 1 Scanner mit einer Breite von 50,8 cm\nAnzahl der Aufnahmen bei 30,48 m Karton pro Minute: 100 Aufnahmen pro Scanner zu 30,48 cm pro Minute\nAnzahl der Aufnahmen pro Stunde: 6.000 = 1 Scanner * 100 Aufnahmen pro Minute * 60 Minuten\nAnzahl der Aufnahmen pro Arbeitstag von 12 Stunden: 72.000 = 6.000 * 12 Stunden\n\nErgebnis: 72.000 Aufnahmen/Tag",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1417,
+              "height": 2179
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "60 Minuten",
+                "wert": 60.0,
+                "einheit": "Minuten"
+              },
+              {
+                "text": "12 Stunden",
+                "wert": 12.0,
+                "einheit": "Stunden"
+              }
+            ],
+            "begriffe": [
+              "Minute",
+              "Arbeitstag",
+              "Aufnahmen",
+              "Karton",
+              "Stunde",
+              "Scanner",
+              "72.000",
+              "6.000"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2ba",
+          "label": "ba)",
+          "fullLabel": "2 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Die Daten der Scans werden ein Tag für Auswertungen zur Qualitätskontrolle gespeichert.",
+          "prompt": "Ermitteln Sie das zu speichernde Datenvolumen in MiB pro Scan.\n\nDer Rechenweg ist anzugeben.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Datenvolumen pro Scan\ninch/cm 2,54 | Bildpunkte/Pixel 400\nBreite 50,80 cm = 20 inch = 8.000 Bildpunkte\nLänge  30,48 cm = 12 inch = 4.800 Bildpunkte\n\nPixel/Scan:        38.400.000 Pixel   (1 Punkt)\n16 Bit Farbtiefe: 614.400.000 Bit     (1 Punkt)\ndurch 8:           76.800.000 Byte    (1 Punkt)\ndurch 1.024:           75.000 KiB     (0,5 Punkte)\ndurch 1.024:            73,25 MiB     (0,5 Punkte)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1417,
+              "height": 2179
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "16 Bit",
+                "wert": 16.0,
+                "einheit": "Bit"
+              },
+              {
+                "text": "614.400.000 Bit",
+                "wert": 614400000.0,
+                "einheit": "Bit"
+              },
+              {
+                "text": "76.800.000 Byte",
+                "wert": 76800000.0,
+                "einheit": "Byte"
+              },
+              {
+                "text": "75.000 KiB",
+                "wert": 75000.0,
+                "einheit": "KiB"
+              },
+              {
+                "text": "0,5 Punkte",
+                "wert": 0.5,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "73,25 MiB",
+                "wert": 73.25,
+                "einheit": "MiB"
+              }
+            ],
+            "begriffe": [
+              "76.800",
+              "614.400",
+              "Farbtiefe",
+              "Bildpunkte",
+              "75.000",
+              "Pixel",
+              "4.800",
+              "38.400"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2bb",
+          "label": "bb)",
+          "fullLabel": "2 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Ermitteln Sie anschließend das gesamte zu speichernde Datenvolumen pro Tag in TiB.\n\nRunden Sie das Ergebnis auf volle TiB auf. Der Rechenweg ist anzugeben.\n\nHinweis: Sollten Sie die Aufgabe a) oder die Teilaufgabe ba) nicht gelöst haben, gehen Sie von 100.000 Scans/Aufnahmen pro Tag und 70 MiB Datenvolumen pro Scan aus.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Datenvolumen pro Tag\n72.000 Scans/Tag * 73,25 MiB = 5.274.000,00 MiB\ndurch 1.024 = 5.150,39 GiB\ndurch 1.024 = 5,029678345 TiB\naufgerundet = 6 TiB\n\nErsatzrechnung mit 100.000 Scans/Tag und 70 MiB:\n7.000.000,00 MiB → 6.835,94 GiB → 6,675720215 TiB → aufgerundet 7 TiB",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1417,
+              "height": 2179
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "73,25 MiB",
+                "wert": 73.25,
+                "einheit": "MiB"
+              },
+              {
+                "text": "5.274.000,00 MiB",
+                "wert": 5274000.0,
+                "einheit": "MiB"
+              },
+              {
+                "text": "5.150,39 GiB",
+                "wert": 5150.39,
+                "einheit": "GiB"
+              },
+              {
+                "text": "5,029678345 TiB",
+                "wert": 5.029678345,
+                "einheit": "TiB"
+              },
+              {
+                "text": "6 TiB",
+                "wert": 6.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "70 MiB",
+                "wert": 70.0,
+                "einheit": "MiB"
+              },
+              {
+                "text": "7.000.000,00 MiB",
+                "wert": 7000000.0,
+                "einheit": "MiB"
+              },
+              {
+                "text": "6.835,94 GiB",
+                "wert": 6835.94,
+                "einheit": "GiB"
+              },
+              {
+                "text": "6,675720215 TiB",
+                "wert": 6.675720215,
+                "einheit": "TiB"
+              },
+              {
+                "text": "7 TiB",
+                "wert": 7.0,
+                "einheit": "TiB"
+              }
+            ],
+            "begriffe": [
+              "5.274",
+              "6.835",
+              "100.000",
+              "Ersatzrechnung",
+              "5.150",
+              "7.000",
+              "72.000",
+              "Datenvolumen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2ca",
+          "label": "ca)",
+          "fullLabel": "2 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "In Abstimmung mit der IT-Leitung beschließen Sie, ein redundantes Speichersystem einzurichten. Dazu sind folgende Komponenten verfügbar:\n– 2 Festplatten (je 3 TB Speicherkapazität)\n– 7 Festplatten (je 2 TB Speicherkapazität)\n– PCI RAID-Hostadapter",
+          "prompt": "Mit allen vorhandenen Festplatten soll eine fehlertolerante RAID 5-Konfiguration erstellt werden, welche die größtmögliche Nettospeicherkapazität biete.\n\nBerechnen Sie die maximale Nettospeicherkapazität in TB. Der Rechenweg ist anzugeben.\n\nRAID-Level:\nNetto-Speicherkapazität:\nRechenweg:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "RAID-Level: RAID 5\nRechenweg: Nutzung der kleinsten gemeinsamen Kapazität der Platten (2 Punkte)\n(9 - 1) x 2 TB = 16 TB\n\nNettospeicherkapazität: 16 TB (2 Punkte)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1417,
+              "height": 2179
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "RAID"
+            ],
+            "treffer": [
+              "raid"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "2 TB",
+                "wert": 2.0,
+                "einheit": "TB"
+              },
+              {
+                "text": "16 TB",
+                "wert": 16.0,
+                "einheit": "TB"
+              }
+            ],
+            "begriffe": [
+              "Nettospeicherkapazität",
+              "Kapazität",
+              "TB",
+              "Level",
+              "Rechenweg",
+              "RAID",
+              "Platten",
+              "Nutzung"
+            ]
+          },
+          "felder": [
+            {
+              "label": "RAID-Level",
+              "maxPoints": 1.5
+            },
+            {
+              "label": "Netto-Speicherkapazität",
+              "maxPoints": 1.5
+            },
+            {
+              "label": "Rechenweg",
+              "maxPoints": 1.5
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2cb",
+          "label": "cb)",
+          "fullLabel": "2 cb)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Für einen Vergleich soll auch die Speicherkapazität berechnet werden, wenn man die gegebenen Festplatten als JBOD (Zusammenfassung aller Festplatten zu einem logischen Volume) nutzt.\n\nErmitteln Sie die erreichbare Speicherkapazität in TB. Der Rechenweg ist anzugeben.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "20 TiB\n\nRechenweg:\n2 x 3 TiB = 6 TiB\n7 x 2 TiB = 14 TiB\n6 TiB + 14 TiB = 20 TiB",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1544,
+              "height": 579
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1407,
+              "height": 591
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Aus dem Katalog gestrichen.",
+            "themen": [
+              "SAN / JBOD"
+            ],
+            "treffer": [
+              "san"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "20 TiB",
+                "wert": 20.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "3 TiB",
+                "wert": 3.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "6 TiB",
+                "wert": 6.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "2 TiB",
+                "wert": 2.0,
+                "einheit": "TiB"
+              },
+              {
+                "text": "14 TiB",
+                "wert": 14.0,
+                "einheit": "TiB"
+              }
+            ],
+            "begriffe": [
+              "Rechenweg"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2cc",
+          "label": "cc)",
+          "fullLabel": "2 cc)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie zwei Vorteile, die ein Laufwerksverbund als JBOD gegenüber einem RAID 0 bietet.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "– Ein RAID-Controller ist nicht erforderlich.\n– Volle Ausnutzung der Speicherkapazitäten bei unterschiedlichen Plattengrößen.\n– Keine identischen Platten erforderlich.\n– Relativ einfache Erweiterung möglich.\n– Die Nennung weiterer Vorteile ist möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1544,
+              "height": 579
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1407,
+              "height": 591
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.; Aus dem Katalog gestrichen.",
+            "themen": [
+              "RAID",
+              "SAN / JBOD"
+            ],
+            "treffer": [
+              "raid",
+              "san"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Speicherkapazitäten",
+              "Volle Ausnutzung",
+              "Controller",
+              "Plattengrößen",
+              "Relativ",
+              "Erweiterung",
+              "RAID",
+              "Platten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die im Netzwerk der Hauptverwaltung eingesetzten NAS-Speichersysteme sollen durch ein SAN (Storage Area Network) abgelöst werden.\n\nNennen Sie drei Vorteile, die den Einsatz begründen.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "– SAN besitzt höhere Performance\n– Erlaubt zeitnahe Datensicherung\n– Ein SAN arbeitet blockorientiert und ist für alle Anwendungen und Betriebssysteme kompatibel\n– Sehr gute Ressourcenauslastung, da viele Systeme gleichzeitig zugreifen können\n– Besonders geeignet für häufige Zugriffe\n– Bietet Maximum an Skalierbarkeit\n– Unabhängig vom Standort und zentraler Verwaltung\n– Unterbrechungsfreie Online-Erweiterung von Daten-Volumen möglich\n– Die Verwaltung des SAN kann vom Arbeitsplatz des Administrators geschehen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1544,
+              "height": 579
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1407,
+              "height": 591
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Aus dem Katalog gestrichen.",
+            "themen": [
+              "SAN / JBOD"
+            ],
+            "treffer": [
+              "san"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Unterbrechungsfreie Online-Erweiterung",
+              "Administrators",
+              "Erlaubt",
+              "Unabhängig",
+              "Ressourcenauslastung",
+              "Verwaltung",
+              "Daten-Volumen",
+              "Betriebssysteme"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für die Kennzeichnung der produzierten Kartonrollen durch einen maschinenlesbaren Aufkleber schlägt die Geschäftsleitung die Verwendung von Barcode, QR-Code oder RFID-Chips vor.\n\nStellen Sie jeweils einen Vor- und Nachteil der Kennzeichnung mit QR-Code bzw. RFID-Chips in folgender Tabelle gegenüber.\n\nKennzeichnung | Vorteil                                        | Nachteil\nBarcode       | einfach zu erstellen; kostengünstig            | Kann bei Verschmutzung oder Sichtbehinderung nicht gelesen werden; relativ umfangreiche Zeichenfolge\nQR-Code       | ?                                              | ?\nRFID-Chip     | ?                                              | ?",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "pro offenes Feld 1 Punkt\n\nQR-Code\nVorteil: einfach zu erstellen; kostengünstig; umfangreiche Datenmenge zur Beschreibung möglich\nNachteil: kann bei Verschmutzung oder Sichtbehinderung nicht gelesen werden\n\nRFID-Chip\nVorteil: Auslesen auch ohne direkten Sichtkontakt möglich; umfangreiche Datenmenge zur Beschreibung möglich\nNachteil: relativ aufwendig in der Herstellung der RFID-Chips; kostenintensiv",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1544,
+              "height": 579
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 1407,
+              "height": 591
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Datenmenge",
+              "Herstellung",
+              "Sichtkontakt",
+              "Chips",
+              "Sichtbehinderung",
+              "QR",
+              "Auslesen",
+              "RFID"
+            ]
+          },
+          "felder": [
+            {
+              "label": "QR-Code — Vorteil",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "QR-Code — Nachteil",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "RFID-Chip — Vorteil",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "RFID-Chip — Nachteil",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "",
+      "maxPoints": 28,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Zur fachgerechten Kommunikation zwischen den Einzelkomponenten in der Automatisierung wird über den Einsatz von IPv6 als Ersatz für IPv4 nachgedacht.\n\nNennen Sie zwei technologische Vorteile der IPv6-Adressierung gegenüber IPv4, die für den Einsatz im Bereich IoT relevant sein können.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "z. B.\n– Nahezu uneingeschränkte Adresszahl\n– Weltweite Erreichbarkeit einzelner Komponenten\n– Verbesserte Integration von Sicherheitsmaßnahmen wie IPSec\n– Verschlankung des Protokoll-Headers",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 883,
+              "height": 302
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1384,
+              "height": 366
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-h_p06_f3.png",
+              "sourcePage": 6,
+              "width": 296,
+              "height": 132
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2022-h_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1000,
+              "height": 132
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2022-h_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1406,
+              "height": 1038
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Weltweite Erreichbarkeit",
+              "Nahezu",
+              "Protokoll-Headers",
+              "Verbesserte Integration",
+              "Sicherheitsmaßnahmen",
+              "Verschlankung",
+              "Adresszahl",
+              "Komponenten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3b",
+          "label": "b)",
+          "fullLabel": "3 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In einer abgeschlossenen Testumgebung soll die Kommunikation zwischen einigen Netzwerkkomponenten über IPv6 geprüft werden. Dabei soll eine globale Adresse ähnlich derjenigen aus einem anderen Teilnetz des Betriebs 2001:da8:5f2d:28::/64 verwendet werden. Hier handelt es sich bereits um eine verkürzte Schreibweise. Sie besteht aus einem 48-Bit langem Standortpräfix und einer 16-Bit Teilnetz-ID.\n\nIdentifizieren Sie in der gegebenen Adresse die beiden genannten Komponenten und geben Sie die beiden Teile der Adresse in ihrer ungekürzten Form im hexadezimalen Format an.\n\nUngekürztes Standortpräfix:\nUngekürzte Teilnetz-ID:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "(je 2 Punkte)\nUngekürztes Standortpräfix: 2001:0da8:5f2d\nUngekürzte Teilnetz-ID: 0028",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 883,
+              "height": 302
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1384,
+              "height": 366
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-h_p06_f3.png",
+              "sourcePage": 6,
+              "width": 296,
+              "height": 132
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2022-h_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1000,
+              "height": 132
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2022-h_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1406,
+              "height": 1038
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Ungekürztes Standortpräfix",
+              "Ungekürzte Teilnetz-ID",
+              "ID"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Ungekürztes Standortpräfix",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "Ungekürzte Teilnetz-ID",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "3c",
+          "label": "c)",
+          "fullLabel": "3 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Geben Sie an, wie viele Teilnetze mit der gegebenen IPv6-Adresse gebildet werden können.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "2^16",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 883,
+              "height": 302
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1384,
+              "height": 366
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-h_p06_f3.png",
+              "sourcePage": 6,
+              "width": 296,
+              "height": 132
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2022-h_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1000,
+              "height": 132
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2022-h_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1406,
+              "height": 1038
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3d",
+          "label": "d)",
+          "fullLabel": "3 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Vergeben Sie für die abgebildete IoT-Testumgebung nutzbare IPv6-Adressen auf der Grundlage der gegebenen globalen Adresse für alle Geräte. Vermischen Sie dabei aus Gründen der Übersichtlichkeit nicht die Adressen der Endgeräte mit denen der Netzwerkgeräte. Richten Sie die IP-Adressierung so ein, dass alle Geräte später auch aus einem anderen Teilnetz über den Router gewartet werden können.\n\nGegeben:\nRouter: 2001:da8:5f2d:29::1/64\nSwitch: Adresse 2001:da8:5f2d:29::2/64, Gateway: ?\nSensor mit Netzwerkanschluss: Adresse ?, Gateway ?\nSteuerung mit Netzwerk-Anschluss: Adresse ?, Gateway ?\nIndustrie PC: Adresse 2001:da8:5f2d:29::20/64, Gateway ?",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Router mit Standard-Gateway: 2001:da8:5f2d:29::1/64\n\nSwitch\n  Adresse: 2001:da8:5f2d:29::2/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nSensor mit Netzwerkanschluss\n  Adresse: 2001:da8:5f2d:29::18/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nSteuerung mit Netzwerkanschluss\n  Adresse: 2001:da8:5f2d:29::19/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nIndustrie-PC\n  Adresse: 2001:da8:5f2d:29::20/64\n  Gateway: 2001:da8:5f2d:29::1/64\n\nAndere Lösungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 883,
+              "height": 302
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1384,
+              "height": 366
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-h_p06_f3.png",
+              "sourcePage": 6,
+              "width": 296,
+              "height": 132
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2022-h_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1000,
+              "height": 132
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2022-h_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1406,
+              "height": 1038
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Industrie-PC",
+              "Steuerung",
+              "Router",
+              "Netzwerkanschluss",
+              "Sensor",
+              "Standard-Gateway",
+              "Gateway",
+              "Switch"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3e",
+          "label": "e)",
+          "fullLabel": "3 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Auf dem IoT-Gerät 1 soll nun die Erreichbarkeit des Loopback-Interfaces und des Standard-Gateways auf einer Kommandozeile geprüft werden.\n\nGeben Sie die erforderlichen Befehle an.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "z. B. ping ::1 , ping 2001:da8:5f2d:29::1",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1384,
+              "height": 249
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1407,
+              "height": 1102
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": []
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3f",
+          "label": "f)",
+          "fullLabel": "3 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nach der Eingabe des Befehls `ip addr` zur Anzeige der Netzwerkkonfiguration erscheint u. a. die Ausgabe\nfe80::62eb:69ff:fed2:d2a6/64\n\nGeben Sie den Grund dafür an, dass eine IPv6-Adresse angezeigt wird, die Sie nicht konfiguriert hatten und benennen Sie dabei die Adressart.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Es handelt sich um eine automatisch vergebene Link-Local-(Unicast)-Adresse.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1384,
+              "height": 249
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1407,
+              "height": 1102
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Link-Local",
+              "Unicast",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3g",
+          "label": "g)",
+          "fullLabel": "3 g)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Geschäftsführung möchte im Umfeld der Maschinenautomatisierung die Mitarbeiter mit weiteren mobilen und robusten Geräten ausstatten. Der Bedarf beträgt im ersten Schritt 30 Stück.\n\nFolgende drei unverbindliche Angebote liegen vor:\n\n                                | Noteplus AG, Mainz          | Notebook-Clever.de, Berlin | PC-Genie KG, Frankfurt\nBareinkaufspreis pro Stück      | 1.000 EUR                   | 1.100 EUR                  | 1.300 EUR\nLieferbedingungen/-kosten/Stück | Ab Werk: 15 EUR             | Frachtfrei: 10 EUR         | Frei Haus\nBezugspreis pro Stück           | ?                           | ?                          | ?\nLieferzeit                      | 5 Wochen                    | 3 Wochen                   | 1 Woche\nQualität                        | Gut                         | Durchschnitt               | Sehr gut\nKundenrückmeldungen             | Öfter bei Lieferungen       | Lieferung ohne             | Sehr gutes\n                                | kleine Mängel               | Beanstandung               | Kulanzverhalten\n\nBerechnen Sie zuerst den Bezugspreis pro Stück. Bewerten Sie anschließend die Anbieter und Angebote mit einer Skala von 1 (schwach) bis 3 (sehr gut).\n\nFühren Sie mithilfe der vorliegenden Daten einen gewichteten Angebotsvergleich durch und entscheiden Sie sich für den geeigneten Lieferanten.\n\nKriterien   | Gewichtung\nBezugspreis | 11\nLieferzeit  |  8\nQualität    |  9\nErfahrung   |  5",
+          "maxPoints": 10,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Kriterien     | Gew. | Noteplus AG P/gP | Notebook-Clever.de P/gP | PC-Genie KG P/gP\nBezugspreis   | 11   | 3 / 33           | 2 / 22                  | 1 / 11\nLieferzeit    |  8   | 1 / 8            | 2 / 16                  | 3 / 24\nQualität      |  9   | 2 / 18           | 1 / 9                   | 3 / 27\nErfahrung     |  5   | 1 / 5            | 2 / 10                  | 3 / 15\nSumme         |      | 64               | 57                      | 77\n\nEntscheidung: PC-Genie KG, Frankfurt (höchste Punktzahl 77)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1384,
+              "height": 249
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1407,
+              "height": 1102
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Notebook-Clever",
+              "Lieferzeit",
+              "Qualität",
+              "Frankfurt",
+              "Noteplus",
+              "Punktzahl",
+              "Kriterien",
+              "KG"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Bezugspreis pro Stück — Noteplus AG, Mainz",
+              "maxPoints": 3.5
+            },
+            {
+              "label": "Bezugspreis pro Stück — Notebook-Clever.de, Berlin",
+              "maxPoints": 3.5
+            },
+            {
+              "label": "Bezugspreis pro Stück — PC-Genie KG, Frankfurt",
+              "maxPoints": 3.5
+            }
+          ],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "4aa",
+          "label": "aa)",
+          "fullLabel": "4 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Sie erhalten den Auftrag, Produktionsdaten an die Steuerung der Walzanlage zu übergeben. Die Produktionsdaten werden in einer SQL-Datenbank gespeichert. Alle Datentypen sind Ganzzahlen. Die Breite, Länge und Dicke der Wellpappe wird in der Datenbank in Millimeter gespeichert.\n\nDie Tabelle ProductionData hat den folgenden Aufbau:\n  OrderID (PK)\n  Width\n  Length\n  Thickness\n  Quantity",
+          "prompt": "Geben Sie den SQL-Befehl an, der die Breite, die Länge, die Dicke und die Anzahl der OrderID 736298 ausgibt. Die OrderID soll nicht in der Ergebnismenge enthalten sein.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "SELECT Width, Length, Thickness, Quantity FROM ProductionData WHERE OrderID = 736298;",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 633
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1374,
+              "height": 185
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1097,
+              "height": 217
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 308,
+              "height": 132
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Width",
+              "Quantity",
+              "Length",
+              "Thickness",
+              "WHERE",
+              "FROM",
+              "SELECT"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4ab",
+          "label": "ab)",
+          "fullLabel": "4 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Wie viele Produktionsaufträge für Wellpappen mit einer Dicke von 2 mm wurden bisher in der Datenbank gespeichert.\n\nGeben Sie dazu den entsprechenden SQL-Befehl an.",
+          "maxPoints": 4,
+          "answerType": "diagram",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "SELECT Thickness, COUNT(*) AS „Anzahl Wellpappen\" FROM ProductionData\nGROUP BY Thickness\nHAVING Thickness = 2;",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 633
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1374,
+              "height": 185
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1097,
+              "height": 217
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 308,
+              "height": 132
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Anzahl Wellpappen",
+              "HAVING",
+              "AS",
+              "GROUP",
+              "Thickness",
+              "COUNT",
+              "BY",
+              "FROM"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4ac",
+          "label": "ac)",
+          "fullLabel": "4 ac)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Geben Sie die Gesamtanzahl gefertigter Wellpappen aus der Datenbank an, die mit einer Dicke von 2 mm, einer Breite von 200 mm und einer Länge von 300 mm gefertigt worden sind.\n\nGeben Sie dazu den entsprechenden SQL-Befehl an.",
+          "maxPoints": 4,
+          "answerType": "diagram",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "SELECT SUM(Quantity) AS „Gesamtanzahl\"\nFROM ProductionData\nWHERE Width = 200 AND Length = 300 AND Thickness = 2\nGROUP BY Width;\n\nHinweis für den Prüfer: statt GROUP BY Width geht auch GROUP BY Length oder GROUP BY Thickness.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 633
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1374,
+              "height": 185
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1097,
+              "height": 217
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 308,
+              "height": 132
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "SUM",
+              "Gesamtanzahl",
+              "AS",
+              "Width",
+              "AND",
+              "Quantity",
+              "Length",
+              "GROUP"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4b",
+          "label": "b)",
+          "fullLabel": "4 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die abgefragten Produktionsdaten werden über eine entsprechende API an die Steuerung der Walzanlage übergeben. Die Auftragsdaten werden im Array result[] mit dem Index 0 bis 3 gespeichert. Gehen Sie von einem Array result[] aus, bei dem im Index 0 die Breite, im Index 1 die Länge, im Index 2 die Dicke und im Index 3 die Anzahl der zu produzierenden Wellpappen stehen.\n\nErstellen Sie die Funktion „launchTask(result[])\".\n\nZur Kommunikation mit der Steuerung der Walzanlage stehen Ihnen die folgenden API-Funktionen zur Verfügung:\nsetRollerDim(int,int,int) – Übergeben wird Breite, Länge und Dicke der Wellpappe.\nrollerStart() – Startet einen Auftrag von einem Stück. Es wird eine Wellpappe mit den gesetzten Parametern erzeugt.\n\nDie Walzanlage verfügt über einen Notausschalter. Sie darf nur laufen, wenn der Notaus nicht ausgelöst ist.\nDer Status des Notausschalters kann mit der Funktion bool getEmergencyStop() abgefragt werden, der „true\" liefert wenn der Notaus ausgelöst ist und „false\" wenn der Notaus nicht ausgelöst ist.\n\nErgänzen Sie das gegebene Struktogramm durch die entsprechenden Befehle zur Produktion der geforderten Anzahl von Wellpappen (siehe Index 3) in den angegebenen Maßen (siehe Index 0, 1 und 2).\n\nVorgegeben:\n  launchTask(result[])\n  int i = 0\n  bool emergencyStop = getEmergencyStop()\n  [leer]\n  [leer — Schleifenkopf]\n      [leer]\n      [leer]\n      [leer]",
+          "maxPoints": 7,
+          "answerType": "diagram",
+          "topics": [
+            "programmierung"
+          ],
+          "solution": {
+            "text": "launchTask(result[])\n1  launchTask(result[])\n2  int i = 0\n3  bool emergencyStop = getEmergencyStop()\n4  setRollerDim(result[0], result[1], result[2])\n5  wiederhole solange i < result[3] und emergencyStop = false\n6      rollerStart()\n7      emergencyStop = getEmergencyStop()\n8      i = i + 1\n\nZeile 4, 6 und 8 je 1 Punkt, Zeile 5 und 7 je 2 Punkte.\nHinweis: Die Zeilen 6, 7 und 8 dürfen in der Reihenfolge vertauscht werden.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2022-h_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1407,
+              "height": 1219
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_11.png",
+          "placeholder": "Struktogramm: schreibe im Antwortfeld die fehlenden Zeilen von oben nach unten, mit Einrückung für den Schleifenkörper.",
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Gestrichen — geblieben ist nur Pseudocode.",
+            "themen": [
+              "Struktogramm / PAP"
+            ],
+            "treffer": [
+              "struktogramm"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Zeilen",
+              "Reihenfolge",
+              "Zeile"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für die Produktion von Wellpappen ist die vorhandene Datenbank zu erweitern. Die Firma hat sich für ein SQL-fähiges relationales Datenbanksystem entschieden, in der die nachfolgenden Bedingungen berücksichtigt werden sollen. Die Speicherung der Datenbank wird auf dem Hostrechner „Steuerungs-PC\" realisiert.\n\nIn dieser Datenbank sollen nur die Zusammenhänge zwischen den Walzanlagen und den Produktionsdaten abgebildet werden.\n\nIn der Produktionshalle sind mehrere Walzanlagen vorhanden. Diese jeweiligen Walzanlagen können Wellpappen mit unterschiedlichen Dicken (z. B. kleiner 4 mm, 4-8 mm, 8-12 mm) herstellen. In der Datenbank soll gespeichert werden, welche Walzanlage für welche Dicken (Spezifikation) verwendet werden kann. Außerdem soll das Baujahr, die Bezeichnung und eine eindeutige Maschinennummer gespeichert werden.\n\nFür jede Walzanlage sollen die entsprechenden Produktionsdaten (Breite, Länge, Dicke und Anzahl) mit dem jeweiligen Zeitstempel abgespeichert werden.\n\nVervollständigen Sie das vorgegebene Entity-Relationship-Modell (kurz: ERM) für diese Datenbank mit allen erforderlichen Attributen und Kardinalitäten.\n\nHinweis: Die eventuell benötigten Fremdschlüssel müssen nicht in diesem Entwurf eingetragen werden. Die Kardinalität zwischen den beiden Tabellen soll auf die entsprechenden Beziehungslinien eingetragen werden.\n\n(Vorgegeben: Entitäten „Walzanlage\" und „Produktionsdaten\", verbunden über eine Beziehungsraute; Kardinalitäten und alle Attribute fehlen.)",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "Kardinalität: 1 Punkt | Kennzeichnung Primärschlüssel in beiden Tabellen: 2 Punkte | Attribute: 3 Punkte\n\nWalzanlage (WID = Primärschlüssel)\n  Attribute: Spezifikation, Bezeichnung, Baujahr\n\nProduktionsdaten (OrderID = Primärschlüssel)\n  Attribute: Breite, Länge, Dicke, Zeitstempel, WID\n\nBeziehung: Walzanlage 1 —liefern— n Produktionsdaten\n\nHinweis: Fremdschlüssel# optional, nicht in der Aufgabenstellung gefordert.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-h_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 12,
+          "assets": [
+            {
+              "id": "p12_f1",
+              "file": "assets/ap1-2022-h_p12_f1.png",
+              "sourcePage": 12,
+              "width": 1417,
+              "height": 772
+            },
+            {
+              "id": "p12_f2",
+              "file": "assets/ap1-2022-h_p12_f2.png",
+              "sourcePage": 12,
+              "width": 329,
+              "height": 260
+            },
+            {
+              "id": "p12_f3",
+              "file": "assets/ap1-2022-h_p12_f3.png",
+              "sourcePage": 12,
+              "width": 382,
+              "height": 260
+            },
+            {
+              "id": "p12_f4",
+              "file": "assets/ap1-2022-h_p12_f4.png",
+              "sourcePage": 12,
+              "width": 264,
+              "height": 239
+            }
+          ],
+          "pageImage": "assets/ap1-2022-h_seite_12.png",
+          "placeholder": "ER-Modell: nenne im Antwortfeld die Attribute beider Entitäten (Primärschlüssel markieren), den Namen der Beziehung und die Kardinalitäten.",
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "3 Punkte",
+                "wert": 3.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Produktionsdaten",
+              "Walzanlage",
+              "WID",
+              "Dicke",
+              "Spezifikation",
+              "Aufgabenstellung",
+              "Kennzeichnung Primärschlüssel",
+              "Bezeichnung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

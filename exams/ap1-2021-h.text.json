@@ -1,0 +1,205 @@
+{
+  "examId": "ap1-2021-h",
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2021,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2021-h-aufgaben.pdf",
+      "solutions": "ap1-2021-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie sind Mitarbeiter/-in der IT.SYS GmbH, einem Systemhaus, welches IT-Dienstleistungen für Privatpersonen und Unternehmen anbietet.\n\nEin Kunde der IT.SYS GmbH ist die Arztpraxis Care. Diese wird mit ihrer Praxis an einen neuen Standort ziehen. Dabei soll die IT-Technik zum Teil erneuert werden. Die IT.SYS GmbH wird mit der Planung und Umsetzung des Umzuges beauftragt.\n\nSie arbeiten an diesem Projekt mit und sollen die folgenden vier Aufgaben erledigen:\n– Das Projekt zur Installation der IT planen und einen Netzplan vervollständigen\n– Die Energiebilanz der neuen Hardware optimieren und Fehler in einem Skript korrigieren\n– Die Migration der bestehenden Postfächer auf den neuen E-Mail-Server vorbereiten\n– Maßnahmen zum Datenschutz und zur Datensicherung ergreifen und den Kunden beraten",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "In Vorbereitung des Umzuges arbeiten Sie an der Planung mit.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Ihr Kollege sagt zu Ihnen, bei dem Umzug der Arztpraxis handelt es sich um ein Projekt.\n\nNennen Sie vier Merkmale eines Projekts.",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Die Ziele in einem Projekt sollen den SMART-Kriterien entsprechen.\n\nNennen Sie die vier weiteren SMART-Kriterien auf Deutsch oder Englisch.\n\nS  specific – spezifisch\nM\nA\nR\nT",
+          "sourcePage": 2,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "In Vorbereitung des Projektes wird ein Netzplan erstellt. Ihr Kollege hat bereits mit der Erstellung angefangen und bittet Sie, diesen zu vervollständigen.\n\nTragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein.\n\nHinweis:\nFAZ = frühester Anfangszeitpunkt\nFEZ = frühester Endzeitpunkt\nFP  = freie Puffer (= FAZ des Nachfolgers – FEZ des aktuellen Vorgangs)\nSAZ = spätester Anfangszeitpunkt, SEZ = spätester Endzeitpunkt\nGP  = Gesamtpuffer (= SAZ – FAZ oder = SEZ – FEZ)",
+          "sourcePage": 3,
+          "answerType": "diagram",
+          "placeholder": "Netzplan-Knoten ausfüllen — öffne die vollständige Seite und rechne die Werte im Antwortfeld durch (z. B. „A: FAZ 0, FEZ 2, SAZ 0, SEZ 2, GP 0, FP 0“)."
+        },
+        {
+          "label": "d)",
+          "prompt": "Markieren Sie den kritischen Pfad im Netzplan.",
+          "sourcePage": 3,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Der Vorgang H, der Abbau der alten Infrastruktur, verzögert sich um vier Stunden.\n\nBeschreiben Sie die Auswirkung auf das Projektende.",
+          "sourcePage": 2,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Im Rahmen des Umzuges sollen einige PCs neu angeschafft werden. Der Kunde soll sich zwischen zwei PC-Varianten entscheiden. Beide PC-Varianten sind nahezu baugleich bis auf das verwendete Netzteil.\n\nSie wurden damit beauftragt, für eine Besprechung die Energieeffizienz der beiden PCs unter ökonomischen Gesichtspunkten zu vergleichen.\n\nBetriebsstunden:\n– 9 Stunden pro Tag\n– Betrieb an 20 Arbeitstagen pro Monat\n\nDie beiden zu vergleichenden PCs sind wie folgt ausgestattet:\n– PC-A hat ein niedrigpreisiges Netzteil ohne Zertifikat.\n– PC-B hat ein Netzteil nach dem 80Plus Gold Standard.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Errechnen Sie die Leistung und die Energiekosten pro Monat, wenn eine kWh 30 Cent kostet.\n\nDem englischsprachigen Manual des Netzteils können Sie folgende Definition entnehmen:\nEfficiency = Useful power output / Total power input\n\nTabelle (auszufüllen):\n                                                            PC-A      PC-B\nWirkungsgrad des Netzteils bei 60 W in Prozent               43 %      76 %\nDurch die Komponenten des PCs benötigte durchschnittliche\nLeistung im Betrieb                                         60 W      60 W\nVom Netzteil bezogene Leistung aus dem Stromnetz         139,53 W     ?\nEnergiekosten pro Monat in EUR                               ?        ?",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Der PC mit dem Netzteil nach dem 80Plus Gold Standard kostet in der Anschaffung 100 EUR mehr.\n\nBerechnen Sie die Dauer in Monaten, ab der sich die Anschaffung amortisiert hat.\nHinweis: Falls Sie Aufgabe a) nicht lösen konnten, rechnen Sie bei PC-A mit 6,83 EUR und bei PC-B mit 4,78 EUR.",
+          "sourcePage": 4,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Machen Sie drei weitere Vorschläge zur Senkung der Energiekosten des IT-Arbeitsplatzes.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Bei der Installation der Geräte stellen Sie fest, dass folgende Geräte über eine einzige Mehrfachsteckdose mit der Aufschrift „maximal 16 A“ angeschlossen werden sollen.\n– 3 PCs mit einer maximalen Leistungsaufnahme von jeweils 180 W\n– Ein Drucker mit einer maximalen Leistungsaufnahme von 400 W\n– Eine Kaffeemaschine mit einer maximalen Leistungsaufnahme von 1.200 W\n– Klimagerät mit einer maximalen Leistungsaufnahme von 2.000 W\n\nWeisen Sie durch eine Rechnung nach, dass diese Geräte nicht gleichzeitig betrieben werden können.",
+          "sourcePage": 5,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Für den gewählten Rechner wird eine Datensicherung erstellt. Ihr Kollege hat das folgende Skript erstellt, welches eine Warnung ausgeben soll, wenn der Speicherplatz auf dem Ziellaufwerk Z unter 15 % fällt.\n\nErstelltes Skript:\n  $Drive = Get-Volume -DriveLetter Z\n  $Prozent=($Drive.SizeRemaining/$Drive.Size)* 1000\n  if($Prozent -gt 15)\n  {\n      Write-Host „Es sind weniger als 15% Speicherplatz frei.“\n  }\n  else\n  {\n      Write-Host „Es ist genügend Speicherplatz verfügbar.“\n  }\n\nLeider funktioniert das Skript nicht wie gewünscht und bringt eine Warnmeldung, obwohl das Laufwerk nur zu 50 % gefüllt ist.\n\nLesen Sie sich die folgende Anleitung (manual) durch und korrigieren Sie die zwei Fehler.\n\nManual: To use a comparison operator, specify the values that you want to compare together with an operator that separates these values. The Shell includes the following comparison operators:\n  -eq  equals\n  -ne  not equals\n  -gt  greater than\n  -ge  greater than or equal\n  -lt  less than\n  -le  less than or equal\nNote:\nWrite-Host produce a display output.\nGet-Volume return a Volume object that match the specified criteria.",
+          "sourcePage": 6,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Die Arztpraxis Care benötigt Unterstützung bei der Auswahl notwendiger IT. Die Arztpraxis beauftragt Sie, sie bzgl. der Auswahl von Hardware- und Softwarekomponenten zu unterstützen.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "Grundlage für einen möglichen Auftrag an die IT.SYS GmbH ist ein Lastenheft der Arztpraxis Care, das die spezifischen Anforderungen des Auftraggebers an den potenziellen Auftragnehmer beschreibt.\n\nBenennen Sie fünf inhaltliche Aspekte, die in solch einem Lastenheft üblicherweise enthalten sind.",
+          "sourcePage": 6,
+          "answerType": "text"
+        },
+        {
+          "label": "ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Eines der Projektziele ist die Ablösung eines veralteten E-Mail-Systems in der Arztpraxis Care. Ein wesentlicher Aspekt ist hierbei die Migration der bestehenden Postfächer auf den neuen E-Mail-Server. Aus organisatorischen Gründen kann eine solche Migration nur außerhalb der gewöhnlichen Öffnungszeiten der Praxis durchgeführt werden. Die Praxis ist wochentags von 18.00 – 8.00 Uhr geschlossen.\n\nFür betreffende Arbeiten beauftragt die IT.SYS GmbH einen Subunternehmer, der diese unter der Woche durchführen soll. Der Dienstleister verlangt für seine Tätigkeit 130 EUR/h. Die Migration eines Postfachs dauert wegen umfangreicher manueller Nacharbeiten im Schnitt zwei Stunden. In Summe sind 20 Postfächer zu migrieren.",
+          "prompt": "Berechnen Sie die Gesamtkosten für die Migration, die die IT.SYS GmbH berücksichtigen müsste.\n\nDer Rechenweg ist anzugeben.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "bb)",
+          "groupLabel": "b)",
+          "prompt": "Ermitteln Sie, nach wie vielen Tagen die Migration frühestens abgeschlossen ist, wenn das Subunternehmen zwei Angestellte mit einer täglichen Arbeitszeit von 8 h pro Tag einsetzt.\n\nDer Rechenweg ist anzugeben.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Mit dem Auftraggeber wird diskutiert, ob gewisse Arbeiten der IT.SYS GmbH remote durchgeführt werden sollen.\n\nNennen Sie zwei Vorteile sowie zwei Nachteile von remote gegenüber einer Vor-Ort-Wartung.",
+          "sourcePage": 7,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Auf allen Arbeitsplätzen in der Arztpraxis soll eine neue Software-Suite für die Bereiche Textverarbeitung, Tabellenkalkulation und Präsentationen installiert werden. Eine weitere Aufgabe der IT.SYS GmbH ist es, die Mitarbeiter in der Praxis in diese Programme einzuweisen.\n\nBeschreiben Sie drei von den vier vorgegebenen Möglichkeiten, wie die betreffenden Inhalte vermittelt werden können.\n\n(1) Schulung am Arbeitsplatz:\n(2) Webinare:\n(3) Video-Tutorien:\n(4) Multiplikatoren-Schulung:",
+          "sourcePage": 8,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Der Praxisinhaber hat von seinem IT-Dienstleister gehört, dass durch den Verbund mehrerer Festplatten verschiedene RAID-Level gebildet werden können. Besonders wichtig für die Arztpraxis ist es, dass eine hohe Verfügbarkeit der Daten vorhanden ist. Besonders der Ausfall einer Festplatte soll kompensiert werden. Gleichzeitig soll sich der Anteil der Speicherkapazität für die Nutzdaten auf den Festplatten nicht so stark reduzieren.\n\nHinsichtlich dieser Prioritäten beraten Sie den Praxisinhaber und stellen die RAID-Level 0, 1 und 5 vor.\n\nErklären Sie dem Praxisinhaber die Grundfunktionen der drei RAID-Level-Arten und begründen Sie, für welches RAID-Level sich der Praxisinhaber entscheiden sollte.",
+          "sourcePage": 8,
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Die IT.SYS GmbH hat von der Arztpraxis Care auch noch den Auftrag erhalten, Datenschutz und Datensicherheit zu gewährleisten und gegebenenfalls Maßnahmen zu ergreifen. Sie werden beauftragt, sich dieser Aufgabe anzunehmen.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "label": "a)",
+          "prompt": "In einem ersten Schritt informieren Sie sich über allgemeine Grundlagen der Informationssicherheit. Als wichtige Schutzziele werden hier u. a. Vertraulichkeit, Integrität und Verfügbarkeit genannt. Sie klären nun, welches Schutzziel der jeweiligen Sicherheitsmaßnahme zugeordnet werden kann. Setzen Sie dazu pro Zeile jeweils ein Kreuz und geben Sie eine Begründung für Ihre Zuordnung an.\n\nSicherheitsmaßnahmen (Schutzziel + Begründung angeben):\n1. Sichere Passwörter wählen — Beispiel: Vertraulichkeit, „Der Zugriff Fremder auf die Benutzerdaten wird besser geschützt.“\n2. Regelmäßige Datensicherung der Patientendaten\n3. Verschlüsselung der Festplatten\n4. Zentrale Bearbeitung wichtiger Dokumente auf Server\n5. Hashwertüberprüfung bei Softwareinstallation",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "b)",
+          "prompt": "Im IT-Grundschutz-Kompendium des Bundesamtes für Sicherheit in der Informationstechnik (BSI) finden Sie Basis-Anforderungen zur Absicherung eines PC-Clients.\n\nNennen Sie je eine Maßnahme, mit denen die folgenden Anforderungen umgesetzt werden könnten.\n– Aktivieren von Autoupdate-Mechanismen:\n– Differenzieren von Benutzerrollen (Rollentrennung):",
+          "sourcePage": 9,
+          "answerType": "text"
+        },
+        {
+          "label": "c)",
+          "prompt": "Im Rahmen einer Schutzbedarfsanalyse versuchen Sie zu ermitteln, wie wichtig die verwendeten unternehmensrelevanten IT-Anwendungen für den Fortgang des Geschäftsprozesses sind, um das Maß an benötigtem Schutz zu definieren.\n\nSchutzbedarfskategorien:\n– Niedrig bis mittel: Die Schadensauswirkungen sind begrenzt und überschaubar.\n– Hoch: Die Schadensauswirkungen können beträchtlich sein.\n– Sehr hoch: Die Schadensauswirkungen können ein existenziell bedrohliches, katastrophales Ausmaß erreichen.\n\nIn einer Tabelle wurde bereits der Schutzbedarf verschiedener IT-Anwendungen zugewiesen.\nFügen Sie jeweils eine mögliche Begründung für den gewählten Schutzbedarf hinzu.\n\n1. Prüfziffernverfahren bei der Übermittlung der Krankenversicherungsnummer — Integrität, hoch — Beispiel: „Verfälschte Daten bei der Übertragung können zu fehlerhaften Abrechnungen führen.“\n2. Textverarbeitung — Verfügbarkeit, mittel — ?\n3. Software zur telemedizinischen Beratung über Videokonferenz — Vertraulichkeit, hoch — ?\n4. Patientendatenverarbeitung — Integrität, sehr hoch — ?",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "d)",
+          "prompt": "Die Arzthelferin an der Rezeption möchte von Ihnen wissen, für welche Art von Daten ein besonderer Schutz gesetzlich vorgeschrieben ist.\n\nGeben Sie der Arzthelferin Auskunft und benennen Sie hierzu eine rechtliche Grundlage.",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "e)",
+          "prompt": "Führen Sie zwei Kriterien an, die ein sicheres Passwort erfüllen sollte. Beschreiben Sie auch, warum diese Kriterien für eine höhere Sicherheit sorgen.",
+          "sourcePage": 10,
+          "answerType": "text"
+        },
+        {
+          "label": "fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Die Gebührenabrechnungssoftware ist so eingerichtet, dass der Datenbestand freitags beim Herunterfahren des PCs auf einer speziell eingerichteten Partition der Festplatte gesichert wird.",
+          "prompt": "Ihr Teamleiter beauftragt Sie, der Leiterin des Praxismanagements die Risiken aufzuzeigen.\n\nBeschreiben Sie zwei der Risiken.",
+          "sourcePage": 11,
+          "answerType": "text"
+        },
+        {
+          "label": "fb)",
+          "groupLabel": "f)",
+          "prompt": "Unterbreiten Sie der Leiterin einen konkreten Verbesserungsvorschlag.",
+          "sourcePage": 11,
+          "answerType": "text"
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

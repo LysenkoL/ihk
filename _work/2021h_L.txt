@@ -1,0 +1,342 @@
+
+===== SEITE 1 =====
+Abschlussprüfung Herbst 2021
+Lösungshinweise
+IT-Berufe (AO 2020)
+1201 – 1202 – 1203 – 1204 – 1205 – 6470 – 6480
+1
+Allgemeine Korrekturhinweise
+Die Lösungs- und Bewertungshinweise zu den einzelnen Handlungsschritten sind als Korrekturhilfen zu verstehen und 
+erheben nicht in jedem Fall Anspruch auf Vollständigkeit und Ausschließlichkeit. Neben hier beispielhaft angeführten 
+Lösungsmöglichkeiten sind auch andere sach- und fachgerechte Lösungsalternativen bzw. Darstellungsformen mit der 
+vorgesehenen Punktzahl zu bewerten. Der Bewertungsspielraum des Korrektors (z. B. hinsichtlich der Berücksichtigung 
+regionaler oder branchenspezifischer Gegebenheiten) bleibt unberührt.
+Zu beachten ist die unterschiedliche Dimension der Aufgabenstellung (nennen – erklären – beschreiben – erläutern usw.). 
+Wird eine bestimmte Anzahl verlangt (z. B. „Nennen Sie fünf Merkmale …“), so ist bei Aufzählung von fünf richtigen 
+Merkmalen die volle vorgesehene Punktzahl zu geben, auch wenn im Lösungshinweis mehr als fünf Merkmale genannt 
+sind. Bei Angabe von Teil­punkten in den Lösungshinweisen sind diese auch für richtig erbrachte Teilleistungen zu geben.
+Für die Bewertung gilt folgender Punkte-Noten-Schlüssel:
+Note 1	 =	 	
+100 – 92 Punkte	
+Note 2	 =	 unter	
+92 – 81 Punkte
+Note 3	 =	 unter	
+81 – 67 Punkte	
+Note 4	 =	 unter	
+67 – 50 Punkte
+Note 5	 =	 unter	
+50 – 30 Punkte	
+Note 6	 =	 unter	
+30 –   0 Punkte
+Einrichten eines 
+IT-gestützten Arbeitsplatzes
+Teil 1 der Abschlussprüfung
+Die Vervielfältigung, Verbreitung und öffentliche Wiedergabe der Prüfungsaufgaben und Lösungen ist nicht gestattet. Zuwiderhandlungen werden 
+zivil- und strafrechtlich (§§ 97 ff., 106 ff. UrhG) verfolgt. – © ZPA Nord-West 2021 – Alle Rechte vorbehalten!
+
+===== SEITE 2 =====
+ZPA IT 2
+1. Aufgabe (25 Punkte)
+a)	 4 Punkte
+	–
+Zielvorgabe
+	–
+Zeitliche Begrenzung
+	–
+Begrenzte Ressourcen (personell, finanziell)
+	–
+Projektspezifische Organisationsform
+	–
+Einmaligkeit
+	–
+Komplexität
+b)	 4 Punkte
+	
+S	 specific – spezifisch
+	
+M	 measurable – messbar
+	
+A	 accepted- akzeptiert oder attainable – erreichbar oder attractive – attraktiv
+	
+R	 reasonable – realistisch
+	
+T	 time-bound – terminiert
+c)	 14 Punkte
+	
+(1 Punkt Ergänzung eines Netzplanknotens, 2 Punkte voller Netzplanknoten)
+d)	 1 Punkt
+	
+A – B – D – G – I – J – K
+e)	 2 Punkte
+	
+Keine Auswirkung, da der Puffer von 9 Stunden die 4 Stunden Verzögerung auffängt.
+
+===== SEITE 3 =====
+ZPA IT 3
+2. Aufgabe (25 Punkte)
+a)	 6 Punkte
+	
+Betriebsstunden pro Monat: 20 Tage/Monat * 9 Stunden/Tag = 180 Stunden
+PC-A
+PC-B
+Wirkungsgrad des Netzteils bei 60 W in Prozent
+43 %
+76 %
+Durch die Komponenten des PCs benötigte durchschnittliche Leistung im Betrieb (9 h pro 
+Tag)
+60 W
+60 W
+Vom Netzteil bezogene Leistung aus dem Stromnetz 
+139,53 W
+60 W / 0,76 = 78,94 W
+Energiekosten pro Monat in EUR
+180 h * 139,53 W  
+* 0,3 Cent/kWh  
+= 7,53 EUR
+180 h * 78,94 W *  
+0,3 Cent/kWh  
+= 4,26 EUR
+b)	 4 Punkte
+	
+Differenz der Energiebetriebskosten pro Monat: 7,53 EUR - 4,26 EUR = 3,27 EUR
+	
+Bei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung
+	
+100 EUR / 3,27 EUR pro Monat = 30,58 Monate, also nach 31 Monaten.
+	
+Alternativlösung:
+	
+Differenz der Energiebetriebskosten pro Monat: 6,83 EUR - 4,78 EUR = 2,05 EUR
+	
+Bei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung
+	
+100 EUR / 2,05 EUR pro Monat = 48,78 Monate, also nach 49 Monaten.
+c)	 3 Punkte
+	–
+Verwendung von schaltbaren Steckdosen zur Vermeidung von Energiekosten im Standby-Betrieb
+	–
+Verwendung von Monitoren mit Energieeffizienz Label (A, A+, A++, etc. oder neues Label von A - G)
+	–
+Verwendung von Thin Clients
+	–
+u. a.
+d)	 4 Punkte
+	
+Eine Steckdose mit 16 A darf mit maximal 16 A x 230 V = 3.680 Watt belastet werden.
+	
+3 x 180 Watt + 400 Watt + 1.200 Watt + 2.000 Watt = 4.140 Watt ist zu viel.
+e)	 8 Punkte
+Erstelltes Skript
+Falsche Zeilen korrigieren
+$Drive = Get-Volume -DriveLetter Z
+$Prozent=($Drive.SizeRemaining/$Drive.Size) 
+* 1000
+$Prozent=($Drive.SizeRemaining/$Drive.
+Size)*100
+if($Prozent -gt 15) 
+if($Prozent -lt 15)
+{ 
+    Write-Host „Es sind weniger als 15%  
+Speicherplatz frei.“ 
+}
+else
+{ 
+Write-Host „Es ist genügend Speicherplatz 
+verfügbar.“ 
+    }
+
+===== SEITE 4 =====
+ZPA IT 4
+3. Aufgabe (26 Punkte)
+a)	 5 Punkte
+	
+Zum Beispiel:
+	–
+Kurzvorstellung des Auftraggebers
+	–
+Definition des Projektziels
+	–
+Beschreibung der bestehenden IT-Infrastruktur
+	–
+Zeitrahmen der Umsetzung des Projekts
+	–
+Funktionale Anforderungen
+	–
+Rahmenparameter IT-Security und Datenschutz
+ba)	2 Punkte
+	
+Gesamtkosten: 20 * 2 * 130 EUR = 40 * 130 EUR = 5.200 EUR
+bb)	2 Punkte
+	
+Gesamtdauer: 20 * 2 = 40 h -> 40 / 8 = 5 Tage = 5 Tage / 2 Arbeiter => 2,5 Tage
+	
+Aufgerundet 3 Tage auch als richtig anzusehen
+c)	 4 Punkte
+	
+Vorteile:
+	–
+Geringere Kosten – Fahrtkosten, Reisezeit, Spesen
+	–
+Einfachere Einbindung weiterer Spezialisten bei Bedarf
+	–
+Schonung interner Ressourcen – Büro, Konferenzraum
+	–
+Kontaktvermeidung
+	–
+u. a.
+	
+Nachteile:
+	–
+Risiko im Bereich Datenschutz, da Patientendaten abgegriffen werden könnten
+	–
+Zusätzliche Kosten für eine gesicherte Verbindung
+	–
+Wartung bei Verbindungsproblemen nicht möglich
+	–
+u. a.
+d)	 6 Punkte
+	
+z. B.
+	–
+Schulung am Arbeitsplatz: Die Einweisung erfolgt während der Arbeitszeit vor Ort.
+	–
+Webinare: festgelegt von der Zeit, findet online statt, interaktiv
+	–
+Video-Tutorien: zeitlich flexibel und unabhängig genutzt von den anderen Mitarbeitern, keine Interaktion möglich
+	–
+Multiplikatoren-Schulung: Schulung ausgewählter Mitarbeiter, die ihr Wissen an die anderen Mitarbeiter weitergeben sollen
+e)	 7 Punkte
+	
+Erklärung, jeweils 2 Punkte (Gesamt: 6 Punkte), Entscheidungsauswahl 1 Punkt
+	
+RAID 0
+	
+Kommt für die Arztpraxis nicht in Frage, dieses Level ist nur für den schnellen Datenzugriff optimiert, Data Striping wird verwendet, dadurch 
+Erhöhung der Datentransferrate, keine Erhöhung der Datensicherheit
+	
+RAID 1
+	
+Käme nur für eine Priorität in die Auswahl für die Arztpraxis
+	
+Verkraftet den Ausfall einer Festplatte, Mirroring, d. h. vollständige Spiegelung der Daten auf weiteren Platten
+	
+Speicherkapazität für die Nutzdaten reduziert anteilsmäßig, z. B. um 50 %
+	
+RAID 5
+	
+Käme für beide Prioritäten in die Auswahl für die Arztpraxis
+	
+Verkraftet den Ausfall einer Festplatte, Zerlegung der Nutzdaten in Blöcke mit Paritätsinformationen
+	
+Verringerung der Speicherkapazität für die Nutzdaten bei z. B. drei Festplatten bei ca. 33 %
+	
+Entscheidung: RAID 5
+
+===== SEITE 5 =====
+ZPA IT 5
+4. Aufgabe (24 Punkte)
+a)	 6 Punkte, 4 x 0,5 Punkte für Kreuz und je 1 Punkt für Begründung
+Schutzmaßnahme
+Vertraulichkeit
+Integrität
+Verfügbarkeit
+Begründung
+Sichere Passwörter wählen
+x
+Der Zugriff Fremder auf die Benutzerdaten wird besser geschützt.
+Regelmäßige Datensicherung der Patien-
+tendaten
+x
+Daten können bei Verlust der Originaldaten wiederhergestellt 
+werden.
+Verschlüsselung der Festplatten
+x
+Inhaltliche Nutzung der Daten ist für unberechtigte Benutzer 
+nicht möglich.
+Zentrale Bearbeitung wichtiger Doku-
+mente auf Server 
+x
+Kein unterschiedlicher Bearbeitungsstand der Dokumente (z. B. 
+auf Clients).
+Hashwertüberprüfung bei Softwarein-
+stallation
+x
+Wenn der zusammen mit der Software übermittelte Hashwert 
+identisch ist mit dem berechneten Hashwert, kann man davon 
+ausgehen, dass die Software keinen eingeschleusten Trojaner 
+beinhaltet.
+	
+Andere Lösungen mit sinnvollen Begründungen sind möglich.
+b)	 2 Punkte
+	–
+Aktivieren von Autoupdate-Mechanismen: z. B. Windows Updates aktivieren, Update der Virensignaturen aktivieren
+	–
+Differenzieren von Benutzerrollen (Rollentrennung): z. B keine normalen Tätigkeiten mit Administratorrechten durchführen, Installationen 
+und Systemänderungen nur durch Administratoren mit Administratorrechten, nur lesender Zugriff auf Systemdateien für Benutzer.
+c)	 6 Punkte, 2 Punkte pro Begründung
+IT-Anwendung
+Schutzbedarfsfeststellung
+Grundwert
+Schutzbedarf
+Begründung
+Prüfziffernverfahren bei der Übermittlung 
+der Krankenversicherungsnummer
+Integrität
+hoch
+z. B.: Verfälschte Daten bei der Übertragung können 
+zu fehlerhaften Abrechnungen führen.
+Textverarbeitung
+Verfügbarkeit
+mittel
+z. B.: Patientenbriefe und Rechnungen können nur 
+verspätet erstellt werden.
+Software zur telemedizinischen Beratung 
+über Videokonferenz
+Vertraulichkeit
+hoch
+z. B.: Das Bekanntwerden kann die Betroffenen 
+erheblich beeinträchtigen.
+Patientendatenverarbeitung
+Integrität
+sehr hoch
+z. B.: Fehlerhafte Einträge können zu fehlerhaften 
+Diagnosen und Behandlungen führen.
+	
+Andere Begründungen sind möglich.
+d)	 2 Punkte
+	
+Bei personenbezogenen Daten, Patientendaten, Mitarbeiterdaten
+	
+Bundesdatenschutzgesetz oder DSGVO
+e)	 4 Punkte
+	
+z. B.
+	–
+Ausreichende Länge  schwer zu ermitteln!
+	–
+Verwendung von Sonderzeichen  Erhöhung des Zeichenvorrats  schwieriger zu entschlüsseln
+	–
+Unsinnige Zeichenketten verwenden (keine festen Begriffe)  Softwareunterstütztes Ausspionieren mit Wörterbuch wird erschwert
+	–
+Unterschiedliche Passwörter für unterschiedliche Zugänge verwenden  Risikominimierung bei Bekanntwerden eines Passwortes
+	–
+u. a.
+fa)	 2 Punkte
+	
+Keine zeitliche und räumliche Trennung der gesicherten Daten vorhanden
+	
+Wöchentlicher Sicherungszyklus zu lange, Rekonstruktion bei Datensicherung kaum möglich bzw. sehr aufwendig
+fb)	 2 Punkte
+	
+Externe Sicherung
+	
+Sicherungskonzept mit zumindest täglicher Sicherung der veränderten Daten
+	
+Alle relevanten Daten müssen regelmäßig auf geeignete externe Medien gesichert werden. Das externe Medium ist „abzumelden“ und 
+sicher an einem anderen Ort zu verwahren.
+
+===== SEITE 6 =====
+
+===== SEITE 7 =====
+
+===== SEITE 8 =====

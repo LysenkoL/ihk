@@ -1,0 +1,182 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 3,
+        "text": "Mit Fingerabdrucksensor\n\nÜber eine Stimmenerkennung\n\nDurch die Eingabe eines Zahlencodes\n\nDurch die Verwendung eines Kartenscanners\n\nWeitere Lösungen sind möglich.",
+        "seite": 2
+      },
+      {
+        "label": "b)",
+        "maxPoints": 3,
+        "text": "Situation\nSicherheitsrisiko\nGeöffnete Fenster und Türen nach\nVerlassen des Besprechungsraums\nBeispiel: Informationen in Papierform oder IT-Geräte können durch Diebstahl in falsche\nHände geraten.\nNutzung durch externe Personen\nVertrauliche Informationen der OHG könnten an externe Personen gelangen.\nLose verlegte Kabel\nVersehentliche Unterbrechung von Netzwerkverbindungen durch Stolpern o. Ä.\nNutzung von BYOD\nGefährdung des Firmennetzes durch Malware, Ausspähungen o. Ä.",
+        "seite": 2
+      },
+      {
+        "label": "c)",
+        "maxPoints": 4,
+        "text": "Eine Minimalkonfiguration ist einfacher zu pflegen, weniger fehleranfällig und bietet weniger Angriffsmöglichkeiten.\n\nDie Präsentationsrechner und deren Nutzer können nicht auf Daten im Firmennetz zugreifen.",
+        "seite": 2
+      },
+      {
+        "label": "da)",
+        "maxPoints": 2,
+        "text": "\u0007Der PC war für eine dynamische IP-Adressvergabe vorkonfiguriert. Ein DHCP-Server konnte jedoch noch nicht erreicht werden. Daher hat sich\nder PC diese IP-Adresse selbst vergeben.",
+        "seite": 2
+      },
+      {
+        "label": "db)",
+        "maxPoints": 4,
+        "text": "Umstellung von „IP-Adresse automatisch beziehen“ auf „Folgende IP-Adresse verwenden“\n\nIP-Adresse:\n192.168.20.10 (richtige Lösungen 2 – 19)\n\nSubnetzmaske:\n255.255.255.0\n\nStandardgateway:  192.168.20.1",
+        "seite": 2
+      },
+      {
+        "label": "dc)",
+        "maxPoints": 5,
+        "text": "Mögliche Lösung (weitere sind möglich):\n\nVerbindung des PCs über das Patchkabel mit der linken RJ45-Buchse.\n\nEingabe des Befehls „ping 192.168.20.1“\n\nBei erfolgreicher Antwort durch das Gateway Beschriftung des linken Ports mit „Präsentation“\n\nWenn das Gateway nicht erreichbar ist, wird das Patchkabel auf die rechte RJ45-Buchse umgesteckt und der Ping-Befehl erneut aus-\ngeführt.\n\nBei Erfolg wird der rechte Port mit „Präsentation“ beschriftet und kann verwendet werden.",
+        "seite": 2
+      },
+      {
+        "label": "dd)",
+        "maxPoints": 4,
+        "text": "Mögliche Konsolenbefehle: ipconfig /all, ifconfig, getmac /v\n\nMögliche MAC-Adresse: A1-B3-54-64-C3-78",
+        "seite": 2
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 2,
+        "text": "Weitergabe von Know-how\n\nAbhängigkeit von Dritten\n\nHöherer Abstimmungs-/Verwaltungsaufwand\n\nSicherheits- und Datenschutzbedenken\n\nu. a.",
+        "seite": 3
+      },
+      {
+        "label": "b)",
+        "maxPoints": 3,
+        "text": "Anforderungen des Projekts – Einige Sprachen eignen sich besser für bestimmte Anwendungsfälle und Aufgaben als andere.\n\nEntwicklerfähigkeiten – Haben wir Entwickler mit Erfahrung in der ausgewählten Programmiersprache?\n\nVerfügbare Tools und Frameworks – Die Verwendung von passenden Tools und Frameworks kann die Entwicklung erheblich vereinfachen\nund beschleunigen.\n\nZukünftige Perspektive – Wird die Programmiersprache weiter gepflegt und unterstützt?\n\nu. a.",
+        "seite": 3
+      },
+      {
+        "label": "c)",
+        "maxPoints": 3,
+        "text": "Compiler-Sprachen übersetzen den Code im Voraus in Maschinencode, was eine schnelle Ausführung ermöglicht.\n\nInterpreter-Sprachen interpretieren und führen den Code zeilenweise zur Laufzeit aus.",
+        "seite": 3
+      },
+      {
+        "label": "d)",
+        "maxPoints": 5,
+        "text": "1 Punkt Administrator\n\n1 Punkt Vererbung oder Striche zu den Anwendungsfällen „Tür öffnen“ und „Tür zuschließen“\n\n3 x 0,5 Punkte Anwendungsfälle\n\n3 x 0,5 Punkte <Include> Beziehung",
+        "seite": 3
+      },
+      {
+        "label": "e)",
+        "maxPoints": 6,
+        "text": "Da der Mitarbeiter mit der ID 3 keinen Zugriff auf den Raum 236 hat, wird False zurückgegeben.",
+        "seite": 3
+      },
+      {
+        "label": "f)",
+        "maxPoints": 6,
+        "text": "65  *\n512,00 EUR  =  33.280,00 EUR (1 Punkt)\n\n 80  *\n39,00 EUR  =  3.120,00 EUR (1 Punkt)\n\n  1  *  2.300,00 EUR  =  2.300,00 EUR (1 Punkt)\n\n  5  *\n349,00 EUR  =  1.745,00 EUR (1 Punkt)\n\nNetto  =  40.445,00 EUR (1 Punkt)\n\n   +19 % = Brutto  =  48.129,55 EUR (1 Punkt)",
+        "seite": 3
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 7,
+        "text": "Zeitraum\nRestschuld EUR\nZinsen EUR\nTilgung EUR\nZahlungen/12 Monate EUR\n01.04.2025-31.03.2026\n12.000\n4.000\n4.720\n01.04.2026-31.03.2027\n8.000\n4.000\n4.480\n01.04.2027-31.03.2028\n4.000\n4.000\n4.240\nSumme\n1.440\n12.000\n13.440",
+        "seite": 4
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 3,
+        "text": "Arbeitsspeicher 1: DDR4 und DDR5 sind nicht miteinander kompatibel.\n\n\u0007Arbeitsspeicher 2: \u0007DDR4-5600MHz und DDR4-3200MHz sind kompatibel, jedoch wird die niedrigere Geschwindigkeit (3200MHz)\n­verwendet.\n\nArbeitsspeicher 3: DDR4-3200MHz und DDR4-3200MHz sind kompatibel.",
+        "seite": 4
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 2,
+        "text": "\u0007Arbeitsspeicher 3, da es wirtschaftlich keinen Sinn macht, den schnelleren DDR4 Arbeitsspeicher für den doppelten Preis zu kaufen, wenn die\nGeschwindigkeit des niedrigeren verwendet wird.",
+        "seite": 4
+      },
+      {
+        "label": "bc)",
+        "maxPoints": 3,
+        "text": "Schnellere Lese- und Schreibgeschwindigkeiten\n\nSpürbarer Leistungsschub bei Wechsel von HDD\n\nGeringer Energiebedarf\n\nLautlos-Betrieb\n\nKompakte Bauform\n\nKein Datenverlust durch Erschütterung\n\nu. a.",
+        "seite": 4
+      },
+      {
+        "label": "ca)",
+        "maxPoints": 2,
+        "text": "Es können Zugangsdaten gestohlen werden, dadurch können Angreifer an sicherheitskritische Informationen gelangen.",
+        "seite": 4
+      },
+      {
+        "label": "cb)",
+        "maxPoints": 3,
+        "text": "Fehler in der Mail\n\nKeine persönliche Anrede\n\nAufbau von Zeitdruck, z. B. durch Fristsetzungen\n\nAufforderung zur Eingabe von persönlichen Daten\n\nu. a.",
+        "seite": 4
+      },
+      {
+        "label": "cc)",
+        "maxPoints": 2,
+        "text": "Bei der Wahl des E-Mail-Programms auf gute Spamfilter achten\n\nPhishing-Angriffe zu Übungszwecken simulieren\n\nSchulung der Mitarbeiter\n\nu. a.",
+        "seite": 4
+      },
+      {
+        "label": "cd)",
+        "maxPoints": 2,
+        "text": "Keine Übermittlung von User/Passwort per E-Mail\n\nKeine Links aus E-Mails ausführen\n\nKeine Anhänge aus unbekannten Quellen ausführen\n\nVerdachtsfälle an die IT melden\n\nu. a.",
+        "seite": 4
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 6,
+        "text": "Inhalt jeweils 2 Punkte; Beispiel jeweils 1 Punkt\nLastenheft\nPflichtenheft\nZweck\nDas Lastenheft beschreibt die Gesamtheit der vom\nAuftraggeber gewünschten Anforderungen und\nFunktionalitäten.\nDas Pflichtenheft beschreibt, wie der Auftragnehmer\ndie Anforderungen des Auftraggebers umsetzen\nmöchte.\nBeispiel für\nmöglichen\nInhalt\nz. B.\n\nFestlegung von Teilleistungen\n\nRahmenbedingungen der Leistungserbringung,\nz. B. Reaktionszeit\n\nEinhaltung des Datenschutzes\nz. B.\n\nAnsprechpartner\n\nZeitrahmen\n\nTestszenarien und Abnahmekriterien",
+        "seite": 5
+      },
+      {
+        "label": "b)",
+        "maxPoints": 6,
+        "text": "Korrekturhinweise:\n\nJeweils ein Punkt für jede Kardinalität, Tabelle und Feld an der richtigen Stelle\n\nEin Überschreiten der Höchstpunktzahl ist nicht möglich.",
+        "seite": 5
+      },
+      {
+        "label": "c)",
+        "maxPoints": 6,
+        "text": "Der Austausch des Leasinggegenstands kann in Absprache mit dem Leasinggeber leichter erfolgen als beim Kauf.\n\nDie Belastung der aktuellen Liquidität erfolgt nur in Höhe der Leasingraten und nicht mit dem kompletten Anschaffungspreis.\n\nDer Wartungsaufwand des Leasinggegenstands kann mit dem Leasinggeber über einen pauschalierten Betrag festgelegt werden.\n\nDie kalkulierbaren Kosten für diese Anschaffung fallen in stets gleichbleibender Höhe an.\n\nDie Leasingraten können steuerlich abgesetzt werden.\n\nAuch andere sinnvolle Antworten sind möglich.",
+        "seite": 5
+      },
+      {
+        "label": "d)",
+        "maxPoints": 4,
+        "text": "Der Leasingnehmer gibt die Maschine an den Leasinggeber zurück.\n\nDer Leasingvertrag kann unter Anpassung der Leasingraten verlängert und die Maschine weiter genutzt werden.\n\nDer Leasingnehmer kann die Maschine dem Leasinggeber abkaufen.\n\nDie Maschine wird nach Ablauf der Vertragslaufzeit gegen einen anderen Vertragsgegenstand ausgewechselt.\n\nAuch andere sinnvolle Antworten sind möglich.",
+        "seite": 5
+      },
+      {
+        "label": "e)",
+        "maxPoints": 4,
+        "text": "Neue Maschinen …\n\nkönnten einen geringeren Energieverbrauch haben.\n\nbenötigen u. U. aufgrund der geringeren Ausschussquote weniger Material.\n\nweisen geringere Emissionswerte (Lärm, Wärmestrahlung, Staub, Schmutz etc.) auf.\n\nverbrauchen bei deren Produktion zusätzliche Ressourcen.\n\nerzwingen meist die Entsorgung der alten Maschinen.\n\nAuch andere Lösungen sind möglich.",
+        "seite": 5
+      }
+    ]
+  }
+]

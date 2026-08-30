@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-08-16T09:19:04",
+  "engine": "vision",
+  "model": "gemini-flash-latest",
+  "sourceTasks": "AP1-2026-F.pdf",
+  "sourceSolutions": null,
+  "uncertain": [],
+  "warnings": []
+}

@@ -1,0 +1,2059 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2024-h",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2024,
+    "season": "Herbst",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2024-h-aufgaben.pdf",
+      "solutions": "ap1-2024-h-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie sind Auszubildender der Identify OHG, die sich auf die Herstellung von elektronischen Schlüsselsystemen und Ausweisen unter Beachtung höchster Sicherheitsanforderungen spezialisiert hat.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Zur Vorbereitung der Absicherung eines Besprechungsraums informieren Sie sich u. a. über Maßnahmen aus dem BSI IT-Grundschutz-Kompendium und wirken an der Umsetzung mit.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "1a",
+          "label": "a)",
+          "fullLabel": "1 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Zur Absicherung des Besprechungsraums soll u. a. eine automatische Zutrittskontrolle an der Eingangstür eingerichtet werden.\n\nNennen Sie drei technische Möglichkeiten, um eine automatische Zutrittskontrolle zu gewährleisten.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Mit Fingerabdrucksensor\n\nÜber eine Stimmenerkennung\n\nDurch die Eingabe eines Zahlencodes\n\nDurch die Verwendung eines Kartenscanners\n\nWeitere Lösungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 503
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1416,
+              "height": 877
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 690,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Stimmenerkennung",
+              "Kartenscanners",
+              "Zahlencodes",
+              "Fingerabdrucksensor",
+              "Eingabe",
+              "Verwendung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie die Sicherheitsrisiken der folgenden Situationen.\n\n1. Geöffnete Fenster und Türen nach Verlassen des Besprechungsraums — Beispiel: „Informationen in Papierform oder IT-Geräte können durch Diebstahl in falsche Hände geraten.“\n2. Nutzung durch externe Personen — ?\n3. Lose verlegte Kabel — ?\n4. Nutzung von BYOD (Bring Your Own Device) — ?",
+          "maxPoints": 3,
+          "answerType": "diagram",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Situation\nSicherheitsrisiko\nGeöffnete Fenster und Türen nach\nVerlassen des Besprechungsraums\nBeispiel: Informationen in Papierform oder IT-Geräte können durch Diebstahl in falsche\nHände geraten.\nNutzung durch externe Personen\nVertrauliche Informationen der OHG könnten an externe Personen gelangen.\nLose verlegte Kabel\nVersehentliche Unterbrechung von Netzwerkverbindungen durch Stolpern o. Ä.\nNutzung von BYOD\nGefährdung des Firmennetzes durch Malware, Ausspähungen o. Ä.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 503
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1416,
+              "height": 877
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 690,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "OHG",
+              "Papierform",
+              "Gefährdung",
+              "BYOD",
+              "Netzwerkverbindungen",
+              "Ausspähungen",
+              "Hände",
+              "Diebstahl"
+            ]
+          },
+          "felder": [
+            {
+              "label": "2. Nutzung durch externe Personen",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "3. Lose verlegte Kabel",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "4. Nutzung von BYOD (Bring Your Own Device)",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "1c",
+          "label": "c)",
+          "fullLabel": "1 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ein PC soll für die Durchführung von Präsentationen mit einem Anzeigegerät verbunden werden. Der BSI-Grundschutz empfiehlt, den Präsentationsrechner in dem Besprechungsraum sicher zu konfigurieren.\n\nBegründen Sie die folgenden vorgeschlagenen Maßnahmen.\n– Nutzung einer Minimalkonfiguration mit festgelegter Anwendungssoftware:\n– Anschluss an ein vom LAN der Institution getrenntes Datennetz:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Eine Minimalkonfiguration ist einfacher zu pflegen, weniger fehleranfällig und bietet weniger Angriffsmöglichkeiten.\n\nDie Präsentationsrechner und deren Nutzer können nicht auf Daten im Firmennetz zugreifen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-h_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 503
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-h_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1416,
+              "height": 877
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-h_p02_f3.png",
+              "sourcePage": 2,
+              "width": 690,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Eine Minimalkonfiguration",
+              "Präsentationsrechner",
+              "Angriffsmöglichkeiten",
+              "Nutzer",
+              "Firmennetz",
+              "Daten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1da",
+          "label": "da)",
+          "fullLabel": "1 da)",
+          "groupLabel": "d)",
+          "groupIntro": "Sie erhalten vom Netzwerkadministrator der Identify OHG die folgenden Vorgaben für die Netzwerkkonfiguration des Präsentationsrechners. Die Adressvergabe soll statisch erfolgen, um eine spätere Fernwartung zu vereinfachen.\n\nNetzwerk:     192.168.20.0/24\nDHCP-Range:   192.168.20.20 - 192.168.20.254\nRouter:       192.168.20.1",
+          "prompt": "Bei der Analyse des PCs wird Ihnen jedoch die IP-Adresse 169.254.122.115 angezeigt.\n\nBegründen Sie diese „Vorkonfiguration“.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "\u0007Der PC war für eine dynamische IP-Adressvergabe vorkonfiguriert. Ein DHCP-Server konnte jedoch noch nicht erreicht werden. Daher hat sich\nder PC diese IP-Adresse selbst vergeben.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1170,
+              "height": 376
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1383,
+              "height": 824
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Adressvergabe",
+              "DHCP",
+              "Server",
+              "PC",
+              "IP",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1db",
+          "label": "db)",
+          "fullLabel": "1 db)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Markieren Sie bzw. passen Sie die Konfiguration entsprechend der Vorgaben des Administrators in der folgenden Eingabemaske an.\n\n( ) IP-Adresse automatisch beziehen\n( ) Folgende IP-Adresse verwenden:\n    IP-Adresse:      ___.___.___.___\n    Subnetzmaske:    ___.___.___.___\n    Standardgateway: ___.___.___.___",
+          "maxPoints": 4,
+          "answerType": "diagram",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Umstellung von „IP-Adresse automatisch beziehen“ auf „Folgende IP-Adresse verwenden“\n\nIP-Adresse:\n192.168.20.10 (richtige Lösungen 2 – 19)\n\nSubnetzmaske:\n255.255.255.0\n\nStandardgateway:  192.168.20.1",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1170,
+              "height": 376
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1383,
+              "height": 824
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Standardgateway",
+              "20.10",
+              "255.0",
+              "20.1",
+              "255.255",
+              "Umstellung",
+              "Subnetzmaske",
+              "192.168"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1dc",
+          "label": "dc)",
+          "fullLabel": "1 dc)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Entsprechend der BSI-Empfehlungen ist das IP-Netz des Präsentationsrechners vom Firmennetz getrennt. Im Besprechungsraum befindet sich eine unbeschriftete Netzwerk-Doppeldose. Hier wird auf der einen Seite das Firmennetz, auf der anderen Seite das Netz für den Präsentationsrechner zur Verfügung gestellt. Ihre Aufgabe besteht nun darin, die richtige RJ-45-Buchse (links oder rechts) der Netzwerkdose zu ermitteln und zu beschriften. Ihnen steht dazu ein Patchkabel und der Präsentationsrechner mit seiner Kommandozeile zur Verfügung.\n\nBeschreiben Sie Ihre Vorgehensweise stichpunktartig.",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Mögliche Lösung (weitere sind möglich):\n\nVerbindung des PCs über das Patchkabel mit der linken RJ45-Buchse.\n\nEingabe des Befehls „ping 192.168.20.1“\n\nBei erfolgreicher Antwort durch das Gateway Beschriftung des linken Ports mit „Präsentation“\n\nWenn das Gateway nicht erreichbar ist, wird das Patchkabel auf die rechte RJ45-Buchse umgesteckt und der Ping-Befehl erneut aus-\ngeführt.\n\nBei Erfolg wird der rechte Port mit „Präsentation“ beschriftet und kann verwendet werden.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-h_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1170,
+              "height": 376
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-h_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1383,
+              "height": 824
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ping-Befehl",
+              "Befehls",
+              "Gateway Beschriftung",
+              "Präsentation",
+              "Erfolg",
+              "Buchse",
+              "RJ45",
+              "Gateway"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1dd",
+          "label": "dd)",
+          "fullLabel": "1 dd)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Für die Einrichtung weiterer Maßnahmen der IT-Sicherheit im Netzwerk benötigt Ihr Administrator die MAC-Adresse des Präsentationsrechners.\n\nGeben Sie einen möglichen Konsolenbefehl an, um die Adresse zu ermitteln und nennen Sie ein Beispiel für eine MAC-Adresse in strukturierter hexadezimaler Darstellung.\n\nKonsolenbefehl:\nMAC-Adresse:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk",
+            "kommunikation"
+          ],
+          "solution": {
+            "text": "Mögliche Konsolenbefehle: ipconfig /all, ifconfig, getmac /v\n\nMögliche MAC-Adresse: A1-B3-54-64-C3-78",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1405,
+              "height": 344
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 231,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-h_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 365
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2024-h_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1383,
+              "height": 258
+            },
+            {
+              "id": "p4_f5",
+              "file": "assets/ap1-2024-h_p04_f5.png",
+              "sourcePage": 4,
+              "width": 925,
+              "height": 184
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Mögliche Konsolenbefehle",
+              "MAC",
+              "Adresse"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Konsolenbefehl",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "MAC-Adresse",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Die Identify OHG benötigt eine neue Software für ihre Schließsysteme. Sie arbeiten in der Abteilung Softwareentwicklung bei der Planung der neuen Software mit. Dabei erstellen Sie auch eine Kostenübersicht für einen Kunden.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "2a",
+          "label": "a)",
+          "fullLabel": "2 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In der Softwareentwicklungsabteilung des Unternehmens gibt es derzeit einen personellen Engpass. Die Identify OHG denkt über eine Fremdvergabe nach.\n\nNennen Sie zwei Argumente, die gegen eine Fremdvergabe sprechen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Weitergabe von Know-how\n\nAbhängigkeit von Dritten\n\nHöherer Abstimmungs-/Verwaltungsaufwand\n\nSicherheits- und Datenschutzbedenken\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1405,
+              "height": 344
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 231,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-h_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 365
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2024-h_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1383,
+              "height": 258
+            },
+            {
+              "id": "p4_f5",
+              "file": "assets/ap1-2024-h_p04_f5.png",
+              "sourcePage": 4,
+              "width": 925,
+              "height": 184
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Verwaltungsaufwand",
+              "Weitergabe",
+              "Höherer Abstimmungs",
+              "Sicherheits",
+              "Dritten",
+              "Know-how",
+              "Datenschutzbedenken",
+              "Abhängigkeit"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2b",
+          "label": "b)",
+          "fullLabel": "2 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Es wird beschlossen, die Software selbst zu entwickeln. Die Entwicklungsabteilung fragt, in welcher Programmiersprache die Software entwickelt werden soll.\n\nNennen Sie ein allgemeingültiges Kriterium, welches für die Auswahl der Programmiersprache von Bedeutung ist und geben Sie dazu eine kurze Begründung an.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "Anforderungen des Projekts – Einige Sprachen eignen sich besser für bestimmte Anwendungsfälle und Aufgaben als andere.\n\nEntwicklerfähigkeiten – Haben wir Entwickler mit Erfahrung in der ausgewählten Programmiersprache?\n\nVerfügbare Tools und Frameworks – Die Verwendung von passenden Tools und Frameworks kann die Entwicklung erheblich vereinfachen\nund beschleunigen.\n\nZukünftige Perspektive – Wird die Programmiersprache weiter gepflegt und unterstützt?\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1405,
+              "height": 344
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 231,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-h_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 365
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2024-h_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1383,
+              "height": 258
+            },
+            {
+              "id": "p4_f5",
+              "file": "assets/ap1-2024-h_p04_f5.png",
+              "sourcePage": 4,
+              "width": 925,
+              "height": 184
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Entwickler",
+              "Verfügbare Tools",
+              "Zukünftige Perspektive",
+              "Programmiersprache",
+              "Anwendungsfälle",
+              "Tools",
+              "Frameworks",
+              "Entwicklung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2c",
+          "label": "c)",
+          "fullLabel": "2 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Zur Auswahl der Programmiersprachen stehen Compiler- und Interpreter-Sprachen.\n\nErläutern Sie den wesentlichen Unterschied zwischen den beiden Übersetzungsarten.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Compiler-Sprachen übersetzen den Code im Voraus in Maschinencode, was eine schnelle Ausführung ermöglicht.\n\nInterpreter-Sprachen interpretieren und führen den Code zeilenweise zur Laufzeit aus.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-h_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1405,
+              "height": 344
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-h_p04_f2.png",
+              "sourcePage": 4,
+              "width": 231,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-h_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 365
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2024-h_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1383,
+              "height": 258
+            },
+            {
+              "id": "p4_f5",
+              "file": "assets/ap1-2024-h_p04_f5.png",
+              "sourcePage": 4,
+              "width": 925,
+              "height": 184
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Voraus",
+              "Compiler-Sprachen",
+              "Interpreter-Sprachen",
+              "Maschinencode",
+              "Ausführung",
+              "Laufzeit"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie werden beauftragt, für die Schlüsselsystemsoftware ein UML-Anwendungsfalldiagramm (Use-Case) zu erstellen. Die folgenden Anforderungen liegen vor:\n\n– Der Mitarbeiter kann Türen öffnen und Türen zuschließen. Dabei findet immer eine Berechtigungsprüfung statt.\n– Der Administrator kann alles, was ein Mitarbeiter kann. Zusätzlich kann er die Türschlösser programmieren. Dabei findet immer eine Berechtigungsprüfung statt.\n\nErgänzen Sie das gegebene UML-Anwendungsfalldiagramm.\n(Vorgegeben ist: Akteur „Mitarbeiter“ → Use-Case „Tür öffnen“ innerhalb des Systems.)",
+          "maxPoints": 5,
+          "answerType": "diagram",
+          "topics": [
+            "software",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "1 Punkt Administrator\n\n1 Punkt Vererbung oder Striche zu den Anwendungsfällen „Tür öffnen“ und „Tür zuschließen“\n\n3 x 0,5 Punkte Anwendungsfälle\n\n3 x 0,5 Punkte <Include> Beziehung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2024-h_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1416,
+              "height": 386
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2024-h_p05_f2.png",
+              "sourcePage": 5,
+              "width": 200,
+              "height": 226
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2024-h_p05_f3.png",
+              "sourcePage": 5,
+              "width": 359,
+              "height": 280
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_05.png",
+          "placeholder": "Diagramm-Aufgabe: beschreibe im Antwortfeld Akteure, Use-Cases und die Beziehungen (include / generalization), z. B. „Administrator generalisiert Mitarbeiter; ‚Tür öffnen‘ «include» ‚Berechtigung prüfen‘ …“.",
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "0,5 Punkte",
+                "wert": 0.5,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Striche",
+              "Punkt Vererbung",
+              "Punkte Anwendungsfälle",
+              "Punkt Administrator",
+              "Include",
+              "Anwendungsfällen",
+              "Beziehung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ihr Kollege hat gerade die Methode bool checkAuthority(int id, int roomNr) erstellt. Diese übergibt eine Mitarbeiter-ID und eine Raumnummer, um abzufragen, ob für diesen Raum eine Zutrittsberechtigung besteht.\n\nErmitteln und begründen Sie den Rückgabewert, der bei Aufruf der Funktion mit id = 3 und roomNr = 236 geliefert wird.\n\nHinweis:\nDie Funktion greift auf ein globales zweidimensionales Array keyData[][] zu. In der ersten Spalte steht die Mitarbeiter-ID. Die folgenden Spalten enthalten die Räume, für die eine Zutrittsberechtigung besteht. Der Zeilen- und Spaltenindex beginnt bei 0. Es gibt keine Kopfzeile im Array, sie dient nur zur Erläuterung.\n\nMitarbeiter-ID | Room1 | Room2 | Room3 | Room4 | Room5 | Room6 | Roomxx\n1              | 223   | 312   | 154   | 47    | 124   | 236   | 334\n2              | 103   | 401   | 14    | 236   | 56    |       |\n3              | 20    | 312   | 235   | 17    | 124   | 32    |\n\nPseudocode\n1  Funktion checkAuthority(id, roomNr)\n2      Für i von 0 bis (AnzahlZeilen von keyData) - 1\n3          Für j von 1 bis (AnzahlBelegteSpalten von keyData) - 1\n4              Wenn id gleich keyData[i][0] und roomNr gleich keyData[i][j] dann\n5                  Rückgabe True\n6              Ende Wenn\n7          Ende Für\n8      Ende Für\n9      Rückgabe False\n10 Ende Funktion",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "programmierung"
+          ],
+          "solution": {
+            "text": "Da der Mitarbeiter mit der ID 3 keinen Zugriff auf den Raum 236 hat, wird False zurückgegeben.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 962
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 621
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "False",
+              "ID",
+              "Zugriff",
+              "Mitarbeiter"
+            ]
+          },
+          "felder": [
+            {
+              "label": "2 — Room6",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "2 — Roomxx",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "3 — Roomxx",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2f",
+          "label": "f)",
+          "fullLabel": "2 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Eine Schule hat eine Anfrage zur Ausstattung ihres Schließsystems gestellt. Die benötigten Komponenten sind:\n\n– 65 Schließzylinder zu einem Stückpreis von 512,00 EUR (Nettopreis).\n– 80 Transponder zu einem Stückpreis von 39,00 EUR (Nettopreis).\n– Ein Programmiergerät zum Preis von 2.300,00 EUR (Nettopreis).\n– Eine Administrationssoftware, die eine jährliche Lizenzgebühr von 349,00 EUR (Nettopreis) hat.\n\nBerechnen Sie die Gesamtkosten für die Schule über einen Zeitraum von fünf Jahren. Geben Sie sowohl den Nettopreis als auch den Bruttopreis bei 19 % Mehrwertsteuer an. Der Rechenweg ist anzugeben.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "65  *\n512,00 EUR  =  33.280,00 EUR (1 Punkt)\n\n 80  *\n39,00 EUR  =  3.120,00 EUR (1 Punkt)\n\n  1  *  2.300,00 EUR  =  2.300,00 EUR (1 Punkt)\n\n  5  *\n349,00 EUR  =  1.745,00 EUR (1 Punkt)\n\nNetto  =  40.445,00 EUR (1 Punkt)\n\n   +19 % = Brutto  =  48.129,55 EUR (1 Punkt)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-h_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 962
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-h_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1415,
+              "height": 621
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "512,00 EUR",
+                "wert": 512.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "33.280,00 EUR",
+                "wert": 33280.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "39,00 EUR",
+                "wert": 39.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "3.120,00 EUR",
+                "wert": 3120.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2.300,00 EUR",
+                "wert": 2300.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "349,00 EUR",
+                "wert": 349.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "1.745,00 EUR",
+                "wert": 1745.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "40.445,00 EUR",
+                "wert": 40445.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "48.129,55 EUR",
+                "wert": 48129.55,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "48.129",
+              "Brutto",
+              "40.445",
+              "1.745",
+              "33.280",
+              "Netto",
+              "2.300",
+              "3.120"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Die Identify OHG möchte Computer kaufen und Sie begleiten den Beschaffungsprozess. Ferner soll der Arbeitsspeicher bestehender Laptops erweitert werden.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ein Angebot für die zehn Computer beläuft sich auf 12.000 EUR.\n\nDie Identify OHG entschließt sich zum Kauf der Computer auf Kredit und erhält von der Kleinstadt-Bank ein Angebot für ein Ratendarlehen.\n\nNominalzins: 6 % jährlich\nLaufzeit:    36 Monate\nTilgung:     jeweils in gleichen Beträgen zum Jahresende\n\nErmitteln Sie für den genannten Darlehensbetrag die jährlichen Zahlungen und die fälligen Gesamtzinsen sowie die Zahlungen insgesamt.\n\nTabelle (auszufüllen): Zeitraum | Restschuld EUR | Zinsen EUR | Tilgung EUR | Zahlungen/12 Monate EUR\n01.04.2025 - 31.03.2026\n01.04.2026 - 31.03.2027\n01.04.2027 - 31.03.2028\nSumme                    |                | ?          | 12.000      | ?",
+          "maxPoints": 7,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Zeitraum\nRestschuld EUR\nZinsen EUR\nTilgung EUR\nZahlungen/12 Monate EUR\n01.04.2025-31.03.2026\n12.000\n4.000\n4.720\n01.04.2026-31.03.2027\n8.000\n4.000\n4.480\n01.04.2027-31.03.2028\n4.000\n4.000\n4.240\nSumme\n1.440\n12.000\n13.440",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2024-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1415,
+              "height": 1815
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2024-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 253,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "12 Monate",
+                "wert": 12.0,
+                "einheit": "Monate"
+              }
+            ],
+            "begriffe": [
+              "4.720",
+              "4.480",
+              "01.04",
+              "1.440",
+              "Tilgung",
+              "4.240",
+              "Zeitraum",
+              "Restschuld"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ba",
+          "label": "ba)",
+          "fullLabel": "3 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Der Abteilungsleiter der Entwicklungsabteilung der Identify OHG möchte, dass in Zukunft alle entwickelten Anwendungen auf der firmeninternen Cloud ausgerollt werden. Darum müssen alle Anwendungen auch mit entsprechenden Tools entwickelt und getestet werden. Aus den Hardwareanforderungen eines dieser Tools geht hervor, dass die Laptops der Entwickler folgende Bedingungen erfüllen müssen:\n– Windows 11\n– 32 GB RAM\n\nDer aktuelle Laptop der Entwickler verfügt über die folgenden Eckdaten:\n– Prozessor:      Intel® Core™ i5-1335U Prozessor der 13. Generation\n– Betriebssystem: Windows 11 Professional (64 Bit)\n– Grafik:         Integrierte Intel® UHD-Grafik\n– Arbeitsspeicher: 16 GB DDR4-3200MHz\n– Massenspeicher: 1 TB HDD\n– WLAN:           Intel® Wi-Fi 6 AX201 2x2 AX und Bluetooth® 5.1\n\nDer Abteilungsleiter hat sich dazu entschieden, dass die vorhandenen Laptops um den benötigten Arbeitsspeicher erweitert werden. Der Laptop verfügt über einen weiteren Slot für einen weiteren Arbeitsspeicher-Riegel. Von dem Hardware-Dienstleister der Identify OHG bekommen Sie folgende drei Arbeitsspeicher angeboten:\n\nArbeitsspeicher 1 – 82,20 EUR: 16 GB DDR5-6000MHz\nArbeitsspeicher 2 – 75,70 EUR: 16 GB DDR4-5600MHz\nArbeitsspeicher 3 – 31,80 EUR: 16 GB DDR4-3200MHz",
+          "prompt": "Erklären Sie die Kompatibilität für jeden der drei Arbeitsspeicher mit dem vorhandenen Laptop.\n\nArbeitsspeicher 1:\nArbeitsspeicher 2:\nArbeitsspeicher 3:",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "software"
+          ],
+          "solution": {
+            "text": "Arbeitsspeicher 1: DDR4 und DDR5 sind nicht miteinander kompatibel.\n\n\u0007Arbeitsspeicher 2: \u0007DDR4-5600MHz und DDR4-3200MHz sind kompatibel, jedoch wird die niedrigere Geschwindigkeit (3200MHz)\n­verwendet.\n\nArbeitsspeicher 3: DDR4-3200MHz und DDR4-3200MHz sind kompatibel.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2024-h_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1415,
+              "height": 1815
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2024-h_p07_f2.png",
+              "sourcePage": 7,
+              "width": 253,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "5600MHz",
+                "wert": 5600.0,
+                "einheit": "MHz"
+              },
+              {
+                "text": "3200MHz",
+                "wert": 3200.0,
+                "einheit": "MHz"
+              }
+            ],
+            "begriffe": [
+              "DDR5",
+              "DDR4",
+              "Geschwindigkeit",
+              "Arbeitsspeicher"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Arbeitsspeicher 1",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Arbeitsspeicher 2",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Arbeitsspeicher 3",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "3bb",
+          "label": "bb)",
+          "fullLabel": "3 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Begründen Sie, welchen Arbeitsspeicher Sie dem Abteilungsleiter zur Anschaffung empfehlen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "\u0007Arbeitsspeicher 3, da es wirtschaftlich keinen Sinn macht, den schnelleren DDR4 Arbeitsspeicher für den doppelten Preis zu kaufen, wenn die\nGeschwindigkeit des niedrigeren verwendet wird.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "DDR4",
+              "Geschwindigkeit",
+              "Arbeitsspeicher",
+              "Preis"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bc",
+          "label": "bc)",
+          "fullLabel": "3 bc)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Sie schlagen dem Abteilungsleiter vor, die HDD im Laptop mit einer SSD zu ersetzen.\n\nNennen Sie drei Vorteile einer SSD gegenüber einer HDD.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Schnellere Lese- und Schreibgeschwindigkeiten\n\nSpürbarer Leistungsschub bei Wechsel von HDD\n\nGeringer Energiebedarf\n\nLautlos-Betrieb\n\nKompakte Bauform\n\nKein Datenverlust durch Erschütterung\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Schreibgeschwindigkeiten",
+              "Geringer Energiebedarf",
+              "Kein Datenverlust",
+              "HDD",
+              "Spürbarer Leistungsschub",
+              "Schnellere Lese",
+              "Erschütterung",
+              "Lautlos-Betrieb"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ca",
+          "label": "ca)",
+          "fullLabel": "3 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Bei der Korrespondenz mit dem Hardwarelieferanten werden häufig E-Mails ausgetauscht. Sie warnen die Anwender darum vor Phishingmails.",
+          "prompt": "Beschreiben Sie eine Gefahr durch Phishingmails.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Es können Zugangsdaten gestohlen werden, dadurch können Angreifer an sicherheitskritische Informationen gelangen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Zugangsdaten",
+              "Angreifer",
+              "Informationen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3cb",
+          "label": "cb)",
+          "fullLabel": "3 cb)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie drei Anzeichen, an denen der User erkennen kann, dass es sich um eine Phishingmail handelt.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Fehler in der Mail\n\nKeine persönliche Anrede\n\nAufbau von Zeitdruck, z. B. durch Fristsetzungen\n\nAufforderung zur Eingabe von persönlichen Daten\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Aufforderung",
+              "Zeitdruck",
+              "Aufbau",
+              "Fristsetzungen",
+              "Anrede",
+              "Eingabe",
+              "Keine",
+              "Fehler"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3cc",
+          "label": "cc)",
+          "fullLabel": "3 cc)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Maßnahmen, die Sie dem Unternehmen zum Schutz vor Phishingmails empfehlen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Bei der Wahl des E-Mail-Programms auf gute Spamfilter achten\n\nPhishing-Angriffe zu Übungszwecken simulieren\n\nSchulung der Mitarbeiter\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Phishing-Angriffe",
+              "Spamfilter",
+              "Übungszwecken",
+              "Mail-Programms",
+              "Schulung",
+              "Mitarbeiter"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3cd",
+          "label": "cd)",
+          "fullLabel": "3 cd)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Maßnahmen, die das Unternehmen den Mitarbeitern beim Empfang von Mails vorgibt, um sich vor Phishingmail zu schützen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Keine Übermittlung von User/Passwort per E-Mail\n\nKeine Links aus E-Mails ausführen\n\nKeine Anhänge aus unbekannten Quellen ausführen\n\nVerdachtsfälle an die IT melden\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-h_p08_f1.png",
+              "sourcePage": 8,
+              "width": 361,
+              "height": 184
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-h_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1074,
+              "height": 141
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-h_p08_f3.png",
+              "sourcePage": 8,
+              "width": 978,
+              "height": 194
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2024-h_p08_f4.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 227
+            },
+            {
+              "id": "p8_f5",
+              "file": "assets/ap1-2024-h_p08_f5.png",
+              "sourcePage": 8,
+              "width": 1180,
+              "height": 141
+            },
+            {
+              "id": "p8_f6",
+              "file": "assets/ap1-2024-h_p08_f6.png",
+              "sourcePage": 8,
+              "width": 1106,
+              "height": 141
+            },
+            {
+              "id": "p8_f7",
+              "file": "assets/ap1-2024-h_p08_f7.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 173
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Keine Links",
+              "Keine Anhänge",
+              "Keine Übermittlung",
+              "Verdachtsfälle",
+              "Mails",
+              "Passwort",
+              "IT"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Alle Vorgänge des Produktionsprozesses müssen dokumentiert werden. Als Grundlage wird ein Datenmodell erstellt.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Bei der Identify OHG ist auch bei internen Aufträgen ein Lasten- und Pflichtenheft üblich.\n\nErklären Sie jeweils den Zweck von Lasten- und Pflichtenheft und führen Sie jeweils ein konkretes Beispiel für den Inhalt an. Tragen Sie Ihr Ergebnis in nachfolgende Tabelle ein.\n\n              | Lastenheft | Pflichtenheft\nZweck         |            |\nBeispiel für  |            |\nmöglichen     |            |\nInhalt        |            |",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Inhalt jeweils 2 Punkte; Beispiel jeweils 1 Punkt\nLastenheft\nPflichtenheft\nZweck\nDas Lastenheft beschreibt die Gesamtheit der vom\nAuftraggeber gewünschten Anforderungen und\nFunktionalitäten.\nDas Pflichtenheft beschreibt, wie der Auftragnehmer\ndie Anforderungen des Auftraggebers umsetzen\nmöchte.\nBeispiel für\nmöglichen\nInhalt\nz. B.\n\nFestlegung von Teilleistungen\n\nRahmenbedingungen der Leistungserbringung,\nz. B. Reaktionszeit\n\nEinhaltung des Datenschutzes\nz. B.\n\nAnsprechpartner\n\nZeitrahmen\n\nTestszenarien und Abnahmekriterien",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-h_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1426,
+              "height": 397
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-h_p09_f2.png",
+              "sourcePage": 9,
+              "width": 338,
+              "height": 205
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-h_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1426,
+              "height": 739
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Abnahmekriterien",
+              "Zweck",
+              "Datenschutzes",
+              "Testszenarien",
+              "Teilleistungen",
+              "Funktionalitäten",
+              "Leistungserbringung",
+              "Inhalt"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Zweck — Lastenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Zweck — Pflichtenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Beispiel für — Lastenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Beispiel für — Pflichtenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "möglichen — Lastenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "möglichen — Pflichtenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Inhalt — Lastenheft",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Inhalt — Pflichtenheft",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "4b",
+          "label": "b)",
+          "fullLabel": "4 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Erweitern Sie das unten angegebene Datenmodell redundanzfrei um die vorliegenden Angaben. Geben Sie auch die Kardinalitäten an.\n\nAngaben zur Datenbank:\nDie Bearbeitung eines Auftrags darf immer nur von einem einzigen Mitarbeiter erfolgen. Neben seinem Namen ist auch der Vorname zu erfassen. Jeder Auftrag hat einen Beginn und ein Ende der Bearbeitung.\nIn jeder Entitätsmenge soll eine eindeutige Identifizierung durch einen Primärschlüssel möglich sein.\n\n(Gegeben: Entität „Mitarbeiter“ mit Attributen „Mitarbeiter-ID (PS)“ und „Mitarbeiter_Name“, Beziehung „bearbeitet“ mit Kardinalität 1 auf Mitarbeiter-Seite.)",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "Korrekturhinweise:\n\nJeweils ein Punkt für jede Kardinalität, Tabelle und Feld an der richtigen Stelle\n\nEin Überschreiten der Höchstpunktzahl ist nicht möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-h_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1426,
+              "height": 397
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-h_p09_f2.png",
+              "sourcePage": 9,
+              "width": 338,
+              "height": 205
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-h_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1426,
+              "height": 739
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_09.png",
+          "placeholder": "ER-Modell: beschreibe im Antwortfeld Entitäten, Attribute (inkl. Primärschlüssel), Beziehung und Kardinalitäten in Worten.",
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Höchstpunktzahl",
+              "Korrekturhinweise",
+              "Überschreiten",
+              "Kardinalität"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Da sich die Störungen an einer Maschine häufen, soll eine neue zur Herstellung von Ausweiskarten beschafft werden. Es werden Überlegungen zur Beschaffung über Leasing angestellt.\n\nBeschreiben Sie drei Vorteile der Beschaffung über Leasing.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Der Austausch des Leasinggegenstands kann in Absprache mit dem Leasinggeber leichter erfolgen als beim Kauf.\n\nDie Belastung der aktuellen Liquidität erfolgt nur in Höhe der Leasingraten und nicht mit dem kompletten Anschaffungspreis.\n\nDer Wartungsaufwand des Leasinggegenstands kann mit dem Leasinggeber über einen pauschalierten Betrag festgelegt werden.\n\nDie kalkulierbaren Kosten für diese Anschaffung fallen in stets gleichbleibender Höhe an.\n\nDie Leasingraten können steuerlich abgesetzt werden.\n\nAuch andere sinnvolle Antworten sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2024-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 269
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2024-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1236,
+              "height": 206
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2024-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 270
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2024-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 1054,
+              "height": 291
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Absprache",
+              "Wartungsaufwand",
+              "Belastung",
+              "Betrag",
+              "Leasinggegenstands",
+              "Liquidität",
+              "Anschaffungspreis",
+              "Anschaffung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4d",
+          "label": "d)",
+          "fullLabel": "4 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nach Ablauf der Leasingdauer bieten sich bezüglich der weiteren Nutzung der Maschine mehrere Möglichkeiten.\n\nBeschreiben Sie zwei dieser Möglichkeiten.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Der Leasingnehmer gibt die Maschine an den Leasinggeber zurück.\n\nDer Leasingvertrag kann unter Anpassung der Leasingraten verlängert und die Maschine weiter genutzt werden.\n\nDer Leasingnehmer kann die Maschine dem Leasinggeber abkaufen.\n\nDie Maschine wird nach Ablauf der Vertragslaufzeit gegen einen anderen Vertragsgegenstand ausgewechselt.\n\nAuch andere sinnvolle Antworten sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2024-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 269
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2024-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1236,
+              "height": 206
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2024-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 270
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2024-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 1054,
+              "height": 291
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Maschine",
+              "Vertragsgegenstand",
+              "Vertragslaufzeit",
+              "Leasingvertrag",
+              "Anpassung",
+              "Ablauf",
+              "Leasingraten",
+              "Leasingnehmer"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4e",
+          "label": "e)",
+          "fullLabel": "4 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ein Kollege informiert Sie, dass die Maschine trotz ihrer technischen Veralterung, der Störungen und ihrer erhöhten Ausschussproduktion weiter genutzt werden kann.\n\nBei der Beschaffung der Maschine spielen nicht nur finanzielle, sondern auch ökologische Aspekte eine Rolle.\n\nBeschreiben Sie zwei ökologische Aspekte, die bei einer Neuinvestition zu beachten sind.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "arbeitsplatz",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Neue Maschinen …\n\nkönnten einen geringeren Energieverbrauch haben.\n\nbenötigen u. U. aufgrund der geringeren Ausschussquote weniger Material.\n\nweisen geringere Emissionswerte (Lärm, Wärmestrahlung, Staub, Schmutz etc.) auf.\n\nverbrauchen bei deren Produktion zusätzliche Ressourcen.\n\nerzwingen meist die Entsorgung der alten Maschinen.\n\nAuch andere Lösungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-h_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2024-h_p10_f1.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 269
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2024-h_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1236,
+              "height": 206
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2024-h_p10_f3.png",
+              "sourcePage": 10,
+              "width": 1374,
+              "height": 270
+            },
+            {
+              "id": "p10_f4",
+              "file": "assets/ap1-2024-h_p10_f4.png",
+              "sourcePage": 10,
+              "width": 1054,
+              "height": 291
+            }
+          ],
+          "pageImage": "assets/ap1-2024-h_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Material",
+              "Emissionswerte",
+              "Ausschussquote",
+              "Maschinen",
+              "Neue Maschinen",
+              "Schmutz",
+              "Staub",
+              "Wärmestrahlung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

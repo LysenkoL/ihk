@@ -1,0 +1,206 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "aa)",
+        "maxPoints": 6,
+        "text": "Mögliche Inhalte:\n\nSeit 1985 am Markt (Beispiel)\n\n720 Mitarbeiterinnen und Mitarbeiter\n\nWeltweite Niederlassungen\n\nKundenreferenzen in allen Branchen\n\nZertifizierte Kompetenzen\n\nWechsel in der Geschäftsführung\n\nNeuausrichtung nach Krisensituation\n\nAnbieter für große und internationale IT-Projekte\nHinweis:\nDie Anführung der Aufzählungspunkte im Notizbereich dient lediglich der besseren Zuordnung und Lesbarkeit der\nLösungshinweise und ist beim Prüfling erst im Folienbereich von Aufgabe ab) gefordert.",
+        "seite": 2
+      },
+      {
+        "label": "ab)",
+        "maxPoints": 3,
+        "text": "Mögliche Inhalte:\n\n\u0007Seit 1985 am Markt\n z. B.: Beständigkeit durch über 35 Jahre Marktpräsenz und jahrzehntelange Erfahrung garantiert langfristige\nPartnerschaften auch in der Zukunft. (Beispiel)\n\n\u0007720 Mitarbeiterinnen und Mitarbeiter\n z. B.: Fristgerechte Bewältigung auch personalintensiver Aufträge gewährleistet.\n\n\u0007Weltweite Niederlassungen\n z. B.: Support vor Ort international möglich\n\n\u0007Kundenreferenzen in allen Branchen\n z. B.: Branchenübergreifender Kundenstamm und Kundenzufriedenheit beweisen die erfolgreiche Durchfüh-\nrung von Aufträgen.\n\n\u0007Zertifizierungen\n z. B.: Nachgewiesene Standards garantierten eine professionelle Durchführung der Aufträge.\n\n\u0007Wechsel in der Geschäftsführung\n z. B. ungeeignet bzw. überzeugende Begründung nötig\n\n\u0007Neuausrichtung nach Krisensituation\n z. B.: ungeeignet bzw. überzeugende Begründung nötig\n\n\u0007Anbieter für große und internationale IT-Projekte\n z. B.: interkulturelle Kompetenzen",
+        "seite": 2
+      },
+      {
+        "label": "b)",
+        "maxPoints": 9,
+        "text": "Leistungsangebote\nErläuternder Text, in ganzen Sätzen\nBeispiel: Industrie 4.0\nWir optimieren Ihren Produktionsprozess durch Nutzung intelligenter Informations-\nund Kommunikationstechnik. Angestrebt wird die Schaffung einer möglichst hohen\nFlexibilität durch eine weitgehend selbstorganisierte Produktion.\nSupport in den Bereichen\nProzess- und IT-Manage-\nment\nIm Sinne von reibungslosen, flexiblen und transparenten Abläufen erfahren Sie\nunsere Unterstützung bei der Optimierung Ihrer betrieblichen Prozesse. Darüber\nhinaus kümmern wir uns um die dafür benötigte IT-Ausstattung.\nMigrationsunterstützung\nWir helfen Ihnen bei der Umstellung oder Anpassung der Hard- und Software\ninnerhalb Ihres kompletten Datenverarbeitungssystems, um wieder möglichst rasch\ndie angestrebte Funktionsfähigkeit zu erlangen.\nBig Data\nUm die jederzeitige und schnelle Verfügbarkeit Ihrer Daten zu gewährleisten, unter-\nstützen wir Sie bei der sicheren und datenschutzkonformen Speicherung, Verarbei-\ntung und Analyse Ihres Datenbestands.\nCloud-Hosting in allen\nVarianten\nWir bieten Ihnen eine zentrale IT-Infrastruktur in Form von Rechenleistung, Spei-\ncherplatz und Software unter Verzicht auf das Vorhalten lokaler Ressourcen. Damit\nbleibt Ihre IT-Ausstattung flexibel skalierbar und Sie können sich aufgrund unserer\nIT-Kompetenz auf Ihre Kernaufgaben konzentrieren.\nBeratung im Hinblick auf\nDSGVO und BDSG\nWir kümmern uns mit unseren eigens geschulten und zertifizierten Mitarbeitern\nzuverlässig darum, dass die Vorschriften der Datenschutzgrundverordnung nicht\nverletzt und damit Schaden und Strafen vom Unternehmen abgewendet werden.\nWebhosting\nWir stellen für Sie Onlinespeicherplatz und Dienstleistungen für Internetauftritte\nauf Servern von Internetdienstanbietern bereit, damit Sie sich ausschließlich auf die\nAktualisierung der Inhalte konzentrieren können.\nRemarketing von IT-Geräten\nIm Sinne einer umweltgerechten Entsorgung und einem verantwortungsvollen\nUmgang mit den Ressourcen organisieren wir für Sie die Wiedervermarktung Ihrer\ngebrauchten EDV-Ausstattungen mit zusätzlichen Einnahmen.",
+        "seite": 3
+      },
+      {
+        "label": "ca)",
+        "maxPoints": 6,
+        "text": "Informationen\nErläuterungen\nBeispiel: Räumliche\n­Gegebenheiten\nBeispiel: Bestimmung der Entfernungen, um den logistischen Aufwand abschätzen\nzu können\nLastenheft\nBeschreibung aller vom Kunden gewünschten Anforderungen. Es stellt die Grund­\nlage für eine spätere Kalkulation dar.\nGeplanter Zeitrahmen\nTerminierung des Projekts zur rechtzeitigen Bereitstellung der Ressourcen\nErgebnisse der Ist-Analyse\nZur Festlegung der Ausgangslage",
+        "seite": 3
+      },
+      {
+        "label": "cb)",
+        "maxPoints": 1,
+        "text": "Formale Information, z. B.\n\nAnsprechpartner mit Kontaktdaten\n\nBindungsfrist des Angebots\n\nDatum der Anfrage",
+        "seite": 3
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "aa)",
+        "maxPoints": 3,
+        "text": "Hebel öffnen\n\nCPU vorsichtig einsetzen\n\nHebel schließen.",
+        "seite": 4
+      },
+      {
+        "label": "ab)",
+        "maxPoints": 2,
+        "text": "Die CPU nicht mit Gewalt einsetzen.\n\nDer Pfeil auf der Oberseite des Prozessors muss mit dem Pfeil auf dem Prozessorsockel übereinstimmen.",
+        "seite": 4
+      },
+      {
+        "label": "b)",
+        "maxPoints": 2,
+        "text": "Die Wärmeleitpaste soll kleine Unebenheiten auf den Kontaktflächen ausgleichen, da Luft ein schlechter Wärmeleiter ist.",
+        "seite": 4
+      },
+      {
+        "label": "c)",
+        "maxPoints": 3,
+        "text": "\u0007Man sollte im Handbuch nachschauen, wie die Belegung der Kanäle ist, bspw. Einsetzen der beiden RAM-Riegel in den Slot A1 und B1 oder\nin A2 und B2.\n\nDie beiden RAM-Riegel (Kanäle) müssen die gleiche Speichergröße haben.",
+        "seite": 4
+      },
+      {
+        "label": "d)",
+        "maxPoints": 2,
+        "text": "Vorteil:\n\nSchneller\n\nKompakte Bauweise\n\nNachteil:\n\nTeurer\n\nMeist nur ein oder zwei Anschlüsse auf dem Motherboard vorhanden",
+        "seite": 4
+      },
+      {
+        "label": "e)",
+        "maxPoints": 3,
+        "text": "A: DisplayPort\n\nB: HDMI\n\nC: DVI",
+        "seite": 4
+      },
+      {
+        "label": "fa)",
+        "maxPoints": 2,
+        "text": "Dieser Anschluss wird für das BIOS (Uefi) Update benutzt.",
+        "seite": 4
+      },
+      {
+        "label": "fb)",
+        "maxPoints": 2,
+        "text": "Höhere Datenrate\n\nHöhere Stromversorgung\n\nBeidseitig steckbar",
+        "seite": 4
+      },
+      {
+        "label": "ga)",
+        "maxPoints": 2,
+        "text": "\u0007Die logischen Prozessoren sind eine Teilung der physikalischen CPU-Kerne und dienen dazu, mehrere Threads gleichzeitig in einem\n­Prozessorkern auszuführen (Hyperthreading).",
+        "seite": 4
+      },
+      {
+        "label": "gb)",
+        "maxPoints": 2,
+        "text": "Ein Cache-Speicher ist ein schneller Zwischenspeicher. Der Cache reduziert die Anzahl der Zugriffe auf ein langsameres Speichermedium.",
+        "seite": 4
+      },
+      {
+        "label": "gc)",
+        "maxPoints": 1,
+        "text": "3.400.000.000 Hz",
+        "seite": 4
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 2,
+        "text": "SSID des WLAN-Netzes\n\nPre-shared-key (PSK) oder auch Passwort möglich",
+        "seite": 5
+      },
+      {
+        "label": "b)",
+        "maxPoints": 3,
+        "text": "Verfahren\nVorteil\nNachteil\nUnternehmen\nWPA-PSK\nEinfach umzusetzen\nUnsicher da PW mit steigender\nAnzahl von Nutzern schnell\nbekannt werden kann\nKleine Unternehmen mit\n­wenigen Mitarbeitern\nEAP/WPA-­Enterprise-\nRADIUS\nSehr viel sicherer, da jeder Be-\nnutzer seinen eigenen Namen/\nPW-Kombination hat\nKomplizierter umzusetzen,\nRADIUS-Server erforderlich\nMittlere und große\n­Unternehmen",
+        "seite": 5
+      },
+      {
+        "label": "c)",
+        "maxPoints": 6,
+        "text": "OSI-Schicht Nr.\nOSI-Schicht Name\nVerwendete Pro-\ntokolle\nVerwendete\nAdressen\nMöglicher Fehler\nAnwendung\nDNS, DHCP u. a.\n\nServerkonfiguration fehlerhaft\nTransportschicht\nTCP/UDP\nPorts\nVerlust eines Segments\nVermittlung\nIPv4, IPv6 u. a.\nIP-Adressen\nFalsche IP-Adresse vergeben\nSicherung\nEthernet u. a.\nMAC-Adressen\nNetzwerkkarte defekt\nBitübertragung\n\nMedium getrennt",
+        "seite": 5
+      },
+      {
+        "label": "d)",
+        "maxPoints": 4,
+        "text": "Wert:\n\nMedienstatus vorhanden\n\nSignalqualität hoch\n\nAktivität (gesendete und empfangene Daten) Datenübertragungsrate hoch\n\nInterpretation: OSI-Schicht 1 fehlerfrei, Fehler liegt in einer höheren Schicht",
+        "seite": 5
+      },
+      {
+        "label": "ea)",
+        "maxPoints": 2,
+        "text": "Hier handelt es sich um die der Netzwerkkarte vom Hersteller fest zugeordnete MAC-Adresse.",
+        "seite": 5
+      },
+      {
+        "label": "eb)",
+        "maxPoints": 2,
+        "text": "Hier handelt es sich um eine link-lokale IPv6-Adresse, die sich der Rechner unabhängig vom Netz selbst zugewiesen hat.",
+        "seite": 5
+      },
+      {
+        "label": "fa)",
+        "maxPoints": 1,
+        "text": "DHCP-Server",
+        "seite": 5
+      },
+      {
+        "label": "fb)",
+        "maxPoints": 3,
+        "text": "Netzadresse: 192.168.0.0/24 (1 Punkt)\n\nHostadresse: 0.0.0.52 oder 192.168.0.52 (1 Punkt)\n\nBroadcastadresse: 192.168.0.255 (1 Punkt)",
+        "seite": 5
+      },
+      {
+        "label": "fc)",
+        "maxPoints": 2,
+        "text": "Fehlerursache war die fehlende Zuteilung einer IP",
+        "seite": 5
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "text": "Softwareverteilung\n\nSoftwarekonfiguration\n\nUpdatemanagement\n\nPatchmanagement\n\nLizenzmanagement\n\nInventur",
+        "seite": 5
+      },
+      {
+        "label": "b)",
+        "maxPoints": 4,
+        "text": "Vorteile:\n\nKosteneinsparung durch geringere Investitionskosten\n\nStets aktuelle Software\n\nBessere Skalierbarkeit\n\nAnbieter übernimmt gegebenenfalls die Sicherung der Daten\n\nu. a.\n\nNachteile\n\nFehlende Verfügbarkeit bei Störung des Internetzuganges\n\nAbhängigkeit vom Cloud-Anbieter\n\nMöglicherweise Speicherung der Daten im Ausland\n\nZiel für Hackerangriffe\n\nu. a.",
+        "seite": 6
+      },
+      {
+        "label": "c)",
+        "maxPoints": 5,
+        "text": "Jahre\nStunden\nStundenlohn\n(EUR)\nEigenfertigung\n(EUR)\nKosten pro Jahr (bei\nzehn Jahren) in EUR\nPreis Lizenz\n(EUR)\nAnzahl\n­Lizenzen\n12.000\n75,00\n900.000,00\n75,00\n105.000,00\n\n1.005.000,00\n100.500,00\n25,00\n4.020\n\nAb 4.020 Lizenzen.",
+        "seite": 6
+      },
+      {
+        "label": "d)",
+        "maxPoints": 9,
+        "text": "",
+        "seite": 6
+      },
+      {
+        "label": "e)",
+        "maxPoints": 4,
+        "text": "Lösung:\n\nUpstream: 40.000 kbit/s\n\nDateigröße: 100 Mibyte\n\n100 Byte x 1.024 x 1.024 x 8 Bit/Byte / 40.000.000 bit/s = 20,971 s ~ 21 s",
+        "seite": 6
+      }
+    ]
+  }
+]

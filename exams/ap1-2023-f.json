@@ -1,0 +1,1777 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2023-f",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2023,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2023-f-aufgaben.pdf",
+      "solutions": "ap1-2023-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie arbeiten in der SecuRita AG, einem Unternehmen des Finanzsektors. Hier steht eine Neustrukturierung der Arbeitsplätze unter Beachtung von Datensicherheit und Datenschutz an.\n\nDabei sollen Sie die folgenden Aufgaben erledigen:\n1. Nutzwertanalyse, Vergleich Endgeräte\n2. Bezugspreisermittlung mit Gegenüberstellung von Kauf und Leasing\n3. Datenschutz und Datensicherheit\n4. Einsatz von KI bei der Schadensabwicklung, Lasten- und Pflichtenheft, UML, SELECT",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Das Unternehmen plant, seine Arbeitsumgebungen zu modernisieren. Das bisher genutzte Großraumbüro mit festen Arbeitsplätzen soll durch eine flexible Struktur ersetzt werden. Dafür sollen verschiedene Modelle für Arbeitsplatzrechner mithilfe einer Nutzwertanalyse verglichen werden. Die zur Auswahl stehenden Modelle finden Sie im Belegsatz.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "1a",
+          "label": "a)",
+          "fullLabel": "1 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie pro Modell je einen Vor- und einen Nachteil.\n\n                | Vorteil | Nachteil\nNotebook        |         |\nAll-in-One-PC   |         |\nThin-Client     |         |\nDesktop-Rechner |         |",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "| Vorteil                          | Nachteil\nNotebook        | mobil                            | teuer\nAll-in-One-PC   | preisgünstig in der Anschaffung  | schlechte Wartbarkeit und Erweiterbarkeit\nThin-Client     | günstig                          | benötigt Serververbindung\nDesktop-Rechner | gut erweiterbar                  | Platzbedarf\n\nAndere Nennungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2023-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1544,
+              "height": 1763
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Andere Nennungen",
+              "Wartbarkeit",
+              "Serververbindung",
+              "Erweiterbarkeit",
+              "Desktop-Rechner",
+              "Thin-Client",
+              "Platzbedarf",
+              "Notebook"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Notebook — Vorteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "Notebook — Nachteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "All-in-One-PC — Vorteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "All-in-One-PC — Nachteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "Thin-Client — Vorteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "Thin-Client — Nachteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "Desktop-Rechner — Vorteil",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "Desktop-Rechner — Nachteil",
+              "maxPoints": 0.5
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Analysieren Sie die zur Verfügung stehenden Modelle und ergänzen Sie die Nutzwertanalyse in den Zellen mit den fehlenden Punkten (weiße Felder). Jeder Punktwert kann nur einmal vergeben werden.\n(1-4 Punkte möglich, 1: am schlechtesten, 4: am besten)\n\nBerechnen Sie anschließend für jedes Modell die Summe der gewichteten Punkte.\n\nNr | Kriterium                     | Gewichtung | Notebook P/gP | All-in-One P/gP | Thin-Client P/gP | Desktop P/gP\n1  | Platzbedarf                   | 15 %       | 2 / 0,3       | 3 / 0,45        | ? / ?            | ? / ?\n2  | Ergonomie                     | 20 %       | 2 / 0,4       | ? / ?           | 4 / 0,8          | ? / ?\n3  | Performance                   | 10 %       | 3 / 0,3       | ? / ?           | 2 / 0,2          | ? / ?\n4  | Verfügbarkeit                 | 20 %       | 4 / 0,8       | 2 / 0,4         | 1 / 0,2          | 3 / 0,6\n5  | Kosten f. Wartung/Erweiterung | 15 %       | 2 / 0,3       | ? / ?           | 4 / ?            | ? / ?\n6  | Preis                         | 20 %       | ? / ?         | ? / ?           | ? / ?            | ? / ?\n   | Auswertung                    | 100 %      | ?             | ?               | ?                | ?\n\ngP: gewichtete Punkte",
+          "maxPoints": 16,
+          "answerType": "diagram",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "(12 Punkte für die richtige Vergabe der Punkte, 4 Punkte für die Summen, keine Punkte für die Berechnung der gP)\n\nNr | Kriterium                     | Gew.  | Notebook P/gP | All-in-One P/gP | Thin-Client P/gP | Desktop P/gP\n1  | Platzbedarf                   | 15 %  | 2 / 0,3       | 3 / 0,45        | 4 / 0,6          | 1 / 0,15\n2  | Ergonomie                     | 20 %  | 2 / 0,4       | 1 / 0,2         | 4 / 0,8          | 3 / 0,6\n3  | Performance                   | 10 %  | 3 / 0,3       | 1 / 0,1         | 2 / 0,2          | 4 / 0,4\n4  | Verfügbarkeit                 | 20 %  | 4 / 0,8       | 2 / 0,4         | 1 / 0,2          | 3 / 0,6\n5  | Kosten f. Wartung/Erweiterung | 15 %  | 2 / 0,3       | 1 / 0,15        | 4 / 0,6          | 3 / 0,45\n6  | Preis                         | 20 %  | 1 / 0,2       | 3 / 0,6         | 4 / 0,8          | 2 / 0,4\n   | Auswertung                    | 100 % | 2,3           | 1,9             | 3,2              | 2,6",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2023-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1544,
+              "height": 1763
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "12 Punkte",
+                "wert": 12.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "4 Punkte",
+                "wert": 4.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Vergabe",
+              "Desktop",
+              "Auswertung",
+              "Summen",
+              "Kriterium",
+              "Ergonomie",
+              "Berechnung",
+              "Thin-Client"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1c",
+          "label": "c)",
+          "fullLabel": "1 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Entscheiden Sie sich für eines der Modelle unter Berücksichtigung der geplanten Modernisierung der Arbeitsumgebung. Begründen Sie Ihre Entscheidung.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "arbeitsplatz"
+          ],
+          "solution": {
+            "text": "Mit entsprechender Begründung verschiedene Varianten möglich!\n\nz. B.: Thin Clients\nBegründung: Thin Client unterstützt am besten einen wechselnden Arbeitsplatz.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2023-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1544,
+              "height": 1763
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Thin Client",
+              "Varianten",
+              "Thin Clients",
+              "Arbeitsplatz",
+              "Begründung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1d",
+          "label": "d)",
+          "fullLabel": "1 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Geben Sie ein weiteres sinnvolles Kriterium für die Nutzwertanalyse an. Begründen Sie Ihren Vorschlag.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "arbeitsplatz"
+          ],
+          "solution": {
+            "text": "z. B.\n– Energieverbrauch\n  Begründung: Kosteneinsparung oder ein Beitrag zur CO2-Einsparung\n– Unterstützung für einen flexiblen Arbeitsplatz\n  Beitrag zur geplanten Modernisierung der Büroumgebung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2023-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1150,
+              "height": 142
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2023-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1437,
+              "height": 1465
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "CO2",
+              "Beitrag",
+              "Einsparung",
+              "Modernisierung",
+              "Büroumgebung",
+              "Energieverbrauch",
+              "Kosteneinsparung",
+              "Unterstützung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Für die Mitarbeiter sollen 3.500 neue Notebooks bezogen werden.",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "2aa",
+          "label": "aa)",
+          "fullLabel": "2 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Von den Standard-Lieferanten wurden folgende drei Angebote eingeholt:\n\n                    | Notebooks-günstiger.de | SMART Notebooks | Tech-ware\nListen-EK-Preis/Stk.| 886,31 EUR             | 901,25 EUR      | 1.071,00 EUR\nLieferantenrabatt   | 0 %                    | 0 %             | 20 %\nLieferantenskonto   | 0 %                    | 0 %             | 2 %\nLieferbedingungen   | frachtfrei             | frei Haus       | ab Werk\n\nFür alle Angebote gelten die folgenden Lieferkosten durch die Spedition Lieferschnell GmbH:\n– Rollgeld zur Verladestation: 45 EUR pro 100 Stück\n– Fracht: 100 EUR pro 100 Stück\n– Rollgeld ab Entladestation: 55 EUR pro 100 Stück\n\nKostenübernahme:\nfrei Haus, frei Lager, frei Werk: Gesamte Kosten trägt der Verkäufer\nfrei, frachtfrei: Rollgeld + Fracht trägt der Verkäufer, Rollgeld ab Entladestation trägt der Käufer\nab Lager, ab Werk: Gesamte Kosten trägt der Käufer",
+          "prompt": "Ermitteln Sie den Bezugspreis der einzelnen Anbieter pro Notebook durch Ergänzung der leeren Felder in der folgenden Tabelle.\n\n                       | notebooks-guenstiger.de | SMART Notebooks | Tech-ware\nListen-EK-Preis/Stk. Brutto | 886,31 EUR         | 901,25 EUR      | 1.071,00 EUR\nLieferantenrabatt      | 0,00 EUR                | 0,00 EUR        | ?\n= Zieleinkaufspreis    | 886,31 EUR              | 901,25 EUR      | ?\nLieferantenskonto      | 0,00 EUR                | 0,00 EUR        | ?\n= Bareinkaufspreis     | 886,31 EUR              | 901,25 EUR      | ?\nBezugskosten           | ?                       | ?               | ?\n= Bezugspreis          | ?                       | ?               | ?",
+          "maxPoints": 10,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "| notebooks-guenstiger.de | SMART Notebooks | Tech-ware\nListeneinkaufspreis  | 886,31 EUR              | 901,25 EUR      | 1.071,00 EUR\n- Lieferantenrabatt  | 0,00 EUR                | 0,00 EUR        | 214,20 EUR\n= Zieleinkaufspreis  | 886,31 EUR              | 901,25 EUR      | 856,80 EUR\n- Lieferantenskonto  | 0,00 EUR                | 0,00 EUR        | 17,14 EUR\n= Bareinkaufspreis   | 886,31 EUR              | 901,25 EUR      | 839,66 EUR\n+ Bezugskosten       | 0,55 EUR                | 0 EUR           | 2,00 EUR\n= Bezugspreis        | 886,86 EUR              | 901,25 EUR      | 841,66 EUR\n\nJedes Feld wird mit einem Punkt bewertet.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2023-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1150,
+              "height": 142
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2023-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1437,
+              "height": 1465
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "886,31 EUR",
+                "wert": 886.31,
+                "einheit": "EUR"
+              },
+              {
+                "text": "901,25 EUR",
+                "wert": 901.25,
+                "einheit": "EUR"
+              },
+              {
+                "text": "1.071,00 EUR",
+                "wert": 1071.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "0,00 EUR",
+                "wert": 0.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "214,20 EUR",
+                "wert": 214.2,
+                "einheit": "EUR"
+              },
+              {
+                "text": "856,80 EUR",
+                "wert": 856.8,
+                "einheit": "EUR"
+              },
+              {
+                "text": "17,14 EUR",
+                "wert": 17.14,
+                "einheit": "EUR"
+              },
+              {
+                "text": "839,66 EUR",
+                "wert": 839.66,
+                "einheit": "EUR"
+              },
+              {
+                "text": "0,55 EUR",
+                "wert": 0.55,
+                "einheit": "EUR"
+              },
+              {
+                "text": "0 EUR",
+                "wert": 0.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2,00 EUR",
+                "wert": 2.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "886,86 EUR",
+                "wert": 886.86,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "SMART",
+              "Lieferantenrabatt",
+              "Notebooks",
+              "Tech-ware",
+              "Bareinkaufspreis",
+              "Jedes Feld",
+              "Lieferantenskonto",
+              "Bezugskosten"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Lieferantenrabatt — Tech-ware",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "= Zieleinkaufspreis — Tech-ware",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Lieferantenskonto — Tech-ware",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "= Bareinkaufspreis — Tech-ware",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Bezugskosten — notebooks-guenstiger.de",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Bezugskosten — SMART Notebooks",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Bezugskosten — Tech-ware",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "= Bezugspreis — notebooks-guenstiger.de",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "= Bezugspreis — SMART Notebooks",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "= Bezugspreis — Tech-ware",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2ab",
+          "label": "ab)",
+          "fullLabel": "2 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Es wurde ein Lieferant mit einem höheren Bezugspreis gewählt.\n\nNennen Sie drei mögliche Gründe.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "z. B.\n– Höhere Zuverlässigkeit\n– Großzügigeres Kulanzverhalten\n– Guter Service\n– Niedrige Reklamationsquote",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2023-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1150,
+              "height": 142
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2023-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1437,
+              "height": 1465
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Großzügigeres Kulanzverhalten",
+              "Niedrige Reklamationsquote",
+              "Guter Service",
+              "Höhere Zuverlässigkeit"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2ba",
+          "label": "ba)",
+          "fullLabel": "2 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Sie erhalten ein weiteres Angebot. Die Best-IT-Service GmbH bietet die 3.500 Notebooks zu einem Gesamtpreis von 300.000,00 EUR an, alternativ einen Leasingvertrag über fünf Jahre mit einer monatlichen Leasingrate von 6.000,00 EUR mit Kaufoption.",
+          "prompt": "Beschreiben Sie das Grundprinzip von Leasing und erklären Sie dabei die Eigentums- und Besitzverhältnisse.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Zeitlich begrenztes, vertraglich vereinbartes Nutzungsrecht an Gebäuden oder beweglichen Anlagegütern. (2 Punkte)\nEigentümer ist der Leasinggeber. (1 Punkt)\nBesitzer ist der Leasingnehmer. (1 Punkt)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2023-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1544,
+              "height": 302
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2023-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 808,
+              "height": 196
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2023-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2023-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 499,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Gebäuden",
+              "Eigentümer",
+              "Besitzer",
+              "Anlagegütern",
+              "Nutzungsrecht",
+              "Zeitlich",
+              "Leasingnehmer",
+              "Leasinggeber"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2bb",
+          "label": "bb)",
+          "fullLabel": "2 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Vergleichen Sie den Kaufpreis mit den Gesamtkosten des Leasings.\n\nErmitteln Sie den Differenzbetrag.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Kauf: 300.000 EUR\nLeasing: 6.000 x 60 Monate = 360.000 EUR\nLeasing ist um 60.000 EUR teurer als Kauf.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2023-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1544,
+              "height": 302
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2023-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 808,
+              "height": 196
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2023-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2023-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 499,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "300.000 EUR",
+                "wert": 300000.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "60 Monate",
+                "wert": 60.0,
+                "einheit": "Monate"
+              },
+              {
+                "text": "360.000 EUR",
+                "wert": 360000.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "60.000 EUR",
+                "wert": 60000.0,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "60.000",
+              "360.000",
+              "Leasing",
+              "300.000",
+              "6.000",
+              "Monate",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2bc",
+          "label": "bc)",
+          "fullLabel": "2 bc)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie drei Vorteile, die für einen Leasingvertrag sprechen.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "z. B.\n– Liquidität wird zunächst nur in Höhe der ersten Rate gebunden\n– Eigenkapital wird nicht gemindert\n– Kreditspielraum bleibt erhalten\n– Schnellere Anpassung an den technischen Fortschritt\n– Keine Sicherheiten notwendig, da der Leasinggeber Eigentümer bleibt\n– Durch feste Leasingraten wird die Planung erleichtert\n– Steuerliche Vorteile",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2023-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1544,
+              "height": 302
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2023-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 808,
+              "height": 196
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2023-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2023-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 499,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Schnellere Anpassung",
+              "Kreditspielraum",
+              "Eigenkapital",
+              "Fortschritt",
+              "Steuerliche Vorteile",
+              "Leasinggeber Eigentümer",
+              "Keine Sicherheiten",
+              "Liquidität"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2bd",
+          "label": "bd)",
+          "fullLabel": "2 bd)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Erläutern Sie den Begriff Kaufoption.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Nach Vertragsablauf kann der Leasingnehmer den gemieteten Gegenstand zum Restwert oder Buchwert übernehmen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2023-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1544,
+              "height": 302
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2023-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 808,
+              "height": 196
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2023-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2023-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 499,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Buchwert",
+              "Gegenstand",
+              "Restwert",
+              "Nach Vertragsablauf",
+              "Leasingnehmer"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie informieren sich darüber, wie Sie bei den PCs in Ihrem Betrieb auf der Ebene der Betriebssysteme die Sicherheit verbessern könnten. Zur Einordnung der Funktionsebenen eines PCs wird häufig ein Schichten- oder ein Schalenmodell verwendet.\n\nBenennen Sie im nebenstehenden Modell eine Schicht oberhalb und eine Schicht unterhalb des Betriebssystems.\n\nBeschreiben Sie mithilfe der folgenden Tabelle jeweils eine Funktion Ihrer oben benannten Schichten.\n\nSchicht | Funktion\n?       | ?\n?       | ?",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "Schicht                        | Funktion\nz. B. Anwendung Textverarbeitung | Erstellung von Textdokumenten\nBetriebssystem                 | Bereitstellen einer Benutzeroberfläche\nz. B. UEFI/BIOS                | Bereitstellung einer einheitlichen Schnittstelle zwischen Hardware und Betriebssystem\nPC-Hardware                    | Verarbeitung und Speicherung von Daten",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2023-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1427,
+              "height": 1496
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2023-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 755,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Benutzeroberfläche",
+              "Anwendung Textverarbeitung",
+              "Textdokumenten",
+              "Erstellung",
+              "Hardware",
+              "UEFI",
+              "Funktion",
+              "Betriebssystem"
+            ]
+          },
+          "felder": [
+            {
+              "label": "? — Funktion",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "? — Funktion",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "3ba",
+          "label": "ba)",
+          "fullLabel": "3 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Bei Ihren Recherchen zur Sicherheit rund um das Betriebssystem treffen Sie auf eine Information des Bundesamts für Sicherheit in der Informationstechnik (BSI). Beim Lesen des Textes ergeben sich die unten aufgeführten Fragen.\n\n„Ein Großteil der erfolgreichen Angriffe auf IT-Systeme mit Microsoft Windows 10 lässt sich bereits mit den im Betriebssystem vorhandenen Bordmitteln erkennen oder verhindern. Um die nötige Konfiguration des Betriebssystems zu erleichtern, hat das Bundesamt für Sicherheit in der Informationstechnik (BSI) im Rahmen der „Studie zu Systemaufbau, Protokollierung, Härtung und Sicherheitsfunktionen in Windows 10“ (SiSyPHuS Win10) Handlungsempfehlungen zur Absicherung der Windows-Systeme in deutscher und englischer Sprache veröffentlicht. Ein Fokus bei der Erstellung lag auf der einfachen Umsetzung und praktischen Anwendung. Daher stellt das BSI die empfohlenen Konfigurationseinstellungen als direkt in Windows importierbare Gruppenrichtlinienobjekte (GPO) zum Download bereit – ein Service, der schnell und sicher ist.“\n(Quelle: bsi.bund.de, veröffentlicht am 03. Mai 2021)",
+          "prompt": "Nennen Sie zwei allgemeine Aufgaben des BSI.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "– Anlaufstelle für Unternehmen und Bürger zum Thema IT-Sicherheit\n– Erarbeitung von Standards zur IT-Sicherheit\n– Schutz der IT-Systeme des Bundes\n– Nennung weiterer Aufgaben laut Sicherheitsgesetz möglich",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2023-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1427,
+              "height": 1496
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2023-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 755,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Bürger",
+              "Thema",
+              "Sicherheitsgesetz",
+              "Standards",
+              "Erarbeitung",
+              "Bundes",
+              "Sicherheit",
+              "Aufgaben"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bb",
+          "label": "bb)",
+          "fullLabel": "3 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Erklären Sie den Begriff der „Härtung“ eines Betriebssystems.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "Reduktion von Angriffsmöglichkeiten, z. B. durch Deaktivierung von nicht notwendigen Diensten.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2023-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1427,
+              "height": 1496
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2023-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 755,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Reduktion",
+              "Diensten",
+              "Angriffsmöglichkeiten",
+              "Deaktivierung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bc",
+          "label": "bc)",
+          "fullLabel": "3 bc)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Beispiele für eine Härtung eines Betriebssystems.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "– Entfernung oder Deaktivierung von für den Betrieb nicht zwingend erforderlichen Softwarekomponenten\n– Reduzierung von Rechten und ihrer Vererbung auf das minimal notwendige Maß\n– Nutzung von Verschlüsselung, z. B. für Datenübertragung\n– Alle nicht benötigten Benutzerkonten löschen\n– Alle nicht benötigten Ports schließen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2023-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 840,
+              "height": 185
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2023-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 174
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2023-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1128,
+              "height": 143
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2023-f_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 196
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2023-f_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1331,
+              "height": 174
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Benutzerkonten",
+              "Softwarekomponenten",
+              "Entfernung",
+              "Rechten",
+              "Betrieb",
+              "Deaktivierung",
+              "Ports",
+              "Reduzierung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3bd",
+          "label": "bd)",
+          "fullLabel": "3 bd)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Systemwerkzeuge („Bordmittel“) eines Betriebssystems, mit denen die IT-Sicherheit erhöht werden kann.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit",
+            "software"
+          ],
+          "solution": {
+            "text": "– Firewall\n– Virenschutz\n– Datensicherung\n– Benutzerverwaltung\n– u. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2023-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 840,
+              "height": 185
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2023-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 174
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2023-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1128,
+              "height": 143
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2023-f_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 196
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2023-f_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1331,
+              "height": 174
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Benutzerverwaltung",
+              "Virenschutz",
+              "Firewall",
+              "Datensicherung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3be",
+          "label": "be)",
+          "fullLabel": "3 be)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie, wozu Gruppenrichtlinien auf einem Arbeitsplatzrechner eingesetzt werden können.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "arbeitsplatz"
+          ],
+          "solution": {
+            "text": "– Digitale Richtlinie für verschiedene Einstellungen (Computer und Benutzer).\n– Gruppenrichtlinien (Group Policies) erlauben den Administratoren die Vorgabe von Einstellungen zentral für einen oder mehrere Rechner. Die Einstellungen werden im Rechner festgeschrieben und können durch Anwender nicht geändert werden.\n– Nennung von konkreten Einstellungen sind auch korrekt (z. B. Passworteinstellungen, Sperrung von Konfigurationsmöglichkeiten).",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2023-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 840,
+              "height": 185
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2023-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 174
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2023-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1128,
+              "height": 143
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2023-f_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 196
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2023-f_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1331,
+              "height": 174
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Passworteinstellungen",
+              "Group Policies",
+              "Digitale Richtlinie",
+              "Gruppenrichtlinien",
+              "Einstellungen",
+              "Vorgabe",
+              "Sperrung",
+              "Konfigurationsmöglichkeiten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ca",
+          "label": "ca)",
+          "fullLabel": "3 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Das BSI gibt weiterhin auch Empfehlungen zur Konfiguration der Protokollierung von Aktivitäten an den einzelnen Rechnern.",
+          "prompt": "Beschreiben Sie, inwiefern eine Protokollierung (Logging) zur Erhöhung der IT-Sicherheit beitragen kann.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk",
+            "kommunikation"
+          ],
+          "solution": {
+            "text": "Identifikation von Fehlern und unerlaubten Aktivitäten und Zuordnung zu entsprechenden Zeiten und Benutzern.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2023-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 840,
+              "height": 185
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2023-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 174
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2023-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1128,
+              "height": 143
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2023-f_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 196
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2023-f_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1331,
+              "height": 174
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Fehlern",
+              "Zeiten",
+              "Benutzern",
+              "Aktivitäten",
+              "Identifikation",
+              "Zuordnung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3cb",
+          "label": "cb)",
+          "fullLabel": "3 cb)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie die besonderen Anforderungen an den Datenschutz, die bei der Protokollierung beachtet werden müssen.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk",
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Es dürfen Daten nur begrenzt gespeichert und ausgewertet werden. Nennung von konkreten Beispielen sind auch korrekt (z. B. Grundsatz der Datensparsamkeit).",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2023-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 840,
+              "height": 185
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2023-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 174
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2023-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1128,
+              "height": 143
+            },
+            {
+              "id": "p6_f4",
+              "file": "assets/ap1-2023-f_p06_f4.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 196
+            },
+            {
+              "id": "p6_f5",
+              "file": "assets/ap1-2023-f_p06_f5.png",
+              "sourcePage": 6,
+              "width": 1331,
+              "height": 174
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Beispielen",
+              "Grundsatz",
+              "Datensparsamkeit",
+              "Daten"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die SecuRita AG möchte zukünftig die Möglichkeit bieten, Schadensfälle schnell und einfach online zu regulieren. Zum Einsatz soll ein Chatbot kommen, der über künstliche Intelligenz verfügt.\n\nDazu soll in einem ersten Schritt eine Übersicht über die Vorteile und Nachteile eines Chatbot unter wirtschaftlichen und sozialen Aspekten erstellt werden.\n\nGeben Sie in jedem Feld ein zutreffendes Argument an.\n\nKI unterstützter Chatbot | Vorteile | Nachteile\nwirtschaftliche Aspekte  |          |\nsoziale Aspekte          |          |",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "ki"
+          ],
+          "solution": {
+            "text": "(0,5 Punkte je richtige Antwort)\n\nWirtschaftliche Aspekte\nVorteile: 24/7 Erreichbarkeit; Bearbeitung vieler Anfragen gleichzeitig; Entlastung der Servicemitarbeiter von einfachen Anfragen; geringere Betriebskosten\nNachteile: hohe Anschaffungskosten; Datenschutzbedenken; komplexe Einbindung in die Systeme; keine Entscheidungsfindung\n\nSoziale Aspekte\nVorteile: einfache Nutzung; keine Warteschleife; immer gut gelaunt; nehmen dem Kunden Berührungsängste\nNachteile: nicht alle Benutzer vertrauen Chatbots; mögliche Missverständnisse; ungeeignet bei komplexen Anfragen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2023-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1544,
+              "height": 921
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2023-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1053,
+              "height": 633
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "0,5 Punkte",
+                "wert": 0.5,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Kunden Berührungsängste",
+              "Missverständnisse",
+              "Wirtschaftliche Aspekte",
+              "Betriebskosten",
+              "Soziale Aspekte",
+              "Entscheidungsfindung",
+              "Anfragen",
+              "Warteschleife"
+            ]
+          },
+          "felder": [
+            {
+              "label": "wirtschaftliche Aspekte — Vorteile",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "wirtschaftliche Aspekte — Nachteile",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "soziale Aspekte — Vorteile",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "soziale Aspekte — Nachteile",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "4ba",
+          "label": "ba)",
+          "fullLabel": "4 ba)",
+          "groupLabel": "b)",
+          "groupIntro": "Die SecuRita AG hat sich für den Einsatz des Chatbots entschieden. Dazu soll in einem ersten Schritt ein Lastenheft erstellt werden.",
+          "prompt": "Beschreiben Sie zwei Unterschiede zwischen einem Lastenheft und einem Pflichtenheft.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "projekt"
+          ],
+          "solution": {
+            "text": "Das Lastenheft enthält die Anforderungen des Auftraggebers. Es beschreibt, was der Auftraggeber vom Auftragnehmer erwartet.\nAufgabe des Pflichtenheftes ist die Beschreibung der Leistungen, mit denen der Auftragnehmer die im Lastenheft genannten Anforderungen erfüllen will, wie und womit das Vorhaben realisiert wird. Das Pflichtenheft enthält die Leistungen, zu denen sich der Auftragnehmer verpflichtet.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2023-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1544,
+              "height": 921
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2023-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1053,
+              "height": 633
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Pflichtenheftes",
+              "Leistungen",
+              "Vorhaben",
+              "Auftragnehmer",
+              "Pflichtenheft",
+              "Auftraggeber",
+              "Auftraggebers",
+              "Lastenheft"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4bb",
+          "label": "bb)",
+          "fullLabel": "4 bb)",
+          "groupLabel": "b)",
+          "groupIntro": null,
+          "prompt": "Sie wirken an der Erstellung des Lastenheftes mit.\n\nNennen Sie zwei weitere Inhalte, die neben der Ausgangssituation in ein Lastenheft gehören.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "projekt",
+            "hardware"
+          ],
+          "solution": {
+            "text": "Inhalt Lastenheft:\n– Ausgangssituation\n– Liste von Anforderungen\n– Rahmenbedingungen\n– Beschreibung von Schnittstellen\n– Qualitätsziele\n– Zeitziele\n– Budget\n– u. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2023-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 1544,
+              "height": 921
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2023-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 1053,
+              "height": 633
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ausgangssituation",
+              "Budget",
+              "Liste",
+              "Qualitätsziele",
+              "Zeitziele",
+              "Inhalt Lastenheft",
+              "Rahmenbedingungen",
+              "Beschreibung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Im nächsten Schritt wird ein Entwurf eines UML-Klassendiagramms für die Schadensregulierung erstellt. Für die Versicherungsfälle KFZ und Immobilie sollen eigene Klassen entworfen werden.\n\nDie Klasse KFZ hat die Eigenschaften:\n– Hersteller\n– Typschlüssel\n– Neupreis\n– Baujahr\n– Laufleistung\n– Schadenshöhe\nund Methoden:\n– restwertBerechnen()\n– auszahlen()\n\nDie Klasse Immobilie hat die Eigenschaften:\n– Neupreis\n– Baujahr\n– Wohnfläche\n– Lagebewertung\n– Schadenshöhe\nund Methoden:\n– restwertBerechnen()\n– getLagebewertung()\n– auszahlen()\n\nAufgabe: Erstellen Sie eine sinnvolle Klassenhierarchie mit einer gemeinsamen Oberklasse „Versicherungsobjekt“.\n\nHinweis: Die Restwertberechnung erfolgt beim KFZ und bei der Immobilie unterschiedlich. Zusätzliche Methoden, Konstruktoren und Zugriffsmodifikatoren sind nicht erforderlich.",
+          "maxPoints": 8,
+          "answerType": "diagram",
+          "topics": [
+            "programmierung"
+          ],
+          "solution": {
+            "text": "Lösungsvorschlag (je Klasse 2 Punkte, 2 Punkte für die Vererbung):\n\nOberklasse Versicherungsobjekt\n  Attribute: Neupreis, Baujahr, Schadenshöhe\n  Methoden: auszahlen()\n\nKFZ (erbt von Versicherungsobjekt)\n  Attribute: Hersteller, Typschlüssel, Laufleistung\n  Methoden: restwertBerechnen()\n\nImmobilie (erbt von Versicherungsobjekt)\n  Attribute: Wohnfläche, Lagebewertung\n  Methoden: restwertBerechnen(), getLagebewertung()\n\n* Methode restwertBerechnen() zusätzlich in der Klasse Versicherungsobjekt zulässig (Polymorphie)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2023-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 244,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_08.png",
+          "placeholder": "Klassendiagramm: gib im Antwortfeld je Klasse Name, Attribute und Methoden an und beschreibe die Vererbung (z. B. „KFZ erbt von Versicherungsobjekt“).",
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Aus dem Katalog gestrichen — geblieben sind Klassen, Methoden, Attribute. UML-Generalisierung im Use-Case-Diagramm zählt nicht dazu.",
+            "themen": [
+              "Vererbung / Klassenhierarchie (OOP)"
+            ],
+            "treffer": [
+              "vererbung"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Immobilie",
+              "Schadenshöhe",
+              "Wohnfläche",
+              "Klasse Versicherungsobjekt",
+              "Methoden",
+              "Lösungsvorschlag",
+              "Versicherungsobjekt",
+              "Polymorphie"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4da",
+          "label": "da)",
+          "fullLabel": "4 da)",
+          "groupLabel": "d)",
+          "groupIntro": "Bei der Schadenregulierung im KFZ-Bereich werden die notwendigen Informationen in einer relationalen Datenbank gespeichert. Wichtig dabei ist die Zuordnung der Versicherungsnehmer zu den jeweiligen KFZ-Daten. So werden zum Beispiel unter dem Attribut Fahrzeugtyp die Fahrzeuge nach SUV, Limousine, Geländewagen oder Cabriolet unterschieden. Das Attribut „Garage“ wird mit dem Datentyp BOOLEAN abgespeichert. Ein Teilauszug aus dieser Datenbank sehen Sie in dem Entity-Relationship-Modell auf der Seite.\n\nEntitäten und Attribute (Auszug):\nVersicherungsnehmer (VNID, Name, Vorname, Geburtsdatum, PLZ, Ort, Straße, HNR, Telefon, E-Mail)\nFahrzeug (VID#, Kennzeichen, Leistung_KW, Hubraum, Neuwert, Baujahr, Rahmennummer, Fahrzeugtyp, Hersteller)\nKFZ_Versicherung (VID, VNID#, km_Leistung, Versicherung_Summe, Vertragsbeginn, Garage)\nBeziehungen: Versicherungsnehmer 1 —abgeschlossen— n KFZ_Versicherung; Fahrzeug 1 —gehört— 1 KFZ_Versicherung\n\nPK bezeichnet ein Primärschlüsselattribut (unterstrichen), FK ein Fremdschlüsselattribut (nachgestelltes #).",
+          "prompt": "Sie erhalten von der Versicherungszentrale den Auftrag, die durchschnittliche Versicherungssumme über alle KFZ-Versicherungsverträge zu ermitteln.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "SELECT AVG(Versicherung_Summe) FROM KFZ_Versicherung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2023-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1544,
+              "height": 1368
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2023-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1406,
+              "height": 259
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "AVG",
+              "SELECT",
+              "FROM"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4db",
+          "label": "db)",
+          "fullLabel": "4 db)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Sie erhalten von der Versicherungszentrale den Auftrag, die Versicherungsnummern (VID) zu ermitteln, welche im Mai 2022 abgeschlossen wurden und eine maximale Versicherungssumme von über 100.000,00 EUR beinhalten. Alle Fahrzeuge, die in einer Garage abgestellt werden, sollen in dieser Abfrage nicht angezeigt werden.\n\nErstellen Sie dazu eine geeignete SQL-Abfrage.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "SELECT VID FROM KFZ_Versicherung\nWHERE Year(Vertragsbeginn) = 2022 AND Month(Vertragsbeginn) = 5\nAND Versicherung_Summe > 100000 AND Garage = FALSE",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2023-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2023-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 1544,
+              "height": 1368
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2023-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1406,
+              "height": 259
+            }
+          ],
+          "pageImage": "assets/ap1-2023-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Laut Vorwort des Katalogs ausschließlich in AP2 geprüft.",
+            "themen": [
+              "SQL / nicht-relationale Datenbanken"
+            ],
+            "treffer": [
+              "sql"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Garage",
+              "FALSE",
+              "Month",
+              "Vertragsbeginn",
+              "VID",
+              "AND",
+              "WHERE",
+              "FROM"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

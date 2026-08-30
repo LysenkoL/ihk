@@ -1,0 +1,448 @@
+
+===== SEITE 1 =====
+Diese Kopfleiste bitte unbedingt ausf011en!
+Familienname, Vorname (bitte durch eine Leerspalte trennen)
+[•]HE!
+4 lo
+120l2
+Bbreich 
+BaFutiFlutrimer
+IHK-Nummer
+SP. 7-9
+PrOflingsnummer
+I
+Termin: Mittwoch, 29. September 2021
+SP. 1-2 
+SP. 3-6
+SP. 10'14
+AbschlussprOfung Herbst 202 1
+1202
+Einrichten eines
+Fachinformati ker
+IFgestOtzten Arbeitsplatzes
+Fachinformatikerin
+Systemintegration (AO 2020)
+Teil 1 der AbschlussprOfung
+4 Aufgaben
+90 Minuten PrOfungszeit
+100 Punkte
+Bearbeitungshinweise
+1. Bevor Sie mit der Bearbeitung der Aufgaben beginnen, 0berprOfen Sie bitte
+die vollstandigkeit 
+dieses Aufgabensatzes. Die Anzahl der zu bearbeitenden
+Aufgaben ist auf dem Deckblatt links angegeben. Wenden Siesich bei Unstim-
+mtgkelten sofort an die Aufsicht. weil Reklamationen 
+am Ende der Prafung
+nicht anerkannt werden k6nnen
+2.
+FOllen Sie zuerst die Kopfzeile aus. Tragen Sie Ihren Familiennamen, Ihren
+Vornamen und Ihre Prafttngs-Nr. in die oben stehenden Felder ein
+3,
+Lesen Sie bitte den Text der Aufgaben ganz durch, bevor Ste mit der Bear-
+beitung beginnen
+Hinweis:
+Bei der Bearbeitung der Aufgaben ist von
+einem gew6hnlichen Geschaftsbetrieb
+auszugehen, 
+der nicht durch die
+COVID-19-Pandemie beeinflusst bzw.
+durch entsprechende beh6rdliche VerfOgun-
+gen eingeschrankt ist.
+4
+Halten Sie sich bei der Bearbeitung der Aufgaben genau an die Vorgaben
+der Aufgabenstellung 
+zum Umfang der L6sung. Wenn z. B. vier Angaben
+gefordert werden und Sie sechs Angaben anfOhren, werden nur die ersten vier
+Angaben bewertet,
+5.
+Tragen Sie die frel zu formulierenden Antworten 
+dieser offenen Aufgaben
+In die dafOr it. Aufgabenstellung vorgesehenen Bereiche (L6sungszeilen, For-
+mulare, Tabellen u. a.) des Arbeltsbogens ein
+6,
+Sofern nicht ausdrOcklich ein Brief oder eine Formulierung in ganzen satzen
+gefordert werden, ist eine stichwortanige 
+Beantwortung 
+zulassig
+Schreiben Sie deutlich und gut lesbar. Ein nicht eindeutig zuzuordnendes oder
+unleserliches Ergebnis wird als falsch gewertet
+7
+8
+Zur L6sung der Rechenaufgaben darf ein nicht programmierter, netzunab-
+hangiger Taschenrechner ohne Kommunikationsm6glichkeit 
+mit Dritten
+verwendet werden
+9. Wenn Sieein gerundetes Ergebniseintragen und damit weiterrechnen rnOssen,
+rechnen Sie (auch im Taschenrechner) nur mit diesem gerundeten Ergebnis weiter.
+10. FOr Nebenrechnungen/Hilfsaufzeichnungen 
+k6nnen Sie das im Aufgaben-
+satz enthaltene Konzeptpapier verwenden. Dieses muss vor der Bearbeitung
+der Aufgaben herausgetrennt werden. Bewertet werden jedoch nur Ihre
+Eintragungen im Aufgabensatz.
+Wird vom Korrektor ausgef011t!
+Bewertung
+FOr die Bewertung gilt die Vorgabe der Punkte in den L6sungshinweisen
+1 . Aufg,
+TTPunkte 2.Aufg.
+15 16
+T P„kt, 
+3. A,fg,
+17 18
+Punkte 4.Aufg.
+19 20
+Punkte
+21 22
+PrOfungszeit
+finden Sie in der Abfraqe nach der
+PrOfungszeit im Anschluss an die letzte
+Aufqabe.
+23
+Die entsprechende 
+Ziffer (1, 2 oder 3)
+Gesamtpunktzahl
+PrOfungsort, 
+Datum
+24 25 26
+Jnterschrif1
+Gemeinsame PrOfungsaufgaben der Industrie- und Handelskammern. Dieser Aufgabensatz wurde von einem Oberregionalen
+Ausschuss, der entsprechend g 40 BerufsbiIdungsgesetz zusammengesetzt ist, beschlossen
+Die Vervielfaltigung, Verbreitung und 6ffentliche Wiedergabe der PrOfungsaufgaben und L6sungen ist nicht gestattet. Zuwider-
+handlungen werden zivil- und strafrechtlich (g§ 97 ff., 106 ff. UrhG) verfolgt. – © ZPA Nord-West 202 1 – Alle Rechte vorbehalten !
+
+===== SEITE 2 =====
+Situation
+Korrekturrand
+Sie sind Mitarbeiter/-in der IT.SYS GmbH, einem Systemhaus, weEches IT-Dienstleistungen far Privatpersonen und Unternehmen
+anbietet
+Ein Kunde der IT.SYS GmbH ist die Arztpraxis Care. Diese wird mit ihrer Praxis an einen neuen Standort ziehen. Dabei soII die
+IT-Technik zum TeiF erneuert werden. Die IT,SYS GmbH wird mit der Planung und Umsetzung des Umzuges beauftragt.
+Sie arbeiten an diesem Projekt mit und solten die folgenden vierAufgaben erledigen
+– Das Projekt zur Installation der IT planen und einen Netzplan vervollstandigen
+– Die Energiebilanz der neuen Hardware optimieren und Fehler in einem Skript korrigieren
+– Die Migration der bestehenden Postfacher auf den neuen E-Mail-Server vorbereiten
+– MaBnahmen zum Datenschutz und zur Datensicherung ergreifen und den Kunden beraten
+1. Aufgabe (25 Punkte)
+In Vorbereitung des Umzuges arbeiten Ste an der Planung mit
+a) Ihr Kollege sagt zu Ihnen, bei dem Umzug derArztpraxis handelt es sich um ein Projekt
+Nennen Sie vier Merkmale eines Projekts,
+4 Punkte
+b) Die Ziele in einem Projekt sollen den SMART-Kriterien entsprechen
+Nennen Sie die vier weiteren SMART-Kriterien auf Deutsch oder Englisch.
+4 Punkte
+S specific–spezifisch
+M
+A
+R
+T
+c) in Vorbereitung des Projektes wird ein Netzplan erstellt. Ihr Kollege hat bereits mit der Erstellung angefangen und bittet Sie,
+diesen zu vervollstandigen.
+Tragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein. 
+14 Punkte
+Hinweis:
+FAZ = frOhester Anfangszeitpunkt
+FEZ = frOhester Endzeitpunkt
+FP = freie Puffer (= FAZ des Nachfolgers – FEZ des aktuellen Vorgangs)
+SAZ = spatester Anfangszeitpunkt, SEZ = spatester Endzeitpunkt
+GP = Gesamtpuffer (= SAZ – FAZ oder = SEZ – FEZ)
+d) Markieren Sie den kritischen Pfad im Netzplan.
+e) Der Vorgang H, der Abbau der alten Infmstruktur, verz6gert sich um vier Stunden.
+Beschreiben Sie die Auswirkung auf das Projektende.
+1 Punkt
+2Punkte
+ZPA IT 2
+
+===== SEITE 3 =====
+Abbildung zur 1. Aufgabe
+Korrekturrand
+==
+a
+<Imjmjmjm
+LU cj
+Lj
+q 1 r.II oo INI Ln 1 q
+fri
+r\I
+eg
+nJ
+<
+0
+0
+ZPA IT 3
+
+===== SEITE 4 =====
+2. Aufgabe (25 Punkte)
+Im Rahmen des Umzuges soFlen einige PCs neu angeschafftwerden. Der Kunde soII sich zwischen zwei PC-Varianten entscheiden.
+Beide PC-Varianten sind nahezu baugleich bis auf das verwendete Netzteil
+Sie wurden damit beauftragt, far eine Besprechung die Energieeffizienz der beiden PCs unter 6konomischen Gesichtspunkten zu
+vergleichen.
+Betriebsstunden
+– 9 Stunden pro Tag
+– Betrieb an 20Arbeitstagen pro Monat
+Die beiden zu vergleichenden PCs sind wie folgt ausgestattet:
+– PC-A hat ein niedrigpreisiges Netzteil ohne Zertifikat.
+– PC-B hat ein Netzteil nach dem 80plus Gold Standard
+a) Errechnen Sie die Leistung und die Energiekosten pro Monat, wenn eine kWh 30 Cent kostet.
+Dem englischsprachigen Manual des Netzteils k6nnen Sie folgende Definition entnehmen
+Efficiency 
+= Useful power output/Total power input
+Korrekt ur rand
+6 Punkte
+PC-A
+43 %
+60 W
+139,53 W
+PC-B
+76 %
+60 W
+Wirkungsgrad des Netzteils bei 60 W in Prozent
+Durch die Komponenten des PCs ben6tigte durchschnittliche Leistung im Betrieb
+Vom Netzteil bezogene Leistung aus dem Stromnetz
+Energiekosten pro Monat in EUR
+b) Der PC mit dem Netzteil nach dem 80Plus Gold Standard kostet in derAnschaffung 100 EUR mehr.
+Berechnen Sie die Dauer in Monaten, ab der sich die Anschaffung amortisiert hat
+Hinweis: Falls SieAufgabe a) nicht 16sen konnten, rechnen Sie bei PC-A mit 6,83 EUR und bei PC-B mit 4,78 EUR,
+4 Punkte
+ZPA IT 4
+
+===== SEITE 5 =====
+c) Machen Sie drei weitere Vorschlage zur Senkung der Energiekosten des IT-Arbeitsplatzes,
+3 Punkte Korrekturrand
+d) Bei der Installation der Gerate stetlen Sie fest, dass folgende Gerate aber eine einzige Mehrfachsteckdose mit derAufschrift
+„maximal 16 A'' angeschlossen werden sollen
+3 PCs mit einer maximalen Leistungsaufnahme von jeweils 180 W
+– Ein Drucker mit einer maximalen Leistungsaufnahme von 400 W
+– Eine Kaffeemaschine mit einer maximalen Leistungsaufnahme von 1.200 W
+– Klimagerat mit einer maximalen Leistungsaufnahme von 2,000 W
+Weisen Sie durch eine Rechnung nach, dass diese Gerate nicht gleichzeitig betrieben werden k6nnen,
+4 Punkte
+Fortsetzung 2. Aufgabe +
+ZPA IT 5
+
+===== SEITE 6 =====
+Fortsetzung 2. Aufgabe
+e) Far den gew5hlten Rechner wird eine Datensicherung erstellt. Ihr Kollege hat das folgende Skript erstellt, welches eine War-
+nung ausgeben soII, wenn der Speicherplatz auf dem Ziellaufwerk Z unter 1 5 % fallt.
+Erstelltes Skript 
+Falsche Zeilen korrigieren
+$Drive = Get–Volume 
+–DriveLetter Z
+$Prozent= ( $Drive .SlzeRemalning/ $Drive .
+Size ) + 1000
+If($Prozent 
+–gt 
+15 )
+{
+Korrekturrand
+Write–Host „Es sind wenlger als 15 ?
+Speicherplatz 
+fret 
+.
+}
+else
+{
+Write–Host „Es ist gentlgend Spelcherplatz
+ver ftigbar 
+. u
+}
+Leider funktioniert das Skript nicht wie gewOnscht und bringt eineWarnmeldung, obwohl das Laufwerk nur zu 50 % gefbllt ist
+Lesen Sie sich die folgendeAnleitung (manual) durch und korrigieren Sie in der obigen TabeIFe die zwei Fehler. 
+8 Punkte
+Manual: To use a comparison operator, specify the values that you want to compare together with an operator that separates
+these values. The Shell includes the following comparison operators
+Operators 
+Description
+-eq 
+equals
+-ne 
+not equals
+-gt 
+greater than
+-ge 
+greater than or equa
+-It 
+less than
+-le 
+less than or equal
+Note
+Write-Host produce a display output.
+Get-Volume return a Volume object that match the specified criteria.
+3. Aufgabe (26 Punkte)
+Die Arztpraxis Care ben6tigt Unterstatzung bei der Auswahl notwendiger IT. Die Arztpraxis beauftragt Sie, sie bzgl. derAuswahl
+von Hardware- und Softwarekomponenten zu unterstOtzen
+a) Grundlage far einen m6glichen Auftrag an die IT.SYS GmbH ist ein Lastenheft derArztpraxis Care, das die spezifischen Anforde-
+rungen des Auftraggebers an den potenziellen Auftragnehmer beschreibt.
+Benennen Sie fOnf inhaltlicheAspekte, die in soich einem Lastenheft Oblicherweise enthalten sind. 
+5 Punkte
+ZPA IT 6
+
+===== SEITE 7 =====
+b) Eines der Projektziele ist die Ab16sung eines veralteten E-Mail-Systems in der Arztpmxis Care. Ein wesentlicher Aspekt ist hierbei
+die Migration der bestehenden Postfacher auf den neuen E-Mail-Server, Aus organisatorischen GrOnden kann eine solche Migration
+nur auF3erhalb der gew6hnlichen Offnungszeiten der Praxis durchgefbhrt werden. Die Praxis ist wochentags von 18.00 – 8,00 Uhr
+geschlossen
+Korrekturrand
+Far betreffende Arbeiten beauftragt die IT,SYS GmbH einen Subunternehmer, der diese unter derWoche durchfOhren soII. Der
+Dienstleister verFangt fOr seine Tatigkeit 130 EUR/h. Die Migration eines Postfachs dauert wegen umfangreicher manuel ter
+Nacharbeiten im Schnitt zwei Stunden. In Summe sind 20 Postfacher zu migrieren
+ba) Berechnen Sie die Gesamtkosten fDr die Migration, die die IT,SYS GmbH berOcksichtigen mOsste,
+Der Rechenweg ist anzugeben.
+2Punkte
+Gesamtkosten 
+:
+bb) Ermitteln Sie, nach wie vielen Tagen die Migration frahestens abgeschlossen ist, wenn das Subunternehmen zwei Ange-
+steltte mit einer tdglichen Arbeitszeit von 8 h pro Tag einsetzt.
+Der Rechenweg ist anzugeben.
+2Punkte
+Anzahl derArbeitstage:
+c) Mit dem Auftraggeber wird diskutiert, ob gewisse Arbeiten der IT,SYS GmbH remote durchgefOhrt werden sollen
+Nennen Sie zwei Vorteile sowie zwei Nachtei Ie von remote gegenOber einer Vor-0rt-Wartung.
+4 Punkte
+Fortsetzung 3. Aufgabe +
+ZPA IT 7
+
+===== SEITE 8 =====
+Fortsetzung 3. Aufgabe
+d) Auf allen Arbeitsplatzen in der Arztpraxis soII eine neue Software-Suite far die Bereiche Textverarbeitung, Tabellenkalkulation
+und Prasentationen installiert werden, Eine weitere Aufgabe der IT.SYS 
+GmbH ist es, die Mitarbeiter in der Praxis in diese Pro-
+grarnrne elnzuwelsen,
+Beschreiben Sie drei von den vier vorgegebenen M6glichkeiten, wie die betreffenden Inhalte vermitteFt werden k6nnen.
+6 Punkte
+Korrekturrand
+(1) Schulung am Arbeitsplatz
+(2)Webinare:
+(3) Video-Tutorien 
+:
+(4) Multiplikatoren-Schulung:
+e) Der Praxisinhaber hat von seinem IT-Dienstleister geh6rt, dass durch den Verbund mehrerer Festplatten verschiedene RAID-
+Level gebildet werden k6nnen. Besonders wichtig fOr die Arztpraxis ist es, dass eine hohe VerfOgbarkeit der Daten vorhanden
+ist. Besonders derAusfall einer Festplatte soII kompensiert werden. Gleichzeitig soII sich derAnteil der Speicherkapazitat fOr die
+Nutzdaten auf den Festplatten nicht so stark reduzieren
+Hinsichtlich dieser Prioritaten beraten Sie den Praxisinhaber und stellen die RAID-Level 0, 1 und 5 vor.
+Erklaren Sie dem Praxisinhaber die Grundfunktionen der drei RAID-Level-Arten und begrOnden Sie, fDr welches RAID-Level sich
+der Praxisinhaber entscheiden sollte. 
+7 Punkte
+ZPA IT 8
+
+===== SEITE 9 =====
+4. Aufgabe (24 Punkte)
+Korrekturrand
+Die IT.SYS 
+GmbH hat von der Arztpraxis Care auch noch den Auftrag erhalten, Datenschutz und Datensicherheit zu gewahrleisten
+und gegebenenfalls MaBnahmen zu ergreifen. Sie werden beauftragt, sich dieser Aufgabe anzunehmen.
+a) in einem ersten Schrltt informieren Sie sich LIber allgemeine Grundlagen der Informationssicherheit, Als wichtige Schutzziele
+werden hier u. a, Vertraulichkeit, Integrit5t und VerfOgbarkeit genannt. Sie k13ren nun, welches Schutzziel der jeweiligen Sicher-
+heitsmai3nahme zugeordnet werden karIn. Setzen Sie dazu pro Zeile jeweils ein Kreuz und geben Sie eine BegrOndung fOr Ihre
+Zuordnung an. 
+6 Punkte
+f
+'n!
+P+ii
+C
+R
+Dr
+7=
+rD
+:
+3ph
+rD
+10
+'n!
+:+:
+P+
+S
+'=R
+•+I
+C :
+(Q
+UP
+a)
+=RX
+rD
+SicherheitsmaBnahme
+Begrandung
+Sichere Passw6rter 
+w5hlen
+X
+t
+RegelmaBige Datensicherung der
+Patientendaten
+Versch10sselung der Festplatten
+Zentraie Bearbeitung wichtiger
+Dokumente auf Server
+HashwertDberprafung bei
+Softwareinstallation
+b) Im IT-Grundschutz-Kompendium des Bundesamtes far Sicherheit in der Informationstechnik (BSI) finden Sie Basis-Anforderungen
+zurAbsicherung eines PC-Clients.
+Nennen Sie je eine MaF3nahme, mit denen die folgenden Anforderungen umgesetzt werden k6nnten,
+– Aktivieren vonAutoupdate-Mechanismen:
+2Punkte
+– Differenzieren von Benutzerrollen (Rollentrennung):
+Fortsetzung 4. Aufgabe +
+ZPA IT 9
+
+===== SEITE 10 =====
+Fortsetzung 4. Aufgabe
+c) Im Rahmen einer Schutzbedarfsanalyse 
+versuchen Sie zu ermitteln, wie wichtig die verwendeten unternehmensreEevanten 
+IT-
+Anwendungen far den Fortgang des Gesch5ftsprozesses sind, um das MaB an ben6tigtem Schutz zu definieren.
+Korrekturrand
+Kat8gorie
+Be$chreibung
+Niedrig bis mittel
+Die Schadensauswirkungen sind begrertzt und Oberschaubar
+Die Schadensauswirkungen 
+k6nnen betrachtlich sein
+Hoch
+Sehr hoch
+Die Schadensauswirkungen k6nnen ein existenziell bedrohli
+ches. katastrophales Ausmal! erreichen
+Folgende Schutzbedarfskategorien werden vorgeschlagen:
+In einerTabetle wurde bereits der Schutzbedarf verschiedener tT-Anwendungen zugewiesen.
+FOgen Siejeweils eine m6gliche BegrOndung fOr den gewahlten Schutzbedarf hinzu.
+6 Punkte
+IT-Anwendung
+Schutzbedarfsfeststellung
+c
+t
+BegrClndung
+z. B.: Verfalschte Daten bei der Obertragung
+k6nnen zu fehFerhaften Abrechnungen fOhren.
+Prafziffernverfahren bei der Obermittlung
+der Krankenversicherungsnummer
+Textverarbeitung
+t
+Software zur telemedizinischen Beratung
+aber Videokonferenz
+e
+a 
+s
+d) Die Arzthelferin an der Rezeption m6chte von Ihnen wissen, far welche Art von Daten ein besonderer Schutz gesetzlich vorge-
+schrieben ist.
+Geben Sie derArzthelferin Auskunft und benennen Sie hierzu eine rechtliche Grundlage.
+2 Punkte
+e) FOhren Sie zwei Kriterien an, die ein sicheres Passwort erfallen sollte. Beschreiben Sie auch, warum diese Kriterien fOr eine
+h6here Sicherheit sorgen, 
+4 Punkte
+ZPA IT 10
+
+===== SEITE 11 =====
+f) Die GebElhrenabrechrlungssoftware ist so eingerichtet, dass der Datenbestand freitags beim Herunterfahren des PCs auf einer
+spezielt eingerichteten Partition der Festplatte 
+gesichert wird
+fa) IhrTeamleiter beauftragt Ste, der Leiterin des Praxismanagements die Risiken aufzuzeigen.
+Beschreiben Sie zwei der Risiken. 
+2 Punkte
+Korrekturrand
+fb) Unterbreiten Sie der Leiterin einen konkreten Verbesserungsvorschlag.
+2Punkte
+PRUFUNGSZEIT T NICHT BESTANDTEILDER PRUFUNG!
+Wie beurteilen Sie nach der Bearbeitung der Aufgaben die zurVerfOgung stehende PrOfungszeit?
+n 
+Sie hatte kOrzer sein k6nnen. 
+L2] Sie war angemessen. 
+B 
+Sie hatte langer sein mOssen.
+[
+ZPA IT 1 1

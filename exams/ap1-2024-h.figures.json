@@ -1,0 +1,523 @@
+{
+  "examId": "ap1-2024-h",
+  "source": "ap1-2024-h-aufgaben.pdf",
+  "pages": 10,
+  "figures": [
+    {
+      "id": "p1_f1",
+      "sourcePage": 1,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p01_f1.png",
+      "box": [
+        0.04,
+        0.0279,
+        0.9533,
+        0.2887
+      ],
+      "width": 1501,
+      "height": 653
+    },
+    {
+      "id": "p1_f2",
+      "sourcePage": 1,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p01_f2.png",
+      "box": [
+        0.04,
+        0.3027,
+        0.42,
+        0.4098
+      ],
+      "width": 648,
+      "height": 301
+    },
+    {
+      "id": "p1_f3",
+      "sourcePage": 1,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p01_f3.png",
+      "box": [
+        0.46,
+        0.3027,
+        0.9467,
+        0.7078
+      ],
+      "width": 818,
+      "height": 984
+    },
+    {
+      "id": "p1_f4",
+      "sourcePage": 1,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p01_f4.png",
+      "box": [
+        0.04,
+        0.7125,
+        0.7667,
+        0.8242
+      ],
+      "width": 1202,
+      "height": 311
+    },
+    {
+      "id": "p1_f5",
+      "sourcePage": 1,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p01_f5.png",
+      "box": [
+        0.0,
+        0.8428,
+        0.9467,
+        0.9732
+      ],
+      "width": 1534,
+      "height": 355
+    },
+    {
+      "id": "p2_f1",
+      "sourcePage": 2,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p02_f1.png",
+      "box": [
+        0.02,
+        0.0326,
+        0.8867,
+        0.2282
+      ],
+      "width": 1426,
+      "height": 503
+    },
+    {
+      "id": "p2_f2",
+      "sourcePage": 2,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p02_f2.png",
+      "box": [
+        0.02,
+        0.3306,
+        0.88,
+        0.6892
+      ],
+      "width": 1416,
+      "height": 877
+    },
+    {
+      "id": "p2_f3",
+      "sourcePage": 2,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p02_f3.png",
+      "box": [
+        0.04,
+        0.7683,
+        0.4467,
+        0.8056
+      ],
+      "width": 690,
+      "height": 141
+    },
+    {
+      "id": "p3_f1",
+      "sourcePage": 3,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p03_f1.png",
+      "box": [
+        0.0333,
+        0.0326,
+        0.74,
+        0.1723
+      ],
+      "width": 1170,
+      "height": 376
+    },
+    {
+      "id": "p3_f2",
+      "sourcePage": 3,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p03_f2.png",
+      "box": [
+        0.0333,
+        0.2515,
+        0.8733,
+        0.5867
+      ],
+      "width": 1383,
+      "height": 824
+    },
+    {
+      "id": "p4_f1",
+      "sourcePage": 4,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p04_f1.png",
+      "box": [
+        0.0267,
+        0.0279,
+        0.88,
+        0.1537
+      ],
+      "width": 1405,
+      "height": 344
+    },
+    {
+      "id": "p4_f2",
+      "sourcePage": 4,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p04_f2.png",
+      "box": [
+        0.0667,
+        0.1816,
+        0.1867,
+        0.2189
+      ],
+      "width": 231,
+      "height": 141
+    },
+    {
+      "id": "p4_f3",
+      "sourcePage": 4,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p04_f3.png",
+      "box": [
+        0.02,
+        0.2608,
+        0.86,
+        0.3958
+      ],
+      "width": 1384,
+      "height": 365
+    },
+    {
+      "id": "p4_f4",
+      "sourcePage": 4,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p04_f4.png",
+      "box": [
+        0.0333,
+        0.475,
+        0.8733,
+        0.5634
+      ],
+      "width": 1383,
+      "height": 258
+    },
+    {
+      "id": "p4_f5",
+      "sourcePage": 4,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p04_f5.png",
+      "box": [
+        0.0467,
+        0.6473,
+        0.6,
+        0.7031
+      ],
+      "width": 925,
+      "height": 184
+    },
+    {
+      "id": "p5_f1",
+      "sourcePage": 5,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p05_f1.png",
+      "box": [
+        0.02,
+        0.0326,
+        0.88,
+        0.1769
+      ],
+      "width": 1416,
+      "height": 386
+    },
+    {
+      "id": "p5_f2",
+      "sourcePage": 5,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p05_f2.png",
+      "box": [
+        0.38,
+        0.2282,
+        0.48,
+        0.3027
+      ],
+      "width": 200,
+      "height": 226
+    },
+    {
+      "id": "p5_f3",
+      "sourcePage": 5,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p05_f3.png",
+      "box": [
+        0.0333,
+        0.2375,
+        0.2333,
+        0.3353
+      ],
+      "width": 359,
+      "height": 280
+    },
+    {
+      "id": "p6_f1",
+      "sourcePage": 6,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p06_f1.png",
+      "box": [
+        0.0133,
+        0.0326,
+        0.8733,
+        0.4284
+      ],
+      "width": 1415,
+      "height": 962
+    },
+    {
+      "id": "p6_f2",
+      "sourcePage": 6,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p06_f2.png",
+      "box": [
+        0.0133,
+        0.5122,
+        0.8733,
+        0.759
+      ],
+      "width": 1415,
+      "height": 621
+    },
+    {
+      "id": "p7_f1",
+      "sourcePage": 7,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p07_f1.png",
+      "box": [
+        0.0133,
+        0.0326,
+        0.8733,
+        0.8009
+      ],
+      "width": 1415,
+      "height": 1815
+    },
+    {
+      "id": "p7_f2",
+      "sourcePage": 7,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p07_f2.png",
+      "box": [
+        0.06,
+        0.8568,
+        0.1933,
+        0.8941
+      ],
+      "width": 253,
+      "height": 141
+    },
+    {
+      "id": "p8_f1",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f1.png",
+      "box": [
+        0.0067,
+        0.0279,
+        0.2133,
+        0.0838
+      ],
+      "width": 361,
+      "height": 184
+    },
+    {
+      "id": "p8_f2",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f2.png",
+      "box": [
+        0.0267,
+        0.1397,
+        0.6733,
+        0.1769
+      ],
+      "width": 1074,
+      "height": 141
+    },
+    {
+      "id": "p8_f3",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f3.png",
+      "box": [
+        0.0267,
+        0.2561,
+        0.6133,
+        0.3166
+      ],
+      "width": 978,
+      "height": 194
+    },
+    {
+      "id": "p8_f4",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f4.png",
+      "box": [
+        0.0067,
+        0.4237,
+        0.8667,
+        0.4983
+      ],
+      "width": 1406,
+      "height": 227
+    },
+    {
+      "id": "p8_f5",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f5.png",
+      "box": [
+        0.0333,
+        0.61,
+        0.7467,
+        0.6473
+      ],
+      "width": 1180,
+      "height": 141
+    },
+    {
+      "id": "p8_f6",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f6.png",
+      "box": [
+        0.06,
+        0.7264,
+        0.7267,
+        0.7637
+      ],
+      "width": 1106,
+      "height": 141
+    },
+    {
+      "id": "p8_f7",
+      "sourcePage": 8,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p08_f7.png",
+      "box": [
+        0.04,
+        0.8196,
+        0.8667,
+        0.8708
+      ],
+      "width": 1362,
+      "height": 173
+    },
+    {
+      "id": "p9_f1",
+      "sourcePage": 9,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p09_f1.png",
+      "box": [
+        0.0133,
+        0.0326,
+        0.88,
+        0.1816
+      ],
+      "width": 1426,
+      "height": 397
+    },
+    {
+      "id": "p9_f2",
+      "sourcePage": 9,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p09_f2.png",
+      "box": [
+        0.0267,
+        0.2421,
+        0.2133,
+        0.3073
+      ],
+      "width": 338,
+      "height": 205
+    },
+    {
+      "id": "p9_f3",
+      "sourcePage": 9,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p09_f3.png",
+      "box": [
+        0.0133,
+        0.3539,
+        0.88,
+        0.6519
+      ],
+      "width": 1426,
+      "height": 739
+    },
+    {
+      "id": "p10_f1",
+      "sourcePage": 10,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p10_f1.png",
+      "box": [
+        0.0067,
+        0.0279,
+        0.8467,
+        0.1211
+      ],
+      "width": 1374,
+      "height": 269
+    },
+    {
+      "id": "p10_f2",
+      "sourcePage": 10,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p10_f2.png",
+      "box": [
+        0.0067,
+        0.312,
+        0.76,
+        0.3772
+      ],
+      "width": 1236,
+      "height": 206
+    },
+    {
+      "id": "p10_f3",
+      "sourcePage": 10,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p10_f3.png",
+      "box": [
+        0.0067,
+        0.5076,
+        0.8467,
+        0.6007
+      ],
+      "width": 1374,
+      "height": 270
+    },
+    {
+      "id": "p10_f4",
+      "sourcePage": 10,
+      "kind": "tabelle",
+      "file": "assets/ap1-2024-h_p10_f4.png",
+      "box": [
+        0.0067,
+        0.8661,
+        0.6467,
+        0.9686
+      ],
+      "width": 1054,
+      "height": 291
+    }
+  ],
+  "pageImages": {
+    "1": "assets/ap1-2024-h_seite_01.png",
+    "2": "assets/ap1-2024-h_seite_02.png",
+    "3": "assets/ap1-2024-h_seite_03.png",
+    "4": "assets/ap1-2024-h_seite_04.png",
+    "5": "assets/ap1-2024-h_seite_05.png",
+    "6": "assets/ap1-2024-h_seite_06.png",
+    "7": "assets/ap1-2024-h_seite_07.png",
+    "8": "assets/ap1-2024-h_seite_08.png",
+    "9": "assets/ap1-2024-h_seite_09.png",
+    "10": "assets/ap1-2024-h_seite_10.png"
+  }
+}

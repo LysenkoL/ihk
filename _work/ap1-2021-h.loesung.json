@@ -1,0 +1,164 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "text": "Zielvorgabe\n\nZeitliche Begrenzung\n\nBegrenzte Ressourcen (personell, finanziell)\n\nProjektspezifische Organisationsform\n\nEinmaligkeit\n\nKomplexität",
+        "seite": 2
+      },
+      {
+        "label": "b)",
+        "maxPoints": 4,
+        "text": "S  specific – spezifisch\n\nM  measurable – messbar\n\nA  accepted- akzeptiert oder attainable – erreichbar oder attractive – attraktiv\n\nR  reasonable – realistisch\n\nT  time-bound – terminiert",
+        "seite": 2
+      },
+      {
+        "label": "c)",
+        "maxPoints": 14,
+        "text": "(1 Punkt Ergänzung eines Netzplanknotens, 2 Punkte voller Netzplanknoten)",
+        "seite": 2
+      },
+      {
+        "label": "d)",
+        "maxPoints": 1,
+        "text": "A – B – D – G – I – J – K",
+        "seite": 2
+      },
+      {
+        "label": "e)",
+        "maxPoints": 2,
+        "text": "Keine Auswirkung, da der Puffer von 9 Stunden die 4 Stunden Verzögerung auffängt.",
+        "seite": 2
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 6,
+        "text": "Betriebsstunden pro Monat: 20 Tage/Monat * 9 Stunden/Tag = 180 Stunden\nPC-A\nPC-B\nWirkungsgrad des Netzteils bei 60 W in Prozent\n43 %\n76 %\nDurch die Komponenten des PCs benötigte durchschnittliche Leistung im Betrieb (9 h pro\nTag)\n60 W\n60 W\nVom Netzteil bezogene Leistung aus dem Stromnetz\n139,53 W\n60 W / 0,76 = 78,94 W\nEnergiekosten pro Monat in EUR\n180 h * 139,53 W\n* 0,3 Cent/kWh\n= 7,53 EUR\n180 h * 78,94 W *\n0,3 Cent/kWh\n= 4,26 EUR",
+        "seite": 3
+      },
+      {
+        "label": "b)",
+        "maxPoints": 4,
+        "text": "Differenz der Energiebetriebskosten pro Monat: 7,53 EUR - 4,26 EUR = 3,27 EUR\n\nBei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung\n\n100 EUR / 3,27 EUR pro Monat = 30,58 Monate, also nach 31 Monaten.\n\nAlternativlösung:\n\nDifferenz der Energiebetriebskosten pro Monat: 6,83 EUR - 4,78 EUR = 2,05 EUR\n\nBei einer Differenz im Anschaffungspreis von 100 EUR rechnet sich die Anschaffung\n\n100 EUR / 2,05 EUR pro Monat = 48,78 Monate, also nach 49 Monaten.",
+        "seite": 3
+      },
+      {
+        "label": "c)",
+        "maxPoints": 3,
+        "text": "Verwendung von schaltbaren Steckdosen zur Vermeidung von Energiekosten im Standby-Betrieb\n\nVerwendung von Monitoren mit Energieeffizienz Label (A, A+, A++, etc. oder neues Label von A - G)\n\nVerwendung von Thin Clients\n\nu. a.",
+        "seite": 3
+      },
+      {
+        "label": "d)",
+        "maxPoints": 4,
+        "text": "Eine Steckdose mit 16 A darf mit maximal 16 A x 230 V = 3.680 Watt belastet werden.\n\n3 x 180 Watt + 400 Watt + 1.200 Watt + 2.000 Watt = 4.140 Watt ist zu viel.",
+        "seite": 3
+      },
+      {
+        "label": "e)",
+        "maxPoints": 8,
+        "text": "Erstelltes Skript\nFalsche Zeilen korrigieren\n$Drive = Get-Volume -DriveLetter Z\n$Prozent=($Drive.SizeRemaining/$Drive.Size)\n* 1000\n$Prozent=($Drive.SizeRemaining/$Drive.\nSize)*100\nif($Prozent -gt 15)\nif($Prozent -lt 15)\n{\n    Write-Host „Es sind weniger als 15%\nSpeicherplatz frei.“\n}\nelse\n{\nWrite-Host „Es ist genügend Speicherplatz\nverfügbar.“\n    }",
+        "seite": 3
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 5,
+        "text": "Zum Beispiel:\n\nKurzvorstellung des Auftraggebers\n\nDefinition des Projektziels\n\nBeschreibung der bestehenden IT-Infrastruktur\n\nZeitrahmen der Umsetzung des Projekts\n\nFunktionale Anforderungen\n\nRahmenparameter IT-Security und Datenschutz",
+        "seite": 4
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 2,
+        "text": "Gesamtkosten: 20 * 2 * 130 EUR = 40 * 130 EUR = 5.200 EUR",
+        "seite": 4
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 2,
+        "text": "Gesamtdauer: 20 * 2 = 40 h -> 40 / 8 = 5 Tage = 5 Tage / 2 Arbeiter => 2,5 Tage\n\nAufgerundet 3 Tage auch als richtig anzusehen",
+        "seite": 4
+      },
+      {
+        "label": "c)",
+        "maxPoints": 4,
+        "text": "Vorteile:\n\nGeringere Kosten – Fahrtkosten, Reisezeit, Spesen\n\nEinfachere Einbindung weiterer Spezialisten bei Bedarf\n\nSchonung interner Ressourcen – Büro, Konferenzraum\n\nKontaktvermeidung\n\nu. a.\n\nNachteile:\n\nRisiko im Bereich Datenschutz, da Patientendaten abgegriffen werden könnten\n\nZusätzliche Kosten für eine gesicherte Verbindung\n\nWartung bei Verbindungsproblemen nicht möglich\n\nu. a.",
+        "seite": 4
+      },
+      {
+        "label": "d)",
+        "maxPoints": 6,
+        "text": "z. B.\n\nSchulung am Arbeitsplatz: Die Einweisung erfolgt während der Arbeitszeit vor Ort.\n\nWebinare: festgelegt von der Zeit, findet online statt, interaktiv\n\nVideo-Tutorien: zeitlich flexibel und unabhängig genutzt von den anderen Mitarbeitern, keine Interaktion möglich\n\nMultiplikatoren-Schulung: Schulung ausgewählter Mitarbeiter, die ihr Wissen an die anderen Mitarbeiter weitergeben sollen",
+        "seite": 4
+      },
+      {
+        "label": "e)",
+        "maxPoints": 7,
+        "text": "Erklärung, jeweils 2 Punkte (Gesamt: 6 Punkte), Entscheidungsauswahl 1 Punkt\n\nRAID 0\n\n\u0007Kommt für die Arztpraxis nicht in Frage, dieses Level ist nur für den schnellen Datenzugriff optimiert, Data Striping wird verwendet, dadurch\nErhöhung der Datentransferrate, keine Erhöhung der Datensicherheit\n\nRAID 1\n\nKäme nur für eine Priorität in die Auswahl für die Arztpraxis\n\nVerkraftet den Ausfall einer Festplatte, Mirroring, d. h. vollständige Spiegelung der Daten auf weiteren Platten\n\nSpeicherkapazität für die Nutzdaten reduziert anteilsmäßig, z. B. um 50 %\n\nRAID 5\n\nKäme für beide Prioritäten in die Auswahl für die Arztpraxis\n\nVerkraftet den Ausfall einer Festplatte, Zerlegung der Nutzdaten in Blöcke mit Paritätsinformationen\n\nVerringerung der Speicherkapazität für die Nutzdaten bei z. B. drei Festplatten bei ca. 33 %\n\nEntscheidung: RAID 5",
+        "seite": 4
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 6,
+        "text": "Schutzmaßnahme\nVertraulichkeit\nIntegrität\nVerfügbarkeit\nBegründung\nSichere Passwörter wählen\nx\nDer Zugriff Fremder auf die Benutzerdaten wird besser geschützt.\nRegelmäßige Datensicherung der Patien-\ntendaten\nx\nDaten können bei Verlust der Originaldaten wiederhergestellt\nwerden.\nVerschlüsselung der Festplatten\nx\nInhaltliche Nutzung der Daten ist für unberechtigte Benutzer\nnicht möglich.\nZentrale Bearbeitung wichtiger Doku-\nmente auf Server\nx\nKein unterschiedlicher Bearbeitungsstand der Dokumente (z. B.\nauf Clients).\nHashwertüberprüfung bei Softwarein-\nstallation\nx\nWenn der zusammen mit der Software übermittelte Hashwert\nidentisch ist mit dem berechneten Hashwert, kann man davon\nausgehen, dass die Software keinen eingeschleusten Trojaner\nbeinhaltet.\n\nAndere Lösungen mit sinnvollen Begründungen sind möglich.",
+        "seite": 5
+      },
+      {
+        "label": "b)",
+        "maxPoints": 2,
+        "text": "Aktivieren von Autoupdate-Mechanismen: z. B. Windows Updates aktivieren, Update der Virensignaturen aktivieren\n\nDifferenzieren von Benutzerrollen (Rollentrennung): z. B keine normalen Tätigkeiten mit Administratorrechten durchführen, Installationen\nund Systemänderungen nur durch Administratoren mit Administratorrechten, nur lesender Zugriff auf Systemdateien für Benutzer.",
+        "seite": 5
+      },
+      {
+        "label": "c)",
+        "maxPoints": 6,
+        "text": "IT-Anwendung\nSchutzbedarfsfeststellung\nGrundwert\nSchutzbedarf\nBegründung\nPrüfziffernverfahren bei der Übermittlung\nder Krankenversicherungsnummer\nIntegrität\nhoch\nz. B.: Verfälschte Daten bei der Übertragung können\nzu fehlerhaften Abrechnungen führen.\nTextverarbeitung\nVerfügbarkeit\nmittel\nz. B.: Patientenbriefe und Rechnungen können nur\nverspätet erstellt werden.\nSoftware zur telemedizinischen Beratung\nüber Videokonferenz\nVertraulichkeit\nhoch\nz. B.: Das Bekanntwerden kann die Betroffenen\nerheblich beeinträchtigen.\nPatientendatenverarbeitung\nIntegrität\nsehr hoch\nz. B.: Fehlerhafte Einträge können zu fehlerhaften\nDiagnosen und Behandlungen führen.\n\nAndere Begründungen sind möglich.",
+        "seite": 5
+      },
+      {
+        "label": "d)",
+        "maxPoints": 2,
+        "text": "Bei personenbezogenen Daten, Patientendaten, Mitarbeiterdaten\n\nBundesdatenschutzgesetz oder DSGVO",
+        "seite": 5
+      },
+      {
+        "label": "e)",
+        "maxPoints": 4,
+        "text": "z. B.\n\nAusreichende Länge  schwer zu ermitteln!\n\nVerwendung von Sonderzeichen  Erhöhung des Zeichenvorrats  schwieriger zu entschlüsseln\n\nUnsinnige Zeichenketten verwenden (keine festen Begriffe)  Softwareunterstütztes Ausspionieren mit Wörterbuch wird erschwert\n\nUnterschiedliche Passwörter für unterschiedliche Zugänge verwenden  Risikominimierung bei Bekanntwerden eines Passwortes\n\nu. a.",
+        "seite": 5
+      },
+      {
+        "label": "fa)",
+        "maxPoints": 2,
+        "text": "Keine zeitliche und räumliche Trennung der gesicherten Daten vorhanden\n\nWöchentlicher Sicherungszyklus zu lange, Rekonstruktion bei Datensicherung kaum möglich bzw. sehr aufwendig",
+        "seite": 5
+      },
+      {
+        "label": "fb)",
+        "maxPoints": 2,
+        "text": "Externe Sicherung\n\nSicherungskonzept mit zumindest täglicher Sicherung der veränderten Daten\n\n\u0007Alle relevanten Daten müssen regelmäßig auf geeignete externe Medien gesichert werden. Das externe Medium ist „abzumelden“ und\nsicher an einem anderen Ort zu verwahren.",
+        "seite": 5
+      }
+    ]
+  }
+]

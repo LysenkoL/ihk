@@ -1,0 +1,206 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "aa)",
+        "maxPoints": 4,
+        "seite": 2,
+        "text": "Vollständige Tabelle:\n                      Gew. | U1 P/Gew | U2 P/Gew | U3 P/Gew | U4 P/Gew\nGrafikkarte            20  | 3 / 60   | 2 / 40   | 4 / 80   | 3 / 60\nArbeitsspeicher (RAM)  25  | 4 / 100  | 3 / 75   | 4 / 100  | 3 / 75\nMonitor                40  | 2 / 80   | 1 / 40   | 4 / 160  | 4 / 160\nPreis                  15  | 3 / 45   | 4 / 60   | 1 / 15   | 1 / 15\nSumme                 100  | 12 / 285 | 10 / 215 | 13 / 355 | 11 / 310\n\nRangfolge: 3 / 4 / 1 / 2\n\n3 Punkte (je richtige Zahl 0,5 Punkte) plus 1 Punkt für die Rangfolge. Folgefehler sind zu berücksichtigen."
+      },
+      {
+        "label": "ab)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "Unternehmen 4, Unternehmen 3 erfüllt nicht die KO-Bedingungen.\n\n1 Punkt für die richtige Nennung der Unternehmung 4\n1 Punkt für den Ausschluss der Unternehmung 3 wegen der KO-Bedingung"
+      },
+      {
+        "label": "b)",
+        "maxPoints": 7,
+        "seite": 2,
+        "text": "(5 x 450 EUR) – 5 % => 2.137,50 EUR / 48 Monate = 44,53 EUR (2 Punkte)\n(5 x 720 EUR) – 5 % => 3.420,00 EUR / 36 Monate = 95,00 EUR (2 Punkte)\nWartungspauschale 100,00 EUR (1 Punkt)\nSoftwareleasing 250,00 EUR (1 Punkt)\nSumme 489,53 EUR (1 Punkt)\n\nEin Folgefehler bei der Summe ist ggfs. zu berücksichtigen."
+      },
+      {
+        "label": "c)",
+        "maxPoints": 4,
+        "seite": 2,
+        "text": "HDMI: 3\nUSB-C: 4\nDVI: 1\nDisplayport (DP): 2"
+      },
+      {
+        "label": "d)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "Der Kaufvertrag ist mit der Lieferung 7. Oktober zustande gekommen. (1 Punkt)\nBegründung: Die Bestellung gilt hierbei als Antrag (1. Willenserklärung), die Lieferung (schlüssiges Handeln, 2. übereinstimmende Willenserklärung) als Annahme. (1 Punkt)"
+      },
+      {
+        "label": "e)",
+        "maxPoints": 3,
+        "seite": 2,
+        "text": "– Kaufgegenstand (oder auch Sache, Kaufsache, Beschaffenheit der Ware)\n– Menge\n– Kaufpreis\n– Zahlungsbedingungen\n– Lieferbedingungen\n– Liefertermin\n– u. a.\n\nJe Nennung 1 Punkt, maximal 3 Punkte"
+      },
+      {
+        "label": "fa)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "– Lieferverzug\n– Mangelhafte Lieferung"
+      },
+      {
+        "label": "fb)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "Lieferverzug → sofortige Mahnung, Analyse der Lieferkette …\nMangelhafte Lieferung → sofortige Kontrolle der Lieferung, sorgfältige Auswahl der Lieferanten, Konventionalstrafen vereinbaren\n\nAndere Maßnahmen sind möglich."
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "LED leuchtet durchgehend: Es wurde eine erfolgreiche physikalische Netzwerkverbindung zwischen zwei Netzwerkports (der Netzwerkkarte und einem Switch) hergestellt.\nMögliche weitere Lösung: Übertragungsgeschwindigkeit/Link Speed wird angezeigt.\n\nLED blinkt unregelmäßig: Es findet eine Netzwerkkommunikation/ein Datenaustausch zwischen Ihrem PC und einem anderen Netzwerkgerät statt.\nWeitere richtige herstellerabhängige Lösungen sind möglich."
+      },
+      {
+        "label": "b)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "OSI-Schicht | Name der Schicht          | Begriff\n7           | Anwendung / Application   | DHCP\n4           | Transport                 | TCP\n3           | Vermittlung / Network     | Verbindungslokale IPv6-Adresse\n2           | Sicherung / Data Link     | Physische Adresse\n1           | Bitübertragung / Physical | Buchse mit LED"
+      },
+      {
+        "label": "c)",
+        "maxPoints": 5,
+        "seite": 3,
+        "text": "– Länge der IPv6-Adresse in Bits: 128 (1 Punkt)\n– Ungekürzte Darstellung in Hexadezimalschreibweise: fe80:0000:0000:0000:521a:c5ff:fef2:38b7 (2 Punkte)\n– Präfixlänge: 64 Bits (1 Punkt)\n– Interface-Identifier: 521a:c5ff:fef2:38b7 (1 Punkt)"
+      },
+      {
+        "label": "d)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "IPv4-Adresse, Subnetzmaske. Angabe der konkreten Werte ist auch möglich."
+      },
+      {
+        "label": "e)",
+        "maxPoints": 3,
+        "seite": 3,
+        "text": "Ermittlung der zugehörigen MAC-Adresse (hier nur: d4-3f-cb-8c-37-8b) zu den IP-Adressen (hier nur: 192.168.0.1)."
+      },
+      {
+        "label": "f)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "ping 192.168.0.1\noder tracert 192.168.0.1\noder andere geeignete Netzwerkbefehle"
+      },
+      {
+        "label": "g)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "Eigener PC:\n  IP-Adresse: 192.168.0.52\n  Physische Adresse: 50-1a-c5-f2-38-b7\n\nWeiterer PC in Netzwerk:\n  IP-Adresse: 192.168.0.1\n  Physische Adresse: d4-3f-cb-8c-37-8b"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 3,
+        "seite": 4,
+        "text": "– Online-Recherche mit Suchmaschine\n– Frage in Foren oder Online-Communities\n– Anfrage beim Hersteller\n– Fachliteratur\n– Handbücher\n– Chatbot wie z. B. ChatGPT\n– u. a."
+      },
+      {
+        "label": "b)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "– Importmöglichkeiten des CAD-Programms\n– Exportmöglichkeit eines CAD-Programms\n– Dateiformatkonverter benutzen (online oder offline)\n– Eigenen Konverter programmieren\n– u. a."
+      },
+      {
+        "label": "c)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "ASCII-Format: Eine Datei im ASCII-Format speichert Daten als ASCII-Zeichen, die mit jedem Texteditor geöffnet und bearbeitet werden können. (2 Punkte)\nBinärdatei: Eine Binärdatei speichert Daten in einem binären Format, die nur mit der entsprechenden Anwendung verarbeitet werden kann. (2 Punkte)"
+      },
+      {
+        "label": "da)",
+        "maxPoints": 3,
+        "seite": 4,
+        "text": "3 * (32 Bit / 8 Bit) * 3.840 = 46.080 Byte / 1024 = 45 KiB"
+      },
+      {
+        "label": "db)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "2^8 * 2^8 * 2^8 = 256 * 256 * 256 = 16.777.216 mögliche Farben"
+      },
+      {
+        "label": "dc)",
+        "maxPoints": 3,
+        "seite": 4,
+        "text": "12 Byte (3 * 4 Byte) → 15 (12 Byte + 3 Byte RGB) Byte = 25 % mehr"
+      },
+      {
+        "label": "e)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "20 W + 172 W + 12 W + 4 * 5 W + 310 W + 2 * 5 W + 2 * 8 W = 560 W + 10 % = 616 W → 650 W gewählt\n\n(3 Punkte Berechnung Leistungsaufnahme, 1 Punkt Auswahl Netzteil)"
+      },
+      {
+        "label": "f)",
+        "maxPoints": 3,
+        "seite": 4,
+        "text": "200 * 9 h * (0,650 kW / 90%) * 0,5 * 0,40 EUR/kWh = 260,00 EUR\n\nAlternativ: Rechnung mit 750 W\n200 * 9 h * (0,750 kW / 90%) * 0,5 * 0,40 EUR/kWh = 300,00 EUR"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 6,
+        "seite": 4,
+        "text": "Maßnahmen oder Verhaltensweisen | Folge der Nichtbeachtung\nBeispiel: Nutzung einer Blickschutzfolie | Bildschirminhalt kann von Unberechtigten gelesen werden\nNutzung geeigneter Zugangs- und Zugriffskontrolle, z. B. durch sicheres Passwort | Unberechtigten Personen ist die Nutzung von Geräten und der Zugriff auf Daten möglich\nVerschlüsselung der Daten | Unberechtigter Zugriff auf Daten möglich\nSicherung lokal gespeicherter Daten | Verfügbarkeit der Daten ist nicht mehr gegeben\nNutzung einer VPN-Verbindung | Datenübertragung könnte von Unberechtigten abgegriffen werden\n\nWeitere sinnvolle Lösungen möglich!"
+      },
+      {
+        "label": "b)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "VPN (Virtual Private Network): Eine Netzwerkverbindung ohne eigene physische Verbindung, die von Unberechtigten nicht einsehbar ist.\nSinngemäß auch gültig:\n– Verschlüsselte Verbindung unter Nutzung des öffentlichen Netzes (Internet)\n– Eine Technologie, die eine sichere Verbindung über das Internet zwischen einem Gerät (z. B. Computer, Smartphone) und einem entfernten Netzwerk herstellt."
+      },
+      {
+        "label": "c)",
+        "maxPoints": 3,
+        "seite": 5,
+        "text": "3 sinnvolle Aspekte, z. B.\n– Datenträger werden verschlüsselt, d. h. bei der Nutzung ist die Eingabe eines Passworts erforderlich.\n– Bei jedem Sicherungsvorgang wird in einer festen Reihenfolge jeweils ein anderer Datenträger verwendet, um bei Ausfall noch weitere Sicherungsstände zu haben.\n– Nachdem alle Datenträger genutzt wurden, wird wieder der erste verwendet.\n– Auch der Hinweis auf die Anwendung des „Generationsprinzips“ („Großvater-Vater-Sohn-Prinzip“) ist möglich!\n\nAuch andere Lösungen sind zulässig."
+      },
+      {
+        "label": "da)",
+        "maxPoints": 3,
+        "seite": 5,
+        "text": "Nennen: (3 x 1 Punkt), z. B.\n– Viren: Software, die den Programmcode eines ursprünglich unschädlichen Programms befällt und sich selbst verbreitet.\n– Wurm: Wird nach Infektion selbst aktiv und breitet sich aus.\n– Trojaner: Eingebettet in eine meist nützliche Software; Trojaner wird durch Start dieser Software aktiv.\n– Spyware, Adware, Backdoor, Scareware, Ransomware, Keylogger, Riskware, Archivbomben, Dropper"
+      },
+      {
+        "label": "db)",
+        "maxPoints": 3,
+        "seite": 5,
+        "text": "Merkmal: (3 x 1 Punkt), passend zu den in da) genannten Arten, z. B.\n– Virus: befällt den Programmcode eines anderen Programms und verbreitet sich selbst\n– Wurm: wird nach Infektion selbst aktiv und breitet sich aus\n– Trojaner: getarnt in nützlicher Software, wird durch deren Start aktiv\n– Spyware: spioniert Inhalte und Aktivitäten aus\n– Ransomware: blockiert den Zugriff bzw. verschlüsselt Dateien und fordert Lösegeld\n– Keylogger: protokolliert Tastatureingaben und stellt sie Dritten bereit"
+      },
+      {
+        "label": "e)",
+        "maxPoints": 3,
+        "seite": 5,
+        "text": "z. B.\n– Keine unbekannten Datenträger benutzen, die infizierte Dateien enthalten könnten\n– Kein Download von unsicheren Quellen\n– Keine Ausführung aktiver Inhalte von Dateien (z. B. Makros, E-Mail-Anhänge)\n– AdBlocker nutzen\n– Regelmäßig Updates von Betriebssystem und Anwendungen installieren\n– Mitarbeiter sensibilisieren"
+      },
+      {
+        "label": "f)",
+        "maxPoints": 6,
+        "seite": 5,
+        "text": "1 GiB * 1.024 * 1.024 * 1.024 * 8 / (50,02 Mbps * 1.000 * 1.000)\n= 171,73 s, gerundet 172 s\nEntspricht 2 Minuten und 52 Sekunden\n\nPunkteverteilung:\nUmrechnung von GiB auf Byte: 1 GiB * 1.024 * 1.024 * 1.024: 1 Punkt\nUmrechnung von Byte auf bit: * 8 bit: 1 Punkt\nUmrechnung der Übertragungsdauer von Mbps auf bit/s: 50,02 Mbps * 1.000 * 1.000: 1 Punkt\nBerechnung der Übertragungsdauer: / 50,02: 1 Punkt\nErmittlung des Gesamtergebnisses = 171,73 s: 1 Punkt\nUmrechnung auf Minuten und Sekunden: 172 Sekunden (2 Minuten und 52 Sekunden): 1 Punkt\n(Teilpunkte möglich)"
+      }
+    ]
+  }
+]

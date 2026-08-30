@@ -1,0 +1,2241 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2024-f",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2024,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2024-f-aufgaben.pdf",
+      "solutions": "ap1-2024-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Die Aufgaben 1 bis 4 beziehen sich auf folgende Ausgangssituation:\n\nSie sind Auszubildender in der IT-Abteilung der KustoFlex GmbH. Diese fertigt Kunststoffteile aller Art und Größen auch nach individuellen Wünschen.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "Im Unternehmen KustoFlex GmbH werden fünf CAD-Arbeitsplätze gerichtet.\nSie sind in dem Projektteam, das geeignete Systeme auswählt.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "1aa",
+          "label": "aa)",
+          "fullLabel": "1 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Nach der Auswertung von vier Firmenangeboten ergibt sich die folgende Tabelle. Unternehmen 3 bietet ausschließlich eine Software as a Service (SaaS) Lösung an.\n\n                      Gew. | U1 Punkte/Gew. | U2 Punkte/Gew. | U3 Punkte/Gew. | U4 Punkte/Gew.\nGrafikkarte            20  | 3 / 60         | 2 / 40         | 4 / 80         | ? / 60\nArbeitsspeicher (RAM)  25  | ? / 100        | 3 / 75         | 4 / 100        | 3 / 75\nMonitor                40  | 2 / 80         | ? / 40         | 4 / 160        | 4 / ?\nPreis                  ?   | 3 / 45         | 4 / 60         | 1 / 15         | 1 / 15\nSumme                 100  | 12 / 285       | 10 / ?         | 13 / 355       | 11 / ?",
+          "prompt": "Ermitteln Sie die fehlenden Werte und eine Reihenfolge der vier Unternehmen beginnend mit der höchsten Punktzahl.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Vollständige Tabelle:\n                      Gew. | U1 P/Gew | U2 P/Gew | U3 P/Gew | U4 P/Gew\nGrafikkarte            20  | 3 / 60   | 2 / 40   | 4 / 80   | 3 / 60\nArbeitsspeicher (RAM)  25  | 4 / 100  | 3 / 75   | 4 / 100  | 3 / 75\nMonitor                40  | 2 / 80   | 1 / 40   | 4 / 160  | 4 / 160\nPreis                  15  | 3 / 45   | 4 / 60   | 1 / 15   | 1 / 15\nSumme                 100  | 12 / 285 | 10 / 215 | 13 / 355 | 11 / 310\n\nRangfolge: 3 / 4 / 1 / 2\n\n3 Punkte (je richtige Zahl 0,5 Punkte) plus 1 Punkt für die Rangfolge. Folgefehler sind zu berücksichtigen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1522,
+              "height": 909
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1202,
+              "height": 195
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-f_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 792
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "3 Punkte",
+                "wert": 3.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "0,5 Punkte",
+                "wert": 0.5,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Grafikkarte",
+              "Rangfolge",
+              "Vollständige Tabelle",
+              "Monitor",
+              "RAM",
+              "Folgefehler",
+              "Arbeitsspeicher",
+              "Summe"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ab",
+          "label": "ab)",
+          "fullLabel": "1 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "In einem Meeting wurde neu festgelegt, dass nur eine on-premise Lösung in Frage kommt.\n\nWählen Sie unter Berücksichtigung des Meetings das Unternehmen aus, das den Auftrag bekommen sollte.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "software",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Unternehmen 4, Unternehmen 3 erfüllt nicht die KO-Bedingungen.\n\n1 Punkt für die richtige Nennung der Unternehmung 4\n1 Punkt für den Ausschluss der Unternehmung 3 wegen der KO-Bedingung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1522,
+              "height": 909
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1202,
+              "height": 195
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-f_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 792
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Bedingungen",
+              "KO",
+              "Unternehmung",
+              "Ausschluss",
+              "Bedingung",
+              "Unternehmen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Das ausgewählte Unternehmen legt folgendes Angebot vor:\n\nMonitor            450 EUR\nPC                 720 EUR\nSoftwareleasing     50 EUR  pro Monat und Arbeitsplatz\nWartungspauschale 1200 EUR  pro Jahr für alle Geräte\nRabatt 5 % auf PC und Monitor\n\nBerechnen Sie die laufenden Kosten pro Monat für die gesamten CAD-Arbeitsplätze unter der Voraussetzung, dass die Nutzungsdauer der Monitore vier Jahre und der PCs drei Jahre beträgt. Geben Sie den Rechenweg an.",
+          "maxPoints": 7,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "(5 x 450 EUR) – 5 % => 2.137,50 EUR / 48 Monate = 44,53 EUR (2 Punkte)\n(5 x 720 EUR) – 5 % => 3.420,00 EUR / 36 Monate = 95,00 EUR (2 Punkte)\nWartungspauschale 100,00 EUR (1 Punkt)\nSoftwareleasing 250,00 EUR (1 Punkt)\nSumme 489,53 EUR (1 Punkt)\n\nEin Folgefehler bei der Summe ist ggfs. zu berücksichtigen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2024-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1522,
+              "height": 909
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2024-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1202,
+              "height": 195
+            },
+            {
+              "id": "p2_f3",
+              "file": "assets/ap1-2024-f_p02_f3.png",
+              "sourcePage": 2,
+              "width": 1426,
+              "height": 792
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "450 EUR",
+                "wert": 450.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2.137,50 EUR",
+                "wert": 2137.5,
+                "einheit": "EUR"
+              },
+              {
+                "text": "48 Monate",
+                "wert": 48.0,
+                "einheit": "Monate"
+              },
+              {
+                "text": "44,53 EUR",
+                "wert": 44.53,
+                "einheit": "EUR"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "720 EUR",
+                "wert": 720.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "3.420,00 EUR",
+                "wert": 3420.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "36 Monate",
+                "wert": 36.0,
+                "einheit": "Monate"
+              },
+              {
+                "text": "95,00 EUR",
+                "wert": 95.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "100,00 EUR",
+                "wert": 100.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "250,00 EUR",
+                "wert": 250.0,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "3.420",
+              "2.137",
+              "Softwareleasing",
+              "Wartungspauschale",
+              "Folgefehler",
+              "Summe",
+              "Monate",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1c",
+          "label": "c)",
+          "fullLabel": "1 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nach der Beschaffung und Lieferung sollen die Büros vor Ort eingerichtet werden.\nDie gelieferten Monitore besitzen eventuell die nachstehenden Anschlüsse.\n\nOrdnen Sie die Anschlüsse den Abbildungen zu (Abbildungen 1–4):\nHDMI:\nUSB-C:\nDVI:\nDisplayport (DP):",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "HDMI: 3\nUSB-C: 4\nDVI: 1\nDisplayport (DP): 2",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1545,
+              "height": 930
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1396,
+              "height": 173
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2024-f_p03_f3.png",
+              "sourcePage": 3,
+              "width": 937,
+              "height": 194
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2024-f_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1373,
+              "height": 183
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Displayport",
+              "DP",
+              "DVI",
+              "HDMI",
+              "USB"
+            ]
+          },
+          "felder": [
+            {
+              "label": "HDMI",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "USB-C",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "DVI",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Displayport (DP)",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "1d",
+          "label": "d)",
+          "fullLabel": "1 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Monitore wurden am 1. September 2023 bestellt. Es gibt keine Auftragsbestätigung und sie wurden am 7. Oktober 2023 geliefert. Die Rechnung haben Sie am 9. Oktober 2023 erhalten.\n\nErläutern Sie, zu welchem Zeitpunkt der Kaufvertrag zustande gekommen ist und begründen Sie Ihre Entscheidung.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Der Kaufvertrag ist mit der Lieferung 7. Oktober zustande gekommen. (1 Punkt)\nBegründung: Die Bestellung gilt hierbei als Antrag (1. Willenserklärung), die Lieferung (schlüssiges Handeln, 2. übereinstimmende Willenserklärung) als Annahme. (1 Punkt)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1545,
+              "height": 930
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1396,
+              "height": 173
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2024-f_p03_f3.png",
+              "sourcePage": 3,
+              "width": 937,
+              "height": 194
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2024-f_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1373,
+              "height": 183
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Antrag",
+              "Oktober",
+              "Handeln",
+              "Annahme",
+              "Willenserklärung",
+              "Kaufvertrag",
+              "Bestellung",
+              "Lieferung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1e",
+          "label": "e)",
+          "fullLabel": "1 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie drei mögliche Inhalte, die durch einen Kaufvertrag geregelt sind (Abgrenzung von den juristischen Bestandteilen eines Kaufvertrags, z. B. Willenserklärungen).",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "– Kaufgegenstand (oder auch Sache, Kaufsache, Beschaffenheit der Ware)\n– Menge\n– Kaufpreis\n– Zahlungsbedingungen\n– Lieferbedingungen\n– Liefertermin\n– u. a.\n\nJe Nennung 1 Punkt, maximal 3 Punkte",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1545,
+              "height": 930
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1396,
+              "height": 173
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2024-f_p03_f3.png",
+              "sourcePage": 3,
+              "width": 937,
+              "height": 194
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2024-f_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1373,
+              "height": 183
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "3 Punkte",
+                "wert": 3.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Liefertermin",
+              "Sache",
+              "Beschaffenheit",
+              "Kaufpreis",
+              "Zahlungsbedingungen",
+              "Lieferbedingungen",
+              "Kaufgegenstand",
+              "Kaufsache"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1fa",
+          "label": "fa)",
+          "fullLabel": "1 fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Die ordnungsgemäße Abwicklung des Kaufvertrages ist dem Kunden sehr wichtig.",
+          "prompt": "Nennen Sie zwei Kaufvertragsstörungen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "– Lieferverzug\n– Mangelhafte Lieferung",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1545,
+              "height": 930
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1396,
+              "height": 173
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2024-f_p03_f3.png",
+              "sourcePage": 3,
+              "width": 937,
+              "height": 194
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2024-f_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1373,
+              "height": 183
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Mangelhafte Lieferung",
+              "Lieferverzug"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1fb",
+          "label": "fb)",
+          "fullLabel": "1 fb)",
+          "groupLabel": "f)",
+          "groupIntro": null,
+          "prompt": "Geben Sie bei Ihren genannten Kaufvertragsstörungen je eine Maßnahme an, die der Kunde ergreifen kann, um diesen Störungen zu vermeiden.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Lieferverzug → sofortige Mahnung, Analyse der Lieferkette …\nMangelhafte Lieferung → sofortige Kontrolle der Lieferung, sorgfältige Auswahl der Lieferanten, Konventionalstrafen vereinbaren\n\nAndere Maßnahmen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2024-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1545,
+              "height": 930
+            },
+            {
+              "id": "p3_f2",
+              "file": "assets/ap1-2024-f_p03_f2.png",
+              "sourcePage": 3,
+              "width": 1396,
+              "height": 173
+            },
+            {
+              "id": "p3_f3",
+              "file": "assets/ap1-2024-f_p03_f3.png",
+              "sourcePage": 3,
+              "width": 937,
+              "height": 194
+            },
+            {
+              "id": "p3_f4",
+              "file": "assets/ap1-2024-f_p03_f4.png",
+              "sourcePage": 3,
+              "width": 1373,
+              "height": 183
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Mahnung",
+              "Konventionalstrafen",
+              "Andere Maßnahmen",
+              "Lieferkette",
+              "Analyse",
+              "Kontrolle",
+              "Auswahl",
+              "Mangelhafte Lieferung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Nach der Konfiguration des CAD-Arbeitsplatzes prüfen Sie nun die Netzwerkeinstellungen. Dazu führen Sie verschiedene Tests durch und interpretieren die Ergebnisse.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "2a",
+          "label": "a)",
+          "fullLabel": "2 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Bei einem Blick auf die Buchse der Netzwerkkarte Ihres PCs erkennen Sie rechts oben eine grüne Leuchtdiode (LED, vergl. Bild 1).\n\nInterpretieren Sie die hier zur Verfügung gestellten Informationen bzgl. der Netzwerkfunktionalität Ihres PCs.\n\nLED leuchtet durchgehend:\nLED blinkt unregelmäßig:",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "LED leuchtet durchgehend: Es wurde eine erfolgreiche physikalische Netzwerkverbindung zwischen zwei Netzwerkports (der Netzwerkkarte und einem Switch) hergestellt.\nMögliche weitere Lösung: Übertragungsgeschwindigkeit/Link Speed wird angezeigt.\n\nLED blinkt unregelmäßig: Es findet eine Netzwerkkommunikation/ein Datenaustausch zwischen Ihrem PC und einem anderen Netzwerkgerät statt.\nWeitere richtige herstellerabhängige Lösungen sind möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1415,
+              "height": 600
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 338,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 1101
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Übertragungsgeschwindigkeit",
+              "Link Speed",
+              "Ihrem",
+              "Netzwerkgerät",
+              "Netzwerkkommunikation",
+              "Netzwerkverbindung",
+              "Datenaustausch",
+              "Netzwerkports"
+            ]
+          },
+          "felder": [
+            {
+              "label": "LED leuchtet durchgehend",
+              "maxPoints": 2.0
+            },
+            {
+              "label": "LED blinkt unregelmäßig",
+              "maxPoints": 2.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2b",
+          "label": "b)",
+          "fullLabel": "2 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nach der Eingabe des Befehls „ipconfig /all“ auf der Kommandozeile Ihres PCs erhalten Sie u. a. die folgenden weiteren Informationen (Abb. 1).\n\nPhysische Adresse . . . . . . . : 50-1A-C5-F2-38-B7\nDHCP aktiviert. . . . . . . . . : Ja\nAutokonfiguration aktiviert . . : Ja\nVerbindungslokale IPv6-Adresse  : fe80::521a:c5ff:fef2:38b7%5(Bevorzugt)\nIPv4-Adresse  . . . . . . . . . : 192.168.0.52(Bevorzugt)\nSubnetzmaske  . . . . . . . . . : 255.255.255.0\n\nBenennen Sie die in der folgenden Tabelle aufgeführten OSI-Schichten und ordnen Sie zur Strukturierung die vorliegenden Begriffe den richtigen Schichten zu:\n– Physische Adresse\n– DHCP\n– Verbindungslokale IPv6-Adresse\n– Buchse mit LED\n\nOSI-Schicht | Name der Schicht | Begriff\n7           | ?                | ?\n4           | Transport        | TCP\n3           | ?                | ?\n2           | ?                | ?\n1           | ?                | ?",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "OSI-Schicht | Name der Schicht          | Begriff\n7           | Anwendung / Application   | DHCP\n4           | Transport                 | TCP\n3           | Vermittlung / Network     | Verbindungslokale IPv6-Adresse\n2           | Sicherung / Data Link     | Physische Adresse\n1           | Bitübertragung / Physical | Buchse mit LED",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2024-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1415,
+              "height": 600
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2024-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 338,
+              "height": 141
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2024-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 1384,
+              "height": 1101
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Physical",
+              "Verbindungslokale",
+              "Application",
+              "Begriff",
+              "Data Link",
+              "Transport",
+              "Vermittlung",
+              "Physische Adresse"
+            ]
+          },
+          "felder": [
+            {
+              "label": "7 — Name der Schicht",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "7 — Begriff",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — Name der Schicht",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — Begriff",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — Name der Schicht",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — Begriff",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "1 — Name der Schicht",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "1 — Begriff",
+              "maxPoints": 0.5
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "2c",
+          "label": "c)",
+          "fullLabel": "2 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie analysieren nun die in Abb. 1 angezeigte IPv6-Adresse „fe80::521a:c5ff:fef2:38b7“.\n\nNennen Sie die folgenden zugehörigen Werte:\n– Länge der IPv6-Adresse in Bits:\n– Ungekürzte Darstellung der IPv6-Adresse in Hexadezimalschreibweise:\n– Präfixlänge:\n– Interface-Identifier:",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "– Länge der IPv6-Adresse in Bits: 128 (1 Punkt)\n– Ungekürzte Darstellung in Hexadezimalschreibweise: fe80:0000:0000:0000:521a:c5ff:fef2:38b7 (2 Punkte)\n– Präfixlänge: 64 Bits (1 Punkt)\n– Interface-Identifier: 521a:c5ff:fef2:38b7 (1 Punkt)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2024-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1351,
+              "height": 365
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2024-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1074,
+              "height": 333
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "521a",
+                "wert": 521.0,
+                "einheit": "a"
+              },
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Interface-Identifier",
+              "Präfixlänge",
+              "Ungekürzte Darstellung",
+              "Hexadezimalschreibweise",
+              "Länge",
+              "IPv6",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie unter Bezugnahme auf Abb. 1 die Informationen, die der DHCP-Server Ihrem Client zur Verfügung stellt.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "IPv4-Adresse, Subnetzmaske. Angabe der konkreten Werte ist auch möglich.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2024-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1351,
+              "height": 365
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2024-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1074,
+              "height": 333
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Werte",
+              "Angabe",
+              "Subnetzmaske",
+              "IPv4",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Zur weiteren Analyse Ihrer Netzwerkkonfiguration geben Sie den Befehl „arp -a“ ein und erhalten die folgende Ausgabe (Abb. 2):\n\nPS C:\\WINDOWS\\system32> arp -a\n\nSchnittstelle: 192.168.0.52 --- 0x5\n  Internetadresse      Physische Adresse      Typ\n  192.168.0.1          d4-3f-cb-8c-37-8b      dynamisch\n\nErläutern Sie anhand des Beispiels in Abb. 2 die grundlegende Aufgabe des Address Resolution Protocol (ARP) bei der Netzwerkkommunikation in einem LAN.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Ermittlung der zugehörigen MAC-Adresse (hier nur: d4-3f-cb-8c-37-8b) zu den IP-Adressen (hier nur: 192.168.0.1).",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2024-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1351,
+              "height": 365
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2024-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 1074,
+              "height": 333
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Ermittlung",
+              "0.1",
+              "MAC",
+              "Adressen",
+              "192.168",
+              "IP",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2f",
+          "label": "f)",
+          "fullLabel": "2 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Geben Sie einen geeigneten Befehl an, um von Ihrem PC aus die Erreichbarkeit der Internetadresse (siehe Abb. 2) zur prüfen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "ping 192.168.0.1\noder tracert 192.168.0.1\noder andere geeignete Netzwerkbefehle",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1405,
+              "height": 781
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1320,
+              "height": 227
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2024-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Netzwerkbefehle",
+              "0.1",
+              "192.168"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2g",
+          "label": "g)",
+          "fullLabel": "2 g)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "In den Abbildungen 1 und 2 haben Sie Informationen zu dem Datenverkehr der ARP-Kommunikation zwischen Ihrem PC und dem weiteren PC in Ihrem Netzwerk erhalten.\n\nOrdnen Sie in der folgenden Skizze die IP-Adressen und die Physischen Adressen richtig zu.\n\nEigener PC — IP-Adresse: ?  Physische Adresse: ?\nWeiterer PC in Netzwerk — IP-Adresse: ?  Physische Adresse: ?",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Eigener PC:\n  IP-Adresse: 192.168.0.52\n  Physische Adresse: 50-1a-c5-f2-38-b7\n\nWeiterer PC in Netzwerk:\n  IP-Adresse: 192.168.0.1\n  Physische Adresse: d4-3f-cb-8c-37-8b",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1405,
+              "height": 781
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1320,
+              "height": 227
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2024-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1a",
+                "wert": 1.0,
+                "einheit": "a"
+              }
+            ],
+            "begriffe": [
+              "Eigener",
+              "Weiterer",
+              "0.52",
+              "Physische Adresse",
+              "0.1",
+              "Netzwerk",
+              "192.168",
+              "PC"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "Ein Kunde sendet seine Daten für ein Bauteil im PLY-Format. Da Ihnen das Format nicht bekannt ist, suchen Sie nach Informationen über das Dateiformat und seinen Aufbau.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nennen Sie drei Möglichkeiten, um Informationen über das unbekannte Dateiformat erhalten zu können.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "– Online-Recherche mit Suchmaschine\n– Frage in Foren oder Online-Communities\n– Anfrage beim Hersteller\n– Fachliteratur\n– Handbücher\n– Chatbot wie z. B. ChatGPT\n– u. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1405,
+              "height": 781
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1320,
+              "height": 227
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2024-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Suchmaschine",
+              "Fachliteratur",
+              "Foren",
+              "Online-Communities",
+              "Handbücher",
+              "Online-Recherche",
+              "Chatbot",
+              "Frage"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3b",
+          "label": "b)",
+          "fullLabel": "3 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie haben erfahren, dass es sich bei dem Polygon File Format (PLY) um ein Dateiformat zur Speicherung dreidimensionaler Daten handelt. Ihr betriebseigenes CAD-System benötigt aber die Daten im OBJ oder STL-Format.\n\nNennen Sie eine Möglichkeit, wie Sie die Kundendaten in Ihrem CAD-System dennoch verwenden können.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "daten"
+          ],
+          "solution": {
+            "text": "– Importmöglichkeiten des CAD-Programms\n– Exportmöglichkeit eines CAD-Programms\n– Dateiformatkonverter benutzen (online oder offline)\n– Eigenen Konverter programmieren\n– u. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1405,
+              "height": 781
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1320,
+              "height": 227
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2024-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "CAD",
+              "Dateiformatkonverter",
+              "Importmöglichkeiten",
+              "Exportmöglichkeit",
+              "Eigenen Konverter",
+              "Programms"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3c",
+          "label": "c)",
+          "fullLabel": "3 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie haben Informationen über den Aufbau einer PLY-Datei erhalten. Eine PLY-Datei kann im ASCII-Format oder als Binärdatei gespeichert sein.\n\nErläutern Sie den Unterschied zwischen einer Datei im ASCII Format und einer Datei im Binär Format.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "ASCII-Format: Eine Datei im ASCII-Format speichert Daten als ASCII-Zeichen, die mit jedem Texteditor geöffnet und bearbeitet werden können. (2 Punkte)\nBinärdatei: Eine Binärdatei speichert Daten in einem binären Format, die nur mit der entsprechenden Anwendung verarbeitet werden kann. (2 Punkte)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2024-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1405,
+              "height": 781
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2024-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1320,
+              "height": 227
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2024-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "2 Punkte",
+                "wert": 2.0,
+                "einheit": "Punkte"
+              }
+            ],
+            "begriffe": [
+              "Eine Binärdatei",
+              "Texteditor",
+              "Binärdatei",
+              "Eine Datei",
+              "Format",
+              "ASCII",
+              "Zeichen",
+              "Anwendung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3da",
+          "label": "da)",
+          "fullLabel": "3 da)",
+          "groupLabel": "d)",
+          "groupIntro": "In einer PLY-Datei sind 3840 Punkte gespeichert. Jeder Punkt wird durch x, y und z Koordinaten bestimmt. Jede Koordinate wird durch einen 32-Bit-Float-Wert codiert.",
+          "prompt": "Berechnen Sie, wie viele Kibibyte Sie benötigen, um die 3.840 Punkte zu speichern. Der Speicherbedarf des Datei-Headers und Farbcodierungen sollen nicht berücksichtigt werden.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "3 * (32 Bit / 8 Bit) * 3.840 = 46.080 Byte / 1024 = 45 KiB",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": "assets/ap1-2024-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "32 Bit",
+                "wert": 32.0,
+                "einheit": "Bit"
+              },
+              {
+                "text": "8 Bit",
+                "wert": 8.0,
+                "einheit": "Bit"
+              },
+              {
+                "text": "46.080 Byte",
+                "wert": 46080.0,
+                "einheit": "Byte"
+              },
+              {
+                "text": "45 KiB",
+                "wert": 45.0,
+                "einheit": "KiB"
+              }
+            ],
+            "begriffe": [
+              "46.080",
+              "3.840"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3db",
+          "label": "db)",
+          "fullLabel": "3 db)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Jeder Punkt soll jetzt im RGB-Farbraum mit je 8 Bit pro Farbkanal codiert werden.\n\nBerechnen Sie, wie viele verschiedene Farben sich damit darstellen lassen.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "2^8 * 2^8 * 2^8 = 256 * 256 * 256 = 16.777.216 mögliche Farben",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": "assets/ap1-2024-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "16.777",
+              "Farben"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3dc",
+          "label": "dc)",
+          "fullLabel": "3 dc)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Berechnen Sie, wie viel Prozent Speicher Sie pro Bildpunkt zusätzlich benötigen, um die Farbwerte zu speichern.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "12 Byte (3 * 4 Byte) → 15 (12 Byte + 3 Byte RGB) Byte = 25 % mehr",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": "assets/ap1-2024-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "12 Byte",
+                "wert": 12.0,
+                "einheit": "Byte"
+              },
+              {
+                "text": "4 Byte",
+                "wert": 4.0,
+                "einheit": "Byte"
+              },
+              {
+                "text": "3 Byte",
+                "wert": 3.0,
+                "einheit": "Byte"
+              }
+            ],
+            "begriffe": [
+              "RGB"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3e",
+          "label": "e)",
+          "fullLabel": "3 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie werden beauftragt, das Netzteil für einen CAD-Rechner auszuwählen. Es stehen Netzteile von 400 W in 50-W-Schritten bis 1200 W zur Verfügung. Die folgenden Komponenten wurden bereits ausgewählt.\n\nZu der ermittelten Leistungsaufnahme ist ein Puffer von 10 % hinzuzurechnen.\n\nKomponente        | Max. Leistungsaufnahme in Watt je Stück | Anzahl\nMainboard         | 20                                     | 1\nProzessor         | 172                                    | 1\nProzessor-Lüfter  | 12                                     | 1\nArbeitsspeicher   | 5                                      | 4\nGrafikkarte       | 310                                    | 1\nM.2 SSD           | 5                                      | 2\nGehäuselüfter     | 8                                      | 2\n\nBerechnen Sie die ermittelte Leistungsaufnahme mit Puffer und benennen Sie das ausgewählte Netzteil.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "20 W + 172 W + 12 W + 4 * 5 W + 310 W + 2 * 5 W + 2 * 8 W = 560 W + 10 % = 616 W → 650 W gewählt\n\n(3 Punkte Berechnung Leistungsaufnahme, 1 Punkt Auswahl Netzteil)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": "assets/ap1-2024-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "20 W",
+                "wert": 20.0,
+                "einheit": "W"
+              },
+              {
+                "text": "172 W",
+                "wert": 172.0,
+                "einheit": "W"
+              },
+              {
+                "text": "12 W",
+                "wert": 12.0,
+                "einheit": "W"
+              },
+              {
+                "text": "5 W",
+                "wert": 5.0,
+                "einheit": "W"
+              },
+              {
+                "text": "310 W",
+                "wert": 310.0,
+                "einheit": "W"
+              },
+              {
+                "text": "8 W",
+                "wert": 8.0,
+                "einheit": "W"
+              },
+              {
+                "text": "560 W",
+                "wert": 560.0,
+                "einheit": "W"
+              },
+              {
+                "text": "616 W",
+                "wert": 616.0,
+                "einheit": "W"
+              },
+              {
+                "text": "650 W",
+                "wert": 650.0,
+                "einheit": "W"
+              },
+              {
+                "text": "3 Punkte",
+                "wert": 3.0,
+                "einheit": "Punkte"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Leistungsaufnahme",
+              "Punkte Berechnung",
+              "Punkt Auswahl",
+              "Netzteil"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3f",
+          "label": "f)",
+          "fullLabel": "3 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Der PC wird an 200 Arbeitstagen je 9 Stunden laufen. Das Netzteil hat einen Wirkungsgrad von 90 % und wird im Schnitt zu 50 % ausgelastet sein.\n\nBerechnen Sie die Stromkosten bei einem Preis von 0,40 EUR pro kWh.\n\nHinweis: Konnten Sie in e) kein Netzteil ermitteln, rechnen Sie mit 750 Watt weiter.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "hardware"
+          ],
+          "solution": {
+            "text": "200 * 9 h * (0,650 kW / 90%) * 0,5 * 0,40 EUR/kWh = 260,00 EUR\n\nAlternativ: Rechnung mit 750 W\n200 * 9 h * (0,750 kW / 90%) * 0,5 * 0,40 EUR/kWh = 300,00 EUR",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [],
+          "pageImage": "assets/ap1-2024-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "0,40 EUR",
+                "wert": 0.4,
+                "einheit": "EUR"
+              },
+              {
+                "text": "260,00 EUR",
+                "wert": 260.0,
+                "einheit": "EUR"
+              },
+              {
+                "text": "750 W",
+                "wert": 750.0,
+                "einheit": "W"
+              },
+              {
+                "text": "300,00 EUR",
+                "wert": 300.0,
+                "einheit": "EUR"
+              }
+            ],
+            "begriffe": [
+              "Rechnung",
+              "EUR"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Mit Herrn Müller wurde ein neuer Mitarbeiter eingestellt, der mit dem hausinternen CAD-Programm die Realisierungsmöglichkeiten der Aufträge überprüfen soll, um eine für alle Seiten optimale Lösung zu finden.\n\nIn einigen Fällen wird von ihm erwartet, dass er für wenige Tage beim Kunden vor Ort tätig wird. Zu diesen Terminen wird ihm ein leistungsfähiger Laptop zur Verfügung gestellt.\n\nDie Erstellung und das Bearbeiten einer Konstruktionszeichnung erfordert eine große Rechnerleistung und einen hohen Speicherbedarf, sodass bei Außenterminen dies auf der lokalen Festplatte des Laptops erfolgen muss.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Herr Müller möchte seine berufsbedingten Fahrten mit Bus und Bahn und die Aufenthalte auf öffentlichen Plätzen zur Erledigung betrieblicher Arbeiten nutzen. Allerdings sind dabei zur Gewährleistung der Geheimhaltung besondere Vorsichtsmaßnahmen erforderlich.\n\nNennen Sie Herrn Müller drei geeignete Maßnahmen oder Verhaltensweisen zur Gewährleistung der Geheimhaltung. Weisen Sie dabei auf eine mögliche Folge einer Nichtbeachtung hin. Ergänzen Sie dazu die nachfolgende Tabelle.\n\nMaßnahmen oder Verhaltensweisen | Folge der Nichtbeachtung\nBeispiel: Nutzung einer Blickschutzfolie | Bildschirminhalt kann von Unberechtigten gelesen werden\n? | ?\n? | ?\n? | ?",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Maßnahmen oder Verhaltensweisen | Folge der Nichtbeachtung\nBeispiel: Nutzung einer Blickschutzfolie | Bildschirminhalt kann von Unberechtigten gelesen werden\nNutzung geeigneter Zugangs- und Zugriffskontrolle, z. B. durch sicheres Passwort | Unberechtigten Personen ist die Nutzung von Geräten und der Zugriff auf Daten möglich\nVerschlüsselung der Daten | Unberechtigter Zugriff auf Daten möglich\nSicherung lokal gespeicherter Daten | Verfügbarkeit der Daten ist nicht mehr gegeben\nNutzung einer VPN-Verbindung | Datenübertragung könnte von Unberechtigten abgegriffen werden\n\nWeitere sinnvolle Lösungen möglich!",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 738
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 990,
+              "height": 238
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 322
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Unberechtigten Personen",
+              "Zugriffskontrolle",
+              "Blickschutzfolie",
+              "Nichtbeachtung",
+              "Unberechtigter Zugriff",
+              "Verhaltensweisen",
+              "Zugangs",
+              "Bildschirminhalt"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4b",
+          "label": "b)",
+          "fullLabel": "4 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Herr Müller sichert seine Daten möglichst auf dem Server der KustoFlex GmbH über VPN.\n\nErklären Sie die Funktionalität des Begriffs VPN.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "VPN (Virtual Private Network): Eine Netzwerkverbindung ohne eigene physische Verbindung, die von Unberechtigten nicht einsehbar ist.\nSinngemäß auch gültig:\n– Verschlüsselte Verbindung unter Nutzung des öffentlichen Netzes (Internet)\n– Eine Technologie, die eine sichere Verbindung über das Internet zwischen einem Gerät (z. B. Computer, Smartphone) und einem entfernten Netzwerk herstellt.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 738
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 990,
+              "height": 238
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 322
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Sinngemäß",
+              "Verschlüsselte Verbindung",
+              "Gerät",
+              "Smartphone",
+              "Eine Technologie",
+              "Eine Netzwerkverbindung",
+              "Virtual Private",
+              "Network"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Herr Müller kritisiert, dass im Außendienst nicht immer eine stabile Internetverbindung zur Verfügung steht.\n\nNach den Sicherheitsrichtlinien der KustoFlex GmbH sind für lokal gespeicherte Daten Tagesvollsicherungen auf mehreren (nummerierten) externen Festplatten vorgesehen.\n\nNennen Sie Herrn Müller drei Punkte, die zu beachten sind, wenn die lokal gespeicherten Daten mithilfe von externen Festplatten möglichst zuverlässig gesichert werden sollen. Berücksichtigen Sie dabei die Datensicherheitsaspekte.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit",
+            "hardware"
+          ],
+          "solution": {
+            "text": "3 sinnvolle Aspekte, z. B.\n– Datenträger werden verschlüsselt, d. h. bei der Nutzung ist die Eingabe eines Passworts erforderlich.\n– Bei jedem Sicherungsvorgang wird in einer festen Reihenfolge jeweils ein anderer Datenträger verwendet, um bei Ausfall noch weitere Sicherungsstände zu haben.\n– Nachdem alle Datenträger genutzt wurden, wird wieder der erste verwendet.\n– Auch der Hinweis auf die Anwendung des „Generationsprinzips“ („Großvater-Vater-Sohn-Prinzip“) ist möglich!\n\nAuch andere Lösungen sind zulässig.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2024-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1417,
+              "height": 738
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2024-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 990,
+              "height": 238
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2024-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1362,
+              "height": 322
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Großvater-Vater-Sohn-Prinzip",
+              "Sicherungsvorgang",
+              "Generationsprinzips",
+              "Sicherungsstände",
+              "Passworts",
+              "Nachdem",
+              "Ausfall",
+              "Reihenfolge"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4da",
+          "label": "da)",
+          "fullLabel": "4 da)",
+          "groupLabel": "d)",
+          "groupIntro": "Sie informieren Herrn Müller über „Malware“ als Oberbegriff für Schadsoftware.",
+          "prompt": "Nennen Sie drei Arten von Malware.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit",
+            "software"
+          ],
+          "solution": {
+            "text": "Nennen: (3 x 1 Punkt), z. B.\n– Viren: Software, die den Programmcode eines ursprünglich unschädlichen Programms befällt und sich selbst verbreitet.\n– Wurm: Wird nach Infektion selbst aktiv und breitet sich aus.\n– Trojaner: Eingebettet in eine meist nützliche Software; Trojaner wird durch Start dieser Software aktiv.\n– Spyware, Adware, Backdoor, Scareware, Ransomware, Keylogger, Riskware, Archivbomben, Dropper",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 926,
+              "height": 184
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 989,
+              "height": 141
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2024-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 802
+            },
+            {
+              "id": "p9_f5",
+              "file": "assets/ap1-2024-f_p09_f5.png",
+              "sourcePage": 9,
+              "width": 274,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Eingebettet",
+              "Riskware",
+              "Archivbomben",
+              "Backdoor",
+              "Scareware",
+              "Dropper",
+              "Viren",
+              "Adware"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4db",
+          "label": "db)",
+          "fullLabel": "4 db)",
+          "groupLabel": "d)",
+          "groupIntro": null,
+          "prompt": "Weisen Sie den in Aufgabe da) genannten Arten jeweils ein spezifisches Merkmal zu.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Merkmal: (3 x 1 Punkt), passend zu den in da) genannten Arten, z. B.\n– Virus: befällt den Programmcode eines anderen Programms und verbreitet sich selbst\n– Wurm: wird nach Infektion selbst aktiv und breitet sich aus\n– Trojaner: getarnt in nützlicher Software, wird durch deren Start aktiv\n– Spyware: spioniert Inhalte und Aktivitäten aus\n– Ransomware: blockiert den Zugriff bzw. verschlüsselt Dateien und fordert Lösegeld\n– Keylogger: protokolliert Tastatureingaben und stellt sie Dritten bereit",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 926,
+              "height": 184
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 989,
+              "height": 141
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2024-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 802
+            },
+            {
+              "id": "p9_f5",
+              "file": "assets/ap1-2024-f_p09_f5.png",
+              "sourcePage": 9,
+              "width": 274,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "Tastatureingaben",
+              "Lösegeld",
+              "Merkmal",
+              "Virus",
+              "Arten",
+              "Ransomware",
+              "Programmcode",
+              "Infektion"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4e",
+          "label": "e)",
+          "fullLabel": "4 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Eine Antivirensoftware ist bereits auf dem Laptop installiert.\n\nErläutern Sie Herrn Müller drei weitere organisatorische oder technische Empfehlungen, wie man sich vor Malware schützen kann.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "z. B.\n– Keine unbekannten Datenträger benutzen, die infizierte Dateien enthalten könnten\n– Kein Download von unsicheren Quellen\n– Keine Ausführung aktiver Inhalte von Dateien (z. B. Makros, E-Mail-Anhänge)\n– AdBlocker nutzen\n– Regelmäßig Updates von Betriebssystem und Anwendungen installieren\n– Mitarbeiter sensibilisieren",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 926,
+              "height": 184
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 989,
+              "height": 141
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2024-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 802
+            },
+            {
+              "id": "p9_f5",
+              "file": "assets/ap1-2024-f_p09_f5.png",
+              "sourcePage": 9,
+              "width": 274,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Regelmäßig Updates",
+              "Kein Download",
+              "Keine Ausführung",
+              "Mail-Anhänge",
+              "Makros",
+              "Betriebssystem",
+              "Dateien",
+              "Anwendungen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4f",
+          "label": "f)",
+          "fullLabel": "4 f)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Berechnen Sie zur Verdeutlichung des Zeitaufwands für Herrn Müller die Übertragungsdauer, wenn er Daten mit einem Umfang von 1 GiB aufgrund des Ergebnisses des Speedtests abspeichern möchte. Der Rechenweg ist mit anzugeben.\n\nErgebnis des Speedtests:\nDownload: 75.78 Mbps\nUpload:   50.02 Mbps\n\nRunden Sie das Ergebnis auf volle Sekunden auf und stellen Sie das Ergebnis in Minuten und Sekunden dar.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "1 GiB * 1.024 * 1.024 * 1.024 * 8 / (50,02 Mbps * 1.000 * 1.000)\n= 171,73 s, gerundet 172 s\nEntspricht 2 Minuten und 52 Sekunden\n\nPunkteverteilung:\nUmrechnung von GiB auf Byte: 1 GiB * 1.024 * 1.024 * 1.024: 1 Punkt\nUmrechnung von Byte auf bit: * 8 bit: 1 Punkt\nUmrechnung der Übertragungsdauer von Mbps auf bit/s: 50,02 Mbps * 1.000 * 1.000: 1 Punkt\nBerechnung der Übertragungsdauer: / 50,02: 1 Punkt\nErmittlung des Gesamtergebnisses = 171,73 s: 1 Punkt\nUmrechnung auf Minuten und Sekunden: 172 Sekunden (2 Minuten und 52 Sekunden): 1 Punkt\n(Teilpunkte möglich)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2024-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2024-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 926,
+              "height": 184
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2024-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 989,
+              "height": 141
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2024-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 227
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2024-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 1396,
+              "height": 802
+            },
+            {
+              "id": "p9_f5",
+              "file": "assets/ap1-2024-f_p09_f5.png",
+              "sourcePage": 9,
+              "width": 274,
+              "height": 141
+            }
+          ],
+          "pageImage": "assets/ap1-2024-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 GiB",
+                "wert": 1.0,
+                "einheit": "GiB"
+              },
+              {
+                "text": "2 Minuten",
+                "wert": 2.0,
+                "einheit": "Minuten"
+              },
+              {
+                "text": "52 Sekunden",
+                "wert": 52.0,
+                "einheit": "Sekunden"
+              },
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              },
+              {
+                "text": "8 bit",
+                "wert": 8.0,
+                "einheit": "bit"
+              },
+              {
+                "text": "172 Sekunden",
+                "wert": 172.0,
+                "einheit": "Sekunden"
+              }
+            ],
+            "begriffe": [
+              "Gesamtergebnisses",
+              "Umrechnung",
+              "Sekunden",
+              "Entspricht",
+              "Übertragungsdauer",
+              "Punkteverteilung",
+              "Berechnung",
+              "1.000"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

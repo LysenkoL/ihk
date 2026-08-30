@@ -1,0 +1,2176 @@
+{
+  "schemaVersion": 2,
+  "examId": "ap1-2022-f",
+  "meta": {
+    "title": "Einrichten eines IT-gestützten Arbeitsplatzes",
+    "part": "AP1",
+    "year": 2022,
+    "season": "Frühjahr",
+    "durationMinutes": 90,
+    "maxPoints": 100,
+    "sourceFiles": {
+      "tasks": "ap1-2022-f-aufgaben.pdf",
+      "solutions": "ap1-2022-f-loesung.pdf"
+    }
+  },
+  "situation": {
+    "text": "Sie absolvieren eine Ausbildung bei der AllRound AG, einem im Jahr 1985 gegründeten IT-Systemhaus mit 720 Mitarbeiterinnen und Mitarbeitern in weltweiten Niederlassungen. Nach einer Krisensituation, einem Wechsel in der Geschäftsführung und einer Neuausrichtung hat die AllRound AG sich zum Anbieter größerer und internationaler IT-Projekte entwickelt.\n\nEin Außendienstmitarbeiter hat erfahren, dass bei der Rullix GmbH eine Aktualisierung der IT-Gesamtkonzeption ansteht. Die Rullix GmbH produziert und vertreibt Bauteile im Bereich der E-Mobilität und besitzt weltweit mehrere Standorte. Da sie nicht über ausreichende Personalkapazitäten für die eigene Durchführung verfügt, soll dieses Projekt extern vergeben werden. Der Außendienstmitarbeiter hat bereits die Möglichkeit eines Erstkontaktes hergestellt mit dem Ziel, die Rullix GmbH als Kunden zu gewinnen.",
+    "assets": []
+  },
+  "attachments": [],
+  "tasks": [
+    {
+      "id": "a1",
+      "number": 1,
+      "label": "Aufgabe 1",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "1aa",
+          "label": "aa)",
+          "fullLabel": "1 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Als Vorbereitung auf das Erstgespräch mit der Rullix GmbH soll zunächst die AllRound AG allgemein und dann das Leistungsangebot vorgestellt werden, um die Eignung der AllRound AG für diesen Auftrag herauszustellen.\n\nSie sollen eine Präsentationsfolie für die allgemeine Unternehmensdarstellung der AllRound AG erstellen, um für den gewünschten Auftrag einen möglichst guten Eindruck zu hinterlassen. Aus der eingangs beschriebenen Situation sind dazu drei geeignete betriebliche Informationen herauszustellen, um diese auf der Folie als möglichst präsentationsgeeignete Stichpunkte anzuführen. Dabei soll jeder einzelne Stichpunkt eine Botschaft vermitteln. Die inhaltliche Vorlage für die gestalterische Umsetzung soll in Form von Aufzählungspunkten erfolgen, wie in dem Beispiel bereits angedeutet ist.\n\nVorgegeben — Folienbereich: „– Seit 1985 am Markt“\nVorgegeben — Notizbereich, Botschaften: „z. B.: Beständigkeit durch über 35 Jahre Marktpräsenz und jahrzehntelange Erfahrung garantiert langfristige Partnerschaften auch in der Zukunft.“",
+          "prompt": "Vermerken Sie im Notizbereich drei inhaltliche Botschaften, welche Sie aus der obigen Situationsbeschreibung in Ihrer Präsentationsfolie zum Ausdruck bringen wollen.",
+          "maxPoints": 6,
+          "answerType": "text",
+          "topics": [
+            "kommunikation",
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Mögliche Inhalte:\n\nSeit 1985 am Markt (Beispiel)\n\n720 Mitarbeiterinnen und Mitarbeiter\n\nWeltweite Niederlassungen\n\nKundenreferenzen in allen Branchen\n\nZertifizierte Kompetenzen\n\nWechsel in der Geschäftsführung\n\nNeuausrichtung nach Krisensituation\n\nAnbieter für große und internationale IT-Projekte\nHinweis:\nDie Anführung der Aufzählungspunkte im Notizbereich dient lediglich der besseren Zuordnung und Lesbarkeit der\nLösungshinweise und ist beim Prüfling erst im Folienbereich von Aufgabe ab) gefordert.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2022-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1449,
+              "height": 1018
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2022-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 292
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Aufzählungspunkte",
+              "Lösungshinweise",
+              "Folienbereich",
+              "Anführung",
+              "Notizbereich",
+              "Prüfling",
+              "Lesbarkeit",
+              "Zertifizierte Kompetenzen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ab",
+          "label": "ab)",
+          "fullLabel": "1 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Ergänzen Sie den Folienbereich um die drei zur Botschaft passenden Aufzählungspunkte.",
+          "maxPoints": 3,
+          "answerType": "diagram",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Mögliche Inhalte:\n\n\u0007Seit 1985 am Markt\n z. B.: Beständigkeit durch über 35 Jahre Marktpräsenz und jahrzehntelange Erfahrung garantiert langfristige\nPartnerschaften auch in der Zukunft. (Beispiel)\n\n\u0007720 Mitarbeiterinnen und Mitarbeiter\n z. B.: Fristgerechte Bewältigung auch personalintensiver Aufträge gewährleistet.\n\n\u0007Weltweite Niederlassungen\n z. B.: Support vor Ort international möglich\n\n\u0007Kundenreferenzen in allen Branchen\n z. B.: Branchenübergreifender Kundenstamm und Kundenzufriedenheit beweisen die erfolgreiche Durchfüh-\nrung von Aufträgen.\n\n\u0007Zertifizierungen\n z. B.: Nachgewiesene Standards garantierten eine professionelle Durchführung der Aufträge.\n\n\u0007Wechsel in der Geschäftsführung\n z. B. ungeeignet bzw. überzeugende Begründung nötig\n\n\u0007Neuausrichtung nach Krisensituation\n z. B.: ungeeignet bzw. überzeugende Begründung nötig\n\n\u0007Anbieter für große und internationale IT-Projekte\n z. B.: interkulturelle Kompetenzen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_02.png",
+            "solutionPage": 2
+          },
+          "sourcePage": 2,
+          "assets": [
+            {
+              "id": "p2_f1",
+              "file": "assets/ap1-2022-f_p02_f1.png",
+              "sourcePage": 2,
+              "width": 1449,
+              "height": 1018
+            },
+            {
+              "id": "p2_f2",
+              "file": "assets/ap1-2022-f_p02_f2.png",
+              "sourcePage": 2,
+              "width": 1395,
+              "height": 292
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_02.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Fristgerechte Bewältigung",
+              "Branchenübergreifender Kundenstamm",
+              "Jahre Marktpräsenz",
+              "Nachgewiesene Standards",
+              "Zertifizierungen",
+              "Beständigkeit",
+              "Kompetenzen",
+              "Zukunft"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1b",
+          "label": "b)",
+          "fullLabel": "1 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Aus dem Unternehmensportfolio der AllRound AG sind Ihnen folgende Begriffe im Gedächtnis:\n– Industrie 4.0\n– Support in den Bereichen Prozess- und IT-Management\n– Migrationsunterstützung\n– Big Data\n– Cloud-Hosting in allen Varianten\n– Beratung im Hinblick auf DSGVO und BDSG\n– Webhosting\n– Remarketing von IT-Geräten\n\nDie Leistungsangebote der AllRound AG sollen dem Kunden nicht nur erklärt, sondern auch sprachlich überzeugend formuliert werden.\n\nWählen Sie aus den obenstehenden Begriffen drei aus und beschreiben Sie diese dem zukünftigen Kunden so, dass die einzelnen Leistungsangebote möglichst auftrags- und nutzenbezogen erläutert werden.\n\nBeispiel — Industrie 4.0: „Wir optimieren Ihren Produktionsprozess durch Nutzung intelligenter Informations- und Kommunikationstechnik. Angestrebt wird die Schaffung einer möglichst hohen Flexibilität durch eine weitgehend selbstorganisierte Produktion.“",
+          "maxPoints": 9,
+          "answerType": "text",
+          "topics": [
+            "datenschutz"
+          ],
+          "solution": {
+            "text": "Leistungsangebote\nErläuternder Text, in ganzen Sätzen\nBeispiel: Industrie 4.0\nWir optimieren Ihren Produktionsprozess durch Nutzung intelligenter Informations-\nund Kommunikationstechnik. Angestrebt wird die Schaffung einer möglichst hohen\nFlexibilität durch eine weitgehend selbstorganisierte Produktion.\nSupport in den Bereichen\nProzess- und IT-Manage-\nment\nIm Sinne von reibungslosen, flexiblen und transparenten Abläufen erfahren Sie\nunsere Unterstützung bei der Optimierung Ihrer betrieblichen Prozesse. Darüber\nhinaus kümmern wir uns um die dafür benötigte IT-Ausstattung.\nMigrationsunterstützung\nWir helfen Ihnen bei der Umstellung oder Anpassung der Hard- und Software\ninnerhalb Ihres kompletten Datenverarbeitungssystems, um wieder möglichst rasch\ndie angestrebte Funktionsfähigkeit zu erlangen.\nBig Data\nUm die jederzeitige und schnelle Verfügbarkeit Ihrer Daten zu gewährleisten, unter-\nstützen wir Sie bei der sicheren und datenschutzkonformen Speicherung, Verarbei-\ntung und Analyse Ihres Datenbestands.\nCloud-Hosting in allen\nVarianten\nWir bieten Ihnen eine zentrale IT-Infrastruktur in Form von Rechenleistung, Spei-\ncherplatz und Software unter Verzicht auf das Vorhalten lokaler Ressourcen. Damit\nbleibt Ihre IT-Ausstattung flexibel skalierbar und Sie können sich aufgrund unserer\nIT-Kompetenz auf Ihre Kernaufgaben konzentrieren.\nBeratung im Hinblick auf\nDSGVO und BDSG\nWir kümmern uns mit unseren eigens geschulten und zertifizierten Mitarbeitern\nzuverlässig darum, dass die Vorschriften der Datenschutzgrundverordnung nicht\nverletzt und damit Schaden und Strafen vom Unternehmen abgewendet werden.\nWebhosting\nWir stellen für Sie Onlinespeicherplatz und Dienstleistungen für Internetauftritte\nauf Servern von Internetdienstanbietern bereit, damit Sie sich ausschließlich auf die\nAktualisierung der Inhalte konzentrieren können.\nRemarketing von IT-Geräten\nIm Sinne einer umweltgerechten Entsorgung und einem verantwortungsvollen\nUmgang mit den Ressourcen organisieren wir für Sie die Wiedervermarktung Ihrer\ngebrauchten EDV-Ausstattungen mit zusätzlichen Einnahmen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 3,
+          "assets": [
+            {
+              "id": "p3_f1",
+              "file": "assets/ap1-2022-f_p03_f1.png",
+              "sourcePage": 3,
+              "width": 1406,
+              "height": 761
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_03.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Aktualisierung",
+              "Flexibilität",
+              "Umgang",
+              "Optimierung Ihrer",
+              "Datenverarbeitungssystems",
+              "Datenbestands",
+              "Hinblick",
+              "Verarbei"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1ca",
+          "label": "ca)",
+          "fullLabel": "1 ca)",
+          "groupLabel": "c)",
+          "groupIntro": "Die AllRound AG soll ein Angebot für das Projekt zur kompletten Neuorganisation der Verwaltung und der IT-Gesamtkonzeption der Rullix GmbH erstellen.",
+          "prompt": "Schildern Sie analog des Beispiels, warum folgende Informationen für die Erstellung des Angebots benötigt werden:\n\nBeispiel — Räumliche Gegebenheiten: „Bestimmung der Entfernungen, um den logistischen Aufwand abschätzen zu können“\n– Lastenheft: ?\n– Geplanter Zeitrahmen: ?\n– Ergebnisse der Ist-Analyse: ?",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "projekt",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Informationen\nErläuterungen\nBeispiel: Räumliche\n­Gegebenheiten\nBeispiel: Bestimmung der Entfernungen, um den logistischen Aufwand abschätzen\nzu können\nLastenheft\nBeschreibung aller vom Kunden gewünschten Anforderungen. Es stellt die Grund­\nlage für eine spätere Kalkulation dar.\nGeplanter Zeitrahmen\nTerminierung des Projekts zur rechtzeitigen Bereitstellung der Ressourcen\nErgebnisse der Ist-Analyse\nZur Festlegung der Ausgangslage",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1534,
+              "height": 463
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2022-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 436,
+              "height": 185
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2022-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 436,
+              "height": 175
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2022-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1044,
+              "height": 239
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Geplanter Zeitrahmen",
+              "Entfernungen",
+              "Erläuterungen",
+              "Grund",
+              "Ausgangslage",
+              "Bestimmung",
+              "Terminierung",
+              "Ergebnisse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "1cb",
+          "label": "cb)",
+          "fullLabel": "1 cb)",
+          "groupLabel": "c)",
+          "groupIntro": null,
+          "prompt": "Zur Erstellung eines Angebots werden auch formale Informationen benötigt, z. B. die Adresse.\n\nWelche formale Information könnte darüber hinaus auch noch erforderlich sein?",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Formale Information, z. B.\n\nAnsprechpartner mit Kontaktdaten\n\nBindungsfrist des Angebots\n\nDatum der Anfrage",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_03.png",
+            "solutionPage": 3
+          },
+          "sourcePage": 4,
+          "assets": [
+            {
+              "id": "p4_f1",
+              "file": "assets/ap1-2022-f_p04_f1.png",
+              "sourcePage": 4,
+              "width": 1534,
+              "height": 463
+            },
+            {
+              "id": "p4_f2",
+              "file": "assets/ap1-2022-f_p04_f2.png",
+              "sourcePage": 4,
+              "width": 436,
+              "height": 185
+            },
+            {
+              "id": "p4_f3",
+              "file": "assets/ap1-2022-f_p04_f3.png",
+              "sourcePage": 4,
+              "width": 436,
+              "height": 175
+            },
+            {
+              "id": "p4_f4",
+              "file": "assets/ap1-2022-f_p04_f4.png",
+              "sourcePage": 4,
+              "width": 1044,
+              "height": 239
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_04.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Bindungsfrist",
+              "Formale Information",
+              "Angebots",
+              "Datum",
+              "Kontaktdaten",
+              "Anfrage",
+              "Ansprechpartner"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "number": 2,
+      "label": "Aufgabe 2",
+      "intro": "Das Angebot wurde angenommen. Nach der Beschaffung einzelner Hardwarekomponenten besteht Ihre Aufgabe nun darin, die Standardarbeitsplätze zu konfigurieren. Sie sollen einzelne Komponenten einbauen und die Schnittstellen der Computer identifizieren.",
+      "maxPoints": 24,
+      "subtasks": [
+        {
+          "id": "2aa",
+          "label": "aa)",
+          "fullLabel": "2 aa)",
+          "groupLabel": "a)",
+          "groupIntro": "Sie möchten die CPU in den CPU-Sockel des Mainboards einbauen. Dazu lesen Sie sich die folgende Anleitung durch.\n\nCPU installation:\nTo fit the processor in the socket, first lift the lever. The CPU fits in only one correct orientation. Make sure the arrow on top of the processor is aligned with the arrow on the processor socket. Do not force the CPU into the socket to prevent bending the connectors on the socket and damaging the CPU. Gently push the processor into place. Push the lever down to secure the processor.\n\n(Dazu drei Abbildungen: 1. Hebel anheben, 2. CPU einsetzen, 3. Hebel schließen.)",
+          "prompt": "Nennen Sie die drei Schritte für den Einbau der CPU.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "software"
+          ],
+          "solution": {
+            "text": "Hebel öffnen\n\nCPU vorsichtig einsetzen\n\nHebel schließen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1578,
+              "height": 1017
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 435,
+              "height": 143
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-f_p05_f3.png",
+              "sourcePage": 5,
+              "width": 521,
+              "height": 143
+            },
+            {
+              "id": "p5_f4",
+              "file": "assets/ap1-2022-f_p05_f4.png",
+              "sourcePage": 5,
+              "width": 766,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Hebel",
+              "CPU"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2ab",
+          "label": "ab)",
+          "fullLabel": "2 ab)",
+          "groupLabel": "a)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie, welche beiden Punkte beim Schritt 2 besonders zu beachten sind.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Die CPU nicht mit Gewalt einsetzen.\n\nDer Pfeil auf der Oberseite des Prozessors muss mit dem Pfeil auf dem Prozessorsockel übereinstimmen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1578,
+              "height": 1017
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 435,
+              "height": 143
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-f_p05_f3.png",
+              "sourcePage": 5,
+              "width": 521,
+              "height": 143
+            },
+            {
+              "id": "p5_f4",
+              "file": "assets/ap1-2022-f_p05_f4.png",
+              "sourcePage": 5,
+              "width": 766,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Oberseite",
+              "Prozessors",
+              "Gewalt",
+              "Prozessorsockel",
+              "Pfeil",
+              "CPU"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2b",
+          "label": "b)",
+          "fullLabel": "2 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nach dem Einsetzen der CPU auf das Mainboard wollen Sie den CPU-Kühler montieren. Dem CPU-Kühler liegt eine kleine Tube Wärmeleitpaste bei.\n\nErläutern Sie, welche Aufgabe die Wärmeleitpaste hat.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Die Wärmeleitpaste soll kleine Unebenheiten auf den Kontaktflächen ausgleichen, da Luft ein schlechter Wärmeleiter ist.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 5,
+          "assets": [
+            {
+              "id": "p5_f1",
+              "file": "assets/ap1-2022-f_p05_f1.png",
+              "sourcePage": 5,
+              "width": 1578,
+              "height": 1017
+            },
+            {
+              "id": "p5_f2",
+              "file": "assets/ap1-2022-f_p05_f2.png",
+              "sourcePage": 5,
+              "width": 435,
+              "height": 143
+            },
+            {
+              "id": "p5_f3",
+              "file": "assets/ap1-2022-f_p05_f3.png",
+              "sourcePage": 5,
+              "width": 521,
+              "height": 143
+            },
+            {
+              "id": "p5_f4",
+              "file": "assets/ap1-2022-f_p05_f4.png",
+              "sourcePage": 5,
+              "width": 766,
+              "height": 227
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_05.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Unebenheiten",
+              "Wärmeleiter",
+              "Wärmeleitpaste",
+              "Kontaktflächen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2c",
+          "label": "c)",
+          "fullLabel": "2 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie möchten nun den DDR 4 Arbeitsspeicher in die Slots des Motherboards einsetzen. Sie haben zwei DDR 4 RAM Riegel und möchten den RAM im Dual Channel Modus betreiben. Auf dem Motherboard sehen Sie die folgenden Slots (von oben nach unten): DIMM B1, DIMM B2, DIMM A1, DIMM A2.\n\nErläutern Sie, was Sie beim Einsetzen der beiden Speicherriegel beachten müssen, damit der RAM im Dual Channel Modus arbeitet.",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "\u0007Man sollte im Handbuch nachschauen, wie die Belegung der Kanäle ist, bspw. Einsetzen der beiden RAM-Riegel in den Slot A1 und B1 oder\nin A2 und B2.\n\nDie beiden RAM-Riegel (Kanäle) müssen die gleiche Speichergröße haben.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1395,
+              "height": 580
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1107,
+              "height": 196
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 825
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Belegung",
+              "Riegel",
+              "Speichergröße",
+              "Einsetzen",
+              "Kanäle",
+              "Handbuch",
+              "RAM"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2d",
+          "label": "d)",
+          "fullLabel": "2 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Als Datenspeicher haben Sie sich für eine SSD entschieden. Zur Wahl steht eine SATA SSD und eine M.2 SSD.\n\nNennen Sie einen Vorteil und einen Nachteil einer M.2 SSD gegenüber einer SATA SSD.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "Vorteil:\n\nSchneller\n\nKompakte Bauweise\n\nNachteil:\n\nTeurer\n\nMeist nur ein oder zwei Anschlüsse auf dem Motherboard vorhanden",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1395,
+              "height": 580
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1107,
+              "height": 196
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 825
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Kompakte Bauweise",
+              "Meist",
+              "Teurer",
+              "Schneller",
+              "Motherboard",
+              "Anschlüsse",
+              "Nachteil",
+              "Vorteil"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2e",
+          "label": "e)",
+          "fullLabel": "2 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Nachdem der PC fertig zusammengebaut ist, möchten Sie den Monitor an die Grafikkarte anschließen. Sie sehen an der Grafikkarte die abgebildeten Anschlüsse (mit A, B und C markiert).\n\nUm welche Anschlüsse handelt es sich bei den mit A, B und C markierten Schnittstellen?\nNennen Sie die korrekten Bezeichnungen/Abkürzungen.\n\nA:\nB:\nC:",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "A: DisplayPort\n\nB: HDMI\n\nC: DVI",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 6,
+          "assets": [
+            {
+              "id": "p6_f1",
+              "file": "assets/ap1-2022-f_p06_f1.png",
+              "sourcePage": 6,
+              "width": 1395,
+              "height": 580
+            },
+            {
+              "id": "p6_f2",
+              "file": "assets/ap1-2022-f_p06_f2.png",
+              "sourcePage": 6,
+              "width": 1107,
+              "height": 196
+            },
+            {
+              "id": "p6_f3",
+              "file": "assets/ap1-2022-f_p06_f3.png",
+              "sourcePage": 6,
+              "width": 1373,
+              "height": 825
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_06.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "DVI",
+              "HDMI"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2fa",
+          "label": "fa)",
+          "fullLabel": "2 fa)",
+          "groupLabel": "f)",
+          "groupIntro": "An der Rückseite des PC sehen Sie die abgebildeten Anschlüsse (u. a. mehrere USB-Buchsen, davon eine umrahmt, sowie ein 2.5G-Netzwerkanschluss).",
+          "prompt": "Beschreiben Sie, welche Besonderheit der umrahmte USB-Anschluss hat.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Dieser Anschluss wird für das BIOS (Uefi) Update benutzt.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 723,
+              "height": 718
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 222,
+              "height": 132
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2022-f_p07_f3.png",
+              "sourcePage": 7,
+              "width": 969,
+              "height": 281
+            },
+            {
+              "id": "p7_f4",
+              "file": "assets/ap1-2022-f_p07_f4.png",
+              "sourcePage": 7,
+              "width": 232,
+              "height": 143
+            },
+            {
+              "id": "p7_f5",
+              "file": "assets/ap1-2022-f_p07_f5.png",
+              "sourcePage": 7,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p7_f6",
+              "file": "assets/ap1-2022-f_p07_f6.png",
+              "sourcePage": 7,
+              "width": 371,
+              "height": 142
+            },
+            {
+              "id": "p7_f7",
+              "file": "assets/ap1-2022-f_p07_f7.png",
+              "sourcePage": 7,
+              "width": 233,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Dieser Anschluss",
+              "BIOS",
+              "Update"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2fb",
+          "label": "fb)",
+          "fullLabel": "2 fb)",
+          "groupLabel": "f)",
+          "groupIntro": null,
+          "prompt": "Nennen Sie zwei Vorteile des USB-C Anschlusses gegenüber dem USB-3 Anschluss.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Höhere Datenrate\n\nHöhere Stromversorgung\n\nBeidseitig steckbar",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 723,
+              "height": 718
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 222,
+              "height": 132
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2022-f_p07_f3.png",
+              "sourcePage": 7,
+              "width": 969,
+              "height": 281
+            },
+            {
+              "id": "p7_f4",
+              "file": "assets/ap1-2022-f_p07_f4.png",
+              "sourcePage": 7,
+              "width": 232,
+              "height": 143
+            },
+            {
+              "id": "p7_f5",
+              "file": "assets/ap1-2022-f_p07_f5.png",
+              "sourcePage": 7,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p7_f6",
+              "file": "assets/ap1-2022-f_p07_f6.png",
+              "sourcePage": 7,
+              "width": 371,
+              "height": 142
+            },
+            {
+              "id": "p7_f7",
+              "file": "assets/ap1-2022-f_p07_f7.png",
+              "sourcePage": 7,
+              "width": 233,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Beidseitig",
+              "Höhere Datenrate",
+              "Höhere Stromversorgung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2ga",
+          "label": "ga)",
+          "fullLabel": "2 ga)",
+          "groupLabel": "g)",
+          "groupIntro": "Sie testen den PC. Der Taskmanager zeigt die folgenden Daten:\nBasisgeschwindigkeit: 3,40 GHz\nSockets: 1\nKerne: 16\nLogische Prozessoren: 32\nVirtualisierung: Aktiviert\nL1-Cache: 1,0 MB\nL2-Cache: 8,0 MB\nL3-Cache: 64,0 MB",
+          "prompt": "Erläutern Sie den Begriff „Logische Prozessoren“.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "hardware",
+            "software"
+          ],
+          "solution": {
+            "text": "\u0007Die logischen Prozessoren sind eine Teilung der physikalischen CPU-Kerne und dienen dazu, mehrere Threads gleichzeitig in einem\n­Prozessorkern auszuführen (Hyperthreading).",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 723,
+              "height": 718
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 222,
+              "height": 132
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2022-f_p07_f3.png",
+              "sourcePage": 7,
+              "width": 969,
+              "height": 281
+            },
+            {
+              "id": "p7_f4",
+              "file": "assets/ap1-2022-f_p07_f4.png",
+              "sourcePage": 7,
+              "width": 232,
+              "height": 143
+            },
+            {
+              "id": "p7_f5",
+              "file": "assets/ap1-2022-f_p07_f5.png",
+              "sourcePage": 7,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p7_f6",
+              "file": "assets/ap1-2022-f_p07_f6.png",
+              "sourcePage": 7,
+              "width": 371,
+              "height": 142
+            },
+            {
+              "id": "p7_f7",
+              "file": "assets/ap1-2022-f_p07_f7.png",
+              "sourcePage": 7,
+              "width": 233,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Teilung",
+              "Prozessoren",
+              "Hyperthreading",
+              "Prozessorkern",
+              "Threads",
+              "Kerne",
+              "CPU"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2gb",
+          "label": "gb)",
+          "fullLabel": "2 gb)",
+          "groupLabel": "g)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie allgemein die Aufgabe eines „Cache“-Speichers.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Ein Cache-Speicher ist ein schneller Zwischenspeicher. Der Cache reduziert die Anzahl der Zugriffe auf ein langsameres Speichermedium.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 723,
+              "height": 718
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 222,
+              "height": 132
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2022-f_p07_f3.png",
+              "sourcePage": 7,
+              "width": 969,
+              "height": 281
+            },
+            {
+              "id": "p7_f4",
+              "file": "assets/ap1-2022-f_p07_f4.png",
+              "sourcePage": 7,
+              "width": 232,
+              "height": 143
+            },
+            {
+              "id": "p7_f5",
+              "file": "assets/ap1-2022-f_p07_f5.png",
+              "sourcePage": 7,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p7_f6",
+              "file": "assets/ap1-2022-f_p07_f6.png",
+              "sourcePage": 7,
+              "width": 371,
+              "height": 142
+            },
+            {
+              "id": "p7_f7",
+              "file": "assets/ap1-2022-f_p07_f7.png",
+              "sourcePage": 7,
+              "width": 233,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Speichermedium",
+              "Cache",
+              "Zwischenspeicher",
+              "Cache-Speicher",
+              "Zugriffe",
+              "Anzahl"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "2gc",
+          "label": "gc)",
+          "fullLabel": "2 gc)",
+          "groupLabel": "g)",
+          "groupIntro": null,
+          "prompt": "Geben Sie die Taktfrequenz von 3,4 GHz in Hertz an.",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "hardware"
+          ],
+          "solution": {
+            "text": "3.400.000.000 Hz",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_04.png",
+            "solutionPage": 4
+          },
+          "sourcePage": 7,
+          "assets": [
+            {
+              "id": "p7_f1",
+              "file": "assets/ap1-2022-f_p07_f1.png",
+              "sourcePage": 7,
+              "width": 723,
+              "height": 718
+            },
+            {
+              "id": "p7_f2",
+              "file": "assets/ap1-2022-f_p07_f2.png",
+              "sourcePage": 7,
+              "width": 222,
+              "height": 132
+            },
+            {
+              "id": "p7_f3",
+              "file": "assets/ap1-2022-f_p07_f3.png",
+              "sourcePage": 7,
+              "width": 969,
+              "height": 281
+            },
+            {
+              "id": "p7_f4",
+              "file": "assets/ap1-2022-f_p07_f4.png",
+              "sourcePage": 7,
+              "width": 232,
+              "height": 143
+            },
+            {
+              "id": "p7_f5",
+              "file": "assets/ap1-2022-f_p07_f5.png",
+              "sourcePage": 7,
+              "width": 766,
+              "height": 143
+            },
+            {
+              "id": "p7_f6",
+              "file": "assets/ap1-2022-f_p07_f6.png",
+              "sourcePage": 7,
+              "width": 371,
+              "height": 142
+            },
+            {
+              "id": "p7_f7",
+              "file": "assets/ap1-2022-f_p07_f7.png",
+              "sourcePage": 7,
+              "width": 233,
+              "height": 142
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_07.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "3.400.000.000 Hz",
+                "wert": 3400000000.0,
+                "einheit": "Hz"
+              }
+            ],
+            "begriffe": [
+              "3.400",
+              "000.000"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "number": 3,
+      "label": "Aufgabe 3",
+      "intro": "",
+      "maxPoints": 25,
+      "subtasks": [
+        {
+          "id": "3a",
+          "label": "a)",
+          "fullLabel": "3 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Ihre Aufgabe besteht darin, für ein Notebook einen Netzwerkzugriff ins Firmen-WLAN einzurichten. Hierbei handelt es sich um ein WLAN mit WPA-PSK oder auch WPA Personal.\n\nNennen Sie zwei wesentliche Informationen, die Sie vom Administrator erfragen müssen, um das Notebook im WLAN anmelden zu können.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "SSID des WLAN-Netzes\n\nPre-shared-key (PSK) oder auch Passwort möglich",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 303
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 494
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 686
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-f_p08_f4.png",
+              "sourcePage": 8,
+              "width": 392,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "SSID",
+              "PSK",
+              "Netzes",
+              "WLAN",
+              "Passwort"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3b",
+          "label": "b)",
+          "fullLabel": "3 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Zur Authentifizierung von Nutzern im WLAN gibt es neben dem WPA-PSK-Verfahren auch das EAP-Verfahren, welches auch als WPA-Enterprise-RADIUS bezeichnet wird.\n\nNennen Sie je einen Vor- bzw. Nachteil und geben Sie eine Empfehlung, in welcher Unternehmensgröße es vorwiegend eingesetzt werden sollte.\n\nBeispiel — WPA-PSK: Vorteil „Einfach umzusetzen“ / Nachteil „Unsicher, da PW mit steigender Anzahl von Nutzern schnell bekannt werden kann“ / Unternehmensgröße „Kleine Unternehmen mit wenigen Mitarbeitern“\nGesucht — EAP/WPA-Enterprise-RADIUS: Vorteil? Nachteil? Unternehmensgröße?",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk",
+            "itsicherheit"
+          ],
+          "solution": {
+            "text": "Verfahren\nVorteil\nNachteil\nUnternehmen\nWPA-PSK\nEinfach umzusetzen\nUnsicher da PW mit steigender\nAnzahl von Nutzern schnell\nbekannt werden kann\nKleine Unternehmen mit\n­wenigen Mitarbeitern\nEAP/WPA-­Enterprise-\nRADIUS\nSehr viel sicherer, da jeder Be-\nnutzer seinen eigenen Namen/\nPW-Kombination hat\nKomplizierter umzusetzen,\nRADIUS-Server erforderlich\nMittlere und große\n­Unternehmen",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 303
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 494
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 686
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-f_p08_f4.png",
+              "sourcePage": 8,
+              "width": 392,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "PW",
+              "Unsicher",
+              "Mittlere",
+              "Enterprise",
+              "Kombination",
+              "WPA",
+              "RADIUS",
+              "Kleine Unternehmen"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3c",
+          "label": "c)",
+          "fullLabel": "3 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie versuchen, die Verbindung über das WLAN herzustellen, was leider zunächst nicht gelingt. Ihre Idee ist nun, eine Fehleranalyse basierend auf den verschiedenen Schichten des OSI-Modells durchzuführen.\n\nErgänzen Sie zur Vorbereitung die leeren Felder in der folgenden Tabelle.\nHinweis: Geben Sie pro Feld jeweils nur ein passendes Beispiel an.\n\nOSI-Schicht Nr. | OSI-Schicht Name | Verwendete Protokolle | Verwendete Adressen | Möglicher Fehler\n7               | ?                | ?                     | –                   | ?\n4               | Transportschicht | TCP/UDP               | Ports               | Verlust eines Segments\n3               | ?                | ?                     | ?                   | ?\n2               | ?                | ?                     | ?                   | ?\n1               | ?                | –                     | –                   | Medium getrennt",
+          "maxPoints": 6,
+          "answerType": "diagram",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "OSI-Schicht Nr.\nOSI-Schicht Name\nVerwendete Pro-\ntokolle\nVerwendete\nAdressen\nMöglicher Fehler\nAnwendung\nDNS, DHCP u. a.\n\nServerkonfiguration fehlerhaft\nTransportschicht\nTCP/UDP\nPorts\nVerlust eines Segments\nVermittlung\nIPv4, IPv6 u. a.\nIP-Adressen\nFalsche IP-Adresse vergeben\nSicherung\nEthernet u. a.\nMAC-Adressen\nNetzwerkkarte defekt\nBitübertragung\n\nMedium getrennt",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 8,
+          "assets": [
+            {
+              "id": "p8_f1",
+              "file": "assets/ap1-2022-f_p08_f1.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 303
+            },
+            {
+              "id": "p8_f2",
+              "file": "assets/ap1-2022-f_p08_f2.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 494
+            },
+            {
+              "id": "p8_f3",
+              "file": "assets/ap1-2022-f_p08_f3.png",
+              "sourcePage": 8,
+              "width": 1406,
+              "height": 686
+            },
+            {
+              "id": "p8_f4",
+              "file": "assets/ap1-2022-f_p08_f4.png",
+              "sourcePage": 8,
+              "width": 392,
+              "height": 175
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_08.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Transportschicht",
+              "UDP",
+              "Möglicher Fehler",
+              "Ethernet",
+              "Schicht Name",
+              "Serverkonfiguration",
+              "Falsche",
+              "Segments"
+            ]
+          },
+          "felder": [
+            {
+              "label": "7 — OSI-Schicht Name",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "7 — Verwendete Protokolle",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "7 — Möglicher Fehler",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — OSI-Schicht Name",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — Verwendete Protokolle",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — Verwendete Adressen",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "3 — Möglicher Fehler",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — OSI-Schicht Name",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — Verwendete Protokolle",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — Verwendete Adressen",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "2 — Möglicher Fehler",
+              "maxPoints": 0.5
+            },
+            {
+              "label": "1 — OSI-Schicht Name",
+              "maxPoints": 0.5
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "3d",
+          "label": "d)",
+          "fullLabel": "3 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie überprüfen nun den Zustand der Netzwerkverbindung. Angezeigt wird u. a.:\nIPv4-Konnektivität: Kein Netzwerkzugriff | IPv6-Konnektivität: Kein Netzwerkzugriff | Medienstatus: Aktiviert | Kennung (SSID): Vodafone-5D2D | Dauer: 4 Tage 22:09:30 | Übertragungsrate: 144,0 MBit/s | Signalqualität: gut\n\nEntsprechend Ihres Plans starten Sie Ihre Fehlersuche im OSI-Modell von unten nach oben (Bottom-up), beginnend mit Schicht 1. Im obenstehenden Bild suchen Sie dazu Informationen über den Zustand der Verbindung.\n\nBenennen Sie einen Wert, welcher der OSI-Schicht 1 zuzuordnen ist und interpretieren Sie diesen bezüglich seiner Funktionalität.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Wert:\n\nMedienstatus vorhanden\n\nSignalqualität hoch\n\nAktivität (gesendete und empfangene Daten) Datenübertragungsrate hoch\n\nInterpretation: OSI-Schicht 1 fehlerfrei, Fehler liegt in einer höheren Schicht",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2022-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 425,
+              "height": 142
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2022-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 259
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2022-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 526
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2022-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 787,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Aktivität",
+              "Signalqualität",
+              "Medienstatus",
+              "Datenübertragungsrate",
+              "Interpretation",
+              "OSI",
+              "Schicht",
+              "Fehler"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3ea",
+          "label": "ea)",
+          "fullLabel": "3 ea)",
+          "groupLabel": "e)",
+          "groupIntro": "Sie starten nun das Konsolenfenster zur Analyse der OSI-Schichten 2 und 3 und erhalten nach der Eingabe eines Befehls zur Anzeige der Netzwerkkonfiguration die folgende Ausgabe:\n\nDrahtlos-LAN-Adapter WLAN:\n  Verbindungsspezifisches DNS-Suffix:\n  Beschreibung . . . . . . . . . : Marvell AVASTAR Wireless-AC Network Controller\n  Physische Adresse . . . . . . .: 50-1A-C5-F2-38-B7\n  DHCP aktiviert. . . . . . . . .: Ja\n  Autokonfiguration aktiviert . .: Ja\n  Verbindungslokale IPv6-Adresse .: fe80::85e1:1ec1:c9e2:3cbb%5(Bevorzugt)\n\nTrotz des fehlenden Netzwerkzugriffs werden zwei Adressen angezeigt.",
+          "prompt": "Beschreiben Sie die Herkunft der Adresse 50-1A-C5-F2-38-B7.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Hier handelt es sich um die der Netzwerkkarte vom Hersteller fest zugeordnete MAC-Adresse.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2022-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 425,
+              "height": 142
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2022-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 259
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2022-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 526
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2022-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 787,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Netzwerkkarte",
+              "Hersteller",
+              "MAC",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3eb",
+          "label": "eb)",
+          "fullLabel": "3 eb)",
+          "groupLabel": "e)",
+          "groupIntro": null,
+          "prompt": "Beschreiben Sie die Herkunft der Adresse fe80::85e1:1ec1:c9e2:3cbb.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Hier handelt es sich um eine link-lokale IPv6-Adresse, die sich der Rechner unabhängig vom Netz selbst zugewiesen hat.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 9,
+          "assets": [
+            {
+              "id": "p9_f1",
+              "file": "assets/ap1-2022-f_p09_f1.png",
+              "sourcePage": 9,
+              "width": 425,
+              "height": 142
+            },
+            {
+              "id": "p9_f2",
+              "file": "assets/ap1-2022-f_p09_f2.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 259
+            },
+            {
+              "id": "p9_f3",
+              "file": "assets/ap1-2022-f_p09_f3.png",
+              "sourcePage": 9,
+              "width": 1374,
+              "height": 526
+            },
+            {
+              "id": "p9_f4",
+              "file": "assets/ap1-2022-f_p09_f4.png",
+              "sourcePage": 9,
+              "width": 787,
+              "height": 143
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_09.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Rechner",
+              "IPv6",
+              "Adresse"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3fa",
+          "label": "fa)",
+          "fullLabel": "3 fa)",
+          "groupLabel": "f)",
+          "groupIntro": "Bei Ihrer Fehleranalyse legen Sie nun Ihren Fokus auf die Analyse der höheren OSI-Schichten.\n\nNach Eingabe des Befehls zur Erneuerung der IP-Adresse wird nun die folgende Information angezeigt:\n\nDrahtlos-LAN-Adapter WLAN:\n  Verbindungsspezifisches DNS-Suffix:\n  Verbindungslokale IPv6-Adresse . : fe80::85e1:1ec1:c9e2:3cbb%5\n  IPv4-Adresse . . . . . . . . . . : 192.168.0.52\n  Subnetzmaske . . . . . . . . . . : 255.255.255.0\n  Standardgateway . . . . . . . . .: 192.168.0.1",
+          "prompt": "Sie setzen Ihre Fehleranalyse nun fort.\n\nNennen Sie die Bezeichnung des Servers, der hier durch den Befehl zur Erneuerung der IP-Adresse kontaktiert wurde.",
+          "maxPoints": 1,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "DHCP-Server",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2022-f_p10_f1.png",
+              "sourcePage": 10,
+              "width": 211,
+              "height": 142
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2022-f_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1246,
+              "height": 398
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2022-f_p10_f3.png",
+              "sourcePage": 10,
+              "width": 873,
+              "height": 516
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "DHCP",
+              "Server"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "3fb",
+          "label": "fb)",
+          "fullLabel": "3 fb)",
+          "groupLabel": "f)",
+          "groupIntro": null,
+          "prompt": "Geben Sie die nachfolgenden Adressen des hier angegebenen Hosts an.\n\nNetzadresse:\nHostadresse:\nBroadcastadresse:",
+          "maxPoints": 3,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Netzadresse: 192.168.0.0/24 (1 Punkt)\n\nHostadresse: 0.0.0.52 oder 192.168.0.52 (1 Punkt)\n\nBroadcastadresse: 192.168.0.255 (1 Punkt)",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2022-f_p10_f1.png",
+              "sourcePage": 10,
+              "width": 211,
+              "height": 142
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2022-f_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1246,
+              "height": 398
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2022-f_p10_f3.png",
+              "sourcePage": 10,
+              "width": 873,
+              "height": 516
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "1 Punkt",
+                "wert": 1.0,
+                "einheit": "Punkt"
+              }
+            ],
+            "begriffe": [
+              "0.255",
+              "Hostadresse",
+              "Broadcastadresse",
+              "0.0",
+              "0.52",
+              "Netzadresse",
+              "192.168"
+            ]
+          },
+          "felder": [
+            {
+              "label": "Netzadresse",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Hostadresse",
+              "maxPoints": 1.0
+            },
+            {
+              "label": "Broadcastadresse",
+              "maxPoints": 1.0
+            }
+          ],
+          "netzplan": null
+        },
+        {
+          "id": "3fc",
+          "label": "fc)",
+          "fullLabel": "3 fc)",
+          "groupLabel": "f)",
+          "groupIntro": null,
+          "prompt": "Um die nun veränderte Situation zu prüfen, geben Sie den Befehl „ping 192.168.0.1“ ein und erhalten die folgende Ausgabe:\n\nPing wird ausgeführt für 192.168.0.1 mit 32 Bytes Daten:\nAntwort von 192.168.0.1: Bytes=32 Zeit=9ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=8ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=9ms TTL=64\nAntwort von 192.168.0.1: Bytes=32 Zeit=6ms TTL=64\n\nPing-Statistik für 192.168.0.1:\n  Pakete: Gesendet = 4, Empfangen = 4, Verloren = 0 (0% Verlust),\nCa. Zeitangaben in Millisek.: Minimum = 6ms, Maximum = 9ms, Mittelwert = 8ms\n\nSie analysieren die Ergebnisse Ihrer gesamten Fehlersuche.\n\nBenennen Sie den von Ihnen ermittelten Fehler.",
+          "maxPoints": 2,
+          "answerType": "text",
+          "topics": [
+            "netzwerk"
+          ],
+          "solution": {
+            "text": "Fehlerursache war die fehlende Zuteilung einer IP",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 10,
+          "assets": [
+            {
+              "id": "p10_f1",
+              "file": "assets/ap1-2022-f_p10_f1.png",
+              "sourcePage": 10,
+              "width": 211,
+              "height": 142
+            },
+            {
+              "id": "p10_f2",
+              "file": "assets/ap1-2022-f_p10_f2.png",
+              "sourcePage": 10,
+              "width": 1246,
+              "height": 398
+            },
+            {
+              "id": "p10_f3",
+              "file": "assets/ap1-2022-f_p10_f3.png",
+              "sourcePage": 10,
+              "width": 873,
+              "height": 516
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_10.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Fehlerursache",
+              "Zuteilung",
+              "IP"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "number": 4,
+      "label": "Aufgabe 4",
+      "intro": "Die AllRound AG plant, für die automatisierte Konfiguration der Standardarbeitsplätze eine Workspace-Management-Software einzusetzen.",
+      "maxPoints": 26,
+      "subtasks": [
+        {
+          "id": "4a",
+          "label": "a)",
+          "fullLabel": "4 a)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Über die Workspace-Management-Software informieren Sie sich mit dem folgenden Text:\n\nWorkspace management systems prepare the PC by installation and configuration, so that the user can immediately work with the programs. Prerequisite for the automatic installation are customized setups (packages), which do not require user input. The packages are installed and configured by a software distribution agent, which must be located on each PC. The patch management controls the administration and automatic installation of patches and updates. The integrated license management combines the data of available and actually used licenses and can thus not only prevent the procurement of neither too few nor too many software licenses. The data collection during the inventory is done remotely. It can also make use of proven network management tools such as SNMP. It is therefore not necessary for the responsible personnel to obtain physical access to the individual devices, as it is the case with an inventory. The data stock can be continuously updated by the automatic collection and not only once a year.\n\nNennen Sie vier Leistungsmerkmale einer Workspace-Management-Software anhand des oben zitierten Textes.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "software"
+          ],
+          "solution": {
+            "text": "Softwareverteilung\n\nSoftwarekonfiguration\n\nUpdatemanagement\n\nPatchmanagement\n\nLizenzmanagement\n\nInventur",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_05.png",
+            "solutionPage": 5
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2022-f_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1416,
+              "height": 644
+            },
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2022-f_p11_f2.png",
+              "sourcePage": 11,
+              "width": 1075,
+              "height": 196
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2022-f_p11_f3.png",
+              "sourcePage": 11,
+              "width": 1449,
+              "height": 762
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Softwarekonfiguration",
+              "Lizenzmanagement",
+              "Patchmanagement",
+              "Softwareverteilung",
+              "Inventur",
+              "Updatemanagement"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4b",
+          "label": "b)",
+          "fullLabel": "4 b)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Workspace-Management-Software wird cloudbasiert oder on-premises angeboten.\n\nNennen Sie zwei Vor- und Nachteile einer cloudbasierten Software gegenüber der on-premises.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Vorteile:\n\nKosteneinsparung durch geringere Investitionskosten\n\nStets aktuelle Software\n\nBessere Skalierbarkeit\n\nAnbieter übernimmt gegebenenfalls die Sicherung der Daten\n\nu. a.\n\nNachteile\n\nFehlende Verfügbarkeit bei Störung des Internetzuganges\n\nAbhängigkeit vom Cloud-Anbieter\n\nMöglicherweise Speicherung der Daten im Ausland\n\nZiel für Hackerangriffe\n\nu. a.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2022-f_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1416,
+              "height": 644
+            },
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2022-f_p11_f2.png",
+              "sourcePage": 11,
+              "width": 1075,
+              "height": 196
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2022-f_p11_f3.png",
+              "sourcePage": 11,
+              "width": 1449,
+              "height": 762
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Möglicherweise Speicherung",
+              "Investitionskosten",
+              "Internetzuganges",
+              "Cloud-Anbieter",
+              "Bessere Skalierbarkeit",
+              "Hackerangriffe",
+              "Fehlende Verfügbarkeit",
+              "Ausland"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4c",
+          "label": "c)",
+          "fullLabel": "4 c)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Für die Workspace-Management-Software können die Lizenzen von einem externen Anbieter für 25,00 EUR je Lizenz und Jahr bezogen werden.\n\nFür die Eigenentwicklung wird ein Personalaufwand von 12.000 Stunden veranschlagt. Die jährliche Wartung wird mit 140 Stunden pro Jahr über einen Zeitraum von zehn Jahren veranschlagt. Eine Mitarbeiterstunde wird mit dem internen Kostensatz von 75 EUR berechnet.\n\nAb welcher Lizenzanzahl ist die Eigenentwicklung über einen Zeitraum von zehn Jahren günstiger als der Fremdbezug? (Lohnsteigerungen und Erhöhung der Lizenzpreise sollen nicht berücksichtigt werden.)",
+          "maxPoints": 5,
+          "answerType": "text",
+          "topics": [
+            "kalkulation",
+            "software"
+          ],
+          "solution": {
+            "text": "Jahre\nStunden\nStundenlohn\n(EUR)\nEigenfertigung\n(EUR)\nKosten pro Jahr (bei\nzehn Jahren) in EUR\nPreis Lizenz\n(EUR)\nAnzahl\n­Lizenzen\n12.000\n75,00\n900.000,00\n75,00\n105.000,00\n\n1.005.000,00\n100.500,00\n25,00\n4.020\n\nAb 4.020 Lizenzen.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 11,
+          "assets": [
+            {
+              "id": "p11_f1",
+              "file": "assets/ap1-2022-f_p11_f1.png",
+              "sourcePage": 11,
+              "width": 1416,
+              "height": 644
+            },
+            {
+              "id": "p11_f2",
+              "file": "assets/ap1-2022-f_p11_f2.png",
+              "sourcePage": 11,
+              "width": 1075,
+              "height": 196
+            },
+            {
+              "id": "p11_f3",
+              "file": "assets/ap1-2022-f_p11_f3.png",
+              "sourcePage": 11,
+              "width": 1449,
+              "height": 762
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_11.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "105.000",
+              "1.005",
+              "Stundenlohn",
+              "Eigenfertigung",
+              "Lizenzen",
+              "100.500",
+              "4.020",
+              "900.000"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4d",
+          "label": "d)",
+          "fullLabel": "4 d)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Sie planen, eine eigene Lösung für eine automatisierte Konfiguration der Standardarbeitsplätze zu programmieren. Aus einer Datenbank werden alle zu konfigurierenden PCs ausgelesen. Danach wird für jeden PC aus der Datenbank die zu installierende Software abgefragt und auf dem PC installiert.\n\nEs gibt die folgenden Variablen:\nPCNr        Ganzzahl – Laufvariable\nSoftwareNr  Ganzzahl – Laufvariable\n\nEs gibt die folgenden Felder (Array):\nPCListe[]        Stringliste mit den Namen der PC\nSoftwareListe[]  Stringliste mit den Namen der Software\n\nEs stehen Ihnen die folgenden Funktionen zur Verfügung:\ngetPC() – liefert eine Liste von PC-Namen aus der Datenbank\ngetSoftware(String) – liefert zu dem angefragten PC eine Liste der zu installierenden Software\ninstallSoftware(String, String) – installiert die im ersten String angegebene Software auf dem im zweiten String übergebenen PC\n\nTragen Sie die Anweisungen folgerichtig in das nebenstehende Struktogramm ein.\n\n1. installSoftware(SoftwareListe[SoftwareNr], PCListe[PCNr])\n2. Solange SoftwareNr < Anzahl der Elemente in SoftwareListe[]\n3. PCListe[] = getPC()\n4. PCNr = PCNr + 1\n5. PCNr = 0\n6. SoftwareListe[] = getSoftware(PCListe[PCNr])\n7. SoftwareNr = 0\n8. SoftwareNr = SoftwareNr + 1\n9. Solange PCNr < Anzahl der Elemente in PCListe[]",
+          "maxPoints": 9,
+          "answerType": "diagram",
+          "topics": [
+            "programmierung"
+          ],
+          "solution": {
+            "text": "Die Musterlösung liegt nur als Abbildung vor — siehe Lösungsseite unten.",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 12,
+          "assets": [],
+          "pageImage": "assets/ap1-2022-f_seite_12.png",
+          "placeholder": "Struktogramm: gib im Antwortfeld die Reihenfolge der neun Anweisungen an — von oben nach unten, mit Einrückung für die Schleifen (z. B. „3, 5, 9 → 6, 7, 2 → 1, 8 …“).",
+          "needsReview": false,
+          "katalog": {
+            "status": "veraltet",
+            "grund": "Gestrichen — geblieben ist nur Pseudocode.",
+            "themen": [
+              "Struktogramm / PAP"
+            ],
+            "treffer": [
+              "struktogramm"
+            ]
+          },
+          "pruefung": {
+            "zahlen": [],
+            "begriffe": [
+              "Musterlösung",
+              "Lösungsseite",
+              "Abbildung"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        },
+        {
+          "id": "4e",
+          "label": "e)",
+          "fullLabel": "4 e)",
+          "groupLabel": null,
+          "groupIntro": null,
+          "prompt": "Die Datenbank soll in der Cloud gesichert werden.\n\nBerechnen Sie die Zeit in Minuten, die für die Übertragung der 100 MiByte großen Datei bei einer VDSL-Leitung mit 100 Mbit/s download und 40 Mbit/s upload benötigt wird.\n\nDas Ergebnis ist auf volle Sekunden aufzurunden.\nDer Rechenweg ist anzugeben.",
+          "maxPoints": 4,
+          "answerType": "text",
+          "topics": [
+            "daten",
+            "kalkulation"
+          ],
+          "solution": {
+            "text": "Lösung:\n\nUpstream: 40.000 kbit/s\n\nDateigröße: 100 Mibyte\n\n100 Byte x 1.024 x 1.024 x 8 Bit/Byte / 40.000.000 bit/s = 20,971 s ~ 21 s",
+            "extractionConfidence": "high",
+            "image": "assets/ap1-2022-f_loesung_06.png",
+            "solutionPage": 6
+          },
+          "sourcePage": 14,
+          "assets": [
+            {
+              "id": "p14_f1",
+              "file": "assets/ap1-2022-f_p14_f1.png",
+              "sourcePage": 14,
+              "width": 1427,
+              "height": 740
+            },
+            {
+              "id": "p14_f2",
+              "file": "assets/ap1-2022-f_p14_f2.png",
+              "sourcePage": 14,
+              "width": 1065,
+              "height": 303
+            }
+          ],
+          "pageImage": "assets/ap1-2022-f_seite_14.png",
+          "placeholder": null,
+          "needsReview": false,
+          "katalog": {
+            "status": null
+          },
+          "pruefung": {
+            "zahlen": [
+              {
+                "text": "40.000 kbit/s",
+                "wert": 40000.0,
+                "einheit": "kbit/s"
+              },
+              {
+                "text": "100 Byte",
+                "wert": 100.0,
+                "einheit": "Byte"
+              },
+              {
+                "text": "8 Bit",
+                "wert": 8.0,
+                "einheit": "Bit"
+              },
+              {
+                "text": "40.000.000 bit",
+                "wert": 40000000.0,
+                "einheit": "bit"
+              }
+            ],
+            "begriffe": [
+              "40.000",
+              "Mibyte",
+              "Upstream",
+              "Dateigröße",
+              "1.024"
+            ]
+          },
+          "felder": [],
+          "netzplan": null
+        }
+      ]
+    }
+  ],
+  "gradingScale": "ihk-100"
+}

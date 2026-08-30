@@ -1,0 +1,170 @@
+[
+  {
+    "number": 1,
+    "maxPoints": 26,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "seite": 2,
+        "text": "                | Vorteil                          | Nachteil\nNotebook        | mobil                            | teuer\nAll-in-One-PC   | preisgünstig in der Anschaffung  | schlechte Wartbarkeit und Erweiterbarkeit\nThin-Client     | günstig                          | benötigt Serververbindung\nDesktop-Rechner | gut erweiterbar                  | Platzbedarf\n\nAndere Nennungen sind möglich."
+      },
+      {
+        "label": "b)",
+        "maxPoints": 16,
+        "seite": 2,
+        "text": "(12 Punkte für die richtige Vergabe der Punkte, 4 Punkte für die Summen, keine Punkte für die Berechnung der gP)\n\nNr | Kriterium                     | Gew.  | Notebook P/gP | All-in-One P/gP | Thin-Client P/gP | Desktop P/gP\n1  | Platzbedarf                   | 15 %  | 2 / 0,3       | 3 / 0,45        | 4 / 0,6          | 1 / 0,15\n2  | Ergonomie                     | 20 %  | 2 / 0,4       | 1 / 0,2         | 4 / 0,8          | 3 / 0,6\n3  | Performance                   | 10 %  | 3 / 0,3       | 1 / 0,1         | 2 / 0,2          | 4 / 0,4\n4  | Verfügbarkeit                 | 20 %  | 4 / 0,8       | 2 / 0,4         | 1 / 0,2          | 3 / 0,6\n5  | Kosten f. Wartung/Erweiterung | 15 %  | 2 / 0,3       | 1 / 0,15        | 4 / 0,6          | 3 / 0,45\n6  | Preis                         | 20 %  | 1 / 0,2       | 3 / 0,6         | 4 / 0,8          | 2 / 0,4\n   | Auswertung                    | 100 % | 2,3           | 1,9             | 3,2              | 2,6"
+      },
+      {
+        "label": "c)",
+        "maxPoints": 4,
+        "seite": 2,
+        "text": "Mit entsprechender Begründung verschiedene Varianten möglich!\n\nz. B.: Thin Clients\nBegründung: Thin Client unterstützt am besten einen wechselnden Arbeitsplatz."
+      },
+      {
+        "label": "d)",
+        "maxPoints": 2,
+        "seite": 2,
+        "text": "z. B.\n– Energieverbrauch\n  Begründung: Kosteneinsparung oder ein Beitrag zur CO2-Einsparung\n– Unterstützung für einen flexiblen Arbeitsplatz\n  Beitrag zur geplanten Modernisierung der Büroumgebung"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "aa)",
+        "maxPoints": 10,
+        "seite": 3,
+        "text": "                     | notebooks-guenstiger.de | SMART Notebooks | Tech-ware\nListeneinkaufspreis  | 886,31 EUR              | 901,25 EUR      | 1.071,00 EUR\n- Lieferantenrabatt  | 0,00 EUR                | 0,00 EUR        | 214,20 EUR\n= Zieleinkaufspreis  | 886,31 EUR              | 901,25 EUR      | 856,80 EUR\n- Lieferantenskonto  | 0,00 EUR                | 0,00 EUR        | 17,14 EUR\n= Bareinkaufspreis   | 886,31 EUR              | 901,25 EUR      | 839,66 EUR\n+ Bezugskosten       | 0,55 EUR                | 0 EUR           | 2,00 EUR\n= Bezugspreis        | 886,86 EUR              | 901,25 EUR      | 841,66 EUR\n\nJedes Feld wird mit einem Punkt bewertet."
+      },
+      {
+        "label": "ab)",
+        "maxPoints": 3,
+        "seite": 3,
+        "text": "z. B.\n– Höhere Zuverlässigkeit\n– Großzügigeres Kulanzverhalten\n– Guter Service\n– Niedrige Reklamationsquote"
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 4,
+        "seite": 3,
+        "text": "Zeitlich begrenztes, vertraglich vereinbartes Nutzungsrecht an Gebäuden oder beweglichen Anlagegütern. (2 Punkte)\nEigentümer ist der Leasinggeber. (1 Punkt)\nBesitzer ist der Leasingnehmer. (1 Punkt)"
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 3,
+        "seite": 3,
+        "text": "Kauf: 300.000 EUR\nLeasing: 6.000 x 60 Monate = 360.000 EUR\nLeasing ist um 60.000 EUR teurer als Kauf."
+      },
+      {
+        "label": "bc)",
+        "maxPoints": 3,
+        "seite": 3,
+        "text": "z. B.\n– Liquidität wird zunächst nur in Höhe der ersten Rate gebunden\n– Eigenkapital wird nicht gemindert\n– Kreditspielraum bleibt erhalten\n– Schnellere Anpassung an den technischen Fortschritt\n– Keine Sicherheiten notwendig, da der Leasinggeber Eigentümer bleibt\n– Durch feste Leasingraten wird die Planung erleichtert\n– Steuerliche Vorteile"
+      },
+      {
+        "label": "bd)",
+        "maxPoints": 2,
+        "seite": 3,
+        "text": "Nach Vertragsablauf kann der Leasingnehmer den gemieteten Gegenstand zum Restwert oder Buchwert übernehmen."
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "maxPoints": 24,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "Schicht                        | Funktion\nz. B. Anwendung Textverarbeitung | Erstellung von Textdokumenten\nBetriebssystem                 | Bereitstellen einer Benutzeroberfläche\nz. B. UEFI/BIOS                | Bereitstellung einer einheitlichen Schnittstelle zwischen Hardware und Betriebssystem\nPC-Hardware                    | Verarbeitung und Speicherung von Daten"
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "– Anlaufstelle für Unternehmen und Bürger zum Thema IT-Sicherheit\n– Erarbeitung von Standards zur IT-Sicherheit\n– Schutz der IT-Systeme des Bundes\n– Nennung weiterer Aufgaben laut Sicherheitsgesetz möglich"
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "Reduktion von Angriffsmöglichkeiten, z. B. durch Deaktivierung von nicht notwendigen Diensten."
+      },
+      {
+        "label": "bc)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "– Entfernung oder Deaktivierung von für den Betrieb nicht zwingend erforderlichen Softwarekomponenten\n– Reduzierung von Rechten und ihrer Vererbung auf das minimal notwendige Maß\n– Nutzung von Verschlüsselung, z. B. für Datenübertragung\n– Alle nicht benötigten Benutzerkonten löschen\n– Alle nicht benötigten Ports schließen"
+      },
+      {
+        "label": "bd)",
+        "maxPoints": 2,
+        "seite": 4,
+        "text": "– Firewall\n– Virenschutz\n– Datensicherung\n– Benutzerverwaltung\n– u. a."
+      },
+      {
+        "label": "be)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "– Digitale Richtlinie für verschiedene Einstellungen (Computer und Benutzer).\n– Gruppenrichtlinien (Group Policies) erlauben den Administratoren die Vorgabe von Einstellungen zentral für einen oder mehrere Rechner. Die Einstellungen werden im Rechner festgeschrieben und können durch Anwender nicht geändert werden.\n– Nennung von konkreten Einstellungen sind auch korrekt (z. B. Passworteinstellungen, Sperrung von Konfigurationsmöglichkeiten)."
+      },
+      {
+        "label": "ca)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "Identifikation von Fehlern und unerlaubten Aktivitäten und Zuordnung zu entsprechenden Zeiten und Benutzern."
+      },
+      {
+        "label": "cb)",
+        "maxPoints": 4,
+        "seite": 4,
+        "text": "Es dürfen Daten nur begrenzt gespeichert und ausgewertet werden. Nennung von konkreten Beispielen sind auch korrekt (z. B. Grundsatz der Datensparsamkeit)."
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "maxPoints": 25,
+    "subtasks": [
+      {
+        "label": "a)",
+        "maxPoints": 4,
+        "seite": 5,
+        "text": "(0,5 Punkte je richtige Antwort)\n\nWirtschaftliche Aspekte\nVorteile: 24/7 Erreichbarkeit; Bearbeitung vieler Anfragen gleichzeitig; Entlastung der Servicemitarbeiter von einfachen Anfragen; geringere Betriebskosten\nNachteile: hohe Anschaffungskosten; Datenschutzbedenken; komplexe Einbindung in die Systeme; keine Entscheidungsfindung\n\nSoziale Aspekte\nVorteile: einfache Nutzung; keine Warteschleife; immer gut gelaunt; nehmen dem Kunden Berührungsängste\nNachteile: nicht alle Benutzer vertrauen Chatbots; mögliche Missverständnisse; ungeeignet bei komplexen Anfragen"
+      },
+      {
+        "label": "ba)",
+        "maxPoints": 4,
+        "seite": 5,
+        "text": "Das Lastenheft enthält die Anforderungen des Auftraggebers. Es beschreibt, was der Auftraggeber vom Auftragnehmer erwartet.\nAufgabe des Pflichtenheftes ist die Beschreibung der Leistungen, mit denen der Auftragnehmer die im Lastenheft genannten Anforderungen erfüllen will, wie und womit das Vorhaben realisiert wird. Das Pflichtenheft enthält die Leistungen, zu denen sich der Auftragnehmer verpflichtet."
+      },
+      {
+        "label": "bb)",
+        "maxPoints": 2,
+        "seite": 5,
+        "text": "Inhalt Lastenheft:\n– Ausgangssituation\n– Liste von Anforderungen\n– Rahmenbedingungen\n– Beschreibung von Schnittstellen\n– Qualitätsziele\n– Zeitziele\n– Budget\n– u. a."
+      },
+      {
+        "label": "c)",
+        "maxPoints": 8,
+        "seite": 5,
+        "text": "Lösungsvorschlag (je Klasse 2 Punkte, 2 Punkte für die Vererbung):\n\nOberklasse Versicherungsobjekt\n  Attribute: Neupreis, Baujahr, Schadenshöhe\n  Methoden: auszahlen()\n\nKFZ (erbt von Versicherungsobjekt)\n  Attribute: Hersteller, Typschlüssel, Laufleistung\n  Methoden: restwertBerechnen()\n\nImmobilie (erbt von Versicherungsobjekt)\n  Attribute: Wohnfläche, Lagebewertung\n  Methoden: restwertBerechnen(), getLagebewertung()\n\n* Methode restwertBerechnen() zusätzlich in der Klasse Versicherungsobjekt zulässig (Polymorphie)"
+      },
+      {
+        "label": "da)",
+        "maxPoints": 3,
+        "seite": 5,
+        "text": "SELECT AVG(Versicherung_Summe) FROM KFZ_Versicherung"
+      },
+      {
+        "label": "db)",
+        "maxPoints": 4,
+        "seite": 5,
+        "text": "SELECT VID FROM KFZ_Versicherung\nWHERE Year(Vertragsbeginn) = 2022 AND Month(Vertragsbeginn) = 5\nAND Versicherung_Summe > 100000 AND Garage = FALSE"
+      }
+    ]
+  }
+]
