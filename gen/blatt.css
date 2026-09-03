@@ -1,0 +1,225 @@
+/* ============================================================================
+   gen/blatt.css — Oberfläche des Aufgaben-Generators.
+   Nutzt die Variablen und Grundklassen aus index.html.
+   ========================================================================== */
+
+/* ---------- Startseite: Kachelübersicht der Arbeitsblätter ---------- */
+.gen-kopf{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.gen-hinweis{background:var(--card); border:1px solid var(--rule); border-radius:2px;
+  padding:12px 16px; font-size:13.5px; color:var(--muted); line-height:1.7; margin:10px 0 16px}
+.gen-hinweis b{color:var(--ink)}
+
+.gen-karte{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+  padding:14px 16px 12px; border-radius:2px; display:flex; flex-direction:column; gap:8px}
+.gen-karte.fertig{border-top-color:var(--ok)}
+.gen-karte h3{font-family:var(--display); font-size:16px; margin:0; line-height:1.3}
+.gen-karte .meta{font-size:12.5px; color:var(--muted); line-height:1.5}
+.gen-karte .fuss{position:static; display:flex; justify-content:space-between; align-items:center;
+  border:0; box-shadow:none; background:none; padding:6px 0 0; border-top:1px solid var(--rule-soft); gap:8px}
+.gen-karte .fuss .datum{font-family:var(--data); font-size:12px; color:var(--muted)}
+
+/* ---------- Assistent ---------- */
+.gen-schritt{background:var(--card); border:1px solid var(--rule); border-radius:2px;
+  padding:20px 22px; max-width:900px; margin:0 auto}
+.gen-schritt h3{font-family:var(--display); font-size:19px; margin:0 0 2px}
+.gen-schritt > p{color:var(--muted); font-size:13.5px; margin:0 0 16px}
+
+.wahlzeile{display:flex; gap:12px; align-items:flex-start; border:1px solid var(--rule);
+  border-radius:3px; padding:11px 14px; margin-bottom:8px; cursor:pointer; background:var(--card);
+  transition:border-color .12s, background .12s}
+.wahlzeile:hover{border-color:var(--pruefer)}
+.wahlzeile.an{border-color:var(--pruefer); background:var(--pruefer-soft)}
+.wahlzeile.aus{opacity:.45}
+.wahlzeile input{margin-top:3px; flex:none; width:17px; height:17px; accent-color:var(--pruefer)}
+.wahlzeile .txt{min-width:0; flex:1}
+.wahlzeile .name{font-weight:600; font-size:15px; display:flex; gap:9px; align-items:center; flex-wrap:wrap}
+.wahlzeile .zahl{font-family:var(--data); font-size:11.5px; font-weight:600; color:var(--muted);
+  background:var(--field); border-radius:10px; padding:2px 9px}
+.wahlzeile .unter{font-size:13px; color:var(--muted); margin-top:2px}
+.gen-zaehler{font-size:13.5px; color:var(--muted); margin:14px 0 10px}
+.gen-knopfzeile{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.gen-knopfzeile .weit{flex:1}
+
+/* ---------- Arbeitsblatt ---------- */
+.gen-leiste{position:sticky; top:74px; z-index:30; background:var(--paper);
+  border-bottom:1px solid var(--rule); padding:10px 0 12px; margin-bottom:18px;
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.gen-leiste .stand{font-family:var(--data); font-size:14px; font-weight:600; white-space:nowrap}
+.gen-leiste .stand small{font-weight:400; color:var(--muted)}
+.gen-uhr{font-family:var(--data); font-size:20px; font-weight:600; min-width:74px}
+.gen-uhr.warn{color:var(--red)}
+
+.gaufgabe{border:1px solid var(--rule); border-top:0; background:var(--card); margin-bottom:0}
+.gaufgabe:first-of-type{border-top:1px solid var(--rule)}
+.gaufgabe.richtig{border-left:3px solid var(--ok)}
+.gaufgabe.teil{border-left:3px solid var(--warn)}
+.gaufgabe.falsch{border-left:3px solid var(--red)}
+.gaufgabe-in{display:grid; grid-template-columns:1fr 104px}
+@media (max-width:720px){ .gaufgabe-in{grid-template-columns:1fr} }
+.gaufgabe .haupt{padding:16px 20px 18px; min-width:0}
+.gaufgabe .rand{border-left:1px solid var(--rule); background:var(--field); padding:14px 8px;
+  display:flex; flex-direction:column; align-items:center; gap:8px; position:static}
+@media (max-width:720px){ .gaufgabe .rand{border-left:0; border-top:1px solid var(--rule);
+  flex-direction:row; justify-content:space-between; padding:10px 16px} }
+.gaufgabe .rand .wert{font-family:var(--data); font-size:19px; font-weight:600; line-height:1.1;
+  text-align:center}
+.gaufgabe .rand .wert small{display:block; font-size:11px; color:var(--muted); font-weight:400}
+.gaufgabe .rand.ok .wert{color:var(--ok)}
+.gaufgabe .rand.halb .wert{color:var(--warn)}
+.gaufgabe .rand.nein .wert{color:var(--red)}
+
+.gsituation{background:var(--field); border-left:3px solid var(--rule); padding:11px 14px;
+  font-size:14px; white-space:pre-wrap; margin:8px 0 12px; border-radius:0 2px 2px 0}
+.gfrage{font-size:15px; margin:0 0 14px; white-space:pre-wrap}
+.gfrage b{font-weight:600}
+
+table.gdaten{border-collapse:collapse; font-size:13.5px; margin:0 0 14px; min-width:min(100%,420px)}
+table.gdaten caption{font-family:var(--display); text-transform:uppercase; letter-spacing:.11em;
+  font-size:10px; font-weight:700; color:var(--muted); text-align:left; padding-bottom:5px}
+table.gdaten th{font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:10px; color:var(--muted); font-weight:700; text-align:left; padding:6px 11px;
+  border-bottom:1px solid var(--rule); white-space:nowrap}
+table.gdaten td{padding:5px 11px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+table.gdaten td:nth-child(n+2){font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap}
+.gtab-rollen{overflow-x:auto}
+
+/* ---------- Antwortfelder ---------- */
+.gfeld{margin-bottom:13px}
+.gfeld > label.gl{display:block; font-size:13.5px; color:var(--muted); margin-bottom:4px; line-height:1.4}
+.gfeld > label.gl b{color:var(--ink); font-weight:600}
+.gfeld .be{font-family:var(--data); font-size:11.5px; color:var(--muted); white-space:nowrap}
+.geingabe{display:flex; align-items:center; gap:8px; max-width:520px}
+.geingabe input[type=text]{flex:1; min-width:0; background:var(--field); border:1px solid var(--rule);
+  border-radius:2px; padding:9px 11px; font-size:15px; font-family:var(--data)}
+.geingabe .einheit{font-family:var(--data); font-size:13.5px; color:var(--muted); white-space:nowrap}
+.gfeld textarea{min-height:44px}
+.gfeld input.richtig, .gfeld textarea.richtig{border-color:var(--ok); background:var(--ok-soft)}
+.gfeld input.falsch,  .gfeld textarea.falsch{border-color:var(--red); background:var(--red-soft)}
+.gfeld input.teil,    .gfeld textarea.teil{border-color:var(--warn); background:var(--warn-soft)}
+
+.gwahl{display:flex; flex-direction:column; gap:5px}
+.gwahl label{display:flex; gap:9px; align-items:flex-start; font-size:14.5px; cursor:pointer;
+  border:1px solid transparent; border-radius:2px; padding:5px 8px}
+.gwahl label:hover{background:var(--field)}
+.gwahl label.richtig{border-color:var(--ok); background:var(--ok-soft)}
+.gwahl label.falsch{border-color:var(--red); background:var(--red-soft)}
+.gwahl input{margin-top:3px; accent-color:var(--pruefer)}
+
+table.gzuo, table.graster, table.gwf{border-collapse:collapse; font-size:13.5px; width:100%; max-width:760px}
+table.gzuo td, table.graster td, table.graster th, table.gwf td, table.gwf th{
+  padding:5px 9px; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+table.graster th, table.gwf th{font-family:var(--display); text-transform:uppercase;
+  letter-spacing:.08em; font-size:10px; color:var(--muted); font-weight:700; text-align:left;
+  border-bottom:1px solid var(--rule)}
+table.gzuo select, table.graster input{width:100%; background:var(--field); border:1px solid var(--rule);
+  border-radius:2px; padding:7px 8px; font-size:14px; color:var(--ink)}
+table.graster input{font-family:var(--data); text-align:right}
+table.gzuo select.richtig, table.graster input.richtig{border-color:var(--ok); background:var(--ok-soft)}
+table.gzuo select.falsch,  table.graster input.falsch{border-color:var(--red); background:var(--red-soft)}
+table.gwf .wf{display:flex; gap:14px; white-space:nowrap}
+table.gwf label{display:flex; gap:5px; align-items:center; font-size:13px; cursor:pointer}
+table.gwf tr.richtig td{background:var(--ok-soft)}
+table.gwf tr.falsch td{background:var(--red-soft)}
+
+.grueck{font-size:13px; margin-top:6px; line-height:1.6}
+.grueck .gut{color:var(--ok); font-weight:600}
+.grueck .schlecht{color:var(--red); font-weight:600}
+.grueck .mittel{color:var(--warn); font-weight:600}
+.gchips{display:flex; flex-wrap:wrap; gap:5px; margin-top:5px}
+.gchips span{font-size:12px; padding:2px 8px; border-radius:10px; font-family:var(--data)}
+.gchips .ja{background:var(--ok-soft); color:var(--ok)}
+.gchips .nein{background:var(--red-soft); color:var(--red)}
+.gchips .offen{background:var(--field); color:var(--muted)}
+
+.gwerkzeug{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; padding-top:12px;
+  border-top:1px dashed var(--rule)}
+.gmerksatz{border-left:3px solid var(--warn); background:var(--warn-soft); padding:9px 13px;
+  font-size:13.5px; margin-top:12px; line-height:1.6}
+.gmerksatz b{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10px; display:block; margin-bottom:3px}
+.gloesung{margin-top:12px}
+.gloesung summary{cursor:pointer; font-family:var(--display); text-transform:uppercase;
+  letter-spacing:.11em; font-size:11px; font-weight:700; color:var(--pruefer)}
+.gloesung .txt{white-space:pre-wrap; font-size:14px; margin-top:8px; background:var(--pruefer-soft);
+  padding:12px 14px; border-radius:2px; font-family:var(--data); line-height:1.65}
+
+.gzusammen{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+  padding:18px 22px; border-radius:2px; margin:22px 0 0; display:flex; gap:30px;
+  align-items:baseline; flex-wrap:wrap}
+.gzusammen .zahl{font-family:var(--data); font-size:46px; font-weight:600; line-height:1}
+.gzusammen .txt{flex:1 1 260px; font-size:13.5px; color:var(--muted); line-height:1.65}
+.gzusammen .txt b{color:var(--ink)}
+
+@media print{
+  .gen-leiste, .gwerkzeug, .gloesung, .gmerksatz, .grueck{display:none !important}
+  .gaufgabe{break-inside:avoid; page-break-inside:avoid; border:1px solid #999; margin-bottom:6pt}
+  .gsituation{background:#fff; border-left:2px solid #666}
+}
+
+/* ---------- Knotentabelle (Diagramme) ---------- */
+table.gknoten{border-collapse:collapse; font-size:13.5px; width:100%; min-width:620px}
+table.gknoten th{font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:10px; color:var(--muted); font-weight:700; text-align:left; padding:5px 7px;
+  border-bottom:1px solid var(--rule)}
+table.gknoten td{padding:3px 5px; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+table.gknoten td.weg{width:34px; text-align:center}
+table.gknoten input, table.gknoten select{width:100%; background:var(--field);
+  border:1px solid var(--rule); border-radius:2px; padding:6px 8px; font-size:13.5px; color:var(--ink)}
+table.gknoten td:nth-child(1){width:30%}
+table.gknoten td:nth-child(2){width:20%}
+table.gknoten input.richtig, table.gknoten select.richtig{border-color:var(--ok); background:var(--ok-soft)}
+table.gknoten input.falsch,  table.gknoten select.falsch{border-color:var(--red); background:var(--red-soft)}
+table.gknoten input.teil{border-color:var(--warn); background:var(--warn-soft)}
+
+pre.gcode{background:var(--field); border-left:3px solid var(--pruefer); margin:0 0 12px;
+  padding:12px 15px; font-family:var(--data); font-size:13.5px; line-height:1.6;
+  overflow-x:auto; white-space:pre; border-radius:0 2px 2px 0}
+
+/* ---------- Modelltabelle (ER, Klasse, Use-Case) ---------- */
+table.gmodell{border-collapse:collapse; font-size:13.5px; width:100%; min-width:660px}
+table.gmodell th{font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:10px; color:var(--muted); font-weight:700; text-align:left; padding:5px 7px;
+  border-bottom:1px solid var(--rule)}
+table.gmodell td{padding:3px 5px; border-bottom:1px solid var(--rule-soft); vertical-align:middle}
+table.gmodell td.weg{width:34px; text-align:center}
+table.gmodell input, table.gmodell select{width:100%; background:var(--field);
+  border:1px solid var(--rule); border-radius:2px; padding:6px 8px; font-size:13.5px; color:var(--ink)}
+table.gmodell input.richtig, table.gmodell select.richtig{border-color:var(--ok); background:var(--ok-soft)}
+table.gmodell input.falsch,  table.gmodell select.falsch{border-color:var(--red); background:var(--red-soft)}
+table.gmodell input.teil,    table.gmodell select.teil{border-color:var(--warn); background:var(--warn-soft)}
+.gmodell-regeln{font-size:12.5px; color:var(--muted); line-height:1.7; margin-top:8px;
+  border-left:3px solid var(--rule); padding:6px 12px}
+.gmodell-regeln b{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10px; color:var(--ink); display:block; margin-bottom:2px}
+
+/* ---------- Diagrammeingabe in echten Prüfungsaufgaben ---------- */
+.ex-dia{border:1px solid var(--rule); border-left:3px solid var(--pruefer); background:var(--card);
+  border-radius:2px; padding:12px 14px; margin:6px 0 12px}
+.ex-dia-kopf{display:flex; justify-content:space-between; align-items:center; gap:10px;
+  flex-wrap:wrap; margin-bottom:8px}
+.hero .zahl + small, .hero .neben + small{display:block; font-size:11px; color:var(--muted);
+  font-family:var(--body); margin-top:3px}
+
+/* ---------- Satzbau-Training ---------- */
+.satz-karte{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+  border-radius:2px; padding:22px 24px; max-width:820px; margin:0 auto}
+.satz-kopf{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  margin-bottom:10px}
+.satz-frage{font-size:17px; line-height:1.5; font-weight:600; margin-bottom:14px}
+.satz-stich{background:var(--field); border-left:3px solid var(--warn); padding:10px 14px;
+  border-radius:0 2px 2px 0; margin-bottom:14px}
+.satz-stich > b{font-size:16px; display:block; margin:2px 0 6px}
+.satz-auftrag{font-size:13.5px; color:var(--muted); line-height:1.6}
+.satz-chips{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0 4px}
+.satz-chips .eyebrow{width:100%; margin-bottom:2px}
+.satz-chip{border:1px solid var(--rule); background:var(--card); border-radius:14px; padding:4px 11px;
+  font-size:12.5px; cursor:pointer; color:var(--ink)}
+.satz-chip:hover{border-color:var(--pruefer); background:var(--pruefer-soft)}
+.satz-rueck{margin-top:14px; border-top:1px dashed var(--rule); padding-top:12px}
+.satz-punkte{font-size:15px; margin-bottom:8px}
+.satz-punkte .gut{color:var(--ok)} .satz-punkte .mittel{color:var(--warn)} .satz-punkte .schlecht{color:var(--red)}
+ul.satz-kriterien{list-style:none; margin:0; padding:0; font-size:14px; line-height:1.75}
+ul.satz-kriterien li.ja{color:var(--ok)}
+ul.satz-kriterien li.nein{color:var(--red)}
+ul.satz-kriterien li b{color:var(--ink)}
+#scSatz textarea{font-size:15.5px; line-height:1.65}

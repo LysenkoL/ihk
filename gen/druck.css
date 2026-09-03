@@ -1,0 +1,183 @@
+/* ============================================================================
+   gen/druck.css — Prüfungsbogen: Bildschirmvorschau und Druck/PDF
+   ========================================================================== */
+
+/* ---------- Vorschau am Bildschirm ---------- */
+#druckWrap { background:#8a8f98; min-height:100vh; padding:0 0 60px; }
+body.druckmodus > *:not(#druckWrap):not(.toast):not(.lupe) { display:none !important; }
+
+.dr-leiste{ position:sticky; top:0; z-index:50; background:#1B1F26; color:#E8EAEE;
+  display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:11px 22px;
+  box-shadow:0 2px 10px rgba(0,0,0,.35) }
+.dr-leiste .weit{ flex:1 }
+.dr-leiste .dr-info{ font-size:13px; line-height:1.5; max-width:640px; color:#C6CBD3 }
+.dr-leiste .dr-info b{ color:#fff }
+.dr-leiste .btn{ background:#2A303A; border-color:#454C58; color:#E8EAEE }
+.dr-leiste .btn:hover{ border-color:#fff }
+.dr-leiste .btn.primary{ background:#2F6FB8; border-color:#2F6FB8; color:#fff }
+.dr-leiste .btn.ghost{ border-color:transparent; color:#AAB1BB }
+.dr-leiste .schalter{ color:#C6CBD3; font-size:13px }
+.dr-uhr{ font-family:var(--data); font-size:24px; font-weight:600; min-width:86px; color:#fff }
+
+#druckBogen{ width:210mm; margin:22px auto; background:#fff; color:#000;
+  font-family:"Arial","Helvetica Neue",Helvetica,sans-serif; font-size:11pt; line-height:1.45;
+  padding:18mm 16mm; box-shadow:0 6px 26px rgba(0,0,0,.4) }
+#druckBogen *{ color:#000 }
+
+/* ---------- Deckblatt ---------- */
+.dr-deckkopf{ border-bottom:3px double #000; padding-bottom:8pt; margin-bottom:14pt }
+.dr-deckkopf h1{ font-size:17pt; margin:2pt 0 3pt; line-height:1.25 }
+.dr-unter{ font-size:12pt; font-weight:bold }
+.dr-klein{ font-size:9pt; color:#333 !important; line-height:1.45 }
+
+table.dr-deckdaten{ border-collapse:collapse; width:100%; margin-bottom:14pt; font-size:10.5pt }
+table.dr-deckdaten th{ text-align:left; font-weight:bold; padding:3pt 10pt 3pt 0; width:42mm;
+  vertical-align:top; white-space:nowrap }
+table.dr-deckdaten td{ padding:3pt 0 }
+
+.dr-namen{ display:flex; gap:10mm; margin:10pt 0 16pt }
+.dr-namensfeld{ flex:1 }
+.dr-namensfeld .dr-linie{ margin-top:9mm }
+
+.dr-h2{ font-size:12pt; margin:14pt 0 5pt; border-bottom:1px solid #000; padding-bottom:2pt }
+
+table.dr-verteilung{ border-collapse:collapse; width:100%; font-size:10pt; margin-bottom:10pt }
+table.dr-verteilung th{ text-align:left; font-size:8.5pt; text-transform:uppercase;
+  letter-spacing:.06em; border-bottom:1px solid #000; padding:3pt 5pt }
+table.dr-verteilung td{ padding:3pt 5pt; border-bottom:1px solid #bbb }
+table.dr-verteilung .r{ text-align:right }
+table.dr-verteilung td.kasten{ border:1px solid #000; width:20mm; height:7mm }
+tr.dr-summe td{ font-weight:bold; border-top:1px solid #000; border-bottom:2px solid #000 }
+
+.dr-hinweis{ border:1px solid #000; padding:8pt 11pt; font-size:9.5pt; margin-top:12pt }
+.dr-hinweis b{ font-size:10pt }
+.dr-hinweis ul{ margin:5pt 0 0; padding-left:14pt }
+.dr-hinweis li{ margin-bottom:3pt }
+.dr-zeitplan{ margin-top:7pt; border-top:1px solid #999; padding-top:5pt }
+
+/* ---------- Aufgaben ---------- */
+.dr-aufgabe{ margin-top:11pt; padding-top:3pt }
+.dr-akopf{ display:flex; justify-content:space-between; align-items:baseline; gap:10pt;
+  border-bottom:2px solid #000; padding-bottom:3pt; margin-bottom:7pt }
+.dr-anr{ font-weight:bold; font-size:12.5pt; margin-right:8pt }
+.dr-atitel{ font-size:11pt }
+.dr-abe{ font-weight:bold; white-space:nowrap; font-size:11pt }
+
+.dr-situation{ white-space:pre-wrap; margin-bottom:8pt; text-align:justify }
+.dr-code{ font-family:"Consolas","Courier New",monospace; font-size:10pt; white-space:pre;
+  border-left:2px solid #000; padding:5pt 9pt; margin:0 0 8pt; overflow-x:auto }
+.dr-frage{ font-weight:bold; margin:8pt 0 7pt; white-space:pre-wrap }
+
+.dr-tabbox{ margin:0 0 9pt; break-inside:avoid }
+.dr-tabtitel{ font-size:8.5pt; text-transform:uppercase; letter-spacing:.08em; margin-bottom:2pt }
+table.dr-daten{ border-collapse:collapse; font-size:10pt }
+table.dr-daten th{ text-align:left; border-bottom:1px solid #000; padding:3pt 7pt; font-size:9pt;
+  white-space:nowrap }
+table.dr-daten td{ padding:2.5pt 7pt; border-bottom:1px solid #ccc }
+
+/* ---------- Antwortfelder ---------- */
+.dr-feld{ margin-bottom:9pt; break-inside:avoid }
+.dr-fkopf{ display:flex; justify-content:space-between; gap:10pt; align-items:baseline;
+  border-bottom:1px dotted #666; padding-bottom:1.5pt; margin-bottom:4pt }
+.dr-flabel{ font-size:10.5pt }
+.dr-fbe{ font-size:9.5pt; white-space:nowrap }
+
+.dr-linien .dr-linie, .dr-linie{ border-bottom:1px solid #444; height:8mm }
+.dr-linien .dr-linie{ margin-bottom:0 }
+
+.dr-kreuze{ margin:2pt 0 }
+.dr-kreuz{ display:flex; gap:7pt; align-items:flex-start; margin-bottom:3.5pt; font-size:10.5pt }
+.dr-box{ display:inline-block; width:4.2mm; height:4.2mm; border:1px solid #000; flex:none;
+  margin-top:.6mm }
+
+table.dr-wf{ border-collapse:collapse; width:100%; font-size:10pt }
+table.dr-wf th{ text-align:left; font-size:8.5pt; text-transform:uppercase; letter-spacing:.06em;
+  border-bottom:1px solid #000; padding:3pt 6pt }
+table.dr-wf td{ padding:3.5pt 6pt; border-bottom:1px solid #ccc }
+table.dr-wf .c{ text-align:center; width:20mm; font-size:13pt }
+
+table.dr-zuo{ border-collapse:collapse; width:100%; font-size:10.5pt; margin-top:4pt }
+table.dr-zuo td{ padding:4pt 6pt; border-bottom:1px solid #ccc; vertical-align:middle }
+table.dr-zuo td.leer{ width:52mm; border-bottom:1px solid #444 }
+
+table.dr-raster{ border-collapse:collapse; width:100%; font-size:10pt; margin-top:3pt }
+table.dr-raster th{ text-align:left; font-size:8.5pt; text-transform:uppercase; letter-spacing:.06em;
+  border:1px solid #000; padding:3pt 6pt; background:none }
+table.dr-raster td{ padding:4pt 6pt; border:1px solid #666; height:8mm }
+table.dr-raster td.leer{ background:none }
+
+.dr-zeichnen{ border:1px solid #000; margin-top:4pt; position:relative;
+  background-image:
+    linear-gradient(to right, #e2e2e2 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e2e2 1px, transparent 1px);
+  background-size:5mm 5mm }
+.dr-zeichenhinweis{ position:absolute; left:3mm; bottom:2mm; right:3mm; font-size:8pt;
+  color:#555 !important }
+
+.dr-kariert{ border:1px solid #000; height:150mm; margin:5pt 0 10pt;
+  background-image:
+    linear-gradient(to right, #e2e2e2 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e2e2 1px, transparent 1px);
+  background-size:5mm 5mm }
+
+/* ---------- Seitenumbrüche ---------- */
+.dr-seite{ break-after:page; page-break-after:always }
+.dr-seite:last-child{ break-after:auto; page-break-after:auto }
+.dr-loesung{ break-before:page; page-break-before:always }
+
+/* ---------- Lösungsbogen ---------- */
+.dr-loesung h1{ font-size:16pt; border-bottom:3px double #000; padding-bottom:5pt; margin:0 0 6pt }
+.dr-lblock{ margin-top:12pt; break-inside:avoid }
+.dr-ltext{ font-family:"Consolas","Courier New",monospace; font-size:9.5pt; white-space:pre-wrap;
+  border-left:2px solid #666; padding:5pt 9pt; margin:5pt 0 6pt; line-height:1.5 }
+table.dr-punkte{ border-collapse:collapse; width:100%; font-size:9.5pt }
+table.dr-punkte th{ text-align:left; font-size:8pt; text-transform:uppercase; letter-spacing:.06em;
+  border-bottom:1px solid #000; padding:2.5pt 5pt }
+table.dr-punkte td{ padding:2.5pt 5pt; border-bottom:1px solid #ccc }
+table.dr-punkte .r{ text-align:right }
+table.dr-punkte td.kasten{ border:1px solid #000; width:18mm }
+.dr-merk{ font-size:9.5pt; border-left:2px solid #000; padding:4pt 9pt; margin-top:5pt }
+
+/* ---------- Papiermodus: Eingabe und Auswertung ---------- */
+.dr-eingabe h1{ font-size:16pt; margin:0 0 6pt }
+input.dr-punkteingabe{ width:22mm; text-align:right; font-family:var(--data); font-size:11pt;
+  padding:4pt 6pt; border:1px solid #000; border-radius:2px; background:#fff }
+.dr-kennzahlen{ display:flex; gap:14pt; flex-wrap:wrap; margin:14pt 0 6pt }
+.dr-kachel{ border:1px solid #000; padding:9pt 14pt; min-width:34mm; text-align:center }
+.dr-kachel .zahl{ font-family:var(--data); font-size:22pt; font-weight:600; line-height:1.1 }
+.dr-kachel .lbl{ font-size:8.5pt; text-transform:uppercase; letter-spacing:.08em; margin-top:2pt }
+.dr-fazit{ font-size:10.5pt; line-height:1.6; border-left:3px solid #000; padding:6pt 11pt;
+  margin-top:10pt }
+.dr-ergebnis .dr-kennzahlen .zahl{ font-family:"Consolas","Courier New",monospace }
+
+/* ---------- Druck ---------- */
+@page{ size:A4; margin:16mm 14mm 18mm }
+
+@media print{
+  html, body{ background:#fff !important }
+  body.druckmodus > *:not(#druckWrap){ display:none !important }
+  body.druckmodus #druckWrap{ display:block !important; background:#fff; padding:0 }
+  #druckLeiste{ display:none !important }
+  #druckBogen{ width:auto; margin:0; padding:0; box-shadow:none; font-size:10.5pt }
+  .dr-zeichnen, .dr-kariert{ background-image:
+    linear-gradient(to right, #ddd 1px, transparent 1px),
+    linear-gradient(to bottom, #ddd 1px, transparent 1px) !important;
+    background-size:5mm 5mm !important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact }
+  .dr-eingabe{ display:none !important }
+}
+
+/* ---------- Formelblatt ---------- */
+.dr-formeln .dr-deckkopf{margin-bottom:10pt}
+.fo-spalten{column-count:2; column-gap:9mm; column-rule:1px solid #ccc}
+.fo-block{break-inside:avoid; page-break-inside:avoid; margin-bottom:8pt}
+.fo-block h3{font-size:10.5pt; margin:0 0 3pt; padding-bottom:1.5pt; border-bottom:1px solid #000;
+  text-transform:uppercase; letter-spacing:.05em}
+.fo-zeile{margin-bottom:3.5pt}
+.fo-f{font-size:9.5pt; font-weight:bold; line-height:1.35}
+.fo-h{font-size:8.5pt; color:#444 !important; line-height:1.35; padding-left:4pt;
+  border-left:2px solid #ccc; margin-top:1pt}
+@media print{
+  .fo-spalten{column-count:2}
+  #druckBogen .dr-formeln{font-size:9.5pt}
+}

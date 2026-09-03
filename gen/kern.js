@@ -1,0 +1,766 @@
+/* ============================================================================
+   gen/kern.js — Kern des Aufgaben-Generators
+   ----------------------------------------------------------------------------
+   Erzeugt aus Vorlagen beliebig viele Aufgaben mit anderen Zahlen und Daten,
+   prüft die Antworten offline und vergibt Punkte.
+
+   Kein Modul, kein Build: wird per <script src> geladen und hängt sich an
+   window.GEN. Läuft aus file:// heraus.
+   ========================================================================== */
+"use strict";
+
+window.GEN = (function () {
+
+  /* ======================= 1. Zufall mit Saat ============================ */
+  /* Gleiche Saat -> gleiche Aufgabe. Damit ist ein Arbeitsblatt teilbar,
+     wiederholbar und der "Neu würfeln"-Knopf reproduzierbar.            */
+
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function hashText(s) {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  function Rng(saat) {
+    this.saat = saat >>> 0;
+    this._f = mulberry32(this.saat);
+  }
+  Rng.prototype.f = function () { return this._f(); };
+  /** ganze Zahl in [min, max] */
+  Rng.prototype.ganz = function (min, max) { return min + Math.floor(this._f() * (max - min + 1)); };
+  /** Vielfaches von step in [min, max] */
+  Rng.prototype.stufe = function (min, max, step) {
+    const n = Math.floor((max - min) / step);
+    return +(min + this.ganz(0, n) * step).toFixed(6);
+  };
+  Rng.prototype.waehle = function (arr) { return arr[Math.floor(this._f() * arr.length)]; };
+  Rng.prototype.muenze = function (p) { return this._f() < (p == null ? 0.5 : p); };
+  Rng.prototype.mische = function (arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(this._f() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
+  Rng.prototype.waehleN = function (arr, n) { return this.mische(arr).slice(0, Math.min(n, arr.length)); };
+  /** Preis mit "echt aussehendem" Ende: 899, 1.249, 2.450 … */
+  Rng.prototype.preis = function (min, max) {
+    const roh = this.ganz(min, max);
+    const enden = [0, 9, 49, 50, 99, 90];
+    const stelle = roh >= 1000 ? 100 : 10;
+    const basis = Math.floor(roh / stelle) * stelle;
+    return Math.max(min, basis + this.waehle(enden));
+  };
+
+  /* ======================= 2. Zahlen & Formate ========================== */
+
+  const fmt = {
+    /** 1234.5 -> "1.234,50" */
+    zahl(n, dez) {
+      if (n == null || !isFinite(n)) return "—";
+      dez = dez == null ? 2 : dez;
+      return n.toLocaleString("de-DE", { minimumFractionDigits: dez, maximumFractionDigits: dez });
+    },
+    eur(n, dez) { return fmt.zahl(n, dez == null ? 2 : dez) + " €"; },
+    proz(n, dez) { return fmt.zahl(n, dez == null ? 1 : dez) + " %"; },
+    /** kürzt sinnvoll: 12 -> "12", 12.5 -> "12,5" */
+    kurz(n) {
+      if (n == null || !isFinite(n)) return "—";
+      const g = Math.round(n * 1000) / 1000;
+      return Number.isInteger(g) ? String(g).replace(".", ",")
+        : g.toLocaleString("de-DE", { maximumFractionDigits: 3 });
+    },
+    /** Liste als deutscher Text: "A, B und C" */
+    liste(a) {
+      a = a.filter(Boolean);
+      if (a.length <= 1) return a[0] || "";
+      return a.slice(0, -1).join(", ") + " und " + a[a.length - 1];
+    }
+  };
+
+  /** kaufmännisch runden auf n Stellen (Math.round rundet .5 bei negativ falsch) */
+  function runde(n, dez) {
+    const f = Math.pow(10, dez == null ? 2 : dez);
+    return Math.sign(n) * Math.round(Math.abs(n) * f + 1e-9) / f;
+  }
+
+  /**
+   * Deutsche und englische Zahlschreibweise lesen.
+   * "1.234,56 €" -> 1234.56 ; "1,234.56" -> 1234.56 ; "12 %" -> 12
+   * Mehrdeutiges "1.234" wird als beide Varianten zurückgegeben.
+   * @returns {number[]} alle plausiblen Lesarten (leer = keine Zahl gefunden)
+   */
+  function leseZahlen(roh) {
+    if (roh == null) return [];
+    let s = String(roh).trim()
+      .replace(/[€$]|eur|euro|%|stück|stk\.?|mbit\/s|gbit\/s|kbit\/s|bit\/s|tage?|jahre?|monate?/gi, "")
+      .replace(/\s+/g, "").replace(/^[≈~ca.]+/i, "");
+    // Zahl mit Einheitenpräfix am Ende (GB, TB…) abschneiden
+    s = s.replace(/[a-zäöüß]+$/i, "");
+    if (!s || !/[0-9]/.test(s)) return [];
+    const hatK = s.includes(","), hatP = s.includes(".");
+    const out = [];
+    const zu = x => { const v = parseFloat(x); if (isFinite(v)) out.push(v); };
+    if (hatK && hatP) {
+      // die letzte der beiden Marken ist das Dezimalzeichen
+      if (s.lastIndexOf(",") > s.lastIndexOf(".")) zu(s.replace(/\./g, "").replace(",", "."));
+      else zu(s.replace(/,/g, ""));
+    } else if (hatK) {
+      zu(s.replace(/,/g, "."));                       // 1234,56
+      if (/^\d{1,3}(,\d{3})+$/.test(s)) zu(s.replace(/,/g, ""));  // 1,234,567
+    } else if (hatP) {
+      zu(s);                                          // 1234.56
+      if (/^\d{1,3}(\.\d{3})+$/.test(s)) zu(s.replace(/\./g, "")); // 1.234.567
+    } else zu(s);
+    return out.filter((v, i, a) => a.indexOf(v) === i);
+  }
+
+  /* ======================= 3. Textvergleich ============================= */
+
+  const STOPP = new Set(("der die das den dem des ein eine einen einem eines einer und oder aber " +
+    "für fuer von vom zu zum zur mit ohne bei im in am an auf als auch ist sind wird werden " +
+    "man kann muss soll sowie bzw etc z b bzgl da dass wenn weil um über ueber nach durch " +
+    "eines seine ihre dessen jeweils jede jeder jedes alle allen").split(" "));
+
+  function norm(s) {
+    return String(s == null ? "" : s).toLowerCase()
+      .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
+      .replace(/[^a-z0-9äöüß+./:-]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+  function worte(s) {
+    return norm(s).split(" ")
+      .map(w => w.replace(/^[.:,;-]+/, "").replace(/[.:,;-]+$/, ""))
+      .filter(w => w && !STOPP.has(w));
+  }
+  /** grober Stamm: deutsche Endungen weg, dann kürzen */
+  function stamm(w) {
+    w = w.replace(/(ungen|ung|keiten|keit|heiten|heit|nisse|nis|enden|ende|erung)$/,"")
+         .replace(/(en|er|es|em|et|te|st|s|e|n)$/, "");
+    return w.length > 6 ? w.slice(0, 6) : w;
+  }
+  const stammSatz = s => worte(s).map(stamm);
+
+  /**
+   * Steckt der Fachbegriff in der Antwort?
+   * Mehrwortbegriffe: alle sinntragenden Wörter müssen (als Stamm) vorkommen.
+   */
+  function enthaelt(antwort, begriff) {
+    const a = norm(antwort), b = norm(begriff);
+    /* Ein leerer Erwartungswert („—“, „keine“) verlangt eine leere Antwort. */
+    if (!b) return !a;
+    if (!a) return false;
+    /* Teilstring nur bei aussagekräftigen Begriffen — sonst steckt "Ende"
+       in "Fehlende Freigabe" und die Zuordnung wird falsch.               */
+    if (a.includes(b) && (b.length >= 6 || b.includes(" "))) return true;
+    const bw = worte(begriff).map(stamm).filter(w => w.length >= 3);
+    if (!bw.length) return a.includes(b);
+    const aw = worte(antwort).map(stamm);
+    return bw.every(x => aw.some(y => y === x || (x.length >= 5 && y.startsWith(x)) || (y.length >= 5 && x.startsWith(y))));
+  }
+
+  /** eine von mehreren Schreibweisen genügt */
+  function enthaeltEines(antwort, synonyme) {
+    return (Array.isArray(synonyme) ? synonyme : [synonyme]).some(s => enthaelt(antwort, s));
+  }
+
+  /** Antwort in Einzelnennungen zerlegen (Zeilen, Semikolon, Komma, Aufzählungszeichen) */
+  function teile(antwort) {
+    return String(antwort || "")
+      .split(/\r?\n|;|·|•|–\s|\s-\s|,(?![^()]*\))/)
+      .map(s => s.replace(/^\s*[-–*\d).\s]+/, "").trim())
+      .filter(Boolean);
+  }
+
+  /* ======================= 4. Registry ================================== */
+
+  const VORLAGEN = [];
+  const THEMEN_LABEL = {
+    kalkulation:      "Wirtschaftlichkeit & Kalkulation",
+    netzwerk:         "Netzwerke & Kommunikation",
+    daten:            "Datenformate & Speicherung",
+    itsicherheit:     "IT-Sicherheit",
+    datenschutz:      "Datenschutz & Recht",
+    projekt:          "Projektmanagement",
+    hardware:         "Hardware & Arbeitsplatz",
+    software:         "Software & Entwicklung",
+    programmierung:   "Programmierung & Algorithmen",
+    arbeitsplatz:     "Arbeitsplatz & Support",
+    diagramm:         "Diagramme & Modelle"
+  };
+
+  /**
+   * Vorlage anmelden.
+   * def = { id, thema, sub, titel, stufe, bau(R, ctx) -> aufgabenrumpf }
+   */
+  function vorlage(def) {
+    if (!def || !def.id || typeof def.bau !== "function") throw new Error("Vorlage unvollständig: " + (def && def.id));
+    if (VORLAGEN.some(v => v.id === def.id)) throw new Error("Doppelte Vorlagen-ID: " + def.id);
+    def.stufe = def.stufe || 2;
+    VORLAGEN.push(def);
+    return def;
+  }
+
+  function alleVorlagen() { return VORLAGEN.slice(); }
+  function vorlageVon(id) { return VORLAGEN.find(v => v.id === id) || null; }
+
+  /** Themenbaum für die Auswahl-Oberfläche */
+  function themenBaum() {
+    const m = new Map();
+    VORLAGEN.forEach(v => {
+      if (!m.has(v.thema)) m.set(v.thema, { key: v.thema, label: THEMEN_LABEL[v.thema] || v.thema, subs: new Map(), n: 0 });
+      const t = m.get(v.thema); t.n++;
+      const sk = v.sub || "Sonstiges";
+      if (!t.subs.has(sk)) t.subs.set(sk, { key: sk, label: sk, n: 0, ids: [] });
+      const s = t.subs.get(sk); s.n++; s.ids.push(v.id);
+    });
+    return [...m.values()]
+      .map(t => ({ key: t.key, label: t.label, n: t.n, subs: [...t.subs.values()].sort((a, b) => b.n - a.n) }))
+      .sort((a, b) => b.n - a.n);
+  }
+
+  /* ======================= 5. Aufgabe erzeugen ========================== */
+
+  const KONTEXT = {
+    firmen: ["Weber Medizintechnik GmbH", "Lindner Logistik AG", "Bachmann & Söhne KG", "Nordstern Versicherung AG",
+             "Kellermann Präzisionsteile GmbH", "Havelblick Energie AG", "Sturm Bau GmbH", "Alpenland Reisen GmbH",
+             "Rothbach Pharma GmbH", "Delta Kunststofftechnik GmbH", "Seeblick Klinik gGmbH", "Merkur Handels AG"],
+    abteilungen: ["Vertrieb", "Buchhaltung", "Konstruktion", "Kundenservice", "Personalabteilung", "Einkauf",
+                  "Lager und Versand", "Qualitätssicherung", "Marketing", "Außendienst", "Entwicklung"],
+    standorte: ["Hauptsitz in Kassel", "Werk in Ingolstadt", "Niederlassung in Rostock", "Standort in Freiburg",
+                "Zweigstelle in Erfurt", "Büro in Osnabrück", "Filiale in Cottbus"],
+    rollen: ["Frau Ahrens", "Herr Delling", "Frau Kubiak", "Herr Reinhold", "Frau Özdemir", "Herr Wagner",
+             "Frau Petrov", "Herr Schuster"],
+    geraete: ["Notebook", "Thin Client", "Convertible", "Tablet mit Tastatur-Dock", "Desktop-PC", "Workstation"]
+  };
+
+  const GERAET_PLURAL = {
+    "Notebook": "Notebooks", "Thin Client": "Thin Clients", "Convertible": "Convertibles",
+    "Tablet mit Tastatur-Dock": "Tablets mit Tastatur-Dock", "Desktop-PC": "Desktop-PCs",
+    "Workstation": "Workstations"
+  };
+
+  function baueKontext(R) {
+    const g = R.waehle(KONTEXT.geraete);
+    return {
+      geraet: g,
+      geraetPl: GERAET_PLURAL[g] || (g + "s"),
+      firma: R.waehle(KONTEXT.firmen),
+      abteilung: R.waehle(KONTEXT.abteilungen),
+      standort: R.waehle(KONTEXT.standorte),
+      person: R.waehle(KONTEXT.rollen),
+      mitarbeiter: R.stufe(8, 240, 4)
+    };
+  }
+
+  /**
+   * Aufgabe bauen.
+   * @param {string} id   Vorlagen-ID
+   * @param {number} saat Zufallssaat (weglassen = neue Zufallssaat)
+   */
+  function erzeuge(id, saat) {
+    const v = vorlageVon(id);
+    if (!v) throw new Error("Unbekannte Vorlage: " + id);
+    if (saat == null) saat = (Math.random() * 4294967295) >>> 0;
+    const R = new Rng(hashText(id) ^ saat);
+    const ctx = baueKontext(R);
+    const roh = v.bau(R, ctx) || {};
+    const felder = (roh.felder || []).map((f, i) => normFeld(f, i));
+    return {
+      vorlageId: v.id,
+      saat: saat >>> 0,
+      thema: v.thema,
+      sub: v.sub,
+      themaLabel: THEMEN_LABEL[v.thema] || v.thema,
+      titel: roh.titel || v.titel,
+      stufe: roh.stufe || v.stufe,
+      situation: roh.situation || "",
+      code: roh.code || "",
+      prompt: roh.prompt || "",
+      tabellen: roh.tabellen || [],
+      hinweis: roh.hinweis || "",
+      katalog: roh.katalog || v.katalog || null,   // z. B. "veraltet"
+      felder,
+      loesung: roh.loesung || "",
+      merksatz: roh.merksatz || v.merksatz || "",
+      maxPoints: runde(felder.reduce((s, f) => s + (f.be || 0), 0), 2)
+    };
+  }
+
+  function normFeld(f, i) {
+    const g = Object.assign({ typ: "text", be: 1, dez: 2 }, f);
+    g.nr = i;
+    if (g.typ === "zahl") {
+      if (g.tolAbs == null) g.tolAbs = 0.5 * Math.pow(10, -(g.dez == null ? 2 : g.dez)) + 1e-9;
+      if (g.tolRel == null) g.tolRel = 0.002;             // 0,2 % — deckt Zwischenrundungen ab
+    }
+    if (g.typ === "text" || g.typ === "liste") {
+      g.erwartet = (g.erwartet || []).map(e => Array.isArray(e) ? e : [e]);
+      if (g.noetig == null) g.noetig = g.erwartet.length;
+    }
+    if (g.typ === "raster") {
+      g.be = runde((g.zeilen || []).reduce((s, z) =>
+        s + z.zellen.reduce((t, c) => t + (c.eingabe ? (c.be || 0) : 0), 0), 0), 2);
+    }
+    if (g.typ === "aussagen") g.be = g.be || (g.aussagen || []).length * 0.5;
+    if (g.typ === "zuordnung") g.be = g.be || (g.paare || []).length * 0.5;
+    return g;
+  }
+
+  /* ======================= 6. Prüfen ==================================== */
+
+  /** eine Zahl gegen den Sollwert */
+  function zahlOk(soll, ist, f) {
+    if (ist == null) return false;
+    const tol = Math.max(f.tolAbs || 0, Math.abs(soll) * (f.tolRel || 0));
+    return Math.abs(ist - soll) <= tol + 1e-9;
+  }
+
+  /**
+   * Ein Feld prüfen.
+   * @returns {{status:"leer"|"richtig"|"teil"|"falsch", punkte, gefunden:[], fehlt:[], text}}
+   */
+  function pruefeFeld(f, eingabe) {
+    const leer = { status: "leer", punkte: 0, gefunden: [], fehlt: [], text: "" };
+
+    if (f.typ === "zahl") {
+      const roh = String(eingabe == null ? "" : eingabe).trim();
+      if (!roh) return leer;
+      const kandidaten = leseZahlen(roh);
+      const ok = kandidaten.some(k => zahlOk(f.loesung, k, f));
+      // typischer Fehler: richtige Zahl, falsche Größenordnung
+      const faktor = !ok && kandidaten.some(k => k && [1000, 1024, 100, 10, 0.1, 0.01, 0.001, 8, 0.125]
+        .some(x => zahlOk(f.loesung, k * x, f)));
+      return {
+        status: ok ? "richtig" : "falsch", punkte: ok ? f.be : 0, gefunden: [], fehlt: [],
+        text: ok ? "" : (faktor ? "Zahl stimmt, Einheit/Größenordnung nicht — noch einmal umrechnen."
+          : (kandidaten.length ? "" : "Da steht keine Zahl."))
+      };
+    }
+
+    if (f.typ === "auswahl") {
+      if (eingabe == null || eingabe === "") return leer;
+      const ok = String(eingabe) === String(f.loesung);
+      return { status: ok ? "richtig" : "falsch", punkte: ok ? f.be : 0, gefunden: [], fehlt: [], text: "" };
+    }
+
+    if (f.typ === "mehrfachwahl") {
+      const gew = Array.isArray(eingabe) ? eingabe.map(String) : [];
+      if (!gew.length) return leer;
+      const soll = (f.loesung || []).map(String);
+      const treffer = gew.filter(x => soll.includes(x)).length;
+      const daneben = gew.length - treffer;
+      const quote = Math.max(0, (treffer - daneben) / Math.max(1, soll.length));
+      const punkte = runde(f.be * quote, 2);
+      return {
+        status: quote >= 0.999 ? "richtig" : (punkte > 0 ? "teil" : "falsch"),
+        punkte, gefunden: [], fehlt: [],
+        text: daneben ? daneben + " falsch angekreuzt" : (treffer < soll.length ? (soll.length - treffer) + " fehlt noch" : "")
+      };
+    }
+
+    if (f.typ === "aussagen") {
+      const gew = eingabe || {};
+      const n = (f.aussagen || []).length;
+      let ok = 0, beantwortet = 0;
+      f.aussagen.forEach((a, i) => {
+        const w = gew[i];
+        if (w === undefined || w === null || w === "") return;
+        beantwortet++;
+        if ((w === "w" || w === true) === !!a.wahr) ok++;
+      });
+      if (!beantwortet) return leer;
+      const punkte = runde(f.be * (ok / n), 2);
+      return {
+        status: ok === n ? "richtig" : (ok ? "teil" : "falsch"), punkte, gefunden: [], fehlt: [],
+        text: ok + " von " + n + " richtig"
+      };
+    }
+
+    if (f.typ === "zuordnung") {
+      const gew = eingabe || {};
+      const n = (f.paare || []).length;
+      let ok = 0, beantwortet = 0;
+      f.paare.forEach((p, i) => {
+        if (!gew[i]) return;
+        beantwortet++;
+        if (String(gew[i]) === String(p[1])) ok++;
+      });
+      if (!beantwortet) return leer;
+      const punkte = runde(f.be * (ok / n), 2);
+      return { status: ok === n ? "richtig" : (ok ? "teil" : "falsch"), punkte, gefunden: [], fehlt: [], text: ok + " von " + n + " richtig" };
+    }
+
+    if (f.typ === "raster") {
+      const gew = eingabe || {};
+      let be = 0, ok = 0, gesamt = 0, gefuellt = 0;
+      const zellen = {};
+      (f.zeilen || []).forEach((z, zi) => z.zellen.forEach((c, ci) => {
+        if (!c.eingabe) return;
+        gesamt++;
+        const k = zi + "-" + ci;
+        const roh = String(gew[k] == null ? "" : gew[k]).trim();
+        if (!roh) { zellen[k] = "leer"; return; }
+        gefuellt++;
+        let treffer;
+        if (c.text != null) treffer = enthaeltEines(roh, Array.isArray(c.text) ? c.text : [c.text]);
+        else treffer = leseZahlen(roh).some(v => zahlOk(c.loesung, v, { tolAbs: c.tolAbs != null ? c.tolAbs : 0.5 * Math.pow(10, -(c.dez == null ? 2 : c.dez)) + 1e-9, tolRel: c.tolRel != null ? c.tolRel : 0.002 }));
+        zellen[k] = treffer ? "richtig" : "falsch";
+        if (treffer) { ok++; be += (c.be || 0); }
+      }));
+      if (!gefuellt) return leer;
+      return {
+        status: ok === gesamt ? "richtig" : (ok ? "teil" : "falsch"),
+        punkte: runde(be, 2), gefunden: [], fehlt: [], zellen,
+        text: ok + " von " + gesamt + " Feldern richtig"
+      };
+    }
+
+    if (f.typ === "knoten") return pruefeKnoten(f, eingabe);
+    if (f.typ === "modell") return pruefeModell(f, eingabe);
+
+    /* text / liste */
+    const roh = String(eingabe == null ? "" : eingabe).trim();
+    if (!roh) return leer;
+    const erwartet = f.erwartet || [];
+    if (!erwartet.length) return { status: "teil", punkte: 0, gefunden: [], fehlt: [], text: "Selbst bewerten." };
+
+    // jede Nennung darf nur einen Erwartungsblock bedienen
+    const stuecke = teile(roh);
+    const belegt = new Set();
+    const gefunden = [], fehlt = [];
+    erwartet.forEach((syn, i) => {
+      let hit = false;
+      for (let s = 0; s < stuecke.length; s++) {
+        if (belegt.has(s)) continue;
+        if (enthaeltEines(stuecke[s], syn)) { belegt.add(s); hit = true; break; }
+      }
+      if (!hit && enthaeltEines(roh, syn)) hit = true;       // Fließtext ohne Trennzeichen
+      (hit ? gefunden : fehlt).push(syn[0]);
+    });
+
+    const noetig = Math.max(1, f.noetig || erwartet.length);
+    const quote = Math.min(1, gefunden.length / noetig);
+    let punkte = runde(f.be * quote, 2);
+    let text = gefunden.length + " von " + noetig + " erwarteten Punkten erkannt";
+
+    /* Satzbau-Kontrolle: gegen "ein Wort statt einer Erläuterung".
+       Greift nur bei Feldern, die ausdrücklich einen Satz verlangen.       */
+    if (f.satzbau && punkte > 0) {
+      const anzahlWorte = String(roh).trim().split(/\s+/).filter(Boolean).length;
+      const proNennung = anzahlWorte / Math.max(1, Math.min(stuecke.length, noetig));
+      const konnektor = /(weil|damit|dadurch|so\s?dass|sodass|denn|deshalb|daher|somit|folglich|um\s+\S+\s+zu\s|führt\s+zu|ermöglicht|verhindert|reduziert|erhöht|schützt|spart|senkt)/i.test(roh);
+      const zuKurz = proNennung < (f.minWorte || 6);
+      if (zuKurz) {
+        punkte = runde(punkte * 0.5, 2);
+        text += " · zu knapp: das ist eine Nennung, keine Erläuterung — schreibe je Punkt einen vollständigen Satz";
+      } else if (!konnektor) {
+        punkte = runde(punkte * 0.75, 2);
+        text += " · es fehlt die Begründung — ergänze „weil / damit / dadurch …“";
+      }
+    }
+
+    return {
+      status: quote >= 0.999 && punkte >= f.be - 1e-9 ? "richtig" : (punkte > 0 ? "teil" : "falsch"),
+      punkte, gefunden, fehlt, text
+    };
+  }
+
+  /**
+   * Beste Zuordnung einer eingegebenen Bezeichnung zu einer Sollzeile.
+   * Exakte Treffer schlagen unscharfe; bei unscharfen gewinnt die ähnlichste
+   * Länge — sonst schluckt "Expresssendung" die Zeile "Sendung".
+   */
+  function findeTreffer(name, soll, key, belegt) {
+    const na = norm(String(name == null ? "" : name));
+    if (!na) return -1;
+    let best = -1, bestScore = -Infinity;
+    soll.forEach((s, i) => {
+      if (belegt && belegt.has(i)) return;
+      const ns = norm(String(s[key] == null ? "" : s[key]));
+      let sc = null;
+      if (ns && na === ns) sc = 1000;
+      else if (enthaelt(name, s[key]) || enthaelt(s[key], name)) sc = 100 - Math.abs(ns.length - na.length);
+      if (sc != null && sc > bestScore) { bestScore = sc; best = i; }
+    });
+    return best;
+  }
+
+  /* ---------- Knotentabelle (Aktivitäts- und Klassendiagramm) ----------- */
+  /**
+   * f = { typ:"knoten", spalten, typen, soll:[{name, typ, nach:[], bed:[]}], be }
+   * eingabe = [ {name, typ, nach, bed}, … ]  (nach/bed als Freitext)
+   * Bewertet Inhalt (welche Knoten, welcher Typ, welche Kanten) und meldet
+   * Notationsfehler als Text — ohne die Musterlösung zu verraten.
+   */
+  function pruefeKnoten(f, eingabe) {
+    const zeilen = (eingabe || []).filter(z => z && String(z.name || "").trim());
+    if (!zeilen.length) return { status: "leer", punkte: 0, gefunden: [], fehlt: [], text: "", zeilen: {} };
+
+    const soll = f.soll || [];
+    const proKnoten = f.be / Math.max(1, soll.length);
+    const STRUKTUR = ["start", "ende", "merge", "parallelisierung", "synchronisation"];
+    const belegt = new Set();
+    const trefferVon = (name, typ) => {
+      let best = findeTreffer(name, soll, "name", belegt);
+      /* Struktur-Knoten (Start, Ende, Fork, Join, Merge) dürfen anders heißen —
+         "Aktivitätsende" statt "Ende" ist kein Fehler. Dann zählt der Typ.   */
+      if (best < 0 && typ) {
+        const t = normTyp(typ);
+        if (STRUKTUR.includes(t)) {
+          for (let i = 0; i < soll.length; i++) {
+            if (!belegt.has(i) && normTyp(soll[i].typ) === t) { best = i; break; }
+          }
+        }
+      }
+      if (best >= 0) belegt.add(best);
+      return best;
+    };
+    const zuordnung = zeilen.map(z => trefferVon(z.name, z.typ));
+
+    const stand = {}, gefunden = [], fehlt = [];
+    let punkte = 0;
+    soll.forEach((s, i) => {
+      const zi = zuordnung.indexOf(i);
+      if (zi < 0) { fehlt.push(s.name); return; }
+      const z = zeilen[zi];
+      let p = proKnoten * 0.5;
+      const typOk = normTyp(z.typ) === normTyp(s.typ);
+      if (typOk) p += proKnoten * 0.25;
+      const meineNach = teile(z.nach || "");
+      const sollNach = s.nach || [];
+      const nachOk = sollNach.length === 0
+        ? meineNach.length === 0
+        : (sollNach.every(n => meineNach.some(m => enthaelt(m, n) || enthaelt(n, m)))
+          && meineNach.length >= sollNach.length);
+      if (nachOk) p += proKnoten * 0.25;
+      punkte += p;
+      gefunden.push(s.name);
+      stand[zi] = { typOk, nachOk, treffer: true };
+    });
+    zeilen.forEach((z, zi) => { if (zuordnung[zi] < 0) stand[zi] = { treffer: false }; });
+
+    /* Notationsprüfung — kostet keine Punkte, hilft aber beim Zeichnen */
+    const meldungen = [];
+    const starts = zeilen.filter(z => normTyp(z.typ) === "start").length;
+    if (starts !== 1) meldungen.push("genau ein Startknoten ist Pflicht (gefunden: " + starts + ")");
+    if (!zeilen.some(z => normTyp(z.typ) === "ende")) meldungen.push("es fehlt ein Endknoten");
+    zeilen.forEach(z => {
+      const t = normTyp(z.typ), n = teile(z.nach || "");
+      if (t === "entscheidung" && n.length < 2) meldungen.push("„" + z.name + "“: eine Entscheidung braucht mindestens zwei Ausgänge");
+      if (t === "entscheidung" && teile(z.bed || "").length < 2) meldungen.push("„" + z.name + "“: beide Abzweigungen brauchen eine Bedingung in [eckigen Klammern]");
+      if (t === "aktion" && n.length > 1) meldungen.push("„" + z.name + "“: aus einer Aktion führt genau eine Kante — für Verzweigungen Entscheidung oder Fork nutzen");
+      if (t === "aktion" && n.length === 0) meldungen.push("„" + z.name + "“: hier endet der Fluss ohne Endknoten");
+      if (t === "ende" && n.length) meldungen.push("„" + z.name + "“: aus dem Endknoten führt keine Kante mehr");
+      if ((t === "parallelisierung" || t === "fork") && n.length < 2) meldungen.push("„" + z.name + "“: ein Fork teilt in mindestens zwei parallele Flüsse");
+    });
+    const erfunden = zeilen.filter((z, zi) => zuordnung[zi] < 0).map(z => z.name);
+
+    punkte = runde(Math.min(f.be, punkte), 2);
+    const text = [
+      gefunden.length + " von " + soll.length + " geforderten Knoten erkannt",
+      erfunden.length ? "nicht gefordert: " + erfunden.slice(0, 3).join(", ") : "",
+      meldungen.length ? "Notation: " + meldungen.slice(0, 3).join(" · ") : ""
+    ].filter(Boolean).join(" · ");
+
+    return {
+      status: (gefunden.length === soll.length && !meldungen.length && punkte >= f.be - 1e-9)
+        ? "richtig" : (punkte > 0 ? "teil" : "falsch"),
+      punkte, gefunden, fehlt, zeilen: stand, meldungen, text
+    };
+  }
+
+  /* ---------- Modelltabelle (ER, Klassen-, Use-Case-Diagramm) ----------- */
+  /**
+   * f = {
+   *   typ:"modell", art:"er"|"klasse"|"usecase", be,
+   *   spalten:[ {key, label, art?:"text"|"menge"|"auswahl", optionen?, gewicht?} ],
+   *            die erste Spalte ist der Schlüssel (danach werden Zeilen zugeordnet)
+   *   soll:[ {key: Wert | [Werte]} ],
+   *   regeln: [string]        Notationshinweise, die geprüft werden sollen
+   * }
+   * eingabe = [ {key: "Text"} ]
+   */
+  function pruefeModell(f, eingabe) {
+    const spalten = f.spalten || [];
+    const schluessel = spalten.length ? spalten[0].key : "name";
+    const zeilen = (eingabe || []).filter(z => z && String(z[schluessel] || "").trim());
+    if (!zeilen.length) return { status: "leer", punkte: 0, gefunden: [], fehlt: [], text: "", zeilen: {} };
+
+    const soll = f.soll || [];
+    const proZeile = f.be / Math.max(1, soll.length);
+    const bewertet = spalten.filter(s => s.art);
+    const gewSumme = bewertet.reduce((s, x) => s + (x.gewicht || 1), 0) || 1;
+
+    const belegt = new Set();
+    const zuordnung = zeilen.map(z => {
+      const best = findeTreffer(z[schluessel], soll, schluessel, belegt);
+      if (best >= 0) belegt.add(best);
+      return best;
+    });
+
+    const stand = {}, gefunden = [], fehlt = [];
+    let punkte = 0;
+    soll.forEach((s, i) => {
+      const zi = zuordnung.indexOf(i);
+      if (zi < 0) { fehlt.push(String(s[schluessel])); return; }
+      const z = zeilen[zi];
+      punkte += proZeile * 0.25;               // richtig benannt
+      const spaltenStand = {};
+      bewertet.forEach(sp => {
+        const anteil = proZeile * 0.75 * ((sp.gewicht || 1) / gewSumme);
+        const sollWert = s[sp.key];
+        const istWert = z[sp.key];
+        let quote = 0;
+        const istLeer = !norm(String(istWert == null ? "" : istWert));
+        if (sp.art === "menge") {
+          const liste = Array.isArray(sollWert) ? sollWert : teile(String(sollWert || ""));
+          if (!liste.length) quote = istLeer ? 1 : 0;
+          else quote = liste.filter(x => enthaelt(istWert || "", x)).length / liste.length;
+        } else {
+          const leerSoll = sollWert == null ||
+            (Array.isArray(sollWert) ? !sollWert.length : !norm(String(sollWert)));
+          if (leerSoll) quote = istLeer ? 1 : 0;
+          else quote = enthaeltEines(istWert || "", Array.isArray(sollWert) ? sollWert : [sollWert]) ? 1 : 0;
+        }
+        punkte += anteil * quote;
+        spaltenStand[sp.key] = quote >= 0.999 ? "richtig" : (quote > 0 ? "teil" : "falsch");
+      });
+      gefunden.push(String(s[schluessel]));
+      stand[zi] = { treffer: true, spalten: spaltenStand };
+    });
+    zeilen.forEach((z, zi) => { if (zuordnung[zi] < 0) stand[zi] = { treffer: false, spalten: {} }; });
+
+    const erfunden = zeilen.filter((z, zi) => zuordnung[zi] < 0).map(z => String(z[schluessel]));
+    punkte = runde(Math.min(f.be, punkte), 2);
+    const text = [
+      gefunden.length + " von " + soll.length + " geforderten Einträgen erkannt",
+      erfunden.length ? "nicht gefordert: " + erfunden.slice(0, 3).join(", ") : ""
+    ].filter(Boolean).join(" · ");
+
+    return {
+      status: (gefunden.length === soll.length && punkte >= f.be - 1e-9) ? "richtig"
+        : (punkte > 0 ? "teil" : "falsch"),
+      punkte, gefunden, fehlt, zeilen: stand, text
+    };
+  }
+
+  function normTyp(t) {
+    const s = norm(t || "");
+    if (!s) return "";
+    if (s.startsWith("start") || s.startsWith("anfang")) return "start";
+    if (/ende$/.test(s) || s.startsWith("end") || s.startsWith("schluss") || s.startsWith("stop")) return "ende";
+    if (s.startsWith("entsch") || s.startsWith("verzweig") || s.startsWith("decision") ||
+        s.startsWith("raute") || s.startsWith("bedingung")) return "entscheidung";
+    if (s.startsWith("zusammen") || s.startsWith("merge") || s.startsWith("vereinig")) return "merge";
+    if (s.startsWith("parallel") || s.startsWith("fork") || s.startsWith("aufspalt") ||
+        s.startsWith("gabel")) return "parallelisierung";
+    if (s.startsWith("synchron") || s.startsWith("join") || s.startsWith("zusammenfuehr")) return "synchronisation";
+    if (s.startsWith("akti") || s.startsWith("taetig") || s.startsWith("schritt")) return "aktion";
+    return s;
+  }
+
+  /** ganze Aufgabe prüfen */
+  function pruefeAufgabe(aufgabe, eingaben) {
+    eingaben = eingaben || {};
+    const felder = aufgabe.felder.map(f => {
+      const r = pruefeFeld(f, eingaben[f.nr]);
+      r.nr = f.nr; r.be = f.be; r.label = f.label;
+      return r;
+    });
+    const punkte = runde(felder.reduce((s, r) => s + r.punkte, 0), 2);
+    return {
+      punkte, max: aufgabe.maxPoints, felder,
+      quote: aufgabe.maxPoints ? punkte / aufgabe.maxPoints : 0,
+      offen: felder.filter(r => r.status === "leer").length
+    };
+  }
+
+  /* ======================= 7. Arbeitsblatt ============================== */
+
+  /**
+   * Blatt zusammenstellen.
+   * opt = { themen:[key], subs:[subKey], ids:[vorlageId], anzahl, stufen:[1,2,3], saat }
+   * Es wird gemischt, gleiche Vorlage kommt erst wieder, wenn alle durch sind.
+   */
+  function erzeugeBlatt(opt) {
+    opt = opt || {};
+    const saat = opt.saat == null ? ((Math.random() * 4294967295) >>> 0) : (opt.saat >>> 0);
+    const R = new Rng(saat);
+    let pool = VORLAGEN.slice();
+    if (opt.ids && opt.ids.length)         pool = pool.filter(v => opt.ids.includes(v.id));
+    else {
+      if (opt.themen && opt.themen.length) pool = pool.filter(v => opt.themen.includes(v.thema));
+      if (opt.subs && opt.subs.length)     pool = pool.filter(v => opt.subs.includes(v.sub));
+    }
+    if (opt.stufen && opt.stufen.length)   pool = pool.filter(v => opt.stufen.includes(v.stufe));
+    if (!pool.length) return { saat, aufgaben: [], fehler: "Zu dieser Auswahl gibt es noch keine Vorlagen." };
+
+    const anzahl = Math.max(1, Math.min(60, opt.anzahl || 10));
+    const reihe = [];
+    let rest = [];
+    for (let i = 0; i < anzahl; i++) {
+      if (!rest.length) rest = R.mische(pool);
+      reihe.push(rest.shift());
+    }
+    const aufgaben = reihe.map(v => erzeuge(v.id, R.ganz(0, 2147483647)));
+    return { saat, aufgaben, maxPoints: runde(aufgaben.reduce((s, a) => s + a.maxPoints, 0), 2) };
+  }
+
+  /* ======================= 7b. Abkürzung für Textaufgaben =============== */
+  /**
+   * Erzeugt eine "Nennen Sie n …"-Vorlage aus einem Antwortpool.
+   * def = {
+   *   id, thema, sub, titel, stufe, merksatz,
+   *   n: [2,3],                       mögliche Anzahl geforderter Nennungen
+   *   situation(R, c) -> string,
+   *   frage(n, c) -> string,
+   *   pool: [[syn, syn], …],          alle akzeptierten Nennungen
+   *   beProNennung: 1,
+   *   satzbau: true,                  verlangt ganze Sätze statt Stichworten
+   *   zusatz(R, c, n) -> [feld],      optionale weitere Felder
+   *   loesung(R, c, n) -> string
+   * }
+   */
+  function nennVorlage(def) {
+    return vorlage({
+      id: def.id, thema: def.thema, sub: def.sub, titel: def.titel,
+      stufe: def.stufe || 2, merksatz: def.merksatz, katalog: def.katalog,
+      bau(R, c) {
+        const n = R.waehle(def.n || [2, 3]);
+        const felder = [{
+          typ: "liste", label: def.feldLabel || "Ihre Antwort — eine Nennung je Zeile",
+          be: n * (def.beProNennung || 1), zeilen: n + 1, noetig: n,
+          satzbau: def.satzbau !== false, minWorte: def.minWorte,
+          erwartet: def.pool
+        }];
+        if (def.zusatz) (def.zusatz(R, c, n) || []).forEach(x => felder.push(x));
+        return {
+          situation: def.situation ? def.situation(R, c) : "",
+          prompt: def.frage(n, c),
+          felder,
+          loesung: def.loesung(R, c, n)
+        };
+      }
+    });
+  }
+
+  /** Zahlwort für die Aufgabenstellung */
+  const ZAHLWORT = ["null", "eine", "zwei", "drei", "vier", "fünf", "sechs"];
+
+  /* ======================= 8. Öffentliche API =========================== */
+
+  return {
+    Rng, hashText, fmt, runde, leseZahlen, ZAHLWORT, nennVorlage,
+    norm, worte, stamm, stammSatz, enthaelt, enthaeltEines, teile,
+    vorlage, alleVorlagen, vorlageVon, themenBaum, THEMEN_LABEL, KONTEXT,
+    erzeuge, erzeugeBlatt, pruefeFeld, pruefeAufgabe
+  };
+})();

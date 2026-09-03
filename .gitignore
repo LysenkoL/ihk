@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *.class
@@ -16,3 +16,4 @@ ENV/
 .vscode/
 .DS_Store
 Thumbs.db
+index.html.bak-vor-generator

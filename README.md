@@ -5,7 +5,8 @@ IT-gestützten Arbeitsplatzes»). Без сервера, без интернет
 открываешь `index.html` двойным кликом и решаешь.
 
 **10 экзаменов 2021–2026 · 279 Teilaufgaben · 173 карточки · тренажёры Netzplan,
-Gantt, UML-Aktivitäts- и Klassendiagramm.**
+Gantt, UML-Aktivitäts- и Klassendiagramm · генератор: 63 типа заданий
+с бесконечным числом вариантов и автопроверкой.**
 
 Из 279 заданий 21 (87 баллов) помечены как **вне действующего каталога** —
 они видны и решаются как обычно, но с пометкой «kannst du überspringen».
@@ -56,6 +57,177 @@ ausblenden»** в шапке (по умолчанию выключена).
 Правила лежат в `exams/katalog.json`. Каталог изменится — правишь этот файл и
 запускаешь `python tools/tag_katalog.py && python tools/build_index.py`.
 Источник: [IT-Berufe-Podcast #190](https://it-berufe-podcast.de/neuer-pruefungskatalog-fuer-die-ap1-der-it-berufe-ab-2025-it-berufe-podcast-190/).
+
+---
+
+## Генератор заданий («Arbeitsblätter»)
+
+Раздел **«Arbeitsblätter — unendlich neue Aufgaben»** на главной. Кнопка
+**«+ Neues Arbeitsblatt»** запускает мастер: 1–3 главные темы → подтемы →
+количество и сложность → готовый лист.
+
+Каждое задание собирается из **шаблона** (`Vorlage`): текст, таблицы, цифры и
+сценарий генерируются заново при каждом клике, а эталонное решение считается
+вместе с ними. Одна и та же тема — сколько угодно разных вариантов.
+
+**63 типа заданий в 11 темах:**
+
+| Тема | Что генерируется |
+|---|---|
+| Wirtschaftlichkeit & Kalkulation | Bezugspreis, сравнение трёх предложений, Nutzwertanalyse, TCO, Leasing vs. Kauf, AfA, Amortisation, Break-even, Angebotspreis, SLA-Verfügbarkeit, Stromkosten, Lizenzstaffeln |
+| Netzwerke & Kommunikation | Netz-/Broadcastadresse, Subnetting, «в одной ли подсети», IPv6, Bandbreite, Zahlensysteme, PoE-Budget, OSI |
+| Datenformate & Speicherung | Speicherbedarf (архив, видео), Backup-Strategie, RAID |
+| Diagramme & Modelle | UML-Aktivitätsdiagramm (таблица узлов с проверкой нотации), ER-Modell, Use-Case, Netzplan, Gantt, Klassendiagramm |
+| Programmierung | Schreibtischtest по псевдокоду |
+| IT-Sicherheit | TOM, Phishing, Schutzziele, Passwortrichtlinie + MFA, Ransomware-Notfall |
+| Datenschutz & Recht | Betroffenenrechte DSGVO, Anonymisierung/Pseudonymisierung, Auftragsverarbeitung, Mängelrechte |
+| Projektmanagement | Wasserfall/Scrum, Lastenheft/Pflichtenheft, Projektstrukturplan, Risikomatrix, Tuckman, Testprotokoll |
+| Arbeitsplatz & Support | Konsolenbefehle + chmod, Dateisysteme, Domäne, Barrierefreiheit, Ergonomie, Ticketsystem, Übergabe |
+| Hardware / Software | выбор устройства с обоснованием, виртуальные десктопы и SaaS/DaaS |
+
+Отдельный блок «проблемных» типов, добавленный по списку из практики:
+Laufende Kosten pro Monat (цена ÷ Nutzungsdauer + скидка + подписка + Wartung),
+Gesamtkosten über mehrere Jahre mit Ersatzbeschaffung (netto/brutto),
+Amortisation eines Mehrpreises über die Stromersparnis (в месяцах, с округлением вверх),
+Netzwerkdiagnose aus zwei ipconfig-Ausgaben (найти неверную строку и исправить),
+Pseudocode über einem Datensatz-Auszug (какие записи считает функция и что она вернёт).
+
+Из десяти тем каталога, которых не было ни в одном экзамене (раздел «Lücken im
+Katalog»), генератор закрывает девять.
+
+### Prüfungsbogen drucken und Papiermodus
+
+В открытом Arbeitsblatt две кнопки:
+
+**Prüfungsbogen (PDF)** — верстает лист в формате настоящего экзамена и открывает
+предпросмотр: титульный лист с Bearbeitungszeit (0,9 мин на BE), Punkteverteilung
+и Hinweise zur Bearbeitung; дальше задания с колонкой BE справа, линиями для ответа
+по числу баллов, пустыми таблицами вместо заполненных, клетчатым полем для диаграмм
+и листом для Nebenrechnungen. Печать — через браузер, «Als PDF speichern».
+Галочка **«Lösungsbogen anhängen»** добавляет отдельный лист с эталонами
+и таблицей для самопроверки по баллам.
+
+**Papiermodus** — тот же лист, но с секундомером: печатаешь, решаешь на бумаге,
+потом вбиваешь набранные баллы по заданиям. Программа считает процент, оценку IHK,
+затраченное время и **минуты на один BE**, и пересчитывает это на полный экзамен
+в 100 BE: успеваешь ли ты в 90 минут и сколько баллов осталось бы лежать.
+На главной появляется блок «Auf Papier — dein Tempo» со средним по всем прогонам.
+
+### Как проверяются ответы
+
+- **числа** — с допуском на промежуточные округления; если порядок величины не
+  тот, так и написано («Zahl stimmt, Einheit/Größenordnung nicht»);
+- **термины и перечисления** — по списку синонимов; показывает, что засчитано
+  («✓ Redundanz»), чего не хватает и какие ещё варианты были бы верными;
+- **Erläutern/Begründen** — отдельная проверка на связность: одно слово вместо
+  предложения режет балл вдвое с пометкой «das ist eine Nennung, keine
+  Erläuterung»; предложение без «weil / damit / dadurch» теряет четверть;
+- **Zuordnung, richtig/falsch, Mehrfachwahl, таблицы** — по клеткам,
+  с подсветкой каждой;
+- **Aktivitätsdiagramm** — сверяет узлы, их тип и стрелки, плюс отдельно
+  проверяет нотацию: ровно один Startknoten, у Entscheidung минимум два выхода
+  с условиями, из Aktion одна стрелка, Fork и Join парные.
+
+### Кнопки
+
+- **Prüfen** у каждого задания и **Alles prüfen** сверху; итог — процент и
+  оценка IHK
+- **↻ Neu würfeln** — тот же тип задания с новыми числами, не выходя со страницы
+- **Neues Blatt, gleiche Themen** — весь лист заново
+- **Musterlösung mit Rechenweg** — полный ход решения, а не только ответ
+- **Merksatz** появляется сам, если задание решено не полностью
+- **Drucken** — лист без решений, **Markdown** — выгрузка с ответами и эталонами
+- **«Woran es im Generator hakt»** на главной: типы заданий, отсортированные по
+  твоей доле баллов, кнопка «gezielt üben» запускает лист только из этого типа
+
+Прогресс лежит в `localStorage` (`ihk2:gen:blaetter`, `ihk2:gen:stat`) — отдельно
+от экзаменов, ничего из старого не трогается.
+
+### Как добавить свой тип задания
+
+Файл `gen/vorlagen-*.js`, одна функция:
+
+```js
+G.vorlage({
+  id: "kalk-meins", thema: "kalkulation", sub: "Meine Unterthema",
+  titel: "Kurzer Titel", stufe: 2,
+  merksatz: "Eine Zeile, die man sich merken soll.",
+  bau(R, c) {                      // R = генератор случайных, c = контекст (фирма, отдел…)
+    const preis = R.preis(500, 2000);
+    return {
+      situation: `Die ${c.firma} kauft … ${preis} €`,
+      prompt: "Berechnen Sie …",
+      felder: [{ typ: "zahl", label: "Ergebnis", einheit: "€", be: 2, loesung: preis * 1.19 }],
+      loesung: "Rechenweg …"
+    };
+  }
+});
+```
+
+Типы полей: `zahl` · `text` · `liste` · `auswahl` · `mehrfachwahl` ·
+`aussagen` (richtig/falsch) · `zuordnung` · `raster` (таблица с ячейками ввода) ·
+`knoten` (узлы Aktivitätsdiagramm) · `modell` (ER, Klassen-, Use-Case-Diagramm:
+свободные колонки, проверка по строкам).
+Поле `code` в возвращаемом объекте печатается моноширинным блоком — для
+псевдокода и вывода консоли. Для текстовых «Nennen Sie drei …» есть
+короткая форма `G.nennVorlage({ … pool: [[синонимы], …] })`.
+
+Файл подключается в `index.html` строкой `<script src="gen/…"></script>` —
+сборка не нужна, экзамены и старые данные не затрагиваются.
+
+---
+
+## Wo стою: общая картина
+
+Раздел **«Wo stehe ich? — Prüfungen und Generator zusammen»** сразу под карточками
+экзаменов. Он сводит две статистики в одну:
+
+- **вес темы** берётся из десяти настоящих экзаменов (`exams/gewichte.json` + подсчёт
+  по сборке) — сколько баллов тема стоит в одном экзамене;
+- **квота** считается по всему, что ты оценила: и по Teilaufgaben экзаменов,
+  и по заданиям генератора;
+- **Verlust** = вес × (1 − квота), сортировка по нему.
+
+Наверху: прогноз баллов из 100, оценка IHK и «Datenbasis» — какую долю
+экзаменационного материала ты вообще уже проверяла. Пока эта доля мала, число
+скачет, и так и написано. Кнопка **«üben»** в строке собирает лист только из
+заданий этой темы; темы генератора вроде Diagramme раскладываются по
+экзаменационным темам (Netzplan → Projekt, ER → Daten, UML → Software).
+
+## Диаграммы в настоящих экзаменах
+
+34 Teilaufgaben имеют `answerType: "diagram"` и раньше решались одним текстовым
+полем. Теперь тип распознаётся по тексту задания (Netzplan, Gantt, ER,
+Klassendiagramm, Use-Case, Aktivitätsdiagramm, Nutzwertanalyse) и над полем
+появляется таблица с нужными колонками. Она переводится в текст и подклеивается
+к ответу — Markdown-экспорт, «Antwort prüfen» и Auswertung её видят.
+
+Рядом кнопка **«↗ diesen Typ mit Prüfung üben»**: открывает лист генератора
+с тем же типом диаграммы, где баллы ставятся автоматически.
+
+## Satzbau-Training
+
+Отдельный раздел на главной. 51 карточка: настоящий вопрос из экзамена, рядом
+стичворт, который обычно пишется вместо ответа, и задание — развернуть его в
+полноценный ответ. Проверяются четыре вещи: есть ли Fachbegriff, есть ли
+объяснение (weil / dadurch / damit или второй поясняющий предложение), хватает
+ли длины, и написано ли предложением. Максимум 2 балла за карточку.
+
+Musterantworten написаны простым немецким (B2): короткие предложения, обычные
+слова. За карточками закреплён прогресс (`ihk2:gen:satz`), кнопка
+«nur die wackeligen üben» собирает то, что не сидит.
+
+Карточки Prüfungstechnik (Antwortsatz с числом и единицей, Empfehlung,
+подсчёт подвопросов) проверяются без требования Begründung.
+
+## Formelblatt (A4)
+
+Кнопка **«Formelblatt (A4) ansehen und drucken»** под Satzbau-Training.
+78 формул и Merksätze в 15 блоках, две колонки, печать через браузер в PDF.
+Основа — твоя собственная сборка `ap1-formeln-fakten.html`, дополненная тем,
+что используют 63 типа заданий генератора. Мелким шрифтом под каждой формулой
+стоит ловушка: «Immer auf das Soll beziehen», «Watt erst durch 1.000»,
+«60 ÷ 36 aufrunden», «UML kennt kein n».
 
 ---
 ## Как пользоваться
@@ -167,6 +339,18 @@ ausblenden»** в шапке (по умолчанию выключена).
 ```
 ihk-sim/
 ├── index.html              симулятор — открывать этот файл
+├── gen/                    генератор заданий
+│   ├── kern.js             движок: случайность с семенем, проверка, подсчёт баллов
+│   ├── vorlagen-*.js       шаблоны заданий по темам
+│   ├── blatt.js            интерфейс «Arbeitsblätter»
+│   ├── blatt.css           стили генератора
+│   ├── druck.js            Prüfungsbogen im Drucklayout + Papiermodus
+│   ├── druck.css           стили печати (A4, @page)
+│   ├── gesamt.js           общая статистика: экзамены + генератор
+│   ├── exam-diagramme.js   табличный ввод для диаграмм в настоящих экзаменах
+│   ├── satzbausteine.js    51 карточка для Satzbau-Training
+│   ├── satzbau.js          интерфейс Satzbau-Training
+│   └── formeln.js          Formelblatt A4
 ├── exams/
 │   ├── exams.js            собранные данные, их читает index.html
 │   ├── ap1-YYYY-x.json     готовый экзамен (схема v2)
