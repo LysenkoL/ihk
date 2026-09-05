@@ -63,27 +63,45 @@ ausblenden»** в шапке (по умолчанию выключена).
 ## Генератор заданий («Arbeitsblätter»)
 
 Раздел **«Arbeitsblätter — unendlich neue Aufgaben»** на главной. Кнопка
-**«+ Neues Arbeitsblatt»** запускает мастер: 1–3 главные темы → подтемы →
-количество и сложность → готовый лист.
+**«+ Neues Arbeitsblatt»** открывает один экран:
+
+1. **Сколько заданий** — поле с числом и быстрые кнопки 5 / 10 / 15 / 20 / 25 / 40,
+   плюс сложность и режим часов.
+2. **Режим** — «Zufall — alles gemischt» (всё из всех тем, как на настоящем
+   экзамене) или «Gezielt auswählen».
+3. При «Gezielt» ниже стоят **все 10 главных тем, уже отмеченные галочками**.
+   Ограничения «максимум 3 темы» больше нет: снимаешь галочки с того, что
+   сегодня не нужно. У каждой темы кнопка «▼ Unterthemen» — там подтемы можно
+   отключать поштучно.
+4. Три кнопки над списком: «alle anhaken», «alle abwählen», «nur meine
+   Schwächen» (собирает лист только из типов, где квота ниже 70 %).
+
+Счётчик внизу всё время показывает, сколько типов заданий подходит под текущий
+выбор и сколько примерно баллов получится.
 
 Каждое задание собирается из **шаблона** (`Vorlage`): текст, таблицы, цифры и
 сценарий генерируются заново при каждом клике, а эталонное решение считается
 вместе с ними. Одна и та же тема — сколько угодно разных вариантов.
 
-**63 типа заданий в 11 темах:**
+**107 типов заданий в 11 главных темах** (структура тем — как в коммерческих
+тренажёрах, чтобы выбор был привычным):
 
-| Тема | Что генерируется |
-|---|---|
-| Wirtschaftlichkeit & Kalkulation | Bezugspreis, сравнение трёх предложений, Nutzwertanalyse, TCO, Leasing vs. Kauf, AfA, Amortisation, Break-even, Angebotspreis, SLA-Verfügbarkeit, Stromkosten, Lizenzstaffeln |
-| Netzwerke & Kommunikation | Netz-/Broadcastadresse, Subnetting, «в одной ли подсети», IPv6, Bandbreite, Zahlensysteme, PoE-Budget, OSI |
-| Datenformate & Speicherung | Speicherbedarf (архив, видео), Backup-Strategie, RAID |
-| Diagramme & Modelle | UML-Aktivitätsdiagramm (таблица узлов с проверкой нотации), ER-Modell, Use-Case, Netzplan, Gantt, Klassendiagramm |
-| Programmierung | Schreibtischtest по псевдокоду |
-| IT-Sicherheit | TOM, Phishing, Schutzziele, Passwortrichtlinie + MFA, Ransomware-Notfall |
-| Datenschutz & Recht | Betroffenenrechte DSGVO, Anonymisierung/Pseudonymisierung, Auftragsverarbeitung, Mängelrechte |
-| Projektmanagement | Wasserfall/Scrum, Lastenheft/Pflichtenheft, Projektstrukturplan, Risikomatrix, Tuckman, Testprotokoll |
-| Arbeitsplatz & Support | Konsolenbefehle + chmod, Dateisysteme, Domäne, Barrierefreiheit, Ergonomie, Ticketsystem, Übergabe |
-| Hardware / Software | выбор устройства с обоснованием, виртуальные десктопы и SaaS/DaaS |
+| Тема | Кол-во | Что генерируется |
+|---|---|---|
+| Netzwerke & Kommunikation | 15 | Netz-/Broadcastadresse, Subnetting, «в одной ли подсети», IPv6, MAC → Link-Local (EUI-64), ARP, DHCP/DORA, VPN, Bandbreite, PoE-Budget, OSI, Netzwerkdiagnose (ipconfig), IP-Konfigurationstabelle, Konsolenbefehle, Domäne |
+| IT-Sicherheit | 14 | TOM, Phishing, Schutzziele, Passwortrichtlinie + MFA, Ransomware-Notfall, Malware-Arten, Betriebssystemhärtung, Zertifikate & PKI, Kryptographie + Schlüsselanzahl, Hashfunktionen, Protokollierung, Zutrittskontrolle, Schutzbedarfsanalyse, **Berechtigungsmatrix** |
+| Hardware | 14 | выбор устройства с обоснованием, CPU-Kenndaten + Stromkosten, RAM & Dual Channel, USB-Standards + Übertragungszeit, Video-Schnittstellen + Datenrate, Netzteil & Leistungsaufnahme, Identifikationstechnologien (Barcode/QR/RFID/NFC), Speichermedien, Betriebssysteme & Lizenzen, Ergonomie, Barrierefreiheit, Ticketsystem, Virtualisierung, **Fehleranalyse Symptom → Ursache → Maßnahme** |
+| Projektmanagement | 15 | Wasserfall/Scrum, Lastenheft/Pflichtenheft, Projektstrukturplan, Risikomatrix, Tuckman, Testprotokoll, Netzplan, Gantt, SMART-Ziele, Stakeholderanalyse, funktionale/nicht-funktionale Anforderungen, Übergabe |
+| Wirtschaftlichkeit | 12 | TCO, AfA, Amortisation, Break-even, Angebotspreis, Stromkosten, Lizenzstaffeln, Laufende Kosten je Monat, Gesamtkosten über die Laufzeit, Marktformen, Darlehen/Tilgungsplan, Kostenrechnung & Deckungsbeitrag |
+| Datenformate & Speicherung | 10 | Speicherbedarf (архив, видео), RAID, JBOD & Speichersysteme, Dateiformate & Datenkonvertierung, Zahlensysteme, Dateisysteme, SLA-Verfügbarkeit, Backups, **Backup-Wochenplan** |
+| Softwareentwicklung | 9 | UML-Aktivitätsdiagramm, Use-Case, Klassendiagramm, Schreibtischtest, Pseudocode über Datensätzen, Programmiersprachen (Compiler/Interpreter), Webtechnologien |
+| Recht & Compliance | 6 | Betroffenenrechte DSGVO, Anonymisierung/Pseudonymisierung, Auftragsverarbeitung, Mängelrechte, Arbeitsrecht, Vertragsarten |
+| Beschaffung | 5 | сравнение трёх предложений, Bezugspreis, Nutzwertanalyse, Leasing vs. Kauf, Make-or-Buy |
+| Datenbanken | 4 | ER-Modell & Kardinalitäten, Relationenmodell, Normalisierung bis 3. NF, SQL lesen und ergänzen |
+| KI & Digitalisierung | 3 | KI-Grundbegriffe & Fehlerquote, verzerrte Trainingsdaten (Bias), KI und Datenschutz |
+
+Жирным отмечены четыре типа таблиц, которых раньше не было — а Tabellen это
+самая тяжёлая категория экзамена (≈23,5 балла за экзамен).
 
 Отдельный блок «проблемных» типов, добавленный по списку из практики:
 Laufende Kosten pro Monat (цена ÷ Nutzungsdauer + скидка + подписка + Wartung),
@@ -230,6 +248,156 @@ Musterantworten написаны простым немецким (B2): коро�
 «60 ÷ 36 aufrunden», «UML kennt kein n».
 
 ---
+## Prüfungssimulation — 90 минут
+
+Кнопка **«Prüfung starten»** в блоке генератора. Собирает лист не случайно,
+а по **измеренному распределению десяти настоящих экзаменов**:
+
+| Тема | BE |
+|---|---|
+| Kalkulation & Wirtschaft | 24 |
+| Netzwerke | 16 |
+| Hardware | 11 |
+| IT-Sicherheit | 10 |
+| Projektmanagement | 9 |
+| Daten & Speicher | 9 |
+| Software & UML | 8 |
+| Algorithmen | 7 |
+| Datenschutz & Recht | 4 |
+| Arbeitsplatz & Support | 3 |
+
+Итого 100 BE ± 5, 11–15 заданий, 90 минут обратного отсчёта. До сдачи
+заблокированы кнопки «Prüfen», «Lösung zeigen» и «Neu würfeln» — иначе это
+не экзамен, а обычная тренировка. Когда время выходит, лист сдаётся сам.
+
+После сдачи — обычный разбор плюс строка по времени: сколько минут ушло,
+пересчёт на 100 BE и сколько баллов осталось бы лежать при таком темпе.
+
+KI (≈2 BE) и Kommunikation (≈2 BE) в генераторе пока не покрыты — их доля
+честно перераспределена на остальные темы, и об этом написано прямо в блоке.
+
+---
+
+## Rechenweg и Folgefehler
+
+У каждого расчётного задания под полями результата появилось поле
+**«Rechenweg / Nebenrechnung»** — линованное, моноширинным шрифтом, как графа
+на настоящем бланке. Оно попадает и в печатный Prüfungsbogen (клетчатое поле
+рядом с заданием, а не только на листе Nebenrechnungen в конце).
+
+Проверка работает как настоящий корректор:
+
+* промежуточные значения берутся из эталонного решения задания;
+* после «Prüfen» показывается цепочка этих значений — зелёным те, что есть
+  в твоём расчёте, красным первое расхождение («ab 57,68 weicht es ab»);
+* если ход расчёта убедителен (≥3 значения и половина первых шести), а итог
+  неверный — **половина баллов** за числовые поля, ровно как на экзамене;
+* если хода расчёта нет, за неверный итог не даётся ничего, и об этом пишется
+  прямо: «Ohne nachvollziehbaren Rechenweg gibt es keine Teilpunkte».
+
+Поле стоит у 35 из 101 типа заданий — у тех, где действительно считают.
+
+---
+
+## Операторы IHK
+
+Под каждым текстовым полем — раскрывашка **«Hilfe zum Operator …»**. Оператор
+определяется по формулировке поля (а не всего задания), для полей, требующих
+целых предложений, показывается «Erläutern» даже если написано «Nennen».
+
+Внутри: что оператор требует, какой объём ожидается, типичная ловушка — и
+кликабельные каркасы фраз, которые вставляются в поле с курсором на первом
+пропуске:
+
+* Erläutern → «… . Dadurch wird … .»
+* Begründen → «… ist sinnvoll, weil … . Dadurch … .»
+* Beurteilen → «Dafür spricht, dass … . Dagegen spricht, dass … . Insgesamt … .»
+* Vergleichen → «Bei … ist … , bei … dagegen … .»
+
+Кнопка **«Operatoren-Blatt ansehen und drucken»** — та же таблица на A4 рядом
+с Formelblatt.
+
+---
+
+## Fehlerjournal
+
+Каждое проверенное задание, где не набраны все баллы, автоматически попадает
+в журнал — из генератора и из настоящих экзаменов (там по твоей самооценке,
+когда ставишь меньше максимума). **Одна запись на задание**, не на поле.
+
+В записи: дата, тип задания, какие поля не сошлись, твой ответ и правильный,
+подсказка проверки. Ниже шесть кнопок-причин:
+
+`Einheit / Rundung` · `falsch gelesen` · `Rechenweg fehlte` · `zu knapp` ·
+`nicht gewusst` · `Zeit`
+
+Причину часто ставит сама программа: если проверка написала «Zahl stimmt,
+Einheit nicht» → *Einheit / Rundung*; «zu knapp — das ist eine Nennung» →
+*zu knapp*; если сработал Folgefehler или хода расчёта не было → *Rechenweg
+fehlte*. Остальное — один клик.
+
+Сверху сводка за 21 день: сколько ошибок, сколько баллов на них потеряно,
+столбики по причинам и вывод вида «78 % твоих ошибок — не пробел в знаниях».
+У каждой записи кнопки «этот тип поупражнять» и «отметить сделанным».
+
+---
+
+## Rechenweg в настоящих экзаменах
+
+Из 279 подзаданий 43 — расчётные. У 37 из них (158 баллов, ~16 за экзамен)
+под текстовым полем теперь стоит **Rechenweg / Nebenrechnung**: линованное
+поле моноширинным шрифтом.
+
+Промежуточные значения тянутся из Musterlösung самого экзамена. Пока решение
+скрыто, поле просто пишется. Как только нажмёшь «Lösungen einblenden» —
+появляется цепочка значений: зелёным те, что есть у тебя, красным первое
+расхождение, и вывод «Der Rechenweg trägt — в экзамене за это была бы половина
+баллов, не забудь при самооценке».
+
+Текст хода расчёта попадает в антвортtext, значит и в экспорт, и в печать.
+
+---
+
+## Калибровка симуляции
+
+В генераторе 21 % баллов приходилось на задания «выбери из списка»
+(Zuordnung, Ankreuzen, richtig/falsch), в настоящих экзаменах — 2 %. Симуляция
+из-за этого показывала процент выше реального.
+
+Сделано два шага:
+
+1. **Подбор**: шаблоны с высокой долей «клика» тянутся реже (вес
+   `1 / (1 + 4 × доля)`). Средняя доля упала с 21 % до 12 % при тех же 100 BE.
+2. **Честный пересчёт после сдачи**: считается отдельно квота по «кликовым»
+   и по свободным заданиям, потом смешивается в пропорции настоящего экзамена
+   (2 % / 98 %). Если разница есть, показывается блок «Realistischer Wert: X %
+   statt Y %» с объяснением.
+
+---
+
+## Телефон и планшет
+
+`index.html` открывается и с телефона — вёрстка перестраивается сама, ничего
+включать не надо.
+
+Что меняется на экране уже 700 px и уже:
+
+* шапка сжимается в одну строку, чтобы не съедать пол-экрана;
+* кнопки идут по две в ряд, минимальная высота 40 px под палец;
+* все поля ввода не меньше 16 px — иначе iOS при касании зумит страницу;
+* широкие таблицы (Netzplan, Klassendiagramm, Raster, Zuordnung) прокручиваются
+  внутри себя, страница вбок не уезжает; над такой таблицей появляется подсказка
+  «← seitwärts wischen →»;
+* колонка с баллами уходит из-под задания вниз, отдельной полоской;
+* мастер генератора, Satzbau-Trainer и статистика становятся одноколоночными.
+
+Как открыть на телефоне, если проект лежит на компьютере: положить папку
+`ihk-sim` целиком в облако (OneDrive, Google Drive, Dropbox), открыть оттуда
+`index.html` в браузере телефона. Прогресс хранится в localStorage браузера —
+на телефоне он будет свой, отдельный от компьютера.
+
+---
+
 ## Как пользоваться
 
 Открой `index.html`. Всё остальное — из интерфейса.
@@ -350,7 +518,14 @@ ihk-sim/
 │   ├── exam-diagramme.js   табличный ввод для диаграмм в настоящих экзаменах
 │   ├── satzbausteine.js    51 карточка для Satzbau-Training
 │   ├── satzbau.js          интерфейс Satzbau-Training
-│   └── formeln.js          Formelblatt A4
+│   ├── formeln.js          Formelblatt A4
+│   ├── operatoren.js       IHK-операторы: помощь в поле + лист A4
+│   ├── simulation.js       Prüfungssimulation 90 минут по весам экзаменов
+│   ├── fehlerjournal.js    журнал ошибок с разбором причин
+│   ├── exam-rechenweg.js   Rechenweg-поле в настоящих экзаменах
+│   ├── fortschritt.js      экспорт/импорт забирает и данные генератора
+│   ├── mobil.css           вёрстка для телефона и планшета
+│   └── mobil.js            подсказки «листай вбок», высота липкой шапки
 ├── exams/
 │   ├── exams.js            собранные данные, их читает index.html
 │   ├── ap1-YYYY-x.json     готовый экзамен (схема v2)

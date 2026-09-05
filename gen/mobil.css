@@ -1,0 +1,245 @@
+/* ============================================================================
+   gen/mobil.css — Handy- und Tabletansicht
+   ----------------------------------------------------------------------------
+   Wird als LETZTES Stylesheet geladen und überschreibt die Desktopregeln nur
+   unterhalb der jeweiligen Breite. Am Desktop ändert sich nichts.
+
+   Leitgedanken:
+   • Eingabefelder mindestens 16 px Schriftgröße — sonst zoomt iOS beim Antippen
+     in das Feld hinein und die Seite verrutscht.
+   • Tippflächen mindestens 40 px hoch.
+   • Breite Tabellen scrollen in sich selbst, statt die ganze Seite zu verbreitern.
+   • Zweispaltiges wird einspaltig, der Punkte-Rand wandert unter die Aufgabe.
+   ========================================================================== */
+
+/* ====================================================== Tablet ≤ 980px === */
+@media (max-width: 980px) {
+  .kopf-in { padding: 10px 14px 8px; gap: 10px; }
+  .seite   { padding: 18px 14px 120px; }
+  .blatt   { padding: 16px 14px 130px; }
+  .fuss-in { padding: 9px 14px; gap: 10px; }
+  .karten  { grid-template-columns: 1fr 1fr; }
+}
+
+/* ======================================================= Handy ≤ 700px === */
+@media (max-width: 700px) {
+
+  /* ---------- Grundgerüst ---------- */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+
+  .kopf-in  { padding: 7px 12px 6px; gap: 9px; align-items: center; flex-wrap: wrap; }
+  .seite    { padding: 16px 12px 150px; }
+  .blatt    { padding: 14px 12px 150px; grid-template-columns: 1fr; }
+  .abschnitt{ margin-bottom: 26px; }
+
+  /* Kopf so flach wie möglich — er klebt oben und frisst sonst den halben Schirm */
+  .marke         { font-size: 13px; flex: 0 0 auto; }
+  .marke small   { display: none; }
+  .kopf-titel    { flex: 1 1 40%; min-width: 0; }
+  .kopf-titel h1 { font-size: 15.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kopf-titel .eyebrow { font-size: 8.5px; letter-spacing: .1em; }
+  .kopf-meta     { flex: 0 1 auto; gap: 9px; flex-wrap: wrap; max-width: 100%;
+                   justify-content: flex-end; min-width: 0; }
+  .kopf-meta .btn{ min-height: 32px; padding: 5px 9px; font-size: 11px; }
+  .messwert      { text-align: left; }
+  .messwert .eyebrow { font-size: 8.5px; }
+  .messwert b    { font-size: 13.5px; }
+  .uhr           { font-size: 17px; }
+  /* die Schalter im Prüfungskopf klein halten, der Kopf klebt oben */
+  .kopf-meta label { font-size: 11px; gap: 5px; }
+  .kopf-meta label input[type=checkbox] { width: 16px; height: 16px; }
+
+  .seite h2 { font-size: 18px; }
+  .seite h2 + p { font-size: 13.5px; }
+
+  /* ---------- Tippflächen ---------- */
+  .btn {
+    min-height: 40px; padding: 9px 14px; font-size: 13px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .btn.klein { min-height: 34px; padding: 7px 11px; font-size: 12px; }
+  .chip      { min-height: 34px; padding: 7px 13px; display: inline-flex; align-items: center; }
+
+  /* iOS zoomt in Felder mit weniger als 16px Schrift hinein */
+  input, select, textarea,
+  .feld select, .feld input[type=number], .feld input[type=text], .feld input[type=search],
+  table.gzuo select, table.graster input, table.gknoten input, table.gknoten select,
+  table.gmodell input, .gfeld input, .gfeld textarea {
+    font-size: 16px !important;
+  }
+  .feld select, .feld input { min-height: 42px; }
+  input[type=checkbox], input[type=radio] { width: 20px; height: 20px; }
+
+  /* ---------- Startseite ---------- */
+  .karten { grid-template-columns: 1fr; gap: 12px; }
+  .chips  {
+    flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  }
+  .chips .chip { flex: 0 0 auto; }
+  .steuer { flex-direction: column; align-items: stretch; gap: 10px; }
+  .steuer .feld { width: 100%; }
+
+  .hero { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .hero .txt { grid-column: 1 / -1; }
+
+  /* ---------- Aufgabenkarte: Punkte-Rand nach unten ---------- */
+  .tk { grid-template-columns: 1fr; }
+  .tk-haupt { padding: 14px 14px 14px; }
+  .tk-rand {
+    border-left: 0; border-top: 1px solid var(--rule);
+    flex-direction: row; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; padding: 10px 14px;
+  }
+  .punkte-wahl { justify-content: flex-start; }
+  .punkte-wahl button { width: 32px; height: 32px; font-size: 13px; }
+
+  .aufgabe-kopf { flex-wrap: wrap; gap: 6px 12px; }
+  .aufgabe-intro { flex: 1 1 100%; font-size: 13px; }
+  .tk-frage { font-size: 15px; }
+  .rand { position: static !important; }
+
+  /* ---------- Tabellen scrollen in sich selbst ---------- */
+  table.gdaten, table.gzuo, table.graster, table.gwf, table.gknoten,
+  table.gmodell, table.tab, table.prio, table.bringer {
+    display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    max-width: 100%; width: 100%;
+    /* die Desktopregeln setzen hier min-width: 620px o. ä. — das würde die
+       ganze Seite auseinanderziehen. Die Mindestbreite gehört an die ZELLEN. */
+    min-width: 0 !important;
+  }
+  .ex-dia, .ex-dia-kopf, .gfeld, .gaufgabe-in { max-width: 100%; overflow-x: auto; }
+  table.gdaten thead, table.gzuo thead, table.graster thead, table.gwf thead,
+  table.gknoten thead, table.gmodell thead, table.tab thead,
+  table.prio thead, table.bringer thead { display: table-header-group; }
+  table.graster th, table.graster td,
+  table.gknoten th, table.gknoten td,
+  table.gmodell th, table.gmodell td { min-width: 108px; }
+  table.graster td:first-child, table.gknoten td:first-child { min-width: 150px; }
+  table.gdaten td:first-child { min-width: 140px; }
+  .gtab-rollen { overflow-x: auto; }
+  table.gwf .wf { gap: 18px; }
+
+  /* Hinweis, dass seitwärts gewischt werden kann */
+  .g-wisch {
+    font-family: var(--display); text-transform: uppercase; letter-spacing: .1em;
+    font-size: 9.5px; color: var(--muted); margin: -8px 0 8px;
+  }
+
+  /* ---------- Generator: Assistent ---------- */
+  .gen-kopf { flex-direction: column; align-items: stretch; gap: 10px; }
+  .gen-kopf .btn { width: 100%; }
+  .gen-schritt { padding: 14px 12px; }
+  .gen-knopfzeile { flex-direction: column; align-items: stretch; gap: 8px; }
+  .gen-knopfzeile .btn { width: 100%; }
+  .gen-knopfzeile .weit { display: none; }
+
+  .gen-modus { grid-template-columns: 1fr !important; }
+  .gen-werkzeug { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .gen-werkzeug .btn { width: 100%; min-width: 0; white-space: normal; line-height: 1.25;
+    font-size: 11px; padding: 8px 5px; }
+  .gen-werkzeug .btn:last-child { grid-column: 1 / -1; }
+  .gen-schnell .chip { min-width: 44px; justify-content: center; }
+
+  .wahlzeile { padding: 12px 10px; gap: 10px; }
+  .wahlzeile .name { flex-wrap: wrap; gap: 4px; }
+  .wahlzeile .unter { font-size: 12px; }
+  .wahlzeile.gross { flex-wrap: wrap; }
+  .wahlzeile .wz-auf { width: 100%; text-align: left; padding: 6px 0 0; }
+  .wz-subs { padding-left: 12px; }
+
+  /* ---------- Generator: Arbeitsblatt ---------- */
+  /* Zwei Knöpfe je Zeile statt sieben Zeilen untereinander. Grid statt Flex,
+     weil lange Beschriftungen einen Flex-Knopf sonst auf volle Breite zwingen. */
+  .gen-leiste {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+    padding: 8px 0 10px; margin-bottom: 14px;
+  }
+  .gen-leiste .btn {
+    width: 100%; min-width: 0; white-space: normal; line-height: 1.25;
+    font-size: 11.5px; padding: 9px 6px; min-height: 42px;
+  }
+  .gen-leiste > *:not(.btn) { grid-column: 1 / -1; }
+  .gen-uhr { font-size: 20px; }
+  .gaufgabe-in { padding: 14px 12px; }
+  .gfrage { font-size: 15px; }
+  .gchips { flex-wrap: wrap; }
+  .gloesung-txt, .gloesung pre { font-size: 12.5px; }
+  .gmerksatz { font-size: 13px; }
+
+  /* ---------- Satzbau-Trainer ---------- */
+  .satz-karte { padding: 14px 12px; }
+  .satz-kopf { flex-wrap: wrap; gap: 6px; }
+  .satz-frage { font-size: 15.5px; }
+  .satz-chips { flex-wrap: wrap; }
+  .satz-rueck { font-size: 13px; }
+
+  /* ---------- Fußleiste ---------- */
+  .fuss-in { padding: 7px 10px; gap: 6px; }
+  .fuss-in .btn { min-height: 36px; padding: 7px 9px; font-size: 11.5px;
+    white-space: normal; line-height: 1.2; flex: 1 1 auto; min-width: 0; }
+  .fuss-in   { flex-wrap: wrap; max-width: 100%; }
+  .fuss-stat { font-size: 11.5px; flex: 1 1 100%; order: -1;
+               min-width: 0; white-space: normal; line-height: 1.35; }
+  .spacer { display: none; }
+
+  /* Platz für die Fußleiste, damit nichts darunter verschwindet */
+  #scGen, #scStart, .blatt { padding-bottom: 160px; }
+
+  .toast { bottom: 96px; max-width: 92vw; }
+
+  /* ---------- Vollbild-Ansichten (Druckbogen, Formelblatt) ---------- */
+  .dr-seite { width: auto !important; min-height: 0 !important; padding: 16px 12px !important; }
+  .dr-formeln { grid-template-columns: 1fr !important; }
+  .dr-kariert { max-width: 100%; overflow-x: auto; }
+}
+
+/* ================================= sehr schmal / Hochkant ≤ 400px ======== */
+@media (max-width: 400px) {
+  .kopf-titel h1 { font-size: 15.5px; }
+  .seite, .blatt { padding-left: 10px; padding-right: 10px; }
+  .hero { grid-template-columns: 1fr !important; }
+  .gen-werkzeug .btn { flex: 1 1 100%; }
+  .gen-leiste .btn { flex: 1 1 100%; }
+}
+
+/* =========================== Geräte ohne Maus: kein Hover-Flackern ======= */
+@media (hover: none) {
+  .btn:hover { border-color: var(--rule); }
+  .chip:hover { border-color: var(--rule); }
+  .inhalt li:hover { color: inherit; }
+}
+
+/* ---------- Nachträge: Rechenweg, Operatoren, Simulation ---------- */
+@media (max-width: 700px) {
+  .gfeld.gweg{padding:10px}
+  textarea.gweg-feld{font-size:16px !important; line-height:1.8}
+  .gweg-kette{gap:4px}
+  .gweg-wert{font-size:11.5px; padding:2px 7px}
+  .op-zeile{grid-template-columns:1fr; gap:1px}
+  .op-lbl{padding-top:4px}
+  .op-chip{font-size:12px; padding:6px 11px}
+  .sim-kopf{flex-direction:column; align-items:stretch}
+  .sim-kopf .btn{width:100%}
+  .sim-zeile{grid-template-columns:120px 1fr 46px; gap:7px; font-size:11.5px}
+}
+
+/* ---------- Nachträge: Fehlerjournal, Rechenweg in der Prüfung ---------- */
+@media (max-width: 700px) {
+  .fj-box, .sim-box { padding: 13px 12px; }
+  .fj-kopf { flex-direction: column; align-items: stretch; gap: 8px; }
+  .fj-kopf .btn { width: 100%; }
+  .fj-zeile { grid-template-columns: 110px 1fr 26px; gap: 7px; font-size: 11.5px; }
+  .fj-eintrag { padding: 9px 10px; }
+  .fj-ekopf { gap: 6px; }
+  .fj-titel { flex: 1 1 100%; font-size: 13px; }
+  .fj-chips { gap: 4px; }
+  .fj-chip { font-size: 11.5px; padding: 5px 10px; }
+  .fj-wz { gap: 6px; }
+  .fj-rat { flex: 1 1 100%; min-width: 0; }
+  .exw-box { padding: 10px; }
+  textarea.exw-feld { font-size: 16px !important; line-height: 1.8; }
+  .exw-kette { gap: 4px; }
+  .exw-wert { font-size: 11.5px; padding: 2px 7px; }
+}

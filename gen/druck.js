@@ -217,11 +217,23 @@ window.GENDRUCK = (function () {
   }
 
   function feldDruck(f) {
-    const box = el("div", "dr-feld");
+    const box = el("div", "dr-feld" + (f.typ === "rechenweg" ? " dr-weg" : ""));
     const kopf = el("div", "dr-fkopf");
     kopf.appendChild(el("span", "dr-flabel", f.label + (f.einheit ? "  [" + f.einheit + "]" : "")));
-    kopf.appendChild(el("span", "dr-fbe", nz(f.be) + " BE"));
+    kopf.appendChild(el("span", "dr-fbe", f.typ === "rechenweg" ? "Folgefehler" : nz(f.be) + " BE"));
     box.appendChild(kopf);
+
+    /* Rechenweg: kariertes Feld direkt bei der Aufgabe statt hinten auf dem
+       Schmierblatt — auf dem echten Bogen steht er auch dort.            */
+    if (f.typ === "rechenweg") {
+      box.appendChild(el("div", "dr-klein",
+        "Jeden Rechenschritt in eine eigene Zeile. Stimmt der Weg und nur das " +
+        "Ergebnis nicht, gibt es die halbe Punktzahl."));
+      const k = el("div", "dr-kariert dr-wegfeld");
+      k.style.height = Math.min(74, 26 + (f.soll || []).length * 5) + "mm";
+      box.appendChild(k);
+      return box;
+    }
 
     if (f.typ === "auswahl" || f.typ === "mehrfachwahl") {
       const ul = el("div", "dr-kreuze");

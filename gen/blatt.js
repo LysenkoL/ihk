@@ -159,7 +159,7 @@ window.GENUI = (function () {
     const zeilen = Object.keys(STAT).map(id => {
       const s = STAT[id], v = G.vorlageVon(id);
       if (!v || !s.max) return null;
-      return { id, titel: v.titel, thema: G.THEMEN_LABEL[v.thema] || v.thema, quote: s.punkte / s.max, n: s.versuche };
+      return { id, titel: v.titel, thema: (G.HAUPT_LABEL && G.HAUPT_LABEL[G.hauptVon(v)]) || G.THEMEN_LABEL[v.thema] || v.thema, quote: s.punkte / s.max, n: s.versuche };
     }).filter(Boolean).filter(x => x.n >= 1).sort((a, b) => a.quote - b.quote).slice(0, 6);
     const box = el("div");
     box.style.marginTop = "22px";
@@ -184,13 +184,31 @@ window.GENUI = (function () {
   }
 
   /* ======================= Assistent ==================================== */
-  let wahl = { themen: [], subs: [], anzahl: 10, stufen: [] };
+  /* Ein Schirm statt drei Schritten. Kein 1–3-Limit mehr: alles ist
+     vorausgewählt, du legst die Anzahl fest und hakst nur ab, was heute
+     NICHT drankommen soll.                                              */
+
+  let wahl = {
+    modus: "gezielt",        // "zufall" | "gezielt"
+    themenAus: [],           // abgewählte Hauptthemen
+    subsAus: [],             // abgewählte Unterthemen
+    offen: [],               // aufgeklappte Hauptthemen
+    anzahl: 10, stufen: [], zeit: 1
+  };
 
   function assistent() {
-    const letzte = store.get(SK.letzte, null);
-    wahl = { themen: [], subs: [], anzahl: (letzte && letzte.anzahl) || 10, stufen: [] };
+    const letzte = store.get(SK.letzte, null) || {};
+    wahl = {
+      modus: letzte.modus || "gezielt",
+      themenAus: (letzte.themenAus || []).slice(),
+      subsAus: (letzte.subsAus || []).slice(),
+      offen: [],
+      anzahl: letzte.anzahl || 10,
+      stufen: letzte.stufen || [],
+      zeit: letzte.zeit == null ? 1 : letzte.zeit
+    };
     schirmGen();
-    schritt1();
+    zeichneAssistent();
   }
 
   function schirmGen() { seiteAnlegen(); window.schirm("scGen"); }
@@ -199,117 +217,46 @@ window.GENUI = (function () {
     $("kTitel").textContent = titel;
   }
 
-  function schritt1() {
+  /* --- Auswahl -> Liste der erlaubten Vorlagen ------------------------- */
+  function gewaehlteVorlagen() {
+    let p = G.alleVorlagen();
+    if (wahl.modus === "gezielt") {
+      p = p.filter(v => !wahl.themenAus.includes(G.hauptVon(v)) && !wahl.subsAus.includes(v.sub));
+    }
+    if (wahl.stufen.length) p = p.filter(v => wahl.stufen.includes(v.stufe));
+    return p;
+  }
+
+  function zeichneAssistent() {
     kopfTitel("Generator", "Neues Arbeitsblatt");
     const w = $("genInhalt"); w.innerHTML = "";
     const k = el("div", "gen-schritt");
-    k.appendChild(el("h3", null, "Wähle 1–3 Hauptthemen"));
-    k.appendChild(el("p", null, "Aus den gewählten Themen wird dein Arbeitsblatt gemischt."));
 
-    const themen = G.themenBaum();
-    const zaehler = el("div", "gen-zaehler");
-    const weiter = el("button", "btn primary", "Weiter →");
-
-    function stand() {
-      zaehler.textContent = wahl.themen.length + " von 3 Themen ausgewählt";
-      weiter.disabled = wahl.themen.length === 0;
-      [...k.querySelectorAll(".wahlzeile")].forEach(z => {
-        const an = wahl.themen.includes(z.dataset.key);
-        z.classList.toggle("an", an);
-        z.classList.toggle("aus", !an && wahl.themen.length >= 3);
-        z.querySelector("input").disabled = !an && wahl.themen.length >= 3;
-      });
-    }
-
-    themen.forEach(t => {
-      const z = el("label", "wahlzeile"); z.dataset.key = t.key;
-      const cb = el("input"); cb.type = "checkbox";
-      cb.onchange = () => {
-        if (cb.checked) { if (wahl.themen.length < 3) wahl.themen.push(t.key); else cb.checked = false; }
-        else wahl.themen = wahl.themen.filter(x => x !== t.key);
-        stand();
-      };
-      const txt = el("div", "txt");
-      const name = el("div", "name");
-      name.appendChild(el("span", null, t.label));
-      name.appendChild(el("span", "zahl", t.n + (t.n === 1 ? " Aufgabentyp" : " Aufgabentypen")));
-      txt.appendChild(name);
-      txt.appendChild(el("div", "unter", t.subs.slice(0, 4).map(s => s.label).join(" · ")));
-      z.append(cb, txt);
-      k.appendChild(z);
-    });
-
-    k.appendChild(zaehler);
-    const zeile = el("div", "gen-knopfzeile");
-    const alles = el("button", "btn", "Alles gemischt (Prüfungssimulation)");
-    alles.onclick = () => { wahl.themen = []; wahl.subs = []; schritt3(); };
-    const zurueck = el("button", "btn ghost", "abbrechen");
-    zurueck.onclick = () => { window.schirm("scStart"); };
-    weiter.onclick = () => schritt2();
-    zeile.append(weiter, alles, el("span", "weit"), zurueck);
-    k.appendChild(zeile);
-    w.appendChild(k);
-    stand();
-  }
-
-  function schritt2() {
-    const themen = G.themenBaum().filter(t => wahl.themen.includes(t.key));
-    const subs = [];
-    themen.forEach(t => t.subs.forEach(s => subs.push({ thema: t.label, ...s })));
-    if (subs.length <= 1) { wahl.subs = []; return schritt3(); }
-
-    const w = $("genInhalt"); w.innerHTML = "";
-    const k = el("div", "gen-schritt");
-    k.appendChild(el("h3", null, "Verfeinere deine Auswahl"));
-    k.appendChild(el("p", null, "Welche Unterthemen sollen vorkommen? Nichts anhaken = alle."));
-    wahl.subs = [];
-
-    subs.sort((a, b) => b.n - a.n).forEach(s => {
-      const z = el("label", "wahlzeile"); z.dataset.key = s.key;
-      const cb = el("input"); cb.type = "checkbox";
-      cb.onchange = () => {
-        if (cb.checked) wahl.subs.push(s.key); else wahl.subs = wahl.subs.filter(x => x !== s.key);
-        z.classList.toggle("an", cb.checked);
-      };
-      const txt = el("div", "txt");
-      const name = el("div", "name");
-      name.appendChild(el("span", null, s.label));
-      name.appendChild(el("span", "zahl", s.n + (s.n === 1 ? " Aufgabentyp" : " Aufgabentypen")));
-      txt.appendChild(name);
-      txt.appendChild(el("div", "unter", s.thema));
-      z.append(cb, txt);
-      k.appendChild(z);
-    });
-
-    const zeile = el("div", "gen-knopfzeile");
-    const weiter = el("button", "btn primary", "Weiter →");
-    weiter.onclick = () => schritt3();
-    const alle = el("button", "btn", "alle Unterthemen");
-    alle.onclick = () => { wahl.subs = []; schritt3(); };
-    const zurueck = el("button", "btn ghost", "← zurück");
-    zurueck.onclick = () => schritt1();
-    zeile.append(weiter, alle, el("span", "weit"), zurueck);
-    k.appendChild(zeile);
-    w.appendChild(k);
-  }
-
-  function schritt3() {
-    const w = $("genInhalt"); w.innerHTML = "";
-    const k = el("div", "gen-schritt");
-    k.appendChild(el("h3", null, "Umfang festlegen"));
-    k.appendChild(el("p", null, "Für 90 Prüfungsminuten sind rund 100 BE realistisch — ein Übungsblatt darf kürzer sein."));
+    /* ---------- 1. Umfang ---------- */
+    k.appendChild(el("h3", null, "Wie viele Aufgaben?"));
+    k.appendChild(el("p", null,
+      "Für 90 Prüfungsminuten sind rund 100 BE realistisch — das sind etwa 20–25 Aufgaben. Ein Übungsblatt darf kürzer sein."));
 
     const steuer = el("div", "steuer");
+
     const fAnz = el("div", "feld");
     fAnz.appendChild(el("span", "eyebrow", "Anzahl Aufgaben"));
-    const inAnz = el("input"); inAnz.type = "number"; inAnz.min = 1; inAnz.max = 40; inAnz.value = wahl.anzahl;
+    const inAnz = el("input"); inAnz.type = "number"; inAnz.min = 1; inAnz.max = 60; inAnz.value = wahl.anzahl;
     fAnz.appendChild(inAnz);
+    const schnell = el("div", "gen-schnell");
+    [5, 10, 15, 20, 25, 40].forEach(n => {
+      const b = el("button", "chip", String(n));
+      b.onclick = () => { inAnz.value = n; wahl.anzahl = n; stand(); };
+      schnell.appendChild(b);
+    });
+    fAnz.appendChild(schnell);
 
     const fStufe = el("div", "feld");
     fStufe.appendChild(el("span", "eyebrow", "Schwierigkeit"));
     const selStufe = el("select");
     [["", "alle Stufen"], ["1", "Aufwärmen (leicht)"], ["2", "Prüfungsniveau"], ["3", "knifflig"]]
       .forEach(([v, t]) => { const o = el("option", null, t); o.value = v; selStufe.appendChild(o); });
+    selStufe.value = wahl.stufen.length ? String(wahl.stufen[0]) : "";
     fStufe.appendChild(selStufe);
 
     const fZeit = el("div", "feld");
@@ -317,48 +264,192 @@ window.GENUI = (function () {
     const selZeit = el("select");
     [["0", "ohne Uhr"], ["1", "Uhr mitlaufen lassen"], ["2", "Prüfungszeit (0,9 min je BE)"]]
       .forEach(([v, t]) => { const o = el("option", null, t); o.value = v; selZeit.appendChild(o); });
-    selZeit.value = "1";
+    selZeit.value = String(wahl.zeit);
     fZeit.appendChild(selZeit);
 
     steuer.append(fAnz, fStufe, fZeit);
     k.appendChild(steuer);
 
-    const vorschau = el("div", "gen-zaehler");
-    function stand() {
-      const pool = passendeVorlagen(selStufe.value ? [+selStufe.value] : []);
-      vorschau.textContent = pool.length
-        ? pool.length + " passende Aufgabentypen · geschätzt " + Math.round(+inAnz.value * 4.5) + " BE"
-        : "Zu dieser Auswahl gibt es keine Aufgaben — Schwierigkeit lockern.";
+    /* ---------- 2. Modus ---------- */
+    const modus = el("div", "gen-modus");
+    const karten = [
+      { key: "zufall", titel: "Zufall — alles gemischt", text: "Aus allen " + G.alleVorlagen().length + " Aufgabentypen, quer über alle Themen. Wie in der echten Prüfung: du weißt vorher nicht, was kommt." },
+      { key: "gezielt", titel: "Gezielt auswählen", text: "Alle Themen sind angehakt. Nimm die Haken weg bei allem, was heute nicht drankommen soll." }
+    ];
+    karten.forEach(m => {
+      const kar = el("button", "gen-moduskarte" + (wahl.modus === m.key ? " an" : ""));
+      kar.type = "button";
+      kar.appendChild(el("div", "mt", m.titel));
+      kar.appendChild(el("div", "mx", m.text));
+      kar.onclick = () => { wahl.modus = m.key; zeichneAssistentErhalten(inAnz, selStufe, selZeit); };
+      modus.appendChild(kar);
+    });
+    k.appendChild(modus);
+
+    /* ---------- 3. Themenbaum (nur im gezielten Modus) ---------- */
+    const baumBox = el("div", "gen-baum");
+    if (wahl.modus === "gezielt") {
+      const themen = G.themenBaum();
+
+      const werkzeug = el("div", "gen-werkzeug");
+      const bAlle = el("button", "btn ghost klein", "alle anhaken");
+      bAlle.onclick = () => { wahl.themenAus = []; wahl.subsAus = []; zeichneAssistentErhalten(inAnz, selStufe, selZeit); };
+      const bKeins = el("button", "btn ghost klein", "alle abwählen");
+      bKeins.onclick = () => {
+        wahl.themenAus = themen.map(t => t.key); wahl.subsAus = [];
+        zeichneAssistentErhalten(inAnz, selStufe, selZeit);
+      };
+      const bSchwach = el("button", "btn ghost klein", "nur meine Schwächen");
+      bSchwach.onclick = () => {
+        const schwach = schwacheIds();
+        if (!schwach.length) { hinweisZeile.textContent = "Noch zu wenig Statistik — löse erst ein paar Aufgaben."; return; }
+        erzeugeBlatt({ ids: schwach, anzahl: Math.max(1, Math.min(60, +inAnz.value || 10)),
+                       stufen: [], zeit: +selZeit.value, titel: "Meine Schwächen" });
+      };
+      werkzeug.append(bAlle, bKeins, bSchwach);
+      baumBox.appendChild(werkzeug);
+
+      themen.forEach(t => {
+        const anT = !wahl.themenAus.includes(t.key);
+        const zeile = el("div", "wahlzeile gross" + (anT ? " an" : ""));
+        const lab = el("label", "wz-haupt");
+        const cb = el("input"); cb.type = "checkbox"; cb.checked = anT;
+        cb.onchange = () => {
+          if (cb.checked) {
+            wahl.themenAus = wahl.themenAus.filter(x => x !== t.key);
+            wahl.subsAus = wahl.subsAus.filter(x => !t.subs.some(s => s.key === x));
+          } else {
+            wahl.themenAus.push(t.key);
+          }
+          zeichneAssistentErhalten(inAnz, selStufe, selZeit);
+        };
+        const txt = el("div", "txt");
+        const name = el("div", "name");
+        name.appendChild(el("span", null, t.label));
+        const aktiv = t.subs.filter(s => anT && !wahl.subsAus.includes(s.key)).reduce((n, s) => n + s.n, 0);
+        name.appendChild(el("span", "zahl", aktiv === t.n ? t.n + " Aufgaben" : aktiv + " von " + t.n + " Aufgaben"));
+        txt.appendChild(name);
+        txt.appendChild(el("div", "unter", t.subs.slice(0, 4).map(s => s.label).join(" · ")));
+        lab.append(cb, txt);
+        zeile.appendChild(lab);
+
+        const auf = el("button", "wz-auf", wahl.offen.includes(t.key) ? "▲ Unterthemen" : "▼ Unterthemen (" + t.subs.length + ")");
+        auf.type = "button";
+        auf.onclick = () => {
+          wahl.offen = wahl.offen.includes(t.key) ? wahl.offen.filter(x => x !== t.key) : wahl.offen.concat(t.key);
+          zeichneAssistentErhalten(inAnz, selStufe, selZeit);
+        };
+        zeile.appendChild(auf);
+        baumBox.appendChild(zeile);
+
+        if (wahl.offen.includes(t.key)) {
+          const sBox = el("div", "wz-subs");
+          t.subs.forEach(s => {
+            const anS = anT && !wahl.subsAus.includes(s.key);
+            const sl = el("label", "wahlzeile klein" + (anS ? " an" : ""));
+            const scb = el("input"); scb.type = "checkbox"; scb.checked = anS; scb.disabled = !anT;
+            scb.onchange = () => {
+              if (scb.checked) wahl.subsAus = wahl.subsAus.filter(x => x !== s.key);
+              else wahl.subsAus.push(s.key);
+              zeichneAssistentErhalten(inAnz, selStufe, selZeit);
+            };
+            const st = el("div", "txt");
+            const sn = el("div", "name");
+            sn.appendChild(el("span", null, s.label));
+            sn.appendChild(el("span", "zahl", s.n + (s.n === 1 ? " Aufgabe" : " Aufgaben")));
+            st.appendChild(sn);
+            sl.append(scb, st);
+            sBox.appendChild(sl);
+          });
+          baumBox.appendChild(sBox);
+        }
+      });
     }
-    inAnz.oninput = stand; selStufe.onchange = stand; stand();
+    k.appendChild(baumBox);
+
+    /* ---------- 4. Fuß ---------- */
+    const vorschau = el("div", "gen-zaehler");
+    const hinweisZeile = el("div", "gen-zaehler");
     k.appendChild(vorschau);
+    k.appendChild(hinweisZeile);
 
     const zeile = el("div", "gen-knopfzeile");
     const los = el("button", "btn primary", "Arbeitsblatt erzeugen");
-    los.onclick = () => {
-      wahl.anzahl = Math.max(1, Math.min(40, +inAnz.value || 10));
-      wahl.stufen = selStufe.value ? [+selStufe.value] : [];
-      store.set(SK.letzte, { anzahl: wahl.anzahl });
-      erzeugeBlatt({ themen: wahl.themen, subs: wahl.subs, anzahl: wahl.anzahl, stufen: wahl.stufen, zeit: +selZeit.value });
-    };
-    const zurueck = el("button", "btn ghost", "← zurück");
-    zurueck.onclick = () => (wahl.themen.length ? schritt2() : schritt1());
+    const zurueck = el("button", "btn ghost", "abbrechen");
+    zurueck.onclick = () => window.schirm("scStart");
     zeile.append(los, el("span", "weit"), zurueck);
     k.appendChild(zeile);
     w.appendChild(k);
+
+    function stand() {
+      wahl.anzahl = Math.max(1, Math.min(60, +inAnz.value || 10));
+      wahl.stufen = selStufe.value ? [+selStufe.value] : [];
+      wahl.zeit = +selZeit.value;
+      const pool = gewaehlteVorlagen();
+      const beSchnitt = 4.5;
+      vorschau.textContent = pool.length
+        ? pool.length + " passende Aufgabentypen · " + wahl.anzahl + " Aufgaben · geschätzt " + Math.round(wahl.anzahl * beSchnitt) + " BE"
+        : "Zu dieser Auswahl gibt es keine Aufgaben — hake wieder etwas an oder lockere die Schwierigkeit.";
+      los.disabled = !pool.length;
+    }
+    inAnz.oninput = stand;
+    selStufe.onchange = () => { wahl.stufen = selStufe.value ? [+selStufe.value] : []; stand(); };
+    selZeit.onchange = stand;
+    stand();
+
+    los.onclick = () => {
+      stand();
+      const pool = gewaehlteVorlagen();
+      if (!pool.length) return;
+      store.set(SK.letzte, {
+        modus: wahl.modus, themenAus: wahl.themenAus, subsAus: wahl.subsAus,
+        anzahl: wahl.anzahl, stufen: wahl.stufen, zeit: wahl.zeit
+      });
+      const opt = { anzahl: wahl.anzahl, stufen: wahl.stufen, zeit: wahl.zeit };
+      /* Im Zufallsmodus keine Filter — dann fällt später auch Neues automatisch rein. */
+      if (wahl.modus === "gezielt" && (wahl.themenAus.length || wahl.subsAus.length)) {
+        opt.ids = pool.map(v => v.id);
+        opt.titel = titelAusWahl();
+      }
+      erzeugeBlatt(opt);
+    };
   }
 
-  function passendeVorlagen(stufen) {
-    let p = G.alleVorlagen();
-    if (wahl.themen.length) p = p.filter(v => wahl.themen.includes(v.thema));
-    if (wahl.subs.length) p = p.filter(v => wahl.subs.includes(v.sub));
-    if (stufen && stufen.length) p = p.filter(v => stufen.includes(v.stufe));
-    return p;
+  /* Neu zeichnen, ohne die drei Eingabefelder oben zu verlieren */
+  function zeichneAssistentErhalten(inAnz, selStufe, selZeit) {
+    wahl.anzahl = Math.max(1, Math.min(60, +inAnz.value || 10));
+    wahl.stufen = selStufe.value ? [+selStufe.value] : [];
+    wahl.zeit = +selZeit.value;
+    zeichneAssistent();
+  }
+
+  function titelAusWahl() {
+    const themen = G.themenBaum().filter(t => !wahl.themenAus.includes(t.key));
+    if (!themen.length) return "Arbeitsblatt";
+    if (themen.length <= 2) return themen.map(t => t.label).join(" + ");
+    if (themen.length >= G.themenBaum().length) return "Alles gemischt";
+    return themen.length + " Themen gemischt";
+  }
+
+  /** Vorlagen-IDs, bei denen die Quote unter 70 % liegt */
+  function schwacheIds() {
+    return Object.keys(STAT).map(id => {
+      const s = STAT[id], v = G.vorlageVon(id);
+      if (!v || !s.max || !s.versuche) return null;
+      return { id, quote: s.punkte / s.max };
+    }).filter(Boolean).filter(x => x.quote < 0.7).sort((a, b) => a.quote - b.quote).slice(0, 12).map(x => x.id);
   }
 
   /* ======================= Blatt erzeugen =============================== */
   function erzeugeBlatt(opt) {
-    const res = G.erzeugeBlatt(opt);
+    /* opt.liste = fertige [{vorlageId, saat}] — daran hängt die
+       Prüfungssimulation, die ihre Aufgaben selbst nach BE zusammenstellt. */
+    const res = opt.liste && opt.liste.length
+      ? (function () {
+          const auf = opt.liste.map(x => G.erzeuge(x.vorlageId, x.saat));
+          return { aufgaben: auf, maxPoints: G.runde(auf.reduce((s, a) => s + a.maxPoints, 0), 2) };
+        })()
+      : G.erzeugeBlatt(opt);
     if (!res.aufgaben.length) { window.toast(res.fehler || "Keine passenden Aufgaben."); return; }
     const themen = [...new Set(res.aufgaben.map(a => a.themaLabel))];
     const b = {
@@ -372,7 +463,9 @@ window.GENUI = (function () {
       punkte: 0, bewertet: false,
       antworten: {}, ergebnisse: {},
       zeit: opt.zeit == null ? 1 : opt.zeit,
-      sekunden: 0
+      sekunden: 0,
+      pruefung: !!opt.pruefung,        /* Prüfungssimulation: Lösungen gesperrt */
+      minuten: opt.minuten || 0
     };
     BLAETTER.unshift(b); sichern();
     oeffne(b.id);
@@ -412,6 +505,22 @@ window.GENUI = (function () {
     l.appendChild(el("span", "weit"));
 
     const knopf = (txt, cls, fn) => { const b = el("button", "btn " + cls, txt); b.onclick = fn; return b; };
+
+    /* Prüfungssimulation: bis zur Abgabe gibt es weder Prüfen noch Lösungen —
+       sonst ist es keine Prüfung, sondern wieder eine Übung.               */
+    if (BLATT.pruefung && !BLATT.abgegeben) {
+      l.appendChild(knopf("Abgeben und auswerten", "primary", () => {
+        if (!confirm("Prüfung abgeben? Danach werden alle Aufgaben bewertet und die Lösungen freigegeben.")) return;
+        abgeben();
+      }));
+      const hin = el("span");
+      hin.style.cssText = "font-size:12.5px;color:var(--muted)";
+      hin.textContent = "Lösungen und Einzelprüfung sind bis zur Abgabe gesperrt.";
+      l.appendChild(hin);
+      l.appendChild(knopf("abbrechen", "ghost", () => { uhrStop(); window.schirm("scStart"); window.renderStart(); }));
+      return l;
+    }
+
     l.appendChild(knopf("Alles prüfen", "primary", () => { AUFG.forEach((_, i) => pruefe(i, true)); standAktualisieren(); abschluss(); }));
     l.appendChild(knopf("Alle Lösungen", "", () => AUFG.forEach((_, i) => loesungZeigen(i))));
     l.appendChild(knopf("Neues Blatt, gleiche Themen", "", () => {
@@ -466,13 +575,15 @@ window.GENUI = (function () {
 
     /* Werkzeuge */
     const wz = el("div", "gwerkzeug");
-    const bp = el("button", "btn primary klein", "Prüfen");
-    bp.onclick = () => { pruefe(i); standAktualisieren(); };
-    const bl = el("button", "btn klein", "Lösung zeigen");
-    bl.onclick = () => loesungZeigen(i);
-    const bn = el("button", "btn ghost klein", "↻ Neu würfeln");
-    bn.onclick = () => neuWuerfeln(i);
-    wz.append(bp, bl, bn);
+    if (!(BLATT.pruefung && !BLATT.abgegeben)) {
+      const bp = el("button", "btn primary klein", "Prüfen");
+      bp.onclick = () => { pruefe(i); standAktualisieren(); };
+      const bl = el("button", "btn klein", "Lösung zeigen");
+      bl.onclick = () => loesungZeigen(i);
+      const bn = el("button", "btn ghost klein", "↻ Neu würfeln");
+      bn.onclick = () => neuWuerfeln(i);
+      wz.append(bp, bl, bn);
+    }
     haupt.appendChild(wz);
 
     const rueck = el("div"); rueck.id = "grueck-" + i;
@@ -482,10 +593,12 @@ window.GENUI = (function () {
     if (a.merksatz) merk.innerHTML = "<b>Merksatz</b>" + esc(a.merksatz);
     haupt.appendChild(merk);
 
-    const det = el("details", "gloesung"); det.id = "gloes-" + i;
-    det.appendChild(el("summary", null, "Musterlösung mit Rechenweg"));
-    det.appendChild(el("div", "txt", a.loesung));
-    haupt.appendChild(det);
+    if (!(BLATT.pruefung && !BLATT.abgegeben)) {
+      const det = el("details", "gloesung"); det.id = "gloes-" + i;
+      det.appendChild(el("summary", null, "Musterlösung mit Rechenweg"));
+      det.appendChild(el("div", "txt", a.loesung));
+      haupt.appendChild(det);
+    }
 
     /* Randspalte */
     const rand = el("div", "rand"); rand.id = "grand-" + i;
@@ -531,11 +644,28 @@ window.GENUI = (function () {
     const box = el("div", "gfeld");
     box.dataset.nr = f.nr;
     const lab = el("label", "gl");
-    lab.innerHTML = "<b>" + esc(f.label) + "</b> <span class=\"be\">(" + nz(f.be) + " BE)</span>";
+    lab.innerHTML = "<b>" + esc(f.label) + "</b> " +
+      (f.typ === "rechenweg"
+        ? "<span class=\"be weg\">zählt über die Folgefehlerregel</span>"
+        : "<span class=\"be\">(" + nz(f.be) + " BE)</span>");
     box.appendChild(lab);
     const alt = antwortLesen(i, f.nr);
 
-    if (f.typ === "zahl") {
+    if (f.typ === "rechenweg") {
+      box.classList.add("gweg");
+      if (f.hilfe) box.appendChild(el("div", "gweg-hilfe", f.hilfe));
+      const ta = el("textarea", "gweg-feld");
+      ta.rows = f.zeilen || 6;
+      ta.spellcheck = false;
+      ta.placeholder =
+        "1.299,00 € ÷ 36 = 36,08 €\n" +
+        "36,08 + 3,94 = 40,02 €\n" +
+        "40,02 × 24 Plätze = 960,48 €\n…";
+      ta.value = alt == null ? "" : alt;
+      ta.oninput = () => antwortSetzen(i, f.nr, ta.value);
+      box.appendChild(ta);
+
+    } else if (f.typ === "zahl") {
       const zeile = el("div", "geingabe");
       const inp = el("input"); inp.type = "text"; inp.inputMode = "decimal";
       inp.placeholder = "Ergebnis eintragen";
@@ -783,6 +913,20 @@ window.GENUI = (function () {
         ta.value = alt == null ? "" : alt;
         ta.oninput = () => antwortSetzen(i, f.nr, ta.value);
         box.appendChild(ta);
+        /* Operatorenhilfe: was verlangt „Erläutern“, „Begründen“, „Beurteilen“?
+           Erkannt wird das Verb aus Feldbezeichnung und Aufgabenstellung.     */
+        if (window.GENOP) {
+          const a = AUFG[i];
+          /* Die Feldbezeichnung schlägt die Aufgabenstellung: in „… begründen Sie“
+             steckt sonst auch für das reine Nennen-Feld der falsche Operator. */
+          let op = window.GENOP.erkenne(f.label) || window.GENOP.erkenne((a && a.prompt) || "");
+          /* Verlangt das Feld ganze Sätze (satzbau), ist „Nennen“ untertrieben —
+             dann zeigen wir die Hilfe zum Erläutern, denn so wird auch bewertet. */
+          if (op && op.key === "nennen" && f.satzbau) {
+            op = window.GENOP.OPERATOREN.find(o => o.key === "erlaeutern") || op;
+          }
+          if (op && op.key !== "nennen") box.appendChild(window.GENOP.hilfeEl(op, ta));
+        }
       }
     }
 
@@ -796,7 +940,14 @@ window.GENUI = (function () {
   function pruefe(i, still) {
     const a = AUFG[i];
     const erg = G.pruefeAufgabe(a, BLATT.antworten[i] || {});
-    BLATT.ergebnisse[i] = { punkte: erg.punkte, max: erg.max };
+    /* Wie viel davon kam aus Ankreuz- und Zuordnungsaufgaben? In der echten
+       Prüfung sind das nur rund 2 % der Punkte — hier deutlich mehr. Für die
+       ehrliche Hochrechnung nach der Simulation wird es getrennt gezählt.  */
+    const KLICK = { auswahl: 1, mehrfachwahl: 1, aussagen: 1, zuordnung: 1 };
+    let kBe = 0, kP = 0;
+    erg.felder.forEach(r => { if (KLICK[r.typ]) { kBe += r.be || 0; kP += r.punkte || 0; } });
+    BLATT.ergebnisse[i] = { punkte: erg.punkte, max: erg.max,
+                            klickBe: G.runde(kBe, 2), klickPunkte: G.runde(kP, 2) };
 
     const box = $("gfelder-" + i);
     erg.felder.forEach(r => {
@@ -830,7 +981,17 @@ window.GENUI = (function () {
         (q > 0.99 ? '<span class="gut">— vollständig.</span>'
           : (q > 0 ? '<span class="mittel">— teilweise. Sieh dir die rot markierten Felder an.</span>'
             : '<span class="schlecht">— das passt noch nicht. Musterlösung ansehen und neu würfeln.</span>')) +
-        (erg.offen ? " · " + erg.offen + " Feld(er) leer" : "");
+        (erg.offen ? " · " + erg.offen + " Feld(er) leer" : "") +
+        (erg.folgefehler
+          ? '<div class="gweg-folge"><b>Folgefehler anerkannt:</b> dein Rechenweg ist ' +
+            'nachvollziehbar, nur das Ergebnis stimmt nicht. In der Prüfung gibt es dafür ' +
+            'die halbe Punktzahl — deshalb <b>immer</b> den Rechenweg hinschreiben, auch ' +
+            'wenn du dir unsicher bist.</div>'
+          : (erg.rechenweg && erg.rechenweg.gesamt && !erg.rechenweg.tragfaehig &&
+             erg.felder.some(x => x.typ === "zahl" && x.status === "falsch")
+              ? '<div class="gweg-folge warn">Ohne nachvollziehbaren Rechenweg gibt es ' +
+                'für ein falsches Ergebnis keine Teilpunkte. Schreib die Zwischenschritte auf.</div>'
+              : ""));
       if (a.merksatz && q < 0.99) $("gmerk-" + i).hidden = false;
     }
     sichern();
@@ -844,9 +1005,29 @@ window.GENUI = (function () {
     feldBox.querySelectorAll("input[type=text], textarea, select").forEach(x => x.classList.remove("richtig", "falsch", "teil"));
     feldBox.querySelectorAll(".gwahl label, table.gwf tr").forEach(x => x.classList.remove("richtig", "falsch"));
 
-    if (f.typ === "zahl" || f.typ === "text" || f.typ === "liste") {
+    if (f.typ === "zahl" || f.typ === "text" || f.typ === "liste" || f.typ === "rechenweg") {
       const inp = feldBox.querySelector("input[type=text], textarea");
       if (inp && klasse) inp.classList.add(klasse);
+    }
+    /* Rechenweg: die Zwischenwerte der Musterlösung anzeigen und markieren,
+       welche in der eigenen Rechnung vorkommen — das zeigt die Bruchstelle. */
+    if (f.typ === "rechenweg" && r.weg) {
+      const alt = feldBox.querySelector(".gweg-spur");
+      if (alt) alt.remove();
+      if (r.status !== "leer") {
+        const spur = el("div", "gweg-spur");
+        spur.appendChild(el("div", "gweg-titel", "Zwischenwerte der Musterlösung"));
+        const kette = el("div", "gweg-kette");
+        f.soll.forEach((sv, k) => {
+          const da = !r.weg.fehlt.includes(sv.roh);
+          const chip = el("span", "gweg-wert " + (da ? "da" : "weg") +
+            (k === r.weg.ersteLuecke ? " bruch" : ""), sv.roh);
+          chip.title = da ? "steht in deinem Rechenweg" : "fehlt in deinem Rechenweg";
+          kette.appendChild(chip);
+        });
+        spur.appendChild(kette);
+        feldBox.appendChild(spur);
+      }
     }
     if (f.typ === "auswahl") {
       feldBox.querySelectorAll(".gwahl label").forEach(l => {
@@ -1009,16 +1190,95 @@ window.GENUI = (function () {
       (schwach.length ? "Schwächstes Thema hier: <b>" + esc(schwach[0].k) + "</b> (" +
         Math.round(schwach[0].q * 100) + " %). " : "") +
       "Die Prüfung ist bestanden ab 50 %. Ein neues Blatt mit denselben Themen liefert andere Zahlen — " +
-      "so lange, bis der Rechenweg sitzt.</div>";
+      "so lange, bis der Rechenweg sitzt.</div>" +
+      (BLATT.pruefung ? quotenKasten() + zeitAuswertung(p, m) : "");
     z.scrollIntoView({ behavior: "smooth", block: "center" });
     sichern();
+  }
+
+  /**
+   * Ehrliche Hochrechnung: der Generator vergibt rund 20 % der Punkte über
+   * Ankreuzen und Zuordnen, die echte AP1 nur 2 %. Wer hier 68 % holt, holt
+   * dort weniger — also rechnen wir das Ergebnis auf den Prüfungsmix um.
+   */
+  function echteQuote() {
+    let kBe = 0, kP = 0, ges = 0, p = 0;
+    AUFG.forEach((a, i) => {
+      const e = BLATT.ergebnisse[i]; if (!e) return;
+      ges += e.max || 0; p += e.punkte || 0;
+      kBe += e.klickBe || 0; kP += e.klickPunkte || 0;
+    });
+    const freiBe = ges - kBe, freiP = p - kP;
+    if (!ges || freiBe <= 0) return null;
+    const klickQ = kBe ? kP / kBe : 0;
+    const freiQ = freiP / freiBe;
+    /* Prüfungsmix: 2 % Ankreuzen, 98 % selbst formulieren und rechnen */
+    const echt = 0.02 * klickQ + 0.98 * freiQ;
+    return {
+      roh: p / ges, echt,
+      klickBe: G.runde(kBe, 1), klickAnteil: kBe / ges,
+      freiBe: G.runde(freiBe, 1), freiQ, klickQ
+    };
+  }
+
+  function quotenKasten() {
+    const q = echteQuote();
+    if (!q || q.klickAnteil < 0.06) return "";
+    const roh = Math.round(q.roh * 100), echt = Math.round(q.echt * 100);
+    if (echt >= roh) return "";
+    return '<div class="txt sim-echt"><b>Realistischer Wert: ' + echt + ' %</b> statt ' + roh + ' %.<br>' +
+      nz(q.klickBe) + ' der ' + nz(q.klickBe + q.freiBe) + ' BE kamen hier aus Ankreuz- und ' +
+      'Zuordnungsaufgaben (' + Math.round(q.klickAnteil * 100) + ' %). In den zehn echten Prüfungen ' +
+      'sind das zusammen nur 2 % — dort musst du fast alles selbst formulieren und rechnen. ' +
+      'Deine Quote im freien Teil: <b>' + Math.round(q.freiQ * 100) + ' %</b>. ' +
+      (echt >= 50
+        ? 'Auch umgerechnet liegst du über der Bestehensgrenze.'
+        : 'Umgerechnet liegst du <b>unter</b> 50 % — das ist der Wert, an dem du dich orientieren solltest.') +
+      '</div>';
+  }
+
+  /** Zeitbilanz nach einer Prüfungssimulation */
+  function zeitAuswertung(punkte, max) {
+    const min = Math.round((BLATT.dauer || BLATT.sekunden || 0) / 60);
+    const grenze = BLATT.minuten || 90;
+    const leer = AUFG.filter((a, i) => {
+      const e = BLATT.ergebnisse[i];
+      return !e || e.punkte === 0;
+    }).length;
+    const proBE = max ? (BLATT.dauer || 1) / 60 / max : 0;
+    const hoch = Math.round(proBE * 100);
+    return '<div class="txt sim-zeit"><b>Zeit:</b> ' + min + " von " + grenze + " Minuten" +
+      (min >= grenze
+        ? " — die Zeit war komplett aufgebraucht."
+        : " · " + (grenze - min) + " Minuten übrig") +
+      " · Hochrechnung auf 100 BE: <b>" + hoch + " Minuten</b>." +
+      (hoch > grenze
+        ? " In diesem Tempo bliebest du rund <b>" + Math.round((hoch - grenze) / Math.max(0.1, proBE * 100) * 100) +
+          " BE</b> liegen. Nimm dir die teuren Aufgaben zuerst vor."
+        : " Das Tempo reicht.") +
+      (leer ? " <b>" + leer + " Aufgabe(n)</b> ohne einen einzigen Punkt — die zuerst durchsehen." : "") +
+      "</div>";
+  }
+
+  /** Prüfungssimulation abgeben: bewerten, Lösungen freigeben, Zeit auswerten */
+  function abgeben() {
+    if (BLATT.abgegeben) return;
+    uhrStop();
+    BLATT.abgegeben = true;
+    BLATT.dauer = BLATT.sekunden || 0;
+    AUFG.forEach((_, i) => pruefe(i, true));
+    sichern();
+    zeichne();                       // neu zeichnen: Lösungen sind jetzt frei
+    standAktualisieren();
+    abschluss();
   }
 
   /* ======================= Uhr ========================================== */
   function uhrStart() {
     uhrStop();
     if (!BLATT.zeit) { const u = $("genUhr"); if (u) u.hidden = true; return; }
-    const grenze = BLATT.zeit === 2 ? Math.round(BLATT.maxPoints * 0.9 * 60) : 0;
+    const grenze = BLATT.minuten ? BLATT.minuten * 60
+                 : (BLATT.zeit === 2 ? Math.round(BLATT.maxPoints * 0.9 * 60) : 0);
     UHR = setInterval(() => {
       BLATT.sekunden = (BLATT.sekunden || 0) + 1;
       const u = $("genUhr");
@@ -1027,6 +1287,12 @@ window.GENUI = (function () {
       u.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
       u.classList.toggle("warn", !!grenze && s < 300);
       if (BLATT.sekunden % 15 === 0) sichern();
+      /* Prüfungssimulation: bei Null ist Schluss, wie im echten Saal */
+      if (grenze && BLATT.pruefung && !BLATT.abgegeben && BLATT.sekunden >= grenze) {
+        uhrStop();
+        window.toast("Zeit abgelaufen — die Prüfung wird ausgewertet.");
+        abgeben();
+      }
     }, 1000);
   }
   function uhrStop() { if (UHR) clearInterval(UHR); UHR = null; }
@@ -1090,5 +1356,5 @@ window.GENUI = (function () {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", einhaengen);
   else einhaengen();
 
-  return { erzeugeBlatt, oeffne, assistent, startBox, speichern: sichern };
+  return { erzeugeBlatt, oeffne, assistent, startBox, speichern: sichern, abgeben };
 })();

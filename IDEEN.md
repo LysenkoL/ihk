@@ -42,20 +42,68 @@
 - **Satzbau-Training** (`gen/satzbau.js` + `satzbausteine.js`): 51 карточка,
   проверка на Fachbegriff / Begründung / Länge / ganzer Satz, B2-Musterantworten
 - **Formelblatt A4** (`gen/formeln.js`): 78 формул и ловушек, печать в PDF
+- **Новая структура тем + мастер без ограничений** (04.09): 10 главных тем как в
+  коммерческих тренажёрах, все галочки стоят по умолчанию, ограничения «максимум
+  3 темы» больше нет. Выбор идёт от количества заданий; есть режим «Zufall —
+  всё из всех тем» и кнопка «nur meine Schwächen». Подтемы раскрываются
+  и отключаются поштучно
+- **Четыре недостающих типа таблиц** (`gen/vorlagen-tabellen.js`):
+  IP-Konfigurationstabelle, Backup-Wochenplan (differenziell/inkrementell
+  с расчётом лент для восстановления), Fehleranalyse Symptom → Ursache →
+  Maßnahme, Berechtigungsmatrix (Rolle × Ressource)
+- **38 новых типов заданий** по списку тем из тренажёра
+  (`vorlagen-sicherheit.js`, `vorlagen-hardware.js`, `vorlagen-fachthemen.js`):
+  Malware, Härtung, PKI, Kryptographie, Protokollierung, Zutrittskontrolle,
+  Schutzbedarfsanalyse, VPN, ARP, DHCP, EUI-64; CPU, RAM, USB, Video, Netzteil,
+  RFID/NFC, Speichermedien, Betriebssysteme; Normalisierung, Relationenmodell,
+  SQL, Programmiersprachen, Webtechnologien; Marktformen, Darlehen,
+  Kostenrechnung; JBOD, Dateiformate; SMART, Stakeholder, Anforderungen,
+  Make-or-Buy; Arbeitsrecht, Vertragsarten. **Итого 101 тип**
+- **Поле для хода расчёта + Folgefehler** (`kern.js`, `blatt.js`, 04.09):
+  у 35 расчётных типов поле «Rechenweg», промежуточные значения тянутся из
+  эталонного решения, цепочка показывает первое расхождение, при верном ходе
+  и неверном итоге — половина баллов, как у настоящего корректора. Поле есть
+  и в печатном бланке
+- **Операторы IHK** (`gen/operatoren.js`): под каждым текстовым полем
+  раскрывашка «что требует Erläutern / Begründen / Beurteilen», ловушка и
+  кликабельные каркасы фраз; отдельный лист A4 на печать
+- **Fehlerjournal** (`gen/fehlerjournal.js`, 05.09): eine Zeile je Aufgabe,
+  sechs Gründe per Klick, Grund wird oft automatisch geraten, Auswertung über
+  21 Tage mit dem Satz „X % deiner Fehler sind kein Wissensproblem“
+- **Rechenweg in den echten Prüfungen** (`gen/exam-rechenweg.js`): 37 von 43
+  Rechenaufgaben (158 BE) bekommen ein Rechenweg-Feld, Zwischenwerte aus der
+  Musterlösung, Bruchstelle wird markiert
+- **Simulation kalibriert**: Klickanteil je Vorlage gemessen, Auswahl
+  gewichtet (21 % → 12 %), nach der Abgabe ehrliche Hochrechnung auf den
+  Prüfungsmix (2 % Ankreuzen)
+- **Export nimmt den Generator mit** (`gen/fortschritt.js`): Blätter, Quoten,
+  Satzbau und Fehlerjournal wandern in die Datei — damit ist der Stand auch
+  auf dem Handy verfügbar
+- **KI und Kommunikation** (`gen/vorlagen-ki.js`): die letzten beiden
+  Prüfungsthemen ohne Aufgaben, 6 neue Vorlagen. **Jetzt 107 Typen**
+- **Prüfungssimulation 90 минут** (`gen/simulation.js`): лист по измеренному
+  распределению десяти экзаменов (Kalkulation 24 BE, Netzwerke 16, Hardware 11 …),
+  100 BE ± 5, обратный отсчёт, решения заблокированы до сдачи, автосдача по
+  истечении времени, разбор по времени после
+- **Версия для телефона** (`gen/mobil.css` + `gen/mobil.js`): шапка в одну
+  строку, кнопки по две в ряд, поля ввода 16 px (иначе iOS зумит), широкие
+  таблицы прокручиваются внутри себя с подсказкой «seitwärts wischen»,
+  колонка баллов уходит вниз. Проверено на 390 × 844 — страница вбок не уезжает
 
 ## Чего не хватает
 
-1. **Проверка смысла.** Сверка по словам ловит «назвала термин / не назвала»,
+1. **Нет тайминга по отдельным заданиям** — общий секундомер и разбор после
+   симуляции есть, но не видно, какой ТИП задания съедает минуты.
+2. **Псевдокод только читаешь**, писать самой негде.
+3. **Проверка смысла.** Сверка по словам ловит «назвала термин / не назвала»,
    но не отличает верное объяснение от бессмысленного. Настоящая проверка
    требует модели — либо через чат вручную, либо через API-ключ.
-2. **Нет интервального повторения.** Завалила тему — она подсвечена красным,
-   но никто не напомнит вернуться к ней через три дня.
-3. ~~**Десять тем каталога не на чем тренировать.**~~ Закрыто генератором:
+7. ~~**Десять тем каталога не на чем тренировать.**~~ Закрыто генератором:
    Konsolenbefehle (+ chmod), Wasserfall и Scrum, файловые системы,
    Anonymisierung/Pseudonymisierung, Projektstrukturplan, Domäne, Testprotokoll,
    Risikomatrix, Tuckman, Betroffenenrechte DSGVO, Barrierefreiheit — по каждой
    есть генерируемое задание. В экзаменационной сборке их по-прежнему нет.
-4. **Диаграммы внутри заданий** по-прежнему решаются текстом: ER-Modell,
+8. **Диаграммы внутри заданий** по-прежнему решаются текстом: ER-Modell,
    UML Use-Case, Gantt. Отдельные тренажёры для Aktivitäts- и Klassendiagramm
    уже есть, но с самими экзаменационными заданиями они не связаны.
 

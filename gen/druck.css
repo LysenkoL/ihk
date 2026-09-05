@@ -181,3 +181,8 @@ input.dr-punkteingabe{ width:22mm; text-align:right; font-family:var(--data); fo
   .fo-spalten{column-count:2}
   #druckBogen .dr-formeln{font-size:9.5pt}
 }
+
+/* ---------- Rechenweg auf dem Prüfungsbogen ---------- */
+.dr-feld.dr-weg{border-left:2px solid #000; padding-left:7mm; margin-top:4mm}
+.dr-weg .dr-fbe{font-style:italic}
+.dr-wegfeld{width:100%; margin-top:2mm}

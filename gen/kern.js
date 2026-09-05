@@ -196,6 +196,71 @@ window.GEN = (function () {
     diagramm:         "Diagramme & Modelle"
   };
 
+  /* ---------------------------------------------------------------------
+     Hauptthemen für die Auswahl-Oberfläche.
+     `thema` bleibt unverändert (daran hängt die Prüfungs-Statistik),
+     `haupt` ist die Sicht, in der Lena Aufgaben aussucht.
+     ------------------------------------------------------------------ */
+  const HAUPT_LABEL = {
+    sicherheit:  "IT-Sicherheit",
+    netzwerk:    "Netzwerke & Kommunikation",
+    projekt:     "Projektmanagement",
+    hardware:    "Hardware",
+    wirtschaft:  "Wirtschaftlichkeit",
+    speicher:    "Datenformate & Speicherung",
+    datenbank:   "Datenbanken",
+    entwicklung: "Softwareentwicklung",
+    recht:       "Recht & Compliance",
+    beschaffung: "Beschaffung",
+    ki:          "KI & Digitalisierung"
+  };
+  const HAUPT_REIHE = ["sicherheit", "netzwerk", "projekt", "hardware", "wirtschaft",
+                       "speicher", "datenbank", "entwicklung", "recht", "beschaffung", "ki"];
+
+  /* Unterthema -> Hauptthema (schlägt die Zuordnung über `thema`) */
+  const SUB_HAUPT = {
+    /* Beschaffung */
+    "Angebotsvergleich": "beschaffung", "Leasing & Finanzierung": "beschaffung",
+    "Nutzwertanalyse": "beschaffung", "Bezugspreiskalkulation": "beschaffung",
+    "Make-or-Buy-Entscheidung": "beschaffung",
+    /* Projektmanagement */
+    "Netzplantechnik": "projekt", "Gantt-Diagramm": "projekt",
+    "Projektkosten & Angebotspreis": "projekt", "Übergabe & Einweisung": "projekt",
+    "Testprotokoll & Abnahme": "projekt",
+    /* Datenbanken */
+    "ER-Modell & Kardinalitäten": "datenbank",
+    /* Softwareentwicklung */
+    "UML-Aktivitätsdiagramm": "entwicklung", "UML Use-Case-Diagramm": "entwicklung",
+    "UML-Klassendiagramm": "entwicklung", "Schreibtischtest & Pseudocode": "entwicklung",
+    /* Hardware & Arbeitsplatz */
+    "Support & Ticketsystem": "hardware", "Virtualisierung & Cloud": "hardware",
+    "Barrierefreiheit": "hardware", "Ergonomie & Arbeitsschutz": "hardware",
+    "Arbeitsplatz & Geräteauswahl": "hardware",
+    /* Netzwerk */
+    "Domäne & Verzeichnisdienst": "netzwerk", "Konsolenbefehle": "netzwerk",
+    /* Datenformate & Speicherung */
+    "Zahlensysteme": "speicher", "Dateisysteme": "speicher", "Verfügbarkeit & SLA": "speicher",
+    /* IT-Sicherheit */
+    "Authentifizierung": "sicherheit", "Risikomatrix": "sicherheit",
+    "Notfall & Schadsoftware": "sicherheit"
+  };
+  /* Fallback: altes Thema -> Hauptthema */
+  const THEMA_HAUPT = {
+    kalkulation: "wirtschaft", netzwerk: "netzwerk", daten: "speicher",
+    itsicherheit: "sicherheit", datenschutz: "recht", projekt: "projekt",
+    hardware: "hardware", software: "entwicklung", programmierung: "entwicklung",
+    arbeitsplatz: "hardware", diagramm: "entwicklung",
+    /* neue Vorlagen dürfen direkt einen Hauptthemen-Schlüssel benutzen */
+    sicherheit: "sicherheit", wirtschaft: "wirtschaft", speicher: "speicher",
+    datenbank: "datenbank", entwicklung: "entwicklung", recht: "recht",
+    beschaffung: "beschaffung",
+    /* Kommunikation läuft in der Prüfung unter Projekt, KI ist ein eigenes Thema */
+    ki: "ki", kommunikation: "projekt"
+  };
+  function hauptVon(v) {
+    return v.haupt || SUB_HAUPT[v.sub] || THEMA_HAUPT[v.thema] || v.thema;
+  }
+
   /**
    * Vorlage anmelden.
    * def = { id, thema, sub, titel, stufe, bau(R, ctx) -> aufgabenrumpf }
@@ -215,15 +280,20 @@ window.GEN = (function () {
   function themenBaum() {
     const m = new Map();
     VORLAGEN.forEach(v => {
-      if (!m.has(v.thema)) m.set(v.thema, { key: v.thema, label: THEMEN_LABEL[v.thema] || v.thema, subs: new Map(), n: 0 });
-      const t = m.get(v.thema); t.n++;
+      const hk = hauptVon(v);
+      if (!m.has(hk)) m.set(hk, { key: hk, label: HAUPT_LABEL[hk] || THEMEN_LABEL[hk] || hk, subs: new Map(), n: 0 });
+      const t = m.get(hk); t.n++;
       const sk = v.sub || "Sonstiges";
       if (!t.subs.has(sk)) t.subs.set(sk, { key: sk, label: sk, n: 0, ids: [] });
       const s = t.subs.get(sk); s.n++; s.ids.push(v.id);
     });
     return [...m.values()]
-      .map(t => ({ key: t.key, label: t.label, n: t.n, subs: [...t.subs.values()].sort((a, b) => b.n - a.n) }))
-      .sort((a, b) => b.n - a.n);
+      .map(t => ({ key: t.key, label: t.label, n: t.n, subs: [...t.subs.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label, "de")) }))
+      .sort((a, b) => {
+        const ia = HAUPT_REIHE.indexOf(a.key), ib = HAUPT_REIHE.indexOf(b.key);
+        if (ia >= 0 && ib >= 0) return b.n - a.n || ia - ib;
+        return b.n - a.n;
+      });
   }
 
   /* ======================= 5. Aufgabe erzeugen ========================== */
@@ -272,13 +342,35 @@ window.GEN = (function () {
     const R = new Rng(hashText(id) ^ saat);
     const ctx = baueKontext(R);
     const roh = v.bau(R, ctx) || {};
-    const felder = (roh.felder || []).map((f, i) => normFeld(f, i));
+    const rohFelder = (roh.felder || []).slice();
+
+    /* Rechenweg-Feld automatisch anhängen, wo gerechnet wird.
+       0 BE — die Punkte bleiben bei den Ergebnisfeldern, der Rechenweg
+       rettet sie über die Folgefehlerregel (siehe pruefeAufgabe).        */
+    const rechenFelder = rohFelder.filter(f =>
+      f && (f.typ === "zahl" || (f.typ === "raster" && (f.zeilen || [])
+        .some(z => (z.zellen || []).some(c => c.eingabe && c.text == null)))));
+    if (roh.rechenweg !== false && rechenFelder.length) {
+      const soll = zwischenwerte(roh.loesung || "");
+      if (soll.length >= 3) {
+        rohFelder.push({
+          typ: "rechenweg", be: 0, soll, zeilen: Math.min(9, 3 + soll.length),
+          label: "Rechenweg / Nebenrechnung",
+          hilfe: "Schreib jeden Schritt in eine eigene Zeile, so wie du ihn auf dem " +
+                 "Prüfungsbogen notieren würdest — z. B. 1.299 ÷ 36 = 36,08. " +
+                 "Stimmt der Rechenweg und nur das Endergebnis nicht, gibt es dafür " +
+                 "in der Prüfung trotzdem Punkte."
+        });
+      }
+    }
+    const felder = rohFelder.map((f, i) => normFeld(f, i));
     return {
       vorlageId: v.id,
       saat: saat >>> 0,
       thema: v.thema,
       sub: v.sub,
-      themaLabel: THEMEN_LABEL[v.thema] || v.thema,
+      haupt: hauptVon(v),
+      themaLabel: HAUPT_LABEL[hauptVon(v)] || THEMEN_LABEL[v.thema] || v.thema,
       titel: roh.titel || v.titel,
       stufe: roh.stufe || v.stufe,
       situation: roh.situation || "",
@@ -312,6 +404,99 @@ window.GEN = (function () {
     if (g.typ === "aussagen") g.be = g.be || (g.aussagen || []).length * 0.5;
     if (g.typ === "zuordnung") g.be = g.be || (g.paare || []).length * 0.5;
     return g;
+  }
+
+  /* ================= 5b. Rechenweg: Zwischenwerte ====================== */
+  /*
+     Auf dem Prüfungsbogen steht fast immer „Geben Sie den Rechenweg an“ —
+     und der Rechenweg bringt eigene Punkte, auch wenn das Endergebnis
+     daneben liegt (Folgefehlerbewertung). Bisher gab es dafür kein Feld.
+
+     Die Musterlösung jeder Vorlage enthält den kompletten Rechenweg als
+     Text. Daraus werden die Zwischenwerte in Lesereihenfolge gezogen; die
+     Antwort wird dagegen geprüft. Das braucht keine Änderung an den
+     Vorlagen und zeigt genau, ab welcher Zeile es auseinanderläuft.
+  */
+
+  const ZAHL_RE = /-?\d{1,3}(?:\.\d{3})+(?:,\d+)?|-?\d+,\d+|-?\d+/g;
+
+  /** Zahlen einer Zeile mit ihrer Rohschreibweise, deutsch gelesen */
+  function zahlenAusText(text) {
+    const out = [];
+    String(text == null ? "" : text).replace(ZAHL_RE, (m, pos) => {
+      const w = leseZahlen(m);
+      if (w.length) out.push({ roh: m, wert: w[0], pos });
+      return m;
+    });
+    return out;
+  }
+
+  /**
+   * Zwischenwerte aus einer Musterlösung, in Lesereihenfolge.
+   * Herausgefiltert wird, was kein Rechenschritt ist: Aufzählungsziffern
+   * am Zeilenanfang, Jahreszahlen, sehr kleine ganze Zahlen (die stehen
+   * meist im Fließtext) und Wiederholungen.
+   */
+  function zwischenwerte(loesung, grenze) {
+    const zeilen = String(loesung == null ? "" : loesung).split(/\r?\n/);
+    const roh = [];
+    zeilen.forEach(z => {
+      /* nur echte Rechenzeilen: da steht ein Ergebnis hinter einem = oder → */
+      if (!/[=→]/.test(z)) return;
+      /* „1. Schritt“, „  2) …“ — Aufzählungsziffer ist kein Rechenschritt */
+      let s = z.replace(/^\s*[-•·]?\s*\d{1,2}[.)]\s+/, "  ");
+      /* IP-Adressen, Versionen, Datumsangaben rauswerfen — das sind keine Zahlen */
+      s = s.replace(/\d{1,3}(?:\.\d{1,3}){2,}/g, " ")
+           .replace(/\b\d{1,2}\.\d{1,2}\.(?:\d{2,4})?\b/g, " ");
+      zahlenAusText(s).forEach(x => roh.push(x));
+    });
+    const gesehen = new Set();
+    const out = [];
+    roh.forEach(x => {
+      const v = runde(x.wert, 4);
+      if (!isFinite(v)) return;
+      if (Number.isInteger(v) && Math.abs(v) < 10) return;          // Fließtext
+      if (Number.isInteger(v) && v >= 1900 && v <= 2100) return;    // Jahreszahl
+      const k = String(v);
+      if (gesehen.has(k)) return;
+      gesehen.add(k);
+      out.push({ roh: x.roh, wert: v });
+    });
+    return out.slice(0, grenze || 12);
+  }
+
+  /**
+   * Rechenweg der Antwort gegen die Zwischenwerte der Musterlösung.
+   * @returns {{gesamt, gefunden, quote, ersteLuecke, fehlt:[]}}
+   */
+  function pruefeRechenweg(antwort, soll) {
+    soll = soll || [];
+    const meine = zahlenAusText(antwort).map(x => runde(x.wert, 4));
+    const trifft = s => meine.some(m =>
+      Math.abs(m - s) <= Math.max(0.011, Math.abs(s) * 0.006));
+
+    let gefunden = 0, ersteLuecke = -1;
+    const fehlt = [];
+    soll.forEach((s, i) => {
+      if (trifft(s.wert)) gefunden++;
+      else { fehlt.push(s.roh); if (ersteLuecke < 0) ersteLuecke = i; }
+    });
+
+    /* Der Anfang der Rechnung zählt mehr als das Ende: hinten in der
+       Musterlösung stehen oft noch Übersichten und Hinweise, deren Zahlen
+       gar nicht zum Rechenweg gehören. Bewertet wird deshalb der Kern —
+       die ersten sechs Zwischenwerte.                                     */
+    const kernN = Math.min(6, soll.length);
+    let kern = 0;
+    for (let i = 0; i < kernN; i++) if (trifft(soll[i].wert)) kern++;
+
+    return {
+      gesamt: soll.length, gefunden, fehlt, ersteLuecke,
+      kern, kernN,
+      quote: soll.length ? gefunden / soll.length : 0,
+      /* nachvollziehbar = mindestens drei Schritte und der halbe Kern */
+      tragfaehig: gefunden >= 3 && kernN > 0 && kern / kernN >= 0.5
+    };
   }
 
   /* ======================= 6. Prüfen ==================================== */
@@ -425,6 +610,25 @@ window.GEN = (function () {
 
     if (f.typ === "knoten") return pruefeKnoten(f, eingabe);
     if (f.typ === "modell") return pruefeModell(f, eingabe);
+
+    if (f.typ === "rechenweg") {
+      const roh = String(eingabe == null ? "" : eingabe).trim();
+      if (!roh) return leer;
+      const w = pruefeRechenweg(roh, f.soll);
+      const genug = w.tragfaehig;
+      return {
+        status: genug && w.kern === w.kernN ? "richtig" : (w.gefunden ? "teil" : "falsch"),
+        punkte: 0,                       /* zählt über die Folgefehlerregel */
+        gefunden: [], fehlt: w.fehlt, weg: w,
+        text: w.gesamt
+          ? w.gefunden + " von " + w.gesamt + " Zwischenwerten der Musterlösung stehen in deinem Rechenweg"
+            + (w.ersteLuecke >= 0 && w.ersteLuecke < w.kernN
+                ? " · ab „" + f.soll[w.ersteLuecke].roh + "“ weicht es ab — dort noch einmal nachrechnen"
+                : " · der Rechenweg trägt")
+            + (genug ? "" : " · für Folgefehlerpunkte fehlen noch Zwischenschritte")
+          : "Selbst mit der Musterlösung vergleichen."
+      };
+    }
 
     /* text / liste */
     const roh = String(eingabe == null ? "" : eingabe).trim();
@@ -672,14 +876,34 @@ window.GEN = (function () {
     eingaben = eingaben || {};
     const felder = aufgabe.felder.map(f => {
       const r = pruefeFeld(f, eingaben[f.nr]);
-      r.nr = f.nr; r.be = f.be; r.label = f.label;
+      r.nr = f.nr; r.be = f.be; r.label = f.label; r.typ = f.typ;
       return r;
     });
+
+    /* --------- Folgefehlerbewertung ---------------------------------- */
+    /* So korrigiert die IHK: ist der Rechenweg nachvollziehbar und nur das
+       Endergebnis falsch, gibt es die halbe Punktzahl. Umgekehrt kostet ein
+       richtiges Ergebnis ohne jeden Rechenweg einen Teil der Punkte, wenn
+       die Aufgabe den Rechenweg ausdrücklich verlangt.                    */
+    const wegFeld = felder.find(r => r.typ === "rechenweg");
+    let folgefehler = 0;
+    if (wegFeld && wegFeld.weg && wegFeld.weg.tragfaehig) {
+      felder.forEach(r => {
+        if (r.typ !== "zahl" || r.status !== "falsch") return;
+        const halb = runde((r.be || 0) / 2, 2);
+        if (halb <= 0) return;
+        r.punkte = halb; r.status = "teil"; folgefehler++;
+        r.text = "Folgefehler: der Rechenweg stimmt, nur das Endergebnis nicht — " +
+                 "in der Prüfung gibt es dafür die halbe Punktzahl. " + (r.text || "");
+      });
+    }
+
     const punkte = runde(felder.reduce((s, r) => s + r.punkte, 0), 2);
     return {
-      punkte, max: aufgabe.maxPoints, felder,
+      punkte, max: aufgabe.maxPoints, felder, folgefehler,
+      rechenweg: wegFeld ? wegFeld.weg : null,
       quote: aufgabe.maxPoints ? punkte / aufgabe.maxPoints : 0,
-      offen: felder.filter(r => r.status === "leer").length
+      offen: felder.filter(r => r.status === "leer" && r.typ !== "rechenweg").length
     };
   }
 
@@ -697,13 +921,13 @@ window.GEN = (function () {
     let pool = VORLAGEN.slice();
     if (opt.ids && opt.ids.length)         pool = pool.filter(v => opt.ids.includes(v.id));
     else {
-      if (opt.themen && opt.themen.length) pool = pool.filter(v => opt.themen.includes(v.thema));
+      if (opt.themen && opt.themen.length) pool = pool.filter(v => opt.themen.includes(hauptVon(v)) || opt.themen.includes(v.thema));
       if (opt.subs && opt.subs.length)     pool = pool.filter(v => opt.subs.includes(v.sub));
     }
     if (opt.stufen && opt.stufen.length)   pool = pool.filter(v => opt.stufen.includes(v.stufe));
     if (!pool.length) return { saat, aufgaben: [], fehler: "Zu dieser Auswahl gibt es noch keine Vorlagen." };
 
-    const anzahl = Math.max(1, Math.min(60, opt.anzahl || 10));
+    const anzahl = Math.max(1, Math.min(120, opt.anzahl || 10));
     const reihe = [];
     let rest = [];
     for (let i = 0; i < anzahl; i++) {
@@ -761,6 +985,7 @@ window.GEN = (function () {
     Rng, hashText, fmt, runde, leseZahlen, ZAHLWORT, nennVorlage,
     norm, worte, stamm, stammSatz, enthaelt, enthaeltEines, teile,
     vorlage, alleVorlagen, vorlageVon, themenBaum, THEMEN_LABEL, KONTEXT,
+    HAUPT_LABEL, HAUPT_REIHE, hauptVon, zwischenwerte, pruefeRechenweg, zahlenAusText,
     erzeuge, erzeugeBlatt, pruefeFeld, pruefeAufgabe
   };
 })();
