@@ -388,3 +388,57 @@ textarea.exw-feld:focus{border-color:var(--pruefer); outline:none}
 .exw-fazit.gut{border-left:3px solid var(--ok); background:var(--ok-soft)}
 .exw-fazit.warn{border-left:3px solid var(--warn); background:var(--warn-soft)}
 .exw-zu{font-size:12px; color:var(--muted); font-style:italic}
+
+/* ============================================================================
+   Startseite: Kopf mit Countdown, Empfehlung und Kacheln (gen/start.js)
+   ========================================================================== */
+.st-kopf{border:1px solid var(--rule); border-radius:3px; background:var(--card);
+  padding:16px 18px; margin:0 0 26px}
+.st-count{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px;
+  padding-bottom:12px; border-bottom:1px solid var(--rule-soft)}
+.st-tage{font-family:var(--display); font-size:30px; font-weight:700; line-height:1;
+  letter-spacing:.01em; color:var(--pruefer)}
+.st-bis{font-size:13.5px; color:var(--muted)}
+.st-prog{margin-left:auto; font-size:13px; color:var(--muted); white-space:nowrap}
+.st-prog b{color:var(--ink); font-size:15px}
+
+.st-heute{display:flex; align-items:center; gap:16px; padding:14px 0 4px}
+.st-htxt{flex:1 1 auto; min-width:0}
+.st-hlabel{font-family:var(--display); text-transform:uppercase; letter-spacing:.14em;
+  font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px}
+.st-htitel{font-size:17px; font-weight:700; line-height:1.3}
+.st-hwarum{font-size:13px; color:var(--muted); line-height:1.5; margin-top:3px}
+.st-hknopf{flex:0 0 auto; white-space:nowrap}
+
+.st-kacheln{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px}
+.st-kachel{display:flex; flex-direction:column; align-items:flex-start; gap:2px;
+  text-align:left; padding:11px 12px; min-width:0; cursor:pointer;
+  border:1px solid var(--rule); border-radius:3px; background:var(--paper);
+  font:inherit; color:inherit; transition:border-color .12s, background .12s}
+.st-kachel:hover{border-color:var(--pruefer); background:var(--pruefer-soft)}
+.st-kn{font-weight:700; font-size:14px; line-height:1.25}
+.st-ku{font-size:11.5px; color:var(--muted); line-height:1.3}
+.st-kachel.warn{border-color:var(--warn); background:var(--warn-soft)}
+.st-kachel.warn .st-ku{color:var(--warn); font-weight:600}
+
+.st-fuss{margin-top:12px; text-align:right}
+.st-link{background:none; border:0; padding:0; cursor:pointer; font:inherit;
+  font-size:12.5px; color:var(--muted); text-decoration:underline}
+.st-link:hover{color:var(--pruefer)}
+
+/* --------------------------------------------- zuklappbare Abschnitte --- */
+details.st-block{border-top:1px solid var(--rule-soft); margin:0}
+details.st-block > summary{list-style:none; cursor:pointer; padding:13px 2px;
+  display:flex; align-items:baseline; gap:10px}
+details.st-block > summary::-webkit-details-marker{display:none}
+details.st-block > summary::before{content:"›"; font-size:17px; line-height:1;
+  color:var(--muted); transform:rotate(0deg); transition:transform .13s; flex:0 0 12px}
+details.st-block[open] > summary::before{transform:rotate(90deg)}
+details.st-block > summary:hover .st-name{color:var(--pruefer)}
+.st-name{font-family:var(--display); text-transform:uppercase; letter-spacing:.07em;
+  font-size:13.5px; font-weight:700}
+.st-zahl{margin-left:auto; font-size:12px; color:var(--muted); text-align:right}
+details.st-block > .abschnitt,
+details.st-block > div{margin-bottom:22px}
+details.st-block > .abschnitt > h2:first-child,
+details.st-block > div > h2:first-child{margin-top:4px}
