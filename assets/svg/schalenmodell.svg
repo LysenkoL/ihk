@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470"
+     role="img" aria-label="Schalenmodell eines PCs: drei ineinanderliegende Schalen. In der mittleren steht Betriebssystem, in der äußeren und in der inneren ist je ein Feld zu benennen.">
+  <title>Schichten- bzw. Schalenmodell eines PCs</title>
+  <desc>Drei ineinanderliegende Ellipsen. Im äußeren Ring ein leeres Feld, in der mittleren,
+        grau hinterlegten Schale das Feld „Betriebssystem“, im inneren Kern ein weiteres
+        leeres Feld. Die beiden leeren Felder sind in der Aufgabe zu benennen.</desc>
+
+  <style>
+    .aussen { fill: #FFFFFF; stroke: #14171C; stroke-width: 2.2; }
+    .mittel { fill: #D8DCE2; stroke: #14171C; stroke-width: 2.2; }
+    .kern   { fill: #FFFFFF; stroke: #14171C; stroke-width: 2.2; }
+    .feld   { fill: #FFFFFF; stroke: #14171C; stroke-width: 2; }
+    .txt    { font-family: "Segoe UI", -apple-system, Roboto, "Helvetica Neue", sans-serif;
+              font-size: 20px; font-weight: 700; fill: #14171C; text-anchor: middle; }
+    .lueck  { font-family: "Segoe UI", -apple-system, Roboto, "Helvetica Neue", sans-serif;
+              font-size: 14px; fill: #8A9099; text-anchor: middle; font-style: italic; }
+    @media (prefers-color-scheme: dark) {
+      .aussen { fill: #14171C; stroke: #E8EAEE; }
+      .mittel { fill: #3A414C; stroke: #E8EAEE; }
+      .kern   { fill: #1B1F26; stroke: #E8EAEE; }
+      .feld   { fill: #1B1F26; stroke: #E8EAEE; }
+      .txt    { fill: #E8EAEE; }
+      .lueck  { fill: #98A0AC; }
+    }
+  </style>
+
+  <ellipse class="aussen" cx="320" cy="235" rx="300" ry="225"/>
+  <ellipse class="mittel" cx="320" cy="277" rx="238" ry="168"/>
+  <ellipse class="kern"   cx="320" cy="333" rx="160" ry="108"/>
+
+  <!-- äußere Schicht: zu benennen -->
+  <rect class="feld" x="160" y="55" width="320" height="52" rx="2"/>
+  <text class="lueck" x="320" y="86">Schicht oberhalb — hier eintragen</text>
+
+  <!-- mittlere Schale: vorgegeben -->
+  <rect class="feld" x="162" y="163" width="316" height="52" rx="2"/>
+  <text class="txt" x="320" y="196">Betriebssystem</text>
+
+  <!-- Kern: zu benennen -->
+  <rect class="feld" x="182" y="305" width="276" height="52" rx="2"/>
+  <text class="lueck" x="320" y="336">Schicht unterhalb — hier eintragen</text>
+</svg>
