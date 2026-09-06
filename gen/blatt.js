@@ -640,6 +640,21 @@ window.GENUI = (function () {
     return (BLATT.antworten[i] || {})[nr];
   }
 
+  /* Welche Tastatur soll auf dem Handy aufgehen?
+     Rasterzellen sind entweder Rechenergebnisse (haben `loesung`/`dez`) oder
+     Text (haben `text` mit den erlaubten Formulierungen). Bisher stand überall
+     inputMode="decimal" — bei „Wofür stehen die fünf Buchstaben?“ kam damit
+     ein Ziffernblock, auf dem sich „spezifisch“ nicht tippen lässt.
+     Reine Zahlen-mit-Trennzeichen (IP-Adressen, Subnetzmasken, Uhrzeiten)
+     bekommen trotzdem den Ziffernblock — dort ist er die schnellere Tastatur. */
+  const NUR_ZIFFERN = /^[\d\s.,:%/+-]+$/;
+  function tastatur(zelle) {
+    if (zelle.loesung != null || zelle.dez != null) return "decimal";
+    const t = zelle.text || zelle.erwartet;
+    if (Array.isArray(t) && t.length && t.every(x => NUR_ZIFFERN.test(String(x)))) return "decimal";
+    return "text";
+  }
+
   function feldEl(f, i) {
     const box = el("div", "gfeld");
     box.dataset.nr = f.nr;
@@ -763,7 +778,9 @@ window.GENUI = (function () {
         z.zellen.forEach((c, ci) => {
           const td = el("td");
           if (c.eingabe) {
-            const inp = el("input"); inp.type = "text"; inp.inputMode = "decimal";
+            const inp = el("input"); inp.type = "text";
+            inp.inputMode = tastatur(c);
+            if (inp.inputMode === "text") { inp.autocapitalize = "sentences"; inp.autocomplete = "off"; }
             inp.dataset.zelle = zi + "-" + ci;
             inp.value = gew[zi + "-" + ci] || "";
             inp.oninput = () => {

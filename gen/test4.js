@@ -96,6 +96,15 @@ GEN.alleVorlagen().forEach(v => {
           (z.zellen || []).forEach((c, j) => {
             if (!c.eingabe && leer(c.t) && leer(c.text))
               meldung(v.id, saat, wo + ": Zelle " + i + "/" + j + " ohne Inhalt und ohne Eingabe");
+            /* Eine Eingabezelle braucht eine erwartete Antwort — sonst ist sie
+               weder prüfbar noch weiß das Arbeitsblatt, welche Tastatur auf
+               dem Handy aufgehen soll (Ziffernblock oder Buchstaben).      */
+            if (c.eingabe) {
+              const zahl = c.loesung != null || c.dez != null;
+              const txt = (c.text || c.erwartet || []).filter(x => !leer(x));
+              if (!zahl && !txt.length)
+                meldung(v.id, saat, wo + ": Eingabezelle " + i + "/" + j + " ohne erwartete Antwort");
+            }
           });
         });
       }
