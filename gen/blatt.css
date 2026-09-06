@@ -592,3 +592,16 @@ mark.mk-rot{background:#FFC2BC}
   background:var(--field); border-radius:2px; padding:11px 13px; overflow-x:auto}
 .ps-falle{margin-top:10px; font-size:12.5px; line-height:1.6; padding:8px 11px;
   border-left:3px solid var(--warn); background:var(--warn-soft); border-radius:2px}
+
+/* --------------------------- Markierstift (gen/marker.js, Handy-Modus) --- */
+button.mk-stift{flex:0 0 auto; width:36px; height:34px; padding:0; cursor:pointer;
+  font:inherit; font-size:17px; line-height:1;
+  border:1px solid var(--rule); border-radius:3px;
+  background:var(--card); color:var(--ink)}
+button.mk-stift.an{border-color:#B8901A; background:#FFF07A; color:#14171C}
+body.mk-stift .tk-frage, body.mk-stift .gruppe-txt, body.mk-stift .tk-gintro,
+body.mk-stift .gfrage, body.mk-stift .gsituation, body.mk-stift .loesung-txt,
+body.mk-stift .katalog-hinweis, body.mk-stift .gmerksatz{
+  -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
+  cursor:crosshair; box-shadow:inset 3px 0 0 #FFF07A; padding-left:7px;
+  border-radius:2px}

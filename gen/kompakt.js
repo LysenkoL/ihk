@@ -12,6 +12,12 @@
      oben   IHK AP1 · Frühjahr 2026        1:29:04   ☰
      unten  8/27 · 31/100 BE      nächste offene ↓   ⋯
 
+   Dasselbe im Arbeitsblatt und in der Simulation: dort steht eine eigene
+   Werkzeugleiste mit sieben Knöpfen („Alles prüfen“, „Alle Lösungen“, „Neues
+   Blatt“, „Prüfungsbogen“, „Papiermodus“, „Markdown“, „Übersicht“) plus Stand
+   und Uhr — auf dem Handy 600 px, bevor die erste Aufgabe kommt. Übrig
+   bleiben Stand, Uhr und der wichtigste Knopf; der Rest zieht hinter ⋯.
+
    Alles Übrige zieht in zwei Klappfächer hinter ☰ und ⋯. Die Knöpfe selbst
    werden dabei VERSCHOBEN, nicht nachgebaut — sie behalten ihre Ereignis-
    behandlung, ihre Beschriftung und ihren Zustand. Am Schreibtisch (breiter
@@ -100,6 +106,57 @@ window.GENKOMPAKT = (function () {
   function zu() {
     ["kmFach", "kfFach"].forEach(id => { const f = $(id); if (f) f.hidden = true; });
     ["kmKnopf", "kfKnopf"].forEach(id => { const k = $(id); if (k) k.classList.remove("offen"); });
+    document.querySelectorAll(".km-fach-gen").forEach(f => f.hidden = true);
+    document.querySelectorAll(".km-gen-knopf").forEach(k => k.classList.remove("offen"));
+  }
+
+  /* -------------------------------- Werkzeugleiste im Arbeitsblatt ------ */
+  /* Die Leiste wird bei jedem Öffnen eines Blatts neu gebaut, deshalb wird
+     sie an ihrem eigenen Merkmal erkannt und nicht zweimal angefasst.     */
+  function leisteKompakt(l) {
+    if (!l || l.dataset.km === "1") return;
+    const rest = [];
+    let primaer = null;
+    [...l.children].forEach(c => {
+      if (c.id === "genStand" || c.id === "genUhr") return;        /* bleibt sichtbar */
+      if (c.classList && c.classList.contains("weit")) { c.hidden = true; return; }
+      if (!primaer && c.classList && c.classList.contains("primary")) { primaer = c; return; }
+      rest.push(c);
+    });
+    if (!rest.length) return;
+
+    const knopf = el("button", "km-menue km-gen-knopf", "⋯");
+    knopf.type = "button";
+    knopf.setAttribute("aria-label", "Weitere Werkzeuge");
+    const fach = el("div", "km-fach km-fach-gen");
+    fach.hidden = true;
+    rest.forEach(x => fach.appendChild(x));
+    l.append(knopf, fach);
+
+    knopf.onclick = ev => {
+      ev.stopPropagation();
+      const offen = !fach.hidden;
+      zu();
+      if (!offen) { fach.hidden = false; knopf.classList.add("offen"); }
+    };
+    fach.addEventListener("click", ev => {
+      if (ev.target.closest("button")) setTimeout(zu, 30);
+    });
+    l.dataset.km = "1";
+  }
+
+  function leisteZurueck(l) {
+    if (!l || l.dataset.km !== "1") return;
+    const fach = l.querySelector(".km-fach-gen");
+    const knopf = l.querySelector(".km-gen-knopf");
+    if (fach) { while (fach.firstChild) l.insertBefore(fach.firstChild, knopf || null); fach.remove(); }
+    if (knopf) knopf.remove();
+    [...l.children].forEach(c => { if (c.classList && c.classList.contains("weit")) c.hidden = false; });
+    delete l.dataset.km;
+  }
+
+  function leisten(an) {
+    document.querySelectorAll(".gen-leiste").forEach(l => an ? leisteKompakt(l) : leisteZurueck(l));
   }
 
   /* ---------------------------------------------------------- Abbauen --- */
@@ -153,8 +210,8 @@ window.GENKOMPAKT = (function () {
 
   /* ------------------------------------------------------------ Pflege -- */
   function pruefen() {
-    if (MQ && MQ.matches) { bauen(); kuerzen(); }
-    else abbauen();
+    if (MQ && MQ.matches) { bauen(); kuerzen(); leisten(true); }
+    else { abbauen(); leisten(false); }
   }
 
   function einhaengen() {
@@ -176,11 +233,21 @@ window.GENKOMPAKT = (function () {
       new MutationObserver(() => { if (gebaut) zaehler(); })
         .observe($("fuss"), { childList: true, subtree: true, characterData: true });
     }
+
+    /* Das Arbeitsblatt baut seine Werkzeugleiste bei jedem Öffnen neu —
+       deshalb wird auf neue .gen-leiste-Knoten gewartet.                 */
+    if (window.MutationObserver) {
+      let wartet = null;
+      new MutationObserver(() => {
+        clearTimeout(wartet);
+        wartet = setTimeout(() => { if (MQ && MQ.matches) leisten(true); }, 120);
+      }).observe(document.body, { childList: true, subtree: true });
+    }
     pruefen();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", einhaengen);
   else einhaengen();
 
-  return { bauen, abbauen, pruefen, zu, aktiv: () => gebaut };
+  return { bauen, abbauen, pruefen, zu, leisten, aktiv: () => gebaut };
 })();

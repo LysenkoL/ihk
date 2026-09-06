@@ -13,6 +13,13 @@
      grün  = gegeben (Zahlen, Einheiten, Randbedingungen)
      rot   = Falle (nicht, kein, außer, mindestens, netto/brutto)
 
+   Auf dem Handy stört die Auswahl: Android legt über die Markierung sein
+   eigenes Menü („Kopieren“, „Teilen“, Wörterbuch) und verdeckt genau die
+   Stelle, an der die Farbe gewählt werden soll. Deshalb gibt es dort einen
+   Markierstift-Modus: einmal auf 🖍 tippen, danach färbt jeder Tipp auf ein
+   Wort es gelb — ohne Auswahl, ohne Rückfrage, ohne fremdes Menü. Nochmal
+   tippen nimmt die Farbe weg, Wischen färbt eine ganze Passage.
+
    Gespeichert wird nicht die Stelle im Dokument, sondern die Stelle im TEXT:
    Schlüssel ist eine Prüfsumme des Absatzes, dazu Anfang und Ende als
    Zeichenposition. Dadurch überlebt eine Markierung den Neuaufbau der Seite,
@@ -31,10 +38,13 @@ window.GENMARKER = (function () {
     { key: "rot", name: "Falle", titel: "Achtung: nicht, kein, außer, mindestens …" }
   ];
 
+  const TIPP_FARBE = "gelb";      /* im Stiftmodus wird nur gelb gemalt */
+
   /* Wo darf markiert werden */
   const SELEKTOR = ".tk-frage, .gruppe-txt, .tk-gintro, .gfrage, .gsituation, " +
                    ".loesung-txt, .katalog-hinweis, .gmerksatz";
 
+  const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
 
   /* ------------------------------------------------------------ Speicher */
@@ -172,6 +182,82 @@ window.GENMARKER = (function () {
     });
   }
 
+  /* ------------------------------------------------------- Stiftmodus --- */
+  let malmodus = false;
+  try { malmodus = localStorage.getItem("ihk2:marker:stift") === "1"; } catch (e) { }
+
+  function stiftSetzen(an) {
+    malmodus = !!an;
+    document.body.classList.toggle("mk-stift", malmodus);
+    try { localStorage.setItem("ihk2:marker:stift", malmodus ? "1" : "0"); } catch (e) { }
+    const k = $("mkStift");
+    if (k) { k.classList.toggle("an", malmodus); k.setAttribute("aria-pressed", malmodus ? "true" : "false"); }
+    if (malmodus) {
+      verstecken();
+      const s = window.getSelection(); if (s) s.removeAllRanges();
+      if (window.toast) window.toast("Markierstift an: tippe auf ein Wort. Wischen färbt mehrere.");
+    }
+  }
+
+  /** Zeichenposition unter einem Bildschirmpunkt. */
+  function stelleAn(box, x, y) {
+    let r = null;
+    if (document.caretRangeFromPoint) r = document.caretRangeFromPoint(x, y);
+    else if (document.caretPositionFromPoint) {
+      const p = document.caretPositionFromPoint(x, y);
+      if (p) { r = document.createRange(); r.setStart(p.offsetNode, p.offset); r.collapse(true); }
+    }
+    if (!r || !box.contains(r.startContainer)) return -1;
+    return versatz(box, r.startContainer, r.startOffset);
+  }
+
+  /** Endpunkt einer Wischgeste, die den Absatz verlassen hat: an den näheren
+      Rand klemmen, statt die Geste wegzuwerfen. */
+  function endeSchaetzen(box, x, y) {
+    const r = box.getBoundingClientRect();
+    const len = (box.textContent || "").length;
+    if (y > r.bottom || (y >= r.top && x > r.right)) return len;
+    if (y < r.top || (y <= r.bottom && x < r.left)) return 0;
+    return -1;
+  }
+
+  /** Von einer Position auf das ganze Wort (bis zum nächsten Leerzeichen) ausweiten. */
+  function wortUm(text, pos) {
+    if (pos < 0) return null;
+    let a = Math.min(pos, text.length - 1), b = a;
+    if (a < 0) return null;
+    if (/\s/.test(text[a])) {                 /* auf einer Lücke: nach links suchen */
+      while (a > 0 && /\s/.test(text[a])) a--;
+      b = a;
+    }
+    while (a > 0 && !/\s/.test(text[a - 1])) a--;
+    while (b < text.length && !/\s/.test(text[b])) b++;
+    return b > a ? [a, b] : null;
+  }
+
+  /** Tipp oder Wischen im Stiftmodus auswerten. */
+  function malen_tipp(box, von, bis) {
+    const text = box.textContent || "";
+    const w1 = wortUm(text, von), w2 = wortUm(text, bis);
+    if (!w1 && !w2) return;
+    const a = Math.min((w1 || w2)[0], (w2 || w1)[0]);
+    const b = Math.max((w1 || w2)[1], (w2 || w1)[1]);
+    if (b <= a) return;
+
+    const k = schluesselVon(box);
+    const alt = (DATEN[k] && DATEN[k].r) || [];
+    /* liegt der Anfang schon in einer Markierung? dann weg damit */
+    const drin = alt.find(r => r[0] < b && r[1] > a);
+    const neu = einfuegen(alt, drin ? Math.min(a, drin[0]) : a,
+                               drin ? Math.max(b, drin[1]) : b,
+                               drin ? null : TIPP_FARBE);
+    if (neu.length) DATEN[k] = { r: neu, z: Date.now() };
+    else delete DATEN[k];
+    sichern();
+    anwenden(box, neu);
+    box.dataset.mkFertig = box.dataset.mkText;
+  }
+
   /* ------------------------------------------------------------- Kasten - */
   let kasten = null;
 
@@ -203,6 +289,7 @@ window.GENMARKER = (function () {
   let letzte = null;      /* {box, a, b} */
 
   function auswahlPruefen() {
+    if (malmodus) return verstecken();
     const s = window.getSelection();
     if (!s || s.isCollapsed || !s.rangeCount) return verstecken();
     const r = s.getRangeAt(0);
@@ -259,6 +346,32 @@ window.GENMARKER = (function () {
     return Object.keys(DATEN).reduce((n, k) => n + (DATEN[k].r || []).length, 0);
   }
 
+  /* --------------------------------------------------- Knopf im Kopf ---- */
+  function stiftKnopf() {
+    if ($("mkStift")) return $("mkStift");
+    const kopf = document.querySelector(".kopf .kopf-in");
+    if (!kopf) return null;
+    const b = el("button", "mk-stift", "🖍");
+    b.id = "mkStift"; b.type = "button";
+    b.title = "Markierstift: tippe auf ein Wort, um es gelb zu färben";
+    b.setAttribute("aria-label", "Markierstift");
+    b.onclick = ev => { ev.stopPropagation(); stiftSetzen(!malmodus); };
+    const km = $("kmKnopf");
+    if (km) kopf.insertBefore(b, km); else kopf.appendChild(b);
+    b.classList.toggle("an", malmodus);
+    return b;
+  }
+
+  /** Der Stift erscheint nur, wo es etwas zu markieren gibt. */
+  function knopfPflegen() {
+    const b = stiftKnopf();
+    if (!b) return;
+    const etwas = !!document.querySelector(".tk-frage, .gfrage, .gruppe-txt, .gsituation");
+    b.hidden = !etwas;
+    if (!etwas && malmodus) document.body.classList.remove("mk-stift");
+    else document.body.classList.toggle("mk-stift", malmodus);
+  }
+
   /* ------------------------------------------------- Legende & Aufräumen */
   /* Die Erklärung steht dort, wo auch der Rest der eigenen Daten liegt:
      im Abschnitt „Fortschritt sichern“.                                   */
@@ -268,7 +381,10 @@ window.GENMARKER = (function () {
     const h = [...s.querySelectorAll("h2")].find(x => /^Fortschritt sichern/.test((x.textContent || "").trim()));
     if (!h || !h.parentNode) return;
     const box = el("div", "mk-hilfe"); box.id = "mkHilfe";
-    box.appendChild(el("span", null, "Textmarker: Text in einer Aufgabe auswählen, Farbe wählen —"));
+    box.appendChild(el("span", null,
+      "Textmarker: oben auf 🖍 tippen, dann färbt jeder Tipp auf ein Wort es gelb " +
+      "(nochmal tippen nimmt es weg, Wischen färbt mehrere). Ohne Stift: Text " +
+      "auswählen und Farbe wählen —"));
     FARBEN.forEach(f => {
       const p = el("span", "mk-probe mk-" + f.key, f.name);
       box.appendChild(p);
@@ -309,6 +425,30 @@ window.GENMARKER = (function () {
     document.addEventListener("mousedown", ev => {
       if (kasten && !kasten.hidden && !kasten.contains(ev.target)) verstecken();
     });
+
+    /* Stiftmodus: Tippen und Wischen statt Auswählen */
+    let start = null;
+    document.addEventListener("pointerdown", ev => {
+      if (!malmodus) return;
+      const box = boxVon(ev.target);
+      if (!box) return;
+      start = { box: box, x: ev.clientX, y: ev.clientY, pos: stelleAn(box, ev.clientX, ev.clientY) };
+    }, true);
+    document.addEventListener("pointerup", ev => {
+      if (!malmodus || !start) return;
+      const s = start; start = null;
+      /* Maßgeblich ist die Box, in der der Finger AUFGESETZT hat. Beim
+         Wischen über einen Zeilenumbruch liegt der Endpunkt sonst schon
+         außerhalb, und die ganze Geste ginge verloren.                  */
+      const box = s.box;
+      let bis = stelleAn(box, ev.clientX, ev.clientY);
+      const gewischt = Math.abs(ev.clientX - s.x) + Math.abs(ev.clientY - s.y) > 12;
+      if (bis < 0 && gewischt) bis = endeSchaetzen(box, ev.clientX, ev.clientY);
+      if (s.pos < 0 && bis < 0) return;
+      ev.preventDefault();
+      malen_tipp(box, s.pos < 0 ? bis : s.pos, bis < 0 ? s.pos : bis);
+    }, true);
+    document.addEventListener("pointercancel", () => { start = null; }, true);
     window.addEventListener("resize", verstecken);
 
     const alt = window.renderStart;
@@ -319,14 +459,16 @@ window.GENMARKER = (function () {
       };
     }
 
-    const beo = new MutationObserver(spaeter);
+    const beo = new MutationObserver(() => { spaeter(); knopfPflegen(); });
     beo.observe(document.body, { childList: true, subtree: true });
     scannen();
-    setTimeout(() => { legendeBauen(); tipp(); }, 400);
+    knopfPflegen();
+    setTimeout(() => { legendeBauen(); tipp(); knopfPflegen(); }, 400);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", einhaengen);
   else einhaengen();
 
-  return { scannen, anwenden, alleLoeschen, anzahl, legendeBauen, daten: () => DATEN, FARBEN, SELEKTOR, hash };
+  return { scannen, anwenden, alleLoeschen, anzahl, legendeBauen, stiftSetzen,
+           stift: () => malmodus, daten: () => DATEN, FARBEN, SELEKTOR, hash };
 })();
