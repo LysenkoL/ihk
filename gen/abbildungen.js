@@ -110,6 +110,30 @@ window.GENBILDER = (function () {
     "ap1-2026-f_p09_f1.png", "ap1-2026-f_p10_f2.png"
   ].forEach(f => AUSBLENDEN.add(f));
 
+  /* --------- dritte Durchsicht: schmale Ausschnitte ---------------------- */
+  /* Die 59 noch verbliebenen schmalen Bilder einzeln angesehen: 42 sind
+     Scherben — eine einzelne Tabellenzelle („Medium getrennt“), ein
+     halber Satz, ein leerer ER-Kasten, oder die Umfrage „Prüfungszeit —
+     nicht Bestandteil der Prüfung“. Die übrigen 17 bleiben: Fotos von
+     Anschlüssen, Konsolenausgaben (ping, arp, ipconfig), die Symbole des
+     UML-Aktivitätsdiagramms und der Netzplan von Frühjahr 2025.        */
+  [
+    "ap1-2022-f_p04_f2.png", "ap1-2022-f_p04_f3.png", "ap1-2022-f_p04_f4.png",
+    "ap1-2022-f_p05_f2.png", "ap1-2022-f_p05_f3.png", "ap1-2022-f_p05_f4.png",
+    "ap1-2022-f_p08_f4.png", "ap1-2022-f_p09_f1.png", "ap1-2022-f_p14_f2.png",
+    "ap1-2022-h_p03_f1.png", "ap1-2022-h_p03_f2.png", "ap1-2022-h_p03_f3.png",
+    "ap1-2022-h_p06_f1.png", "ap1-2022-h_p12_f2.png", "ap1-2022-h_p12_f3.png",
+    "ap1-2022-h_p12_f4.png", "ap1-2023-f_p04_f2.png", "ap1-2023-f_p04_f4.png",
+    "ap1-2023-f_p06_f1.png", "ap1-2023-f_p07_f2.png", "ap1-2023-h_p12_f1.png",
+    "ap1-2023-h_p12_f3.png", "ap1-2023-h_p14_f4.png", "ap1-2024-f_p03_f3.png",
+    "ap1-2024-f_p08_f2.png", "ap1-2024-h_p02_f3.png", "ap1-2024-h_p05_f3.png",
+    "ap1-2024-h_p08_f1.png", "ap1-2024-h_p09_f2.png", "ap1-2024-h_p10_f4.png",
+    "ap1-2025-f_p05_f2.png", "ap1-2025-f_p07_f2.png", "ap1-2025-f_p07_f4.png",
+    "ap1-2025-f_p07_f5.png", "ap1-2025-f_p08_f1.png", "ap1-2025-f_p09_f2.png",
+    "ap1-2025-f_p10_f2.png", "ap1-2025-f_p12_f4.png", "ap1-2026-f_p05_f2.png",
+    "ap1-2026-f_p10_f4.png", "ap1-2026-f_p12_f2.png", "ap1-2026-f_p12_f3.png"
+  ].forEach(f => AUSBLENDEN.add(f));
+
   /* --------- neu gezeichnete Abbildungen: PNG -> SVG -------------------- */
   const ERSATZ = {
     /* Schalenmodell eines PCs. Das Original ist ein ganzer Seitenausschnitt

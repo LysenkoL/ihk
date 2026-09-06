@@ -266,3 +266,55 @@
   .mk-kasten { gap: 2px; padding: 3px; }
   .mk-knopf { font-size: 12px; padding: 9px 9px; }
 }
+
+/* ============================================================================
+   Kompakte Prüfungsansicht auf dem Handy (gen/kompakt.js)
+   Kopf und Fuß je eine Zeile, alles Weitere in zwei Klappfächern.
+   ========================================================================== */
+@media (max-width: 700px) {
+  body.kompakt .kopf { position: sticky; }
+  body.kompakt .kopf-in { flex-wrap: nowrap; align-items: center; gap: 8px;
+                          padding: 5px 10px 4px; }
+  body.kompakt .marke { font-size: 14px; flex: 0 0 auto; line-height: 1.1; }
+  body.kompakt .marke small { display: none; }
+  body.kompakt .kopf-titel { flex: 1 1 auto; min-width: 0; }
+  body.kompakt .kopf-titel h1,
+  body.kompakt .kopf-titel .eyebrow { display: none; }
+  body.kompakt .km-kurz { font-family: var(--display); text-transform: uppercase;
+    letter-spacing: .09em; font-size: 9.5px; font-weight: 700; color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  body.kompakt .spacer { display: none; }
+  body.kompakt .kopf-meta { flex: 0 0 auto; gap: 8px; flex-wrap: nowrap; }
+  body.kompakt .kopf-meta .messwert { text-align: right; }
+  body.kompakt #mwUhr .eyebrow { display: none; }
+  body.kompakt #uhr { font-size: 18px; line-height: 1; }
+
+  body.kompakt .fuss-in { flex-wrap: nowrap; gap: 8px; padding: 6px 10px; align-items: center; }
+  body.kompakt .fuss-stat { display: none; }
+  body.kompakt .km-zaehler { flex: 1 1 auto; min-width: 0; font-size: 12px;
+    font-family: var(--data); color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  body.kompakt .fuss-in #btnNaechste { flex: 0 0 auto; min-height: 34px;
+    padding: 6px 10px; font-size: 11.5px; white-space: nowrap; }
+
+  /* der Knopf, der die Fächer öffnet */
+  .km-menue { flex: 0 0 auto; width: 36px; height: 34px; padding: 0;
+    font: inherit; font-size: 17px; line-height: 1; cursor: pointer;
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--card); color: var(--ink); }
+  .km-menue.offen { border-color: var(--pruefer); color: var(--pruefer);
+                    background: var(--pruefer-soft); }
+
+  .km-fach { position: absolute; right: 8px; top: 100%; z-index: 70;
+    display: flex; flex-direction: column; align-items: stretch; gap: 9px;
+    min-width: 216px; max-width: calc(100vw - 16px);
+    padding: 11px; background: var(--card);
+    border: 1px solid var(--rule); border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.26); }
+  .km-fach .btn { width: 100%; min-height: 40px; font-size: 13px; }
+  .km-fach label { font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .km-fach .messwert { text-align: left; display: flex; align-items: baseline;
+                       gap: 8px; }
+  .km-fach .messwert .eyebrow { display: inline; margin: 0; }
+  .km-fach-unten { top: auto; bottom: 100%; margin-bottom: 6px; }
+}
