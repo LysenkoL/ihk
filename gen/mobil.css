@@ -322,3 +322,33 @@
 @media (max-width: 700px) {
   .loesung-txt.mono { font-size: 11px; line-height: 1.55; }
 }
+
+/* ------------------------------ Tempo je Aufgabentyp (gen/zeit.js) ------ */
+@media (max-width: 700px) {
+  .zt-zeile { grid-template-columns: 1fr 40px 76px; gap: 7px 8px; }
+  .zt-name { font-size: 12.5px; }
+  .zt-spur { grid-column: 1 / -1; }
+  .zt-wert { font-size: 11.5px; }
+  .zt-fuss .btn { width: 100%; }
+}
+
+/* ---------------------------------- Lernplan (gen/plan.js) -------------- */
+@media (max-width: 700px) {
+  .pl-tag { padding: 9px 10px; }
+  .pl-block { gap: 9px; align-items: center; }
+  .pl-block .btn { flex: 0 0 auto; min-height: 32px; padding: 5px 12px; font-size: 11.5px; }
+  .pl-btitel { font-size: 13px; }
+  .pl-min { padding: 6px 10px; }
+}
+
+/* ------------------------- Pseudocode-Trainer (gen/pseudocode.js) ------- */
+@media (max-width: 700px) {
+  .ps-liste { grid-template-columns: 1fr; gap: 7px; }
+  .ps-uebung { padding: 11px 11px; }
+  .ps-kopf h3 { font-size: 15px; }
+  .ps-code { font-size: 11.5px; }
+  .ps-pfeil { width: 34px; height: 34px; }
+  .ps-loesung { font-size: 11.5px; }
+  .ps-feld { font-size: 16px; }
+  .ps-leiste .btn { flex: 1 1 auto; }
+}

@@ -475,3 +475,120 @@ mark.mk-rot{background:#FFC2BC}
 /* Musterlösungen mit Tabelle oder Struktogramm: feste Zeichenbreite */
 .loesung-txt.mono{font-family:var(--data); font-size:12.5px; line-height:1.6;
   overflow-x:auto; -webkit-overflow-scrolling:touch}
+
+/* ============================================================================
+   Tempo je Aufgabentyp (gen/zeit.js)
+   ========================================================================== */
+.zt-liste{margin:14px 0 4px}
+.zt-zeile{display:grid; grid-template-columns:190px 42px 1fr 96px; gap:10px;
+  align-items:center; padding:7px 0; border-bottom:1px solid var(--rule-soft)}
+.zt-zeile:last-child{border-bottom:0}
+.zt-name{font-size:13.5px; font-weight:600}
+.zt-n{font-size:12px; color:var(--muted); text-align:right}
+.zt-spur{position:relative; height:12px; background:var(--field);
+  border-radius:2px; overflow:hidden; display:block}
+.zt-spur i{display:block; height:100%; background:var(--ok); border-radius:2px}
+.zt-zeile.eng .zt-spur i{background:var(--red)}
+.zt-zeile.gut .zt-spur i{background:var(--ok)}
+.zt-marke{position:absolute; top:-3px; width:2px; height:18px;
+  background:var(--ink); opacity:.55}
+.zt-wert{font-family:var(--data); font-size:12.5px; text-align:right}
+.zt-fazit{margin-top:12px; font-size:13px; line-height:1.6; padding:9px 12px;
+  border-left:3px solid var(--pruefer); background:var(--pruefer-soft); border-radius:2px}
+.zt-fuss{display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin-top:12px; font-size:12px; color:var(--muted); flex-wrap:wrap}
+
+/* ============================================================================
+   Lernplan bis zur Prüfung (gen/plan.js)
+   ========================================================================== */
+.pl-stell{display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--muted); margin:12px 0 14px}
+.pl-min{font:inherit; font-size:12.5px; padding:5px 11px; cursor:pointer;
+  border:1px solid var(--rule); border-radius:2px; background:var(--card); color:var(--ink)}
+.pl-min.an{border-color:var(--pruefer); background:var(--pruefer-soft);
+  color:var(--pruefer); font-weight:700}
+
+.pl-liste{display:flex; flex-direction:column; gap:10px}
+.pl-tag{border:1px solid var(--rule); border-radius:3px; background:var(--card);
+  padding:10px 12px}
+.pl-tag.heute{border-color:var(--pruefer); border-left:3px solid var(--pruefer)}
+.pl-tag.fertig{opacity:.55}
+.pl-kopf{display:flex; align-items:baseline; gap:10px; margin-bottom:8px}
+.pl-datum{font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:11.5px; font-weight:700}
+.pl-rest{font-size:11.5px; color:var(--muted)}
+.pl-hak{margin-left:auto; font:inherit; font-size:11.5px; cursor:pointer;
+  border:1px solid var(--rule); border-radius:2px; padding:4px 9px;
+  background:var(--paper); color:var(--muted)}
+.pl-hak.an{border-color:var(--ok); color:var(--ok); background:var(--ok-soft); font-weight:700}
+
+.pl-block{display:flex; align-items:center; gap:12px; padding:8px 0;
+  border-top:1px solid var(--rule-soft)}
+.pl-block:first-of-type{border-top:0}
+.pl-btxt{flex:1 1 auto; min-width:0}
+.pl-btitel{font-size:13.5px; font-weight:700}
+.pl-bwarum{font-size:12.5px; color:var(--muted); line-height:1.5; margin-top:2px}
+.pl-block .btn{flex:0 0 auto}
+.pl-simulation .pl-btitel, .pl-pruefung .pl-btitel{color:var(--pruefer)}
+.pl-fuss{margin-top:10px; text-align:right}
+.pl-mehr{background:none; border:0; padding:0; cursor:pointer; font:inherit;
+  font-size:12.5px; color:var(--muted); text-decoration:underline}
+.pl-mehr:hover{color:var(--pruefer)}
+
+/* ============================================================================
+   Pseudocode selbst schreiben (gen/pseudocode.js)
+   ========================================================================== */
+.ps-liste{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:14px 0}
+.ps-karte{display:flex; flex-direction:column; align-items:flex-start; gap:2px;
+  text-align:left; padding:10px 12px; cursor:pointer; font:inherit; color:inherit;
+  border:1px solid var(--rule); border-radius:3px; background:var(--card)}
+.ps-karte:hover{border-color:var(--pruefer)}
+.ps-karte.an{border-color:var(--pruefer); background:var(--pruefer-soft)}
+.ps-titel{font-weight:700; font-size:13.5px; line-height:1.25}
+.ps-herk{font-size:11px; color:var(--muted)}
+.ps-stand{font-family:var(--data); font-size:11.5px; color:var(--muted); margin-top:3px}
+
+.ps-uebung{border:1px solid var(--rule); border-top:3px solid var(--pruefer);
+  border-radius:3px; background:var(--card); padding:14px 16px; margin-top:6px}
+.ps-kopf{display:flex; align-items:center; justify-content:space-between; gap:12px;
+  flex-wrap:wrap; margin-bottom:8px}
+.ps-kopf h3{margin:0; font-size:16px}
+.ps-modus{display:flex; gap:4px}
+.ps-mk{font:inherit; font-size:12px; padding:5px 10px; cursor:pointer;
+  border:1px solid var(--rule); border-radius:2px; background:var(--paper); color:var(--ink)}
+.ps-mk.an{border-color:var(--pruefer); background:var(--pruefer-soft); color:var(--pruefer); font-weight:700}
+.ps-text{font-size:13px; line-height:1.6; white-space:pre-wrap; color:var(--muted);
+  background:var(--field); border-radius:2px; padding:10px 12px; margin-bottom:12px}
+
+.ps-zeile{display:flex; align-items:center; gap:8px; padding:5px 8px; margin-bottom:4px;
+  border:1px solid var(--rule); border-radius:2px; background:var(--paper)}
+.ps-code{font-family:var(--data); font-size:12.5px; flex:1 1 auto; min-width:0;
+  overflow-x:auto; white-space:pre}
+.ps-wz{display:flex; gap:3px; flex:0 0 auto}
+.ps-pfeil{width:30px; height:30px; font:inherit; font-size:14px; cursor:pointer;
+  border:1px solid var(--rule); border-radius:2px; background:var(--card); color:var(--ink)}
+.ps-pfeil:disabled{opacity:.3; cursor:default}
+.ps-leiste{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+
+.ps-feld{width:100%; font-family:var(--data); font-size:13px; line-height:1.7;
+  background:var(--paper); border:1px solid var(--rule); border-radius:2px; padding:10px 12px}
+.ps-feld:focus{border-color:var(--pruefer); outline:none}
+
+.ps-erg{margin-top:12px}
+.ps-note{font-size:13.5px; font-weight:700; padding:8px 11px; border-radius:2px}
+.ps-note.gut{background:var(--ok-soft); color:var(--ok); border-left:3px solid var(--ok)}
+.ps-note.fast{background:var(--warn-soft); color:var(--warn); border-left:3px solid var(--warn)}
+.ps-note.schlecht{background:var(--red-soft); color:var(--red); border-left:3px solid var(--red)}
+.ps-bausteine{margin:10px 0}
+.ps-bs{display:flex; align-items:baseline; gap:8px; font-size:12.5px; padding:3px 0;
+  color:var(--muted); flex-wrap:wrap}
+.ps-bs.da{color:var(--ok)}
+.ps-bsmark{font-family:var(--data); width:14px}
+.ps-bsname{font-weight:600}
+.ps-bstipp{color:var(--muted); font-style:italic; flex:1 1 220px}
+.ps-titel2{font-family:var(--display); text-transform:uppercase; letter-spacing:.11em;
+  font-size:10px; font-weight:700; color:var(--muted); margin:12px 0 5px}
+.ps-loesung{font-family:var(--data); font-size:12.5px; line-height:1.65; margin:0;
+  background:var(--field); border-radius:2px; padding:11px 13px; overflow-x:auto}
+.ps-falle{margin-top:10px; font-size:12.5px; line-height:1.6; padding:8px 11px;
+  border-left:3px solid var(--warn); background:var(--warn-soft); border-radius:2px}

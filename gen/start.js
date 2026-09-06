@@ -45,6 +45,9 @@ window.GENSTART = (function () {
   const BLOECKE = [
     { key: "pruefungen", titel: /^Prüfungen$/,               name: "Alle zehn Prüfungen" },
     { key: "gesamt",  id: "gesamtBox",                       name: "Wo stehe ich?" },
+    { key: "plan",    id: "planBox",                         name: "Lernplan bis zur Prüfung" },
+    { key: "tempo",   id: "zeitBox",                         name: "Tempo — Sekunden je BE" },
+    { key: "pseudo",  id: "pseudoBox",                       name: "Pseudocode selbst schreiben" },
     { key: "blatt",   id: "genStartBox",                     name: "Arbeitsblätter & Simulation" },
     { key: "satz",    id: "satzBox",                         name: "Satzbau, Formeln, Operatoren" },
     { key: "uebung",     titel: /^Übungsmodus/,              name: "Übungsmodus nach Themen" },
@@ -93,6 +96,27 @@ window.GENSTART = (function () {
   /* --------------------------------------------------------- Empfehlung - */
   function empfehlung(z) {
     const tage = tageBis();
+
+    /* 0. Wenn der Lernplan da ist, gilt sein heutiger Block — er rechnet
+          Prüfungsgewicht gegen die eigene Quote und ist damit besser
+          begründet als jede feste Regel hier.                          */
+    try {
+      const P = window.GENPLAN && window.GENPLAN.plan();
+      const heuteP = P && P.tage && P.tage[0];
+      const erledigt = (() => {
+        try { return !!(JSON.parse(localStorage.getItem("ihk2:plan")) || {}).erledigt[heuteP.key]; }
+        catch (e) { return false; }
+      })();
+      if (heuteP && heuteP.bloecke.length && !erledigt && heuteP.rest > 0) {
+        const bl = heuteP.bloecke[0];
+        return {
+          titel: bl.titel,
+          warum: bl.text,
+          knopf: bl.minuten + " Minuten · los",
+          tun: () => window.GENPLAN.starte(bl)
+        };
+      }
+    } catch (e) { }
 
     /* 1. Noch gar nichts gemacht */
     if (!z.blaetter) {

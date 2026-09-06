@@ -22,7 +22,10 @@ window.GENFORTSCHRITT = (function () {
     "ihk2:gen:satz",         // Satzbau-Training
     "ihk2:gen:fehler",       // Fehlerjournal
     "ihk2:gen:letzteWahl",   // zuletzt gewählte Themen im Assistenten
-    "ihk2:marker"            // Textmarkierungen in den Aufgabentexten
+    "ihk2:marker",           // Textmarkierungen in den Aufgabentexten
+    "ihk2:zeit",             // gemessenes Tempo je Aufgabentyp
+    "ihk2:plan",             // Lernplan: Minuten pro Tag, abgehakte Tage
+    "ihk2:pseudo"            // Pseudocode-Trainer
   ];
 
   function einsammeln() {
