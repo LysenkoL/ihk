@@ -387,6 +387,11 @@ window.GEN = (function () {
   }
 
   function normFeld(f, i) {
+    /* Ob die Vorlage die BE selbst gesetzt hat, muss VOR dem Vorbelegen
+       festgehalten werden — sonst gewinnt der Vorgabewert 1 und eine
+       Richtig/Falsch-Tabelle mit sechs Aussagen wäre so viel wert wie eine
+       einzige Zeile „Nennen Sie …“.                                      */
+    const beGesetzt = f && f.be != null;
     const g = Object.assign({ typ: "text", be: 1, dez: 2 }, f);
     g.nr = i;
     if (g.typ === "zahl") {
@@ -401,8 +406,18 @@ window.GEN = (function () {
       g.be = runde((g.zeilen || []).reduce((s, z) =>
         s + z.zellen.reduce((t, c) => t + (c.eingabe ? (c.be || 0) : 0), 0), 0), 2);
     }
-    if (g.typ === "aussagen") g.be = g.be || (g.aussagen || []).length * 0.5;
-    if (g.typ === "zuordnung") g.be = g.be || (g.paare || []).length * 0.5;
+    if (g.typ === "aussagen") {
+      /* Die Vorlagen schreiben die Aussage teils als `t`, teils als `text`.
+         Hier wird das einmal geradegezogen — sonst bleibt die Spalte
+         „Aussage“ im Arbeitsblatt und im Druck leer und die Aufgabe ist
+         nicht lösbar.                                                    */
+      (g.aussagen || []).forEach(a => {
+        if (a && a.text == null) a.text = a.t;
+        if (a && a.t == null) a.t = a.text;
+      });
+      if (!beGesetzt) g.be = runde((g.aussagen || []).length * 0.5, 2);
+    }
+    if (g.typ === "zuordnung" && !beGesetzt) g.be = runde((g.paare || []).length * 0.5, 2);
     return g;
   }
 
