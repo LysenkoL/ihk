@@ -461,7 +461,7 @@ window.GENUI = (function () {
       aufgaben: res.aufgaben.map(a => ({ vorlageId: a.vorlageId, saat: a.saat })),
       maxPoints: res.maxPoints,
       punkte: 0, bewertet: false,
-      antworten: {}, ergebnisse: {},
+      antworten: {}, ergebnisse: {}, selbst: {},
       zeit: opt.zeit == null ? 1 : opt.zeit,
       sekunden: 0,
       pruefung: !!opt.pruefung,        /* Prüfungssimulation: Lösungen gesperrt */
@@ -954,9 +954,49 @@ window.GENUI = (function () {
   }
 
   /* ======================= Prüfen ======================================= */
-  function pruefe(i, still) {
+  /* --------------------------------------------------------------------
+     Selbstbewertung bei Freitext
+     --------------------------------------------------------------------
+     Die automatische Prüfung erkennt Synonyme, Tippfehler und umgestellte
+     Sätze — aber nicht alles. Wer „die Firewall lässt nur das durch, was
+     ausdrücklich erlaubt ist“ schreibt, hat das Whitelist-Prinzip erklärt,
+     ohne das Wort zu benutzen. In der echten Prüfung gäbe es dafür den
+     Punkt. Deshalb kann jedes Freitextfeld nachträglich selbst gewertet
+     werden — so, wie man es beim Korrigieren mit dem Lösungsblatt neben
+     sich auch täte. Die Entscheidung hängt am Blatt und bleibt erhalten.
+
+     Bewusst NICHT für Ankreuz-, Zuordnungs- und Rechenfelder: dort ist
+     richtig eindeutig, und sich selbst Punkte zu schenken hilft nicht.  */
+  const SELBST_TYPEN = { text: 1, liste: 1, rechenweg: 1 };
+
+  function selbstSchluessel(i, nr) { return i + ":" + nr; }
+  function selbstWert(i, nr) {
+    const s = BLATT && BLATT.selbst;
+    return s ? s[selbstSchluessel(i, nr)] : undefined;
+  }
+  function selbstSetzen(i, nr, punkte) {
+    if (!BLATT.selbst) BLATT.selbst = {};
+    const k = selbstSchluessel(i, nr);
+    if (punkte == null) delete BLATT.selbst[k]; else BLATT.selbst[k] = punkte;
+    pruefe(i, true, true);
+    standAktualisieren();
+  }
+
+  function pruefe(i, still, ohneStat) {
     const a = AUFG[i];
     const erg = G.pruefeAufgabe(a, BLATT.antworten[i] || {});
+    /* eigene Wertung drüberlegen, bevor irgendetwas gezählt wird */
+    erg.felder.forEach(r => {
+      const p = selbstWert(i, r.nr);
+      if (p == null) return;
+      r.selbst = true;
+      r.punkte = p;
+      r.status = p >= (r.be || 0) - 0.001 ? "richtig" : (p > 0 ? "teil" : "falsch");
+      r.text = "selbst gewertet";
+    });
+    if (Object.keys((BLATT.selbst) || {}).some(k => k.indexOf(i + ":") === 0)) {
+      erg.punkte = G.runde(erg.felder.reduce((s, r) => s + (r.punkte || 0), 0), 2);
+    }
     /* Wie viel davon kam aus Ankreuz- und Zuordnungsaufgaben? In der echten
        Prüfung sind das nur rund 2 % der Punkte — hier deutlich mehr. Für die
        ehrliche Hochrechnung nach der Simulation wird es getrennt gezählt.  */
@@ -985,7 +1025,7 @@ window.GENUI = (function () {
       karte.classList.add(q > 0.99 ? "richtig" : (q > 0 ? "teil" : "falsch"));
       rand.classList.add(q > 0.99 ? "ok" : (q > 0 ? "halb" : "nein"));
       rand.querySelector(".wert").innerHTML = nz(erg.punkte) + "<small>von " + nz(a.maxPoints) + " BE</small>";
-      statMerken(a.vorlageId, erg.punkte, a.maxPoints);
+      if (!ohneStat) statMerken(a.vorlageId, erg.punkte, a.maxPoints);
     }
 
     const rueck = $("grueck-" + i);
@@ -1134,6 +1174,34 @@ window.GENUI = (function () {
       }
       ziel.appendChild(chips);
     }
+
+    /* Selbstbewertung anbieten — nur bei Freitext und nur, wenn etwas
+       dasteht. Zwei Knöpfe: voller Punkt oder halber, wie bei einer
+       inhaltlich richtigen, aber unvollständigen Antwort.              */
+    if (SELBST_TYPEN[f.typ] && r.status !== "leer") {
+      const i = AUFG.indexOf(a);
+      const eigen = selbstWert(i, f.nr);
+      const zeile = el("div", "gselbst");
+      if (eigen != null) {
+        zeile.appendChild(el("span", "gselbst-an", "eigene Wertung: " + nz(eigen) + " von " + nz(f.be) + " BE"));
+        const weg = el("button", "gselbst-k", "zurücknehmen");
+        weg.type = "button";
+        weg.onclick = () => selbstSetzen(i, f.nr, null);
+        zeile.appendChild(weg);
+      } else if (r.status !== "richtig") {
+        zeile.appendChild(el("span", "gselbst-frage", "Inhaltlich doch richtig?"));
+        const halb = G.runde((f.be || 1) / 2, 2);
+        const b1 = el("button", "gselbst-k", "ganz (" + nz(f.be) + " BE)");
+        b1.type = "button"; b1.onclick = () => selbstSetzen(i, f.nr, f.be || 1);
+        zeile.appendChild(b1);
+        if (halb > 0 && halb < (f.be || 1)) {
+          const b2 = el("button", "gselbst-k", "halb (" + nz(halb) + " BE)");
+          b2.type = "button"; b2.onclick = () => selbstSetzen(i, f.nr, halb);
+          zeile.appendChild(b2);
+        }
+      }
+      if (zeile.childNodes.length) ziel.appendChild(zeile);
+    }
   }
 
   function loesungZeigen(i) {
@@ -1150,6 +1218,8 @@ window.GENUI = (function () {
     AUFG[i] = G.erzeuge(AUFG[i].vorlageId, neuSaat);
     delete BLATT.antworten[i];
     delete BLATT.ergebnisse[i];
+    /* neue Aufgabe, alte Selbstwertung ungültig */
+    Object.keys(BLATT.selbst || {}).forEach(k => { if (k.indexOf(i + ":") === 0) delete BLATT.selbst[k]; });
     BLATT.maxPoints = G.runde(AUFG.reduce((s, a) => s + a.maxPoints, 0), 2);
     const alt = $("gauf-" + i);
     const neu = aufgabeEl(AUFG[i], i);

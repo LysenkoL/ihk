@@ -136,7 +136,10 @@ window.GEN = (function () {
       .replace(/\s+/g, " ").trim();
   }
   function worte(s) {
-    return norm(s).split(" ")
+    /* Bindestrich trennt: „Mehr-Faktor-Authentifizierung“ sind drei Begriffe,
+       sonst steht das ganze Wort als ein einziger Klotz da und „Zwei-Faktor-
+       Authentifizierung“ trifft nichts davon.                              */
+    return norm(s).split(/[\s\-/]+/)
       .map(w => w.replace(/^[.:,;-]+/, "").replace(/[.:,;-]+$/, ""))
       .filter(w => w && !STOPP.has(w));
   }
@@ -148,9 +151,117 @@ window.GEN = (function () {
   }
   const stammSatz = s => worte(s).map(stamm);
 
+  /* ------------------------------------------------------------------
+     Wörter, die dasselbe meinen. In der Prüfung zählt der Sachverhalt,
+     nicht das Wort: wer „Symbole“ statt „Zeichen“ oder „Kennwort“ statt
+     „Passwort“ schreibt, hat die Sache verstanden. Die Gruppen werden
+     als Stämme abgelegt, damit auch gebeugte Formen passen.
+     Bewusst eng gehalten — „Kosten“ ist nicht „Aufwand“, und „Mitarbeiter“
+     ist nicht immer „Benutzer“.
+     --------------------------------------------------------------- */
+  const SYNONYME = [
+    ["zeichen", "symbol", "buchstabe"],
+    ["passwort", "kennwort", "passphrase"],
+    ["rechner", "computer", "pc"],
+    ["programm", "software", "anwendung"],
+    ["fehler", "störung", "problem", "ausfall"],
+    ["netzwerk", "netz"],
+    ["datensicherung", "backup"],
+    ["verschlüsselung", "chiffrierung"],
+    ["benutzer", "nutzer", "anwender"],
+    ["speicher", "datenträger"],
+    ["gerät", "hardware"],
+    ["prüfen", "kontrollieren", "überprüfen"],
+    ["ändern", "wechseln"],
+    ["angriff", "attacke"],
+    ["berechtigung", "zugriffsrecht"],
+    ["anmeldung", "login", "authentifizierung"],
+    ["schulung", "einweisung", "unterweisung"],
+    ["vertrag", "vereinbarung"],
+    ["hinweis", "warnung", "meldung"]
+  ];
+  const SYNGRUPPE = (() => {
+    const m = {};
+    SYNONYME.forEach((gruppe, i) => gruppe.forEach(w => { m[stamm(norm(w))] = i; }));
+    return m;
+  })();
+
+  /** Editierabstand, nach oben begrenzt — für Tippfehler, nicht für Ähnlichkeit.
+   *  Mit Vertauschung zweier Nachbarn (Damerau): „Redudnanz“ statt
+   *  „Redundanz“ ist der mit Abstand häufigste Tippfehler und soll EIN
+   *  Fehler sein, nicht zwei. */
+  function abstand(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    let vorvor = null, vor = [], jetzt = [];
+    for (let j = 0; j <= b.length; j++) vor[j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      jetzt = [i];
+      let min = i;
+      for (let j = 1; j <= b.length; j++) {
+        const kosten = a[i - 1] === b[j - 1] ? 0 : 1;
+        let w = Math.min(vor[j] + 1, jetzt[j - 1] + 1, vor[j - 1] + kosten);
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1])
+          w = Math.min(w, vorvor[j - 2] + 1);
+        jetzt[j] = w;
+        if (w < min) min = w;
+      }
+      if (min > max) return max + 1;      /* kann nur noch schlechter werden */
+      vorvor = vor; vor = jetzt;
+    }
+    return vor[b.length];
+  }
+
+  /** Tippfehlertoleranz nach Wortlänge: kurze Wörter dürfen nicht wackeln */
+  function tippNah(x, y) {
+    const l = Math.max(x.length, y.length);
+    if (l < 5) return false;
+    const max = l >= 8 ? 2 : 1;
+    return abstand(x, y, max) <= max;
+  }
+
+  /** Zwei Wortstämme, die dasselbe meinen dürfen. */
+  function nahe(x, y) {
+    if (x === y) return true;
+    /* deutsche Zusammensetzungen: „Sonderzeichen“ enthält „zeichen“,
+       „Kleinbuchstaben“ enthält „klein“ und „buchstab“                */
+    if (x.length >= 5 && y.indexOf(x) >= 0) return true;
+    if (y.length >= 5 && x.indexOf(y) >= 0) return true;
+    if (SYNGRUPPE[x] != null && SYNGRUPPE[x] === SYNGRUPPE[y]) return true;
+    /* Tippfehler: ein Dreher oder ein Buchstabe zu viel/zu wenig */
+    return tippNah(x, y);
+  }
+
+  /* Ein Wortpaar gilt als dasselbe, wenn entweder die Stämme zusammenpassen
+     oder die vollen Wörter nur einen Tippfehler auseinanderliegen. Der zweite
+     Weg ist nötig, weil der Stamm auf sechs Zeichen kürzt: „redundanz“ und
+     „redudanz“ werden zu „redund“ und „reduda“ — als Stämme zwei Fehler, als
+     ganze Wörter einer.                                                    */
+  function paarNah(x, y) {
+    return nahe(x.s, y.s) || tippNah(x.w, y.w);
+  }
+
+  /* ------------------------------------------------------------------
+     Wörter, die im Erwartungswert nur den Satz tragen, aber nichts
+     aussagen: „Datensicherung DURCHFÜHREN“, „Protokoll ERSTELLEN“,
+     „Rücksprache HALTEN“. Wer „Backup machen“ schreibt, hat dieselbe
+     Sache genannt — soll aber nicht daran scheitern, dass sein Verb
+     ein anderes ist. Abgelegt als Stämme, weil die Beugung egal ist.
+     Nur auf der Erwartungsseite abgezogen, und nur wenn danach noch
+     etwas übrig bleibt.
+     --------------------------------------------------------------- */
+  const FUELLER = new Set(("mach macht gemach durchf durchg erstel vorneh vorgen " +
+    "sorg geb stell setz gesetz lass soll sollt muess koenn hab hat sei " +
+    "etwa imm jeweil dabei damit dan noch nur mehr sehr ggf halt nutz verwend " +
+    "beacht").split(" "));
+
   /**
    * Steckt der Fachbegriff in der Antwort?
-   * Mehrwortbegriffe: alle sinntragenden Wörter müssen (als Stamm) vorkommen.
+   *
+   * Früher mussten ALLE sinntragenden Wörter vorkommen. Bei einem Fachbegriff
+   * aus ein, zwei Wörtern ist das richtig — „Mehr-Faktor-Authentifizierung“
+   * ist nun einmal genau das. Bei einer Aufzählung wie „Groß- und
+   * Kleinbuchstaben, Ziffern, Sonderzeichen“ ist es unfair: das sind
+   * Beispiele, nicht Bedingungen. Deshalb reicht dort eine deutliche Mehrheit.
    */
   function enthaelt(antwort, begriff) {
     const a = norm(antwort), b = norm(begriff);
@@ -160,10 +271,24 @@ window.GEN = (function () {
     /* Teilstring nur bei aussagekräftigen Begriffen — sonst steckt "Ende"
        in "Fehlende Freigabe" und die Zuordnung wird falsch.               */
     if (a.includes(b) && (b.length >= 6 || b.includes(" "))) return true;
-    const bw = worte(begriff).map(stamm).filter(w => w.length >= 3);
-    if (!bw.length) return a.includes(b);
-    const aw = worte(antwort).map(stamm);
-    return bw.every(x => aw.some(y => y === x || (x.length >= 5 && y.startsWith(x)) || (y.length >= 5 && x.startsWith(y))));
+    /* Zahlen bleiben drin, auch wenn sie kurz sind: „RAID 5“ und „RAID 1“
+       unterscheiden sich einzig in der Ziffer.                            */
+    const traegt = w => w.length >= 3 || /^\d+$/.test(w);
+    let bw = worte(begriff).map(w => ({ w, s: stamm(w) })).filter(x => traegt(x.s));
+    const kern = bw.filter(x => !FUELLER.has(x.s));
+    if (kern.length) bw = kern;              /* nur abziehen, wenn etwas bleibt */
+    if (!bw.length) {
+      /* Kürzel wie „L“, „S“, „de“, „0“: als Teilstring steckt das „s“ aus
+         „S“ in jedem zweiten Satz. Deshalb hier nur ein ganzes Wort.     */
+      if (b.length >= 4) return a.includes(b);
+      const kurz = w => w.replace(/^[.:,;-]+/, "").replace(/[.:,;-]+$/, "");
+      /* „—“ und „-“ verlieren beim Abschneiden alles — dann zählt das rohe Wort. */
+      return a.split(" ").some(w => w === b || (kurz(w) && kurz(w) === kurz(b)));
+    }
+    const aw = worte(antwort).map(w => ({ w, s: stamm(w) }));
+    const treffer = bw.filter(x => aw.some(y => paarNah(x, y))).length;
+    const noetig = bw.length <= 2 ? bw.length : Math.max(2, Math.ceil(bw.length * 0.6));
+    return treffer >= noetig;
   }
 
   /** eine von mehreren Schreibweisen genügt */
@@ -998,7 +1123,7 @@ window.GEN = (function () {
 
   return {
     Rng, hashText, fmt, runde, leseZahlen, ZAHLWORT, nennVorlage,
-    norm, worte, stamm, stammSatz, enthaelt, enthaeltEines, teile,
+    norm, worte, stamm, stammSatz, enthaelt, enthaeltEines, teile, nahe, abstand,
     vorlage, alleVorlagen, vorlageVon, themenBaum, THEMEN_LABEL, KONTEXT,
     HAUPT_LABEL, HAUPT_REIHE, hauptVon, zwischenwerte, pruefeRechenweg, zahlenAusText,
     erzeuge, erzeugeBlatt, pruefeFeld, pruefeAufgabe

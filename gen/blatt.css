@@ -159,6 +159,16 @@ table.gwf tr.falsch td{background:var(--red-soft)}
 .gchips .nein{background:var(--red-soft); color:var(--red)}
 .gchips .offen{background:var(--field); color:var(--muted)}
 
+/* Selbstbewertung bei Freitext: die Prüfung kann nicht jede Formulierung
+   kennen — hier korrigiert man wie mit dem Lösungsblatt in der Hand. */
+.gselbst{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:7px;
+  font-size:12px; color:var(--muted)}
+.gselbst-an{color:var(--warn); font-weight:600}
+.gselbst-k{font:inherit; font-size:12px; padding:3px 9px; min-height:28px;
+  border:1px solid var(--rule); border-radius:999px; background:var(--field);
+  color:var(--ink); cursor:pointer}
+.gselbst-k:hover{border-color:var(--accent); color:var(--accent)}
+
 .gwerkzeug{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; padding-top:12px;
   border-top:1px dashed var(--rule)}
 .gmerksatz{border-left:3px solid var(--warn); background:var(--warn-soft); padding:9px 13px;
