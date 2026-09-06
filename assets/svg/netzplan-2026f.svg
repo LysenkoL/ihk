@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 892 482" width="892" height="482"
+     role="img" aria-label="Netzplan mit 7 Vorgängen">
+  <title>Netzplan</title>
+  <desc>Vorgangsknotennetzplan. Oben im Knoten der Vorgang, unten Dauer, Gesamtpuffer und freier Puffer; FAZ und FEZ über, SAZ und SEZ unter dem Knoten.</desc>
+
+  <style>
+    .rahmen{fill:#FFFFFF;stroke:#14171C;stroke-width:1.8}
+    .rahmen.krit{stroke-width:3.4}
+    .rahmen.geg{fill:#F4F6F9}
+    .trenn{stroke:#14171C;stroke-width:1.4}
+    .name{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:17px;
+          font-weight:700;fill:#14171C;text-anchor:middle}
+    .zahl{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:14px;
+          fill:#14171C;text-anchor:middle}
+    .zahl.falsch{fill:#A8291F;font-weight:700}
+    .ecke{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:13px;
+          font-weight:600;fill:#14171C}
+    .ecke.falsch{fill:#A8291F}
+    .kante{fill:none;stroke:#14171C;stroke-width:1.6}
+    .kante.krit{stroke-width:3.2}
+    .kopf{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:15px;
+          font-weight:700;fill:#14171C}
+    .txt{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:14px;fill:#14171C}
+    .leg{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12.5px;
+         font-weight:700;fill:#5E6570}
+    .hilf{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12.5px;fill:#5E6570}
+    .gitter{fill:none;stroke:#14171C;stroke-width:1.4}
+    .zebra{fill:#F4F6F9}
+    @media (prefers-color-scheme: dark){
+      .rahmen{fill:#1B1F26;stroke:#E8EAEE} .rahmen.geg{fill:#232830}
+      .trenn,.kante,.gitter{stroke:#E8EAEE}
+      .name,.zahl,.ecke,.kopf,.txt{fill:#E8EAEE}
+      .zahl.falsch,.ecke.falsch{fill:#E88178}
+      .leg,.hilf{fill:#98A0AC}
+      .zebra{fill:#232830}
+    }
+  </style>
+  <defs>
+    <marker id="pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+
+  <path class="kante" d="M 148 196 H 174 V 196 H 198" marker-end="url(#pf)"/>
+  <path class="kante" d="M 324 196 H 350 V 326 H 374" marker-end="url(#pf)"/>
+  <path class="kante" d="M 324 196 H 350 V 86 H 374" marker-end="url(#pf)"/>
+  <path class="kante" d="M 500 326 H 526 V 326 H 550" marker-end="url(#pf)"/>
+  <path class="kante" d="M 500 86 H 526 V 326 H 550" marker-end="url(#pf)"/>
+  <path class="kante" d="M 500 86 H 526 V 86 H 550" marker-end="url(#pf)"/>
+  <path class="kante" d="M 676 326 H 702 V 206 H 726" marker-end="url(#pf)"/>
+  <path class="kante" d="M 676 86 H 702 V 206 H 726" marker-end="url(#pf)"/>
+  <rect class="rahmen" x="24" y="170" width="124" height="52"/>
+  <line class="trenn" x1="24" y1="198" x2="148" y2="198"/>
+  <line class="trenn" x1="65" y1="198" x2="65" y2="222"/>
+  <line class="trenn" x1="106" y1="198" x2="106" y2="222"/>
+  <text class="name" x="86" y="190">A</text>
+  <text class="zahl" x="44" y="215">7</text>
+  <text class="zahl" x="86" y="215">0</text>
+  <text class="zahl" x="127" y="215">0</text>
+  <text class="ecke" x="26" y="164" text-anchor="start">0</text>
+  <text class="ecke" x="146" y="164" text-anchor="end">7</text>
+  <text class="ecke" x="26" y="238" text-anchor="start">0</text>
+  <text class="ecke" x="146" y="238" text-anchor="end">7</text>
+  <rect class="rahmen" x="200" y="170" width="124" height="52"/>
+  <line class="trenn" x1="200" y1="198" x2="324" y2="198"/>
+  <line class="trenn" x1="241" y1="198" x2="241" y2="222"/>
+  <line class="trenn" x1="282" y1="198" x2="282" y2="222"/>
+  <text class="name" x="262" y="190">B</text>
+  <text class="zahl" x="220" y="215">2</text>
+  <text class="zahl" x="262" y="215">0</text>
+  <text class="zahl" x="303" y="215">0</text>
+  <text class="ecke" x="202" y="164" text-anchor="start">7</text>
+  <text class="ecke" x="322" y="164" text-anchor="end">9</text>
+  <text class="ecke" x="202" y="238" text-anchor="start">7</text>
+  <text class="ecke" x="322" y="238" text-anchor="end">9</text>
+  <rect class="rahmen" x="376" y="300" width="124" height="52"/>
+  <line class="trenn" x1="376" y1="328" x2="500" y2="328"/>
+  <line class="trenn" x1="417" y1="328" x2="417" y2="352"/>
+  <line class="trenn" x1="458" y1="328" x2="458" y2="352"/>
+  <text class="name" x="438" y="320">C</text>
+  <text class="zahl" x="396" y="345">6</text>
+  <text class="zahl" x="438" y="345">0</text>
+  <text class="zahl" x="479" y="345">0</text>
+  <text class="ecke" x="378" y="294" text-anchor="start">9</text>
+  <text class="ecke" x="498" y="294" text-anchor="end">15</text>
+  <text class="ecke" x="378" y="368" text-anchor="start">9</text>
+  <text class="ecke" x="498" y="368" text-anchor="end">15</text>
+  <rect class="rahmen" x="376" y="60" width="124" height="52"/>
+  <line class="trenn" x1="376" y1="88" x2="500" y2="88"/>
+  <line class="trenn" x1="417" y1="88" x2="417" y2="112"/>
+  <line class="trenn" x1="458" y1="88" x2="458" y2="112"/>
+  <text class="name" x="438" y="80">D</text>
+  <text class="zahl" x="396" y="105">1</text>
+  <text class="zahl" x="438" y="105">6</text>
+  <text class="zahl" x="479" y="105">0</text>
+  <text class="ecke" x="378" y="54" text-anchor="start">9</text>
+  <text class="ecke" x="498" y="54" text-anchor="end">10</text>
+  <text class="ecke" x="378" y="128" text-anchor="start">14</text>
+  <text class="ecke" x="498" y="128" text-anchor="end">15</text>
+  <rect class="rahmen" x="552" y="300" width="124" height="52"/>
+  <line class="trenn" x1="552" y1="328" x2="676" y2="328"/>
+  <line class="trenn" x1="593" y1="328" x2="593" y2="352"/>
+  <line class="trenn" x1="634" y1="328" x2="634" y2="352"/>
+  <text class="name" x="614" y="320">E</text>
+  <text class="zahl" x="572" y="345">5</text>
+  <text class="zahl" x="614" y="345">0</text>
+  <text class="zahl" x="655" y="345">0</text>
+  <text class="ecke" x="554" y="294" text-anchor="start">15</text>
+  <text class="ecke" x="674" y="294" text-anchor="end">20</text>
+  <text class="ecke" x="554" y="368" text-anchor="start">15</text>
+  <text class="ecke" x="674" y="368" text-anchor="end">20</text>
+  <rect class="rahmen" x="552" y="60" width="124" height="52"/>
+  <line class="trenn" x1="552" y1="88" x2="676" y2="88"/>
+  <line class="trenn" x1="593" y1="88" x2="593" y2="112"/>
+  <line class="trenn" x1="634" y1="88" x2="634" y2="112"/>
+  <text class="name" x="614" y="80">F</text>
+  <text class="zahl" x="572" y="105">3</text>
+  <text class="zahl" x="614" y="105">7</text>
+  <text class="zahl" x="655" y="105">7</text>
+  <text class="ecke" x="554" y="54" text-anchor="start">10</text>
+  <text class="ecke" x="674" y="54" text-anchor="end">13</text>
+  <text class="ecke" x="554" y="128" text-anchor="start">15</text>
+  <text class="ecke" x="674" y="128" text-anchor="end">18</text>
+  <rect class="rahmen" x="728" y="180" width="124" height="52"/>
+  <line class="trenn" x1="728" y1="208" x2="852" y2="208"/>
+  <line class="trenn" x1="769" y1="208" x2="769" y2="232"/>
+  <line class="trenn" x1="810" y1="208" x2="810" y2="232"/>
+  <text class="name" x="790" y="200">G</text>
+  <text class="zahl" x="748" y="225">1</text>
+  <text class="zahl" x="790" y="225">0</text>
+  <text class="zahl" x="831" y="225">0</text>
+  <text class="ecke" x="730" y="174" text-anchor="start">20</text>
+  <text class="ecke" x="850" y="174" text-anchor="end">21</text>
+  <text class="ecke" x="730" y="248" text-anchor="start">20</text>
+  <text class="ecke" x="850" y="248" text-anchor="end">21</text>
+  <g transform="translate(30,362)">
+    <text class="leg" x="62" y="-30" text-anchor="middle">Legende</text>
+    <rect class="rahmen" x="0" y="0" width="124" height="52"/>
+    <line class="trenn" x1="0" y1="28" x2="124" y2="28"/>
+    <line class="trenn" x1="41" y1="28" x2="41" y2="52"/>
+    <line class="trenn" x1="82" y1="28" x2="82" y2="52"/>
+    <text class="leg" x="62" y="19" text-anchor="middle">Vorgang</text>
+    <text class="leg" x="20" y="45" text-anchor="middle">Dauer</text>
+    <text class="leg" x="62" y="45" text-anchor="middle">GP</text>
+    <text class="leg" x="103" y="45" text-anchor="middle">FP</text>
+    <text class="leg" x="2" y="-6">FAZ</text>
+    <text class="leg" x="122" y="-6" text-anchor="end">FEZ</text>
+    <text class="leg" x="2" y="68">SAZ</text>
+    <text class="leg" x="122" y="68" text-anchor="end">SEZ</text>
+  </g>
+  <text class="hilf" x="872" y="466" text-anchor="end">Ein Fehler ist schon korrigiert: B, FAZ war 8 und muss 7 heißen. Drei weitere sind zu finden.</text>
+</svg>

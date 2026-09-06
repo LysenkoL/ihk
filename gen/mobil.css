@@ -318,3 +318,7 @@
   .km-fach .messwert .eyebrow { display: inline; margin: 0; }
   .km-fach-unten { top: auto; bottom: 100%; margin-bottom: 6px; }
 }
+
+@media (max-width: 700px) {
+  .loesung-txt.mono { font-size: 11px; line-height: 1.55; }
+}

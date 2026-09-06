@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620"
+     role="img" aria-label="Gelöstes UML-Anwendungsfalldiagramm des Ticketsystems">
+  <title>Musterlösung 1 a) — UML-Anwendungsfalldiagramm</title>
+  <desc>Systemgrenze mit fünf Anwendungsfällen. Kunde sendet eine Störungsmeldung. Die IT-Abteilung erfasst die Störungsmeldung und macht die Arbeitsplanung, die die Priorisierung einschließt. Das Serviceteam bearbeitet den Arbeitsauftrag, der die Rückmeldung einschließt. Blau hervorgehoben ist, was in der Aufgabe zu ergänzen war.</desc>
+
+  <style>
+    .rahmen{fill:none;stroke:#14171C;stroke-width:1.8}
+    .fall{fill:#FFFFFF;stroke:#14171C;stroke-width:1.8}
+    .fall.neu{fill:#EAF0F7;stroke:#12457E;stroke-width:2.4}
+    .lin{fill:none;stroke:#14171C;stroke-width:1.5}
+    .inc{fill:none;stroke:#12457E;stroke-width:1.5;stroke-dasharray:6 4}
+    .fig{fill:none;stroke:#14171C;stroke-width:1.8;stroke-linecap:round}
+    .fig.neu{stroke:#12457E;stroke-width:2.4}
+    .t{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:14px;
+       fill:#14171C;text-anchor:middle}
+    .t.neu{fill:#12457E;font-weight:700}
+    .klein{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:11.5px;
+           fill:#12457E;text-anchor:middle;font-style:italic}
+    .kopf{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12.5px;
+          font-weight:700;fill:#14171C}
+    .zell{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12px;
+          fill:#14171C;text-anchor:middle}
+    .gitter{fill:none;stroke:#9AA1AC;stroke-width:0.8}
+    .rand{fill:none;stroke:#14171C;stroke-width:1.6}
+    .balken{fill:#12457E}
+    .balken.vorgabe{fill:#9AA6B6}
+    .balken.puffer{fill:#D8DCE2}
+    .pfeil{fill:none;stroke:#A8291F;stroke-width:1.4}
+    .legende{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:11.5px;
+             fill:#5E6570}
+    @media (prefers-color-scheme: dark){
+      .rahmen,.lin,.fig{stroke:#E8EAEE}
+      .fall{fill:#1B1F26;stroke:#E8EAEE}
+      .fall.neu{fill:#1D2A3A;stroke:#6FA8E8}
+      .fig.neu,.inc{stroke:#6FA8E8}
+      .t,.kopf,.zell{fill:#E8EAEE}
+      .t.neu,.klein{fill:#6FA8E8}
+      .rand{stroke:#E8EAEE}
+      .gitter{stroke:#4A515C}
+      .balken{fill:#6FA8E8} .balken.vorgabe{fill:#5A6472} .balken.puffer{fill:#333A45}
+      .pfeil{stroke:#E88178}
+      .legende{fill:#98A0AC}
+    }
+  </style>
+  <defs>
+    <marker id="sp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="context-stroke" stroke-width="1.6"/>
+    </marker>
+  </defs>
+
+  <rect class="rahmen" x="160" y="30" width="560" height="540"/>
+  <ellipse class="fall neu" cx="300" cy="110" rx="110" ry="46"/>
+    <text class="t neu" x="300" y="115">Priorisierung</text>
+  <ellipse class="fall neu" cx="560" cy="175" rx="115" ry="48"/>
+    <text class="t neu" x="560" y="180">Arbeitsplanung</text>
+  <ellipse class="fall neu" cx="330" cy="300" rx="118" ry="48"/>
+    <text class="t neu" x="330" y="296">Störungsmeldung</text>
+    <text class="t neu" x="330" y="315">senden</text>
+  <ellipse class="fall" cx="580" cy="300" rx="122" ry="48"/>
+    <text class="t" x="580" y="296">Störungsmeldung</text>
+    <text class="t" x="580" y="315">erfassen</text>
+  <ellipse class="fall" cx="560" cy="450" rx="122" ry="48"/>
+    <text class="t" x="560" y="446">Arbeitsauftrag</text>
+    <text class="t" x="560" y="465">bearbeiten</text>
+  <ellipse class="fall neu" cx="320" cy="520" rx="110" ry="46"/>
+    <text class="t neu" x="320" y="525">Rückmeldung</text>
+  <g class="fig neu">
+    <circle cx="70" cy="274" r="9" />
+    <line x1="70" y1="283" x2="70" y2="308"/>
+    <line x1="55" y1="292" x2="85" y2="292"/>
+    <line x1="70" y1="308" x2="58" y2="328"/>
+    <line x1="70" y1="308" x2="82" y2="328"/>
+  </g>
+  <text class="t neu" x="70" y="345">Kunde</text>
+  <g class="fig neu">
+    <circle cx="830" cy="274" r="9" />
+    <line x1="830" y1="283" x2="830" y2="308"/>
+    <line x1="815" y1="292" x2="845" y2="292"/>
+    <line x1="830" y1="308" x2="818" y2="328"/>
+    <line x1="830" y1="308" x2="842" y2="328"/>
+  </g>
+  <text class="t neu" x="830" y="345">IT-Abteilung</text>
+  <g class="fig">
+    <circle cx="830" cy="424" r="9" />
+    <line x1="830" y1="433" x2="830" y2="458"/>
+    <line x1="815" y1="442" x2="845" y2="442"/>
+    <line x1="830" y1="458" x2="818" y2="478"/>
+    <line x1="830" y1="458" x2="842" y2="478"/>
+  </g>
+  <text class="t" x="830" y="495">Serviceteam</text>
+  <line class="lin" x1="86" y1="292" x2="212" y2="298"/>
+  <line class="lin" x1="702" y1="292" x2="812" y2="288"/>
+  <line class="lin" x1="660" y1="205" x2="815" y2="278"/>
+  <line class="lin" x1="682" y1="450" x2="812" y2="450"/>
+  <path class="inc" d="M 470 160 L 402 124" marker-end="url(#sp)"/>
+  <text class="klein" x="452" y="128">«include»</text>
+  <path class="inc" d="M 452 480 L 400 508" marker-end="url(#sp)"/>
+  <text class="klein" x="438" y="478">«include»</text>
+  <text class="legende" x="888" y="608" text-anchor="end">Blau = in der Aufgabe zu ergänzen (je 1 Punkt, 6 BE)</text>
+</svg>

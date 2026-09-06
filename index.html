@@ -1602,6 +1602,7 @@ function karte(it, opt){
     det.className = "loesung"; det.open = SHOW_SOL; det.dataset.sol = "1";
     const sum = document.createElement("summary"); sum.textContent = "Musterlösung";
     const txt = document.createElement("div"); txt.className = "loesung-txt";
+    if (it.solution.mono) txt.classList.add("mono");
     txt.textContent = it.solution.text;
     det.append(sum, txt);
     if (it.solution.image){

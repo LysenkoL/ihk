@@ -471,3 +471,7 @@ mark.mk-rot{background:#FFC2BC}
 .mk-hilfe{display:flex; flex-wrap:wrap; align-items:center; gap:8px;
   font-size:12.5px; color:var(--muted); margin-top:10px}
 .mk-probe{padding:1px 7px; border-radius:2px; color:#14171C; font-weight:600}
+
+/* Musterlösungen mit Tabelle oder Struktogramm: feste Zeichenbreite */
+.loesung-txt.mono{font-family:var(--data); font-size:12.5px; line-height:1.6;
+  overflow-x:auto; -webkit-overflow-scrolling:touch}
