@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 404" width="840" height="404"
+     role="img" aria-label="Vorgangsliste A bis K mit Beschreibung, Dauer in Stunden und Vorgängern">
+  <title>Abbildung zur 1. Aufgabe — Vorgangsliste</title>
+  <desc>Elf Vorgänge A bis K mit Beschreibung, Dauer in Stunden und den jeweiligen Vorgängern.</desc>
+
+  <style>
+    .rahmen{fill:#FFFFFF;stroke:#14171C;stroke-width:1.8}
+    .rahmen.krit{stroke-width:3.4}
+    .trenn{stroke:#14171C;stroke-width:1.4}
+    .name{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:17px;
+          font-weight:700;fill:#14171C;text-anchor:middle}
+    .zahl{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:14px;
+          fill:#14171C;text-anchor:middle}
+    .ecke{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:13px;
+          font-weight:600;fill:#14171C}
+    .kante{fill:none;stroke:#14171C;stroke-width:1.6}
+    .kante.krit{stroke-width:3.2}
+    .kopf{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:15px;
+          font-weight:700;fill:#14171C}
+    .txt{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:14px;fill:#14171C}
+    .leg{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12.5px;
+         font-weight:700;fill:#5E6570}
+    .hilf{font-family:"Segoe UI",-apple-system,Roboto,sans-serif;font-size:12.5px;
+          fill:#5E6570}
+    .gitter{fill:none;stroke:#14171C;stroke-width:1.4}
+    .zebra{fill:#F4F6F9}
+    @media (prefers-color-scheme: dark){
+      .rahmen{fill:#1B1F26;stroke:#E8EAEE}
+      .trenn,.kante,.gitter{stroke:#E8EAEE}
+      .name,.zahl,.ecke,.kopf,.txt{fill:#E8EAEE}
+      .leg,.hilf{fill:#98A0AC}
+      .zebra{fill:#232830}
+    }
+  </style>
+  <defs>
+    <marker id="pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+
+  <rect class="zebra" x="20" y="84" width="800" height="30"/>
+  <rect class="zebra" x="20" y="144" width="800" height="30"/>
+  <rect class="zebra" x="20" y="204" width="800" height="30"/>
+  <rect class="zebra" x="20" y="264" width="800" height="30"/>
+  <rect class="zebra" x="20" y="324" width="800" height="30"/>
+  <rect class="gitter" x="20" y="20" width="800" height="364"/>
+  <line class="gitter" x1="20" y1="54" x2="820" y2="54"/>
+  <line class="trenn" x1="20" y1="84" x2="820" y2="84" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="114" x2="820" y2="114" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="144" x2="820" y2="144" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="174" x2="820" y2="174" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="204" x2="820" y2="204" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="234" x2="820" y2="234" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="264" x2="820" y2="264" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="294" x2="820" y2="294" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="324" x2="820" y2="324" opacity="0.45"/>
+  <line class="trenn" x1="20" y1="354" x2="820" y2="354" opacity="0.45"/>
+  <line class="gitter" x1="90" y1="20" x2="90" y2="384"/>
+  <line class="gitter" x1="560" y1="20" x2="560" y2="384"/>
+  <line class="gitter" x1="690" y1="20" x2="690" y2="384"/>
+  <line class="gitter" x1="820" y1="20" x2="820" y2="384"/>
+  <text class="kopf" x="55" y="43" text-anchor="middle">Vorgang</text>
+  <text class="kopf" x="100" y="43">Beschreibung</text>
+  <text class="kopf" x="625" y="43" text-anchor="middle">Dauer in Stunden</text>
+  <text class="kopf" x="755" y="43" text-anchor="middle">Vorgänger</text>
+  <text class="name" x="55" y="74">A</text>
+  <text class="txt" x="100" y="74">Ist-Analyse</text>
+  <text class="txt" x="625" y="74" text-anchor="middle">2</text>
+  <text class="txt" x="755" y="74" text-anchor="middle">—</text>
+  <text class="name" x="55" y="104">B</text>
+  <text class="txt" x="100" y="104">Soll-Konzept</text>
+  <text class="txt" x="625" y="104" text-anchor="middle">4</text>
+  <text class="txt" x="755" y="104" text-anchor="middle">A</text>
+  <text class="name" x="55" y="134">C</text>
+  <text class="txt" x="100" y="134">Beschaffung neuer Server</text>
+  <text class="txt" x="625" y="134" text-anchor="middle">3</text>
+  <text class="txt" x="755" y="134" text-anchor="middle">B</text>
+  <text class="name" x="55" y="164">D</text>
+  <text class="txt" x="100" y="164">Installation strukturierter Netzwerk-Verkabelung</text>
+  <text class="txt" x="625" y="164" text-anchor="middle">8</text>
+  <text class="txt" x="755" y="164" text-anchor="middle">B</text>
+  <text class="name" x="55" y="194">E</text>
+  <text class="txt" x="100" y="194">Datensicherung</text>
+  <text class="txt" x="625" y="194" text-anchor="middle">2</text>
+  <text class="txt" x="755" y="194" text-anchor="middle">B</text>
+  <text class="name" x="55" y="224">F</text>
+  <text class="txt" x="100" y="224">Dokumentation des neuen Netzwerkes</text>
+  <text class="txt" x="625" y="224" text-anchor="middle">5</text>
+  <text class="txt" x="755" y="224" text-anchor="middle">B</text>
+  <text class="name" x="55" y="254">G</text>
+  <text class="txt" x="100" y="254">Installation neuer Server</text>
+  <text class="txt" x="625" y="254" text-anchor="middle">4</text>
+  <text class="txt" x="755" y="254" text-anchor="middle">C, D</text>
+  <text class="name" x="55" y="284">H</text>
+  <text class="txt" x="100" y="284">Abbau alter Infrastruktur</text>
+  <text class="txt" x="625" y="284" text-anchor="middle">1</text>
+  <text class="txt" x="755" y="284" text-anchor="middle">E</text>
+  <text class="name" x="55" y="314">I</text>
+  <text class="txt" x="100" y="314">Einrichtung Clients</text>
+  <text class="txt" x="625" y="314" text-anchor="middle">3</text>
+  <text class="txt" x="755" y="314" text-anchor="middle">G, H</text>
+  <text class="name" x="55" y="344">J</text>
+  <text class="txt" x="100" y="344">Funktionstest</text>
+  <text class="txt" x="625" y="344" text-anchor="middle">1</text>
+  <text class="txt" x="755" y="344" text-anchor="middle">I</text>
+  <text class="name" x="55" y="374">K</text>
+  <text class="txt" x="100" y="374">Übergabe und Einweisung der Mitarbeiter</text>
+  <text class="txt" x="625" y="374" text-anchor="middle">2</text>
+  <text class="txt" x="755" y="374" text-anchor="middle">F, J</text>
+</svg>

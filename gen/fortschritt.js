@@ -21,7 +21,8 @@ window.GENFORTSCHRITT = (function () {
     "ihk2:gen:stat",         // Quote je Aufgabentyp
     "ihk2:gen:satz",         // Satzbau-Training
     "ihk2:gen:fehler",       // Fehlerjournal
-    "ihk2:gen:letzteWahl"    // zuletzt gewählte Themen im Assistenten
+    "ihk2:gen:letzteWahl",   // zuletzt gewählte Themen im Assistenten
+    "ihk2:marker"            // Textmarkierungen in den Aufgabentexten
   ];
 
   function einsammeln() {
@@ -81,6 +82,8 @@ window.GENFORTSCHRITT = (function () {
     if (s) t.push(s + " Aufgabentypen mit Quote");
     if (f) t.push(f + " Journaleinträge");
     if (gen["ihk2:gen:satz"]) t.push("Satzbau-Fortschritt");
+    const m = Object.keys(gen["ihk2:marker"] || {}).length;
+    if (m) t.push(m + " markierte Absätze");
     return t.join(" · ");
   }
 

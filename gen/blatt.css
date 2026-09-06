@@ -442,3 +442,32 @@ details.st-block > .abschnitt,
 details.st-block > div{margin-bottom:22px}
 details.st-block > .abschnitt > h2:first-child,
 details.st-block > div > h2:first-child{margin-top:4px}
+
+/* ============================================================================
+   Textmarker (gen/marker.js)
+   ========================================================================== */
+mark.mk{background:none; color:inherit; padding:0 1px; border-radius:2px;
+  box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact}
+mark.mk-gelb{background:#FFF07A}
+mark.mk-gruen{background:#B6F0C6}
+mark.mk-rot{background:#FFC2BC}
+[data-theme="dunkel"] mark.mk-gelb{background:#5C4F12; color:#F6EFC9}
+[data-theme="dunkel"] mark.mk-gruen{background:#1C4A32; color:#D8F2E3}
+[data-theme="dunkel"] mark.mk-rot{background:#5A2420; color:#F6DCD8}
+
+.mk-kasten{position:fixed; z-index:2400; display:flex; gap:3px; padding:4px;
+  background:var(--card); border:1px solid var(--rule); border-radius:4px;
+  box-shadow:0 6px 22px rgba(0,0,0,.22)}
+.mk-knopf{font:inherit; font-size:12.5px; font-weight:600; line-height:1;
+  border:1px solid transparent; border-radius:3px; padding:7px 10px; cursor:pointer;
+  color:#14171C; white-space:nowrap}
+.mk-knopf.mk-gelb{background:#FFF07A}
+.mk-knopf.mk-gruen{background:#B6F0C6}
+.mk-knopf.mk-rot{background:#FFC2BC}
+.mk-knopf.mk-weg{background:var(--paper); color:var(--muted); border-color:var(--rule)}
+.mk-knopf:hover{border-color:var(--ink)}
+
+.mk-hilfe{display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+  font-size:12.5px; color:var(--muted); margin-top:10px}
+.mk-probe{padding:1px 7px; border-radius:2px; color:#14171C; font-weight:600}

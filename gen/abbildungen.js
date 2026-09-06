@@ -27,11 +27,28 @@
 window.GENBILDER = (function () {
 
   /* --------- Fehlschnitte: werden nicht mehr als Abbildung angezeigt ----- */
+  /* Herbst 2021 ist ein Sonderfall: dort ist KEIN einziger Ausschnitt zu
+     gebrauchen. Seite 3 ist quer gedruckt, der Zuschneider hat sie in fünf
+     gedrehte Scherben zerlegt; alle übrigen 21 „Abbildungen“ sind schlicht
+     Streifen des Aufgabentextes samt Antwortkästchen — und der Text steht
+     ohnehin vollständig in der Aufgabe. Ersatz: drei neu gezeichnete SVGs
+     weiter unten (Vorgangstabelle, leerer Netzplan, gelöster Netzplan).   */
   const AUSBLENDEN = new Set([
-    "ap1-2021-h_p05_f1.png", "ap1-2021-h_p05_f2.png", "ap1-2021-h_p07_f3.png",
+    "ap1-2021-h_p02_f1.png", "ap1-2021-h_p02_f2.png", "ap1-2021-h_p03_f1.png",
+    "ap1-2021-h_p03_f2.png", "ap1-2021-h_p03_f3.png", "ap1-2021-h_p03_f4.png",
+    "ap1-2021-h_p03_f5.png", "ap1-2021-h_p04_f1.png", "ap1-2021-h_p04_f2.png",
+    "ap1-2021-h_p05_f1.png", "ap1-2021-h_p05_f2.png", "ap1-2021-h_p05_f3.png",
+    "ap1-2021-h_p06_f1.png", "ap1-2021-h_p07_f1.png", "ap1-2021-h_p07_f2.png",
+    "ap1-2021-h_p07_f3.png", "ap1-2021-h_p08_f1.png",
     "ap1-2021-h_p08_f2.png", "ap1-2021-h_p08_f3.png", "ap1-2021-h_p08_f4.png",
-    "ap1-2021-h_p10_f2.png", "ap1-2021-h_p10_f9.png", "ap1-2021-h_p11_f2.png",
-    "ap1-2021-h_p11_f3.png", "ap1-2022-f_p06_f2.png", "ap1-2022-f_p07_f2.png",
+    "ap1-2021-h_p08_f5.png", "ap1-2021-h_p09_f1.png", "ap1-2021-h_p09_f2.png",
+    "ap1-2021-h_p10_f1.png", "ap1-2021-h_p10_f3.png", "ap1-2021-h_p10_f4.png",
+    "ap1-2021-h_p10_f5.png", "ap1-2021-h_p10_f6.png", "ap1-2021-h_p10_f7.png",
+    "ap1-2021-h_p10_f8.png",
+    "ap1-2021-h_p10_f2.png", "ap1-2021-h_p10_f9.png", "ap1-2021-h_p11_f1.png",
+    "ap1-2021-h_p11_f2.png",
+    "ap1-2021-h_p11_f3.png", "ap1-2021-h_p11_f4.png", "ap1-2022-f_p06_f2.png",
+    "ap1-2022-f_p07_f2.png",
     "ap1-2022-f_p07_f4.png", "ap1-2022-f_p07_f5.png", "ap1-2022-f_p07_f6.png",
     "ap1-2022-f_p07_f7.png", "ap1-2022-f_p09_f2.png", "ap1-2022-f_p09_f4.png",
     "ap1-2022-f_p10_f1.png", "ap1-2022-f_p11_f2.png", "ap1-2022-h_p02_f2.png",
@@ -62,6 +79,37 @@ window.GENBILDER = (function () {
     "ap1-2025-h_p15_f3.png", "ap1-2026-f_p04_f2.png", "ap1-2026-f_p11_f2.png",
     "ap1-2026-f_p11_f3.png"  ]);
 
+  /* --------- zweite Durchsicht: Seitenstreifen ohne echte Abbildung ----- */
+  /* 121 der noch sichtbaren Ausschnitte sind volle Textspalten. Einzeln
+     angesehen: 65 davon zeigen nur Aufgabentext und Antwortkästchen — der
+     Text steht ohnehin in der Aufgabe. Die übrigen 56 enthalten eine echte
+     Abbildung (Fotos, Netzpläne, ER- und UML-Diagramme, Konsolenausgaben,
+     Tabellen, auf die sich die Frage bezieht) und bleiben stehen.        */
+  [
+    "ap1-2022-f_p02_f1.png", "ap1-2022-f_p03_f1.png", "ap1-2022-f_p04_f1.png",
+    "ap1-2022-f_p08_f1.png", "ap1-2022-f_p08_f2.png", "ap1-2022-f_p08_f3.png",
+    "ap1-2022-f_p11_f1.png", "ap1-2022-f_p11_f3.png", "ap1-2022-f_p14_f1.png",
+    "ap1-2022-h_p02_f1.png", "ap1-2022-h_p02_f3.png", "ap1-2022-h_p03_f4.png",
+    "ap1-2022-h_p04_f1.png", "ap1-2022-h_p05_f1.png", "ap1-2022-h_p06_f2.png",
+    "ap1-2022-h_p07_f2.png", "ap1-2022-h_p08_f1.png", "ap1-2022-h_p11_f1.png",
+    "ap1-2022-h_p12_f1.png", "ap1-2023-f_p02_f1.png", "ap1-2023-f_p03_f2.png",
+    "ap1-2023-f_p07_f1.png", "ap1-2023-h_p04_f1.png", "ap1-2023-h_p04_f3.png",
+    "ap1-2023-h_p06_f2.png", "ap1-2023-h_p06_f3.png", "ap1-2023-h_p11_f1.png",
+    "ap1-2023-h_p11_f3.png", "ap1-2023-h_p14_f3.png", "ap1-2024-f_p02_f1.png",
+    "ap1-2024-f_p02_f3.png", "ap1-2024-f_p08_f1.png", "ap1-2024-f_p08_f3.png",
+    "ap1-2024-h_p02_f1.png", "ap1-2024-h_p02_f2.png", "ap1-2024-h_p04_f1.png",
+    "ap1-2024-h_p04_f3.png", "ap1-2024-h_p06_f2.png", "ap1-2024-h_p07_f1.png",
+    "ap1-2024-h_p09_f1.png", "ap1-2025-f_p02_f1.png", "ap1-2025-f_p03_f1.png",
+    "ap1-2025-f_p05_f1.png", "ap1-2025-f_p06_f2.png", "ap1-2025-f_p06_f4.png",
+    "ap1-2025-f_p08_f3.png", "ap1-2025-f_p09_f1.png", "ap1-2025-f_p10_f1.png",
+    "ap1-2025-f_p11_f1.png", "ap1-2025-f_p11_f2.png", "ap1-2025-h_p05_f1.png",
+    "ap1-2025-h_p06_f1.png", "ap1-2025-h_p08_f1.png", "ap1-2025-h_p09_f1.png",
+    "ap1-2025-h_p09_f3.png", "ap1-2025-h_p12_f1.png", "ap1-2025-h_p14_f1.png",
+    "ap1-2025-h_p14_f2.png", "ap1-2025-h_p15_f1.png", "ap1-2026-f_p02_f2.png",
+    "ap1-2026-f_p04_f1.png", "ap1-2026-f_p07_f1.png", "ap1-2026-f_p07_f2.png",
+    "ap1-2026-f_p09_f1.png", "ap1-2026-f_p10_f2.png"
+  ].forEach(f => AUSBLENDEN.add(f));
+
   /* --------- neu gezeichnete Abbildungen: PNG -> SVG -------------------- */
   const ERSATZ = {
     /* Schalenmodell eines PCs. Das Original ist ein ganzer Seitenausschnitt
@@ -76,6 +124,16 @@ window.GENBILDER = (function () {
   /* --------- neu gezeichnet, wo NIE eine Abbildung extrahiert wurde ----- */
   /* Schlüssel: Prüfung | Teilaufgabe | Seite — die Buchstaben wiederholen
      sich innerhalb einer Prüfung, deshalb gehört die Seite dazu.          */
+  /* Ein Wert darf auch eine Liste sein — Herbst 2021 braucht zwei Bilder.  */
+  const TABELLE_2021 = {
+    file: "assets/svg/netzplan-2021h-tabelle.svg", width: 840, height: 404,
+    titel: "Vorgangsliste A bis K mit Dauer und Vorgängern", sourcePage: 3, neugezeichnet: true
+  };
+  const PLAN_2021 = {
+    file: "assets/svg/netzplan-2021h.svg", width: 1240, height: 560,
+    titel: "Netzplan — FAZ, FEZ, SAZ, SEZ, GP und FP eintragen", sourcePage: 3, neugezeichnet: true
+  };
+
   const ZUSATZ = {
     "ap1-2025-f|b)|3": {
       file: "assets/svg/anschluesse-mfg.svg", width: 760, height: 170,
@@ -84,6 +142,42 @@ window.GENBILDER = (function () {
     "ap1-2025-f|c)|3": {
       file: "assets/svg/symbole-mfg.svg", width: 420, height: 150,
       titel: "Symbole 1 und 2", sourcePage: 3, neugezeichnet: true
+    },
+    /* 3 h) verweist auf „die folgende Skizze“ — die liegt aber im Ausschnitt
+       der Nachbaraufgabe 3 g). Deshalb hier zusätzlich anhängen.          */
+    "ap1-2025-h|3 h)|12": {
+      file: "assets/ap1-2025-h_p11_f3.png",
+      titel: "Skizze zur elektronischen Signatur (aus Teilaufgabe g)", sourcePage: 11
+    },
+    "ap1-2021-h|1 c)|3": [TABELLE_2021, PLAN_2021],
+    "ap1-2021-h|1 d)|3": [TABELLE_2021, PLAN_2021],
+    "ap1-2021-h|1 e)|2": [TABELLE_2021, PLAN_2021]
+  };
+
+  /* --------- Musterlösungen, die es nur als Seitenfoto gab --------------- */
+  /* Für 1 c) und 1 d) stand in der Lösung nur „(1 Punkt Ergänzung eines
+     Netzplanknotens …)“ plus ein Foto der Lösungsseite. Der gelöste Netzplan
+     ist jetzt gezeichnet — samt Rechenweg im Text.                        */
+  const LOESUNG = {
+    "ap1-2021-h|1 c)|3": {
+      bild: "assets/svg/netzplan-2021h-loesung.svg",
+      text:
+        "Vorwärtsrechnung (FAZ → FEZ):\n" +
+        "A 0→2 · B 2→6 · C 6→9 · D 6→14 · E 6→8 · F 6→11 · G 14→18 · H 8→9 · " +
+        "I 18→21 · J 21→22 · K 22→24\n\n" +
+        "Rückwärtsrechnung (SEZ → SAZ), Projektende 24:\n" +
+        "K 22→24 · J 21→22 · I 18→21 · G 14→18 · H 17→18 · F 17→22 · E 15→17 · " +
+        "D 6→14 · C 11→14 · B 2→6 · A 0→2\n\n" +
+        "Puffer (GP = SAZ − FAZ, FP = FAZ des Nachfolgers − FEZ):\n" +
+        "A 0/0 · B 0/0 · C 5/5 · D 0/0 · E 9/0 · F 11/11 · G 0/0 · H 9/9 · " +
+        "I 0/0 · J 0/0 · K 0/0\n\n" +
+        "(1 Punkt je ergänztem Netzplanknoten, 2 Punkte je vollem Knoten)"
+    },
+    "ap1-2021-h|1 d)|3": {
+      bild: "assets/svg/netzplan-2021h-loesung.svg",
+      text: "A – B – D – G – I – J – K\n\n" +
+            "Das ist der einzige Weg ohne Puffer: alle Vorgänge darauf haben GP = 0. " +
+            "Die Projektdauer beträgt 24 Stunden."
     }
   };
 
@@ -112,7 +206,7 @@ window.GENBILDER = (function () {
       }
     };
 
-    let ergaenzt = 0;
+    let ergaenzt = 0, loesungen = 0;
     EX.forEach(ex => {
       durch(ex.attachments);
       if (ex.situation) durch(ex.situation.assets);
@@ -123,23 +217,39 @@ window.GENBILDER = (function () {
           /* Aufgaben, für die es nie eine Abbildung gab: hinzufügen */
           const k = ex.examId + "|" + (st.fullLabel || st.label || "") + "|" + (st.sourcePage || "");
           const z = ZUSATZ[k];
-          if (z && !(st.assets || []).some(a => a.file === z.file)) {
-            if (!Array.isArray(st.assets)) st.assets = [];
-            st.assets.push(Object.assign({}, z));
-            ergaenzt++;
+          if (z) {
+            (Array.isArray(z) ? z : [z]).forEach(bild => {
+              if ((st.assets || []).some(a => a.file === bild.file)) return;
+              if (!Array.isArray(st.assets)) st.assets = [];
+              st.assets.push(Object.assign({}, bild));
+              ergaenzt++;
+            });
+          }
+          /* Musterlösung, die nur als Seitenfoto vorlag, durch Zeichnung
+             und ausformulierten Rechenweg ersetzen                        */
+          const l = LOESUNG[k];
+          if (l) {
+            if (!st.solution) st.solution = {};
+            if (l.bild && st.solution.image !== l.bild) {
+              st.solution.image = l.bild;
+              st.solution.neugezeichnet = true;
+              loesungen++;
+            }
+            if (l.text) st.solution.text = l.text;
           }
         });
       });
     });
-    return { weg, ersetzt, ergaenzt };
+    return { weg, ersetzt, ergaenzt, loesungen };
   }
 
   const ergebnis = aufraeumen();
 
   return {
-    AUSBLENDEN, ERSATZ, ZUSATZ, aufraeumen,
+    AUSBLENDEN, ERSATZ, ZUSATZ, LOESUNG, aufraeumen,
     entfernt: ergebnis.weg,
     ersetzt: ergebnis.ersetzt,
-    ergaenzt: ergebnis.ergaenzt
+    ergaenzt: ergebnis.ergaenzt,
+    loesungen: ergebnis.loesungen
   };
 })();

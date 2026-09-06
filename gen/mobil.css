@@ -260,3 +260,9 @@
   .st-name { font-size: 12.5px; }
   .st-zahl { font-size: 11px; }
 }
+
+/* ------------------------------- Textmarker (gen/marker.js) ------------- */
+@media (max-width: 700px) {
+  .mk-kasten { gap: 2px; padding: 3px; }
+  .mk-knopf { font-size: 12px; padding: 9px 9px; }
+}

@@ -1517,11 +1517,13 @@ function karte(it, opt){
 
   if (opt.herkunft && it.task.intro){
     const gi = document.createElement("div");
+    gi.className = "tk-gintro";
     gi.style.cssText = "font-size:13px;color:var(--muted);margin-top:6px;white-space:pre-wrap";
     gi.textContent = it.task.intro; main.appendChild(gi);
   }
   if (opt.herkunft && it.groupIntro){
     const gi = document.createElement("div");
+    gi.className = "tk-gintro";
     gi.style.cssText = "font-size:13.5px;margin-top:6px;white-space:pre-wrap;" +
                        "background:var(--field);padding:9px 11px;border-radius:2px";
     mitUnsicher(gi, it.groupIntro); main.appendChild(gi);
@@ -3735,5 +3737,6 @@ schirm("scStart");
 <script src="gen/pwa.js"></script>
 <script src="gen/offline.js"></script>
 <script src="gen/start.js"></script>
+<script src="gen/marker.js"></script>
 </body>
 </html>
