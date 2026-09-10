@@ -25,7 +25,7 @@
 /* Bei jeder Veröffentlichung hochzählen — dann wirft der Worker den alten
    Programm-Cache weg und holt alles frisch. Die Bilder bleiben davon
    unberührt.                                                              */
-const VERSION   = "ihk-ap1-v3";
+const VERSION   = "ihk-ap1-v4";
 const CACHE_APP = VERSION + "-app";
 const CACHE_BILD = "ihk-ap1-bilder";       /* ohne Version — bleibt bestehen */
 
@@ -109,19 +109,68 @@ self.addEventListener("fetch", ev => {
     return;
   }
 
-  /* 3. Programm und Daten: aus dem Cache antworten, im Hintergrund erneuern */
+  /* 3. Programm und Daten: aus dem Cache antworten, im Hintergrund erneuern.
+
+     Der Haken an dieser Strategie: die neue Fassung liegt erst beim NÄCHSTEN
+     Aufruf vor. Wer gerade etwas geändert hat, sieht die Änderung nicht und
+     hält sie für nicht angekommen — genau das ist passiert, als der Knopf
+     „Bogen drucken“ da war, aber nicht erschien: index.html kam frisch aus
+     dem Netz (Strategie 1), gen/blatt.js aber aus dem Cache.
+
+     Deshalb wird hier verglichen: unterscheidet sich das Geholte von dem,
+     was im Cache lag, erfahren die offenen Seiten davon und können einen
+     Hinweis zeigen. Das hängt nicht an der Versionsnummer unten und
+     funktioniert damit auch dann, wenn jemand vergisst, sie hochzuzählen. */
   if (istCode(url)) {
-    ev.respondWith((async () => {
+    /* Der Hintergrund-Abruf braucht ein waitUntil.
+       Ohne das darf der Browser den Worker abschalten, sobald die Antwort
+       aus dem Cache raus ist — und genau das tut er. Die versprochene
+       Erneuerung „für das nächste Mal“ fand deshalb NIE statt: die Datei
+       blieb im Cache liegen, egal wie oft man neu lud. Sichtbar wurde es
+       an „Bogen drucken“: die Datei lag längst auf dem Server, im Browser
+       kam sie nie an.                                                    */
+    const arbeit = (async () => {
       const c = await caches.open(CACHE_APP);
       const da = await c.match(req);
-      const netzP = fetch(req).then(netz => {
-        if (netz && netz.ok) c.put(req, netz.clone());
-        return netz;
-      }).catch(() => null);
-      return da || (await netzP) || new Response("", { status: 504 });
+      let neu = null;
+      try {
+        /* „no-cache“ heißt: beim Server rückfragen. Sonst antwortet der
+           HTTP-Cache des Browsers aus seinem eigenen Vorrat, und der
+           Worker sieht die neue Datei nie.                              */
+        neu = await fetch(new Request(req, { cache: "no-cache" }));
+      } catch (e) { neu = null; }
+      if (neu && neu.ok) {
+        const zumVergleich = da ? da.clone() : null;
+        await c.put(req, neu.clone());
+        if (zumVergleich) {
+          try {
+            const [altT, neuT] = await Promise.all([zumVergleich.text(), neu.clone().text()]);
+            if (altT !== neuT) inhaltGeaendert(url.pathname);
+          } catch (e) { }
+        }
+      }
+      return { da, neu };
+    })();
+
+    ev.waitUntil(arbeit);
+    ev.respondWith((async () => {
+      const { da, neu } = await arbeit;
+      return da || neu || new Response("", { status: 504 });
     })());
   }
 });
+
+/* Einmal je Sitzung Bescheid geben — nicht einmal je Datei, sonst blinkt
+   nach einer größeren Änderung ein Dutzend Hinweise auf.                 */
+let gemeldet = false;
+async function inhaltGeaendert(datei) {
+  if (gemeldet) return;
+  gemeldet = true;
+  try {
+    const alle = await self.clients.matchAll({ type: "window" });
+    alle.forEach(cl => cl.postMessage({ typ: "inhalt-neu", datei: datei }));
+  } catch (e) { }
+}
 
 /* Bilder-Cache begrenzen: die ältesten Einträge fliegen zuerst */
 let raeumtGerade = false;

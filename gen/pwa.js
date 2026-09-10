@@ -47,6 +47,30 @@ window.GENPWA = (function () {
       laedtNeu = true;
       location.reload();
     });
+
+    /* Der Worker meldet, wenn er im Hintergrund eine geänderte Programmdatei
+       geholt hat. Das ist der häufigere Fall: sw.js selbst bleibt gleich,
+       aber gen/blatt.js oder index.html haben sich geändert. Ohne diesen
+       Hinweis sieht man die Änderung erst beim übernächsten Aufruf und
+       hält sie für nicht angekommen.                                    */
+    navigator.serviceWorker.addEventListener("message", ev => {
+      const d = ev.data || {};
+      if (d.typ === "inhalt-neu") inhaltNeu(d.datei);
+    });
+  }
+
+  function inhaltNeu(datei) {
+    if ($("pwaNeu") || $("pwaInhalt")) return;
+    const bar = el("div", "pwa-bar"); bar.id = "pwaInhalt";
+    bar.appendChild(el("span", null,
+      "Eine neuere Fassung ist geladen" + (datei ? " (" + datei.split("/").pop() + ")" : "") +
+      " — sie wirkt erst nach dem Neuladen."));
+    const j = el("button", "btn primary klein", "Neu laden");
+    j.onclick = () => location.reload();
+    const s = el("button", "btn ghost klein", "später");
+    s.onclick = () => bar.remove();
+    bar.append(j, s);
+    document.body.appendChild(bar);
   }
 
   function neueVersion(worker) {
