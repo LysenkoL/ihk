@@ -64,8 +64,8 @@
             "zahlen": [],
             "begriffe": [
               "Musterlösung",
-              "Lösungsseite",
-              "Abbildung"
+              "Abbildung",
+              "Lösungsseite"
             ]
           },
           "felder": [],
@@ -108,12 +108,12 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Beschreibungen",
-              "Langsame Reaktion",
-              "Tabellenkalkulation",
               "Kontaktaufnahme",
               "Störungen",
+              "Beschreibungen",
               "Kritikpunkten",
+              "Langsame Reaktion",
+              "Tabellenkalkulation",
               "Daten"
             ]
           },
@@ -199,14 +199,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "CRM",
-              "Premiumservices",
-              "Notfälle",
               "Schichtsystem",
+              "Ticketsystems",
+              "Notfälle",
+              "CRM",
+              "Schnellere Bearbeitung",
               "Betreuung",
               "Systems",
-              "Schnellere Bearbeitung",
-              "Ticketsystems"
+              "Premiumservices"
             ]
           },
           "felder": [],
@@ -291,10 +291,10 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
+              "Interviews",
+              "Schriftliche Befragungen",
               "Fokusgruppe",
               "Beschwerden",
-              "Schriftliche Befragungen",
-              "Interviews",
               "Medien"
             ]
           },
@@ -552,13 +552,13 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Kalkulieren",
-              "Wählen",
-              "Berechnen",
               "Ihre Kosten",
               "Preismodell",
-              "Kenne",
+              "Kalkulieren",
+              "Wählen",
               "Schauen",
+              "Berechnen",
+              "Kenne",
               "Markt"
             ]
           },
@@ -623,13 +623,13 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Selbstaussage",
-              "Appell",
-              "Service-Preisen",
-              "Preise",
-              "Beziehungsaspekt",
               "Service-Preise",
+              "Appell",
+              "Selbstaussage",
               "Sachaspekt",
+              "Beziehungsaspekt",
+              "Preise",
+              "Service-Preisen",
               "Reduzierung"
             ]
           },
@@ -720,14 +720,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Ergonomischer Bürostuhl",
-              "Signalen",
-              "Videokonferenzen",
-              "Kamera",
-              "Gespräche",
               "Headset",
-              "Telefon",
-              "Gesicherter Internetanschluss"
+              "Videokonferenzen",
+              "Bildes",
+              "Signalen",
+              "Ergonomischer Bürostuhl",
+              "Schäden",
+              "Empfangen",
+              "Telefon"
             ]
           },
           "felder": [],
@@ -845,9 +845,9 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Dockingstation",
-              "Tastatur",
               "Zusätzlicher Bildschirm",
+              "Tastatur",
+              "Dockingstation",
               "Einsatz"
             ]
           },
@@ -898,14 +898,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Privatem",
-              "Weiterentwicklung",
               "Soziale Kontakte",
-              "Homeoffice",
-              "Pendeln",
-              "Beschäftigten",
-              "Vermischung",
-              "Kein Zeitverlust"
+              "Erschwerte",
+              "Bessere Work-Life-Balance",
+              "Selbstdisziplin",
+              "Weiterentwicklung",
+              "Mehr Gestaltungsmöglichkeiten",
+              "Kein Zeitverlust",
+              "Beruf"
             ]
           },
           "felder": [],
@@ -961,9 +961,9 @@
               }
             ],
             "begriffe": [
+              "Minutensatz",
               "Anrufzeit",
               "Gesamtkosten Bereitschaft",
-              "Minutensatz",
               "Gesamtminuten",
               "Minuten",
               "Kosten",
@@ -1024,14 +1024,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Verursachungsprinzip",
-              "Jederzeitige Erreichbarkeit",
               "Geschäftsablauf",
-              "Hotline",
               "Zusatzangebot",
+              "Jederzeitige Erreichbarkeit",
+              "Hotline",
+              "Verursachungsprinzip",
               "Kostenpflicht",
-              "Argumente",
-              "Geschäftszeiten"
+              "Geschäftszeiten",
+              "Argumente"
             ]
           },
           "felder": [],
@@ -1097,13 +1097,13 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Abfangens",
-              "Grundgesetz",
-              "Strafgesetzbuch",
               "Ausspähens",
-              "Vorbereitung",
+              "Grundgesetz",
               "Landesdatenschutzgesetz",
+              "Abfangens",
+              "Strafgesetzbuch",
               "Fernmeldegeheimnis",
+              "Vorbereitung",
               "Bundesdatenschutzgesetz"
             ]
           },
@@ -1162,14 +1162,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Kuriere",
               "Zweifaktor-Authentifizierung",
-              "Sichere Anmeldung",
-              "Datenträgern",
+              "Schrank",
+              "Kuriere",
+              "Arbeitsraum",
+              "Protokollierung",
+              "Protokolle",
               "Transportkof",
-              "Sichere Datenkommunikation",
-              "Zugriffsschutz",
-              "Arbeitsraum"
+              "Datenträgern"
             ]
           },
           "felder": [],
@@ -1226,8 +1226,8 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Mindestlänge",
               "Kleinbuchstaben",
+              "Mindestlänge",
               "Zeichen",
               "Wörterbuch",
               "Sonderzeichen",
@@ -1296,14 +1296,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Mobilität",
-              "Endgerät",
-              "Cloud-Provider",
-              "Wiederherstellungsfall",
-              "Stick",
-              "Wiederherstellungsschlüssel",
               "Speicher",
-              "Textdatei"
+              "Cloud-Provider",
+              "Textdatei",
+              "Cloud-Speicher",
+              "Wiederherstellungsschlüssel",
+              "Wiederherstellungsfall",
+              "Ablage",
+              "Mobilität"
             ]
           },
           "felder": [],
@@ -1371,8 +1371,8 @@
               "Eine Veränderung",
               "SSD",
               "Vertraulichkeit",
-              "Personen",
               "Integrität",
+              "Personen",
               "Daten"
             ]
           },
@@ -1569,10 +1569,10 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Telearbeitsplatz",
-              "Mitarbeiters",
               "Authentifizierung",
+              "Mitarbeiters",
               "Zertifikat",
+              "Telearbeitsplatz",
               "Firmennetz",
               "Server"
             ]
@@ -1640,14 +1640,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Übersichtliche Darstellung",
-              "Terminplanung",
               "Abhängigkeiten",
               "Frühester",
-              "Ablaufs",
-              "Projektphasen",
+              "Terminplanung",
+              "Gantt-Diagramm",
+              "Darstellung",
               "Balkenform",
-              "Anfangszeitpunkt"
+              "Besserer Vergleich",
+              "Nutzbar"
             ]
           },
           "felder": [],
@@ -1762,8 +1762,8 @@
             "zahlen": [],
             "begriffe": [
               "Musterlösung",
-              "Lösungsseite",
-              "Abbildung"
+              "Abbildung",
+              "Lösungsseite"
             ]
           },
           "felder": [],
@@ -2002,9 +2002,9 @@
             "zahlen": [],
             "begriffe": [
               "Prioritaet",
+              "COUNT",
               "GROUP",
               "BY",
-              "COUNT",
               "Ticket",
               "FROM",
               "SELECT"
@@ -2080,8 +2080,8 @@
             "begriffe": [
               "COUNT",
               "Ticket",
-              "SELECT",
-              "FROM"
+              "FROM",
+              "SELECT"
             ]
           },
           "felder": [],
@@ -2152,14 +2152,14 @@
           "pruefung": {
             "zahlen": [],
             "begriffe": [
-              "Problembeschreibung",
-              "Erfassungsdatum",
-              "Erfassungsmonat",
               "Mögliche Beschreibung",
-              "Tickets",
+              "Problembeschreibung",
               "Zustand",
+              "Erfassungsmonat",
+              "Tickets",
+              "Erfassungsdatum",
               "Priorität",
-              "Ticket"
+              "Ergebnis"
             ]
           },
           "felder": [],

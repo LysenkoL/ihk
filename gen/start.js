@@ -45,6 +45,7 @@ window.GENSTART = (function () {
   const BLOECKE = [
     { key: "pruefungen", titel: /^Prüfungen$/,               name: "Alle zehn Prüfungen" },
     { key: "gesamt",  id: "gesamtBox",                       name: "Wo stehe ich?" },
+    { key: "archiv",  id: "archivBox",                       name: "Archiv der Durchgänge" },
     { key: "plan",    id: "planBox",                         name: "Lernplan bis zur Prüfung" },
     { key: "tempo",   id: "zeitBox",                         name: "Tempo — Sekunden je BE" },
     { key: "pseudo",  id: "pseudoBox",                       name: "Pseudocode selbst schreiben" },

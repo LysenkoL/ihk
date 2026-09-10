@@ -26,6 +26,87 @@
 
 window.GENBILDER = (function () {
 
+
+  /* ------------------------------------------------------------------------
+     Welche Abbildung bei WELCHER Teilaufgabe stehen darf
+     ------------------------------------------------------------------------
+     Der Extraktor hängt jeder Teilaufgabe ALLE Abbildungen ihrer PDF-Seite an.
+     Auf einer Seite stehen aber meist drei bis fünf Teilaufgaben. Deshalb stand
+     unter „Erklären Sie den Zweck von Lasten- und Pflichtenheft“ das ER-Modell
+     aus der nächsten Teilaufgabe — ein Bild, das mit der Frage nichts zu tun
+     hat und beim Lernen in die Irre führt.
+
+     Die Seite trägt keine Koordinaten, aus denen sich „oberhalb/unterhalb“
+     berechnen ließe. Also wurde jede der 56 verbliebenen Bilddateien einzeln
+     angesehen und ihr Inhalt mit dem Text der Teilaufgaben derselben Seite
+     verglichen. Das Ergebnis steht hier: je Datei die Teilaufgaben, bei denen
+     sie stehen bleibt. Überall sonst wird sie entfernt.
+
+     Grundsatz bei Zweifeln: entfernen. Ein fehlendes Bild kostet nichts —
+     „Vollständige Seite ansehen“ zeigt die Originalseite. Ein falsches Bild
+     kostet Verständnis.
+
+     Dateien, die hier nicht aufgeführt sind, bleiben unangetastet.
+     ---------------------------------------------------------------------- */
+  const NUR_BEI = {
+    "ap1-2022-f_p02_f2.png": ["1 aa)", "1 ab)"],
+    "ap1-2022-f_p05_f1.png": ["2 aa)", "2 ab)"],   /* nicht bei 2 b) */
+    "ap1-2022-f_p06_f1.png": ["2 c)"],   /* nicht bei 2 d), 2 e) */
+    "ap1-2022-f_p06_f3.png": ["2 e)"],   /* nicht bei 2 c), 2 d) */
+    "ap1-2022-f_p07_f1.png": ["2 fa)", "2 fb)"],   /* nicht bei 2 ga), 2 gb), 2 gc) */
+    "ap1-2022-f_p07_f3.png": ["2 fb)"],   /* nicht bei 2 fa), 2 ga), 2 gb), 2 gc) */
+    "ap1-2022-f_p09_f3.png": ["3 ea)", "3 eb)"],   /* nicht bei 3 d) */
+    "ap1-2022-f_p10_f2.png": ["3 fa)", "3 fb)"],   /* nicht bei 3 fc) */
+    "ap1-2022-f_p10_f3.png": ["3 fc)"],   /* nicht bei 3 fa), 3 fb) */
+    "ap1-2022-h_p05_f3.png": ["2 e)"],   /* nicht bei 2 cb), 2 cc), 2 d) */
+    "ap1-2022-h_p06_f5.png": ["3 d)"],   /* nicht bei 3 a), 3 b), 3 c) */
+    "ap1-2023-f_p09_f1.png": ["4 da)", "4 db)"],
+    "ap1-2023-h_p02_f1.png": ["1 a)", "1 ba)"],
+    "ap1-2023-h_p03_f4.png": ["1 da)", "1 db)", "1 dc)"],   /* nicht bei 1 bb), 1 c) */
+    "ap1-2023-h_p05_f2.png": ["2 d)", "2 e)"],   /* nicht bei 2 c) */
+    "ap1-2023-h_p12_f2.png": ["4 ab)", "4 ba)", "4 bb)", "4 bc)"],   /* nicht bei 4 aa) */
+    "ap1-2023-h_p13_f1.png": ["4 ca)"],
+    "ap1-2024-f_p03_f1.png": ["1 c)"],   /* nicht bei 1 d), 1 e), 1 fa), 1 fb) */
+    "ap1-2024-f_p04_f1.png": ["2 a)"],   /* nicht bei 2 b) */
+    "ap1-2024-f_p04_f3.png": ["2 b)"],   /* nicht bei 2 a) */
+    "ap1-2024-f_p05_f1.png": ["2 c)", "2 d)"],   /* nicht bei 2 e) */
+    "ap1-2024-f_p05_f2.png": ["2 e)"],   /* nicht bei 2 c), 2 d) */
+    "ap1-2024-f_p06_f1.png": ["2 g)"],   /* nicht bei 2 f), 3 a), 3 b), 3 c) */
+    "ap1-2024-f_p09_f4.png": ["4 f)"],   /* nicht bei 4 da), 4 db), 4 e) */
+    "ap1-2024-h_p03_f1.png": ["1 da)"],   /* nicht bei 1 db), 1 dc) */
+    "ap1-2024-h_p03_f2.png": ["1 db)"],   /* nicht bei 1 da), 1 dc) */
+    "ap1-2024-h_p05_f1.png": ["2 d)"],
+    "ap1-2024-h_p06_f1.png": ["2 e)"],   /* nicht bei 2 f) */
+    "ap1-2024-h_p09_f3.png": ["4 b)"],   /* nicht bei 4 a) */
+    "ap1-2025-f_p04_f1.png": ["d)"],
+    "ap1-2025-f_p05_f3.png": ["ba)"],
+    "ap1-2025-h_p03_f1.png": ["1 a)"],
+    "ap1-2025-h_p06_f10.png": ["2 ba)"],
+    "ap1-2025-h_p06_f11.png": ["2 ba)"],
+    "ap1-2025-h_p06_f12.png": ["2 ba)"],
+    "ap1-2025-h_p06_f2.png": ["2 ba)"],
+    "ap1-2025-h_p06_f3.png": ["2 ba)"],
+    "ap1-2025-h_p06_f4.png": ["2 ba)"],
+    "ap1-2025-h_p06_f5.png": ["2 ba)"],
+    "ap1-2025-h_p06_f6.png": ["2 ba)"],
+    "ap1-2025-h_p06_f7.png": ["2 ba)"],
+    "ap1-2025-h_p06_f8.png": ["2 ba)"],
+    "ap1-2025-h_p06_f9.png": ["2 ba)"],
+    "ap1-2025-h_p07_f1.png": [],   /* nicht bei 2 bb) */
+    "ap1-2025-h_p10_f1.png": [],   /* nicht bei 3 c) */
+    "ap1-2025-h_p11_f1.png": [],   /* nicht bei 3 f) */
+    "ap1-2025-h_p11_f2.png": ["3 g)"],
+    "ap1-2025-h_p11_f3.png": ["3 h)"],   /* nicht bei 3 g) */
+    "ap1-2025-h_p13_f1.png": [],   /* nicht bei 4 aa) */
+    "ap1-2026-f_p02_f1.png": ["1 aa)"],
+    "ap1-2026-f_p03_f1.png": ["1 ac)"],
+    "ap1-2026-f_p04_f3.png": ["1 cc)"],
+    "ap1-2026-f_p05_f1.png": ["2 b)"],
+    "ap1-2026-f_p08_f1.png": ["3 db)"],
+    "ap1-2026-f_p09_f2.png": ["3 ec)"],
+    "ap1-2026-f_p10_f3.png": ["4 ba)"],
+  };
+
   /* --------- Fehlschnitte: werden nicht mehr als Abbildung angezeigt ----- */
   /* Herbst 2021 ist ein Sonderfall: dort ist KEIN einziger Ausschnitt zu
      gebrauchen. Seite 3 ist quer gedruckt, der Zuschneider hat sie in fünf
@@ -364,12 +445,15 @@ window.GENBILDER = (function () {
     if (!EX || !EX.length) return { weg: 0, ersetzt: 0 };
     let weg = 0, ersetzt = 0;
 
-    const durch = liste => {
+    const durch = (liste, label) => {
       if (!Array.isArray(liste)) return;
       for (let i = liste.length - 1; i >= 0; i--) {
         const a = liste[i];
         if (!a || !a.file) continue;
         if (AUSBLENDEN.has(kurz(a.file))) { liste.splice(i, 1); weg++; continue; }
+        /* gehört das Bild bei DIESER Teilaufgabe hin? */
+        const erlaubt = NUR_BEI[kurz(a.file)];
+        if (erlaubt && label && erlaubt.indexOf(label) < 0) { liste.splice(i, 1); falsch++; continue; }
         const e = ERSATZ[a.file] || ERSATZ["assets/" + kurz(a.file)];
         if (e) {
           a.file = e.datei;
@@ -382,14 +466,14 @@ window.GENBILDER = (function () {
       }
     };
 
-    let ergaenzt = 0, loesungen = 0;
+    let ergaenzt = 0, loesungen = 0, falsch = 0;
     EX.forEach(ex => {
       durch(ex.attachments);
       if (ex.situation) durch(ex.situation.assets);
       (ex.tasks || []).forEach(t => {
         durch(t.assets);
         (t.subtasks || []).forEach(st => {
-          durch(st.assets);
+          durch(st.assets, st.fullLabel || st.label || "");
           /* Aufgaben, für die es nie eine Abbildung gab: hinzufügen */
           const k = ex.examId + "|" + (st.fullLabel || st.label || "") + "|" + (st.sourcePage || "");
           const z = ZUSATZ[k];
@@ -417,14 +501,16 @@ window.GENBILDER = (function () {
         });
       });
     });
-    return { weg, ersetzt, ergaenzt, loesungen };
+    return { weg, ersetzt, ergaenzt, loesungen, falsch };
   }
 
   const ergebnis = aufraeumen();
 
   return {
     AUSBLENDEN, ERSATZ, ZUSATZ, LOESUNG, aufraeumen,
+    NUR_BEI,
     entfernt: ergebnis.weg,
+    falschZugeordnet: ergebnis.falsch,
     ersetzt: ergebnis.ersetzt,
     ergaenzt: ergebnis.ergaenzt,
     loesungen: ergebnis.loesungen

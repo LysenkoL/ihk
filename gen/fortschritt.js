@@ -25,7 +25,8 @@ window.GENFORTSCHRITT = (function () {
     "ihk2:marker",           // Textmarkierungen in den Aufgabentexten
     "ihk2:zeit",             // gemessenes Tempo je Aufgabentyp
     "ihk2:plan",             // Lernplan: Minuten pro Tag, abgehakte Tage
-    "ihk2:pseudo"            // Pseudocode-Trainer
+    "ihk2:pseudo",           // Pseudocode-Trainer
+    "ihk2:archiv"            // Archiv der Durchgänge samt Antworten
   ];
 
   function einsammeln() {
@@ -128,16 +129,32 @@ window.GENFORTSCHRITT = (function () {
           let d;
           try { d = JSON.parse(r.result); } catch (e) { return; }
           if (!d || d.typ !== "ihk-ap1-fortschritt" || !d.gen) return;
+          /* Ab Dateiversion 3 trägt index.html ohnehin JEDEN ihk2-Schlüssel
+             zurück und lädt danach selbst neu. Dann hier nichts tun — sonst
+             schreiben zwei Stellen dieselben Daten und laden zweimal neu. */
+          if (d.speicher && typeof d.speicher === "object") return;
           const info = zusammenfassung(d.gen);
-          /* Die Nachfrage „zusammenführen oder ersetzen“ hat index.html
-             schon gestellt — wir übernehmen dieselbe Entscheidung nicht
-             noch einmal und führen im Zweifel zusammen.                 */
-          const n = zurueckschreiben(d.gen, true);
-          if (!n) return;
-          setTimeout(() => {
-            if (window.toast) window.toast("Generator-Daten übernommen: " + info + " — Seite wird neu geladen.");
-            setTimeout(() => location.reload(), 900);
-          }, 400);
+          /* Die Nachfrage „zusammenführen oder ersetzen“ stellt index.html.
+             Diese Datei hier läuft in der Capture-Phase und ist damit schon
+             fertig, bevor die Antwort feststeht — also kurz darauf warten.
+             Wird der Import dort abgebrochen, passiert hier auch nichts;
+             ohne Antwort (alte Fassung von index.html) wird wie bisher
+             zusammengeführt, denn das kann nichts zerstören.            */
+          const losGehts = () => {
+            const w = window.__ihkImport;
+            if (w === "abbruch") return;
+            const n = zurueckschreiben(d.gen, w !== "ersetzen");
+            if (!n) return;
+            setTimeout(() => {
+              if (window.toast) window.toast("Generator-Daten übernommen: " + info + " — Seite wird neu geladen.");
+              setTimeout(() => location.reload(), 900);
+            }, 400);
+          };
+          let warten = 0;
+          (function pruefe(){
+            if (window.__ihkImport || warten > 40) return losGehts();
+            warten++; setTimeout(pruefe, 50);
+          })();
         };
         r.readAsText(f, "utf-8");
       }, true);   /* capture */

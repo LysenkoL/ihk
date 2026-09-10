@@ -72,9 +72,41 @@ window.GENUI = (function () {
     box.appendChild(hin);
 
     if (BLAETTER.length) {
+      /* Bisher standen hier nur die neun neuesten Blätter. Gespeichert sind
+         vierzig — eine abgegebene Simulation von vorgestern war damit
+         unauffindbar, obwohl sie noch da war. Jetzt sind alle erreichbar,
+         und Simulationen lassen sich einzeln herausfiltern.              */
+      const sims = BLAETTER.filter(b => b.pruefung);
+      const steuer = el("div", "gen-werkzeug");
+      const zaehler = el("span", "gen-zaehler");
+      steuer.appendChild(zaehler);
+      let nurSim = false, alle = false;
       const gitter = el("div", "karten");
-      BLAETTER.slice(0, 9).forEach(b => gitter.appendChild(blattKarte(b)));
+
+      function neuZeichnen() {
+        const liste = nurSim ? sims : BLAETTER;
+        const zeigen = alle ? liste : liste.slice(0, 9);
+        gitter.innerHTML = "";
+        zeigen.forEach(b => gitter.appendChild(blattKarte(b)));
+        zaehler.textContent = zeigen.length + " von " + liste.length +
+          (nurSim ? " Simulationen" : " Arbeitsblättern") +
+          (sims.length && !nurSim ? " · davon " + sims.length + " Simulationen" : "");
+        mehr.hidden = liste.length <= 9;
+        mehr.textContent = alle ? "nur die neuesten neun" : "alle " + liste.length + " zeigen";
+      }
+      const filter = el("button", "btn ghost klein", "nur Simulationen");
+      filter.hidden = !sims.length;
+      filter.onclick = () => {
+        nurSim = !nurSim;
+        filter.textContent = nurSim ? "alle Arbeitsblätter" : "nur Simulationen";
+        neuZeichnen();
+      };
+      const mehr = el("button", "btn ghost klein", "");
+      mehr.onclick = () => { alle = !alle; neuZeichnen(); };
+      steuer.append(filter, mehr);
+      box.appendChild(steuer);
       box.appendChild(gitter);
+      neuZeichnen();
     } else {
       const leer = el("div", "leer-hinweis",
         "Noch kein Arbeitsblatt. Wähle oben ein Thema — in zehn Sekunden hast du zehn frische Aufgaben.");
@@ -111,6 +143,10 @@ window.GENUI = (function () {
     const wg = el("button", "btn ghost klein", "löschen");
     wg.onclick = () => {
       if (!confirm("Arbeitsblatt „" + b.titel + "\" löschen?")) return;
+      /* Vorher ins Archiv — die Antworten sollen das Löschen überleben. */
+      try {
+        if (b.antworten && Object.keys(b.antworten).length) archivieren("vor dem Löschen", b);
+      } catch (e) { console.error("Archiv:", e); }
       BLAETTER = BLAETTER.filter(x => x.id !== b.id); sichern(); startBox();
     };
     rechts.append(oef, wg);
@@ -513,6 +549,14 @@ window.GENUI = (function () {
         if (!confirm("Prüfung abgeben? Danach werden alle Aufgaben bewertet und die Lösungen freigegeben.")) return;
         abgeben();
       }));
+      /* Drucken gehört auch in die laufende Simulation: In der echten Prüfung
+         liegt der Bogen auf Papier, und viele rechnen lieber daneben als im
+         Textfeld. Der Bogen wird ohne Lösungen gesetzt — gesperrt bleibt nur,
+         was die Prüfung entwerten würde.                                  */
+      l.appendChild(knopf("Bogen drucken", "", () => {
+        if (window.GENDRUCK) window.GENDRUCK.zeige(BLATT, AUFG, { loesung: false });
+        else window.print();
+      }));
       const hin = el("span");
       hin.style.cssText = "font-size:12.5px;color:var(--muted)";
       hin.textContent = "Lösungen und Einzelprüfung sind bis zur Abgabe gesperrt.";
@@ -596,6 +640,10 @@ window.GENUI = (function () {
     if (!(BLATT.pruefung && !BLATT.abgegeben)) {
       const det = el("details", "gloesung"); det.id = "gloes-" + i;
       det.appendChild(el("summary", null, "Musterlösung mit Rechenweg"));
+      /* Bei einem gezeichneten Diagramm ist die Musterlösung das fertige
+         Bild — eine Liste von Kanten sagt einem nichts.               */
+      const fb = (a.felder || []).find(x => x.typ === "flussbild");
+      if (fb && window.GENFLUSS) det.appendChild(window.GENFLUSS.bau(fb, {}, () => { }, true));
       det.appendChild(el("div", "txt", a.loesung));
       haupt.appendChild(det);
     }
@@ -658,7 +706,14 @@ window.GENUI = (function () {
   function feldEl(f, i) {
     const box = el("div", "gfeld");
     box.dataset.nr = f.nr;
+    /* Beschriftung und Eingabefeld werden über for/id verknüpft. Das ist
+       nicht nur für Screenreader wichtig: ein Klick auf die Beschriftung
+       springt dann ins Feld, und das trifft man mit dem Daumen leichter
+       als ein schmales Eingabefeld. Bei Auswahlfeldern umschließt das
+       label seinen Knopf ohnehin schon — dort ist nichts zu tun.        */
+    const fid = "gf-" + i + "-" + f.nr;
     const lab = el("label", "gl");
+    lab.htmlFor = fid;
     lab.innerHTML = "<b>" + esc(f.label) + "</b> " +
       (f.typ === "rechenweg"
         ? "<span class=\"be weg\">zählt über die Folgefehlerregel</span>"
@@ -666,10 +721,16 @@ window.GENUI = (function () {
     box.appendChild(lab);
     const alt = antwortLesen(i, f.nr);
 
+    /* Das erste echte Eingabefeld im Kasten bekommt die id des labels.
+       Felder, die aus vielen Teilen bestehen (Tabelle, Zuordnung), lassen
+       das label als Gruppenüberschrift stehen und beschriften ihre Teile
+       selbst — dafür ist unten aria-label gesetzt.                      */
+    const idGeben = e => { if (e && !e.id) e.id = fid; return e; };
+
     if (f.typ === "rechenweg") {
       box.classList.add("gweg");
       if (f.hilfe) box.appendChild(el("div", "gweg-hilfe", f.hilfe));
-      const ta = el("textarea", "gweg-feld");
+      const ta = idGeben(el("textarea", "gweg-feld"));
       ta.rows = f.zeilen || 6;
       ta.spellcheck = false;
       ta.placeholder =
@@ -682,7 +743,7 @@ window.GENUI = (function () {
 
     } else if (f.typ === "zahl") {
       const zeile = el("div", "geingabe");
-      const inp = el("input"); inp.type = "text"; inp.inputMode = "decimal";
+      const inp = idGeben(el("input")); inp.type = "text"; inp.inputMode = "decimal";
       inp.placeholder = "Ergebnis eintragen";
       inp.value = alt == null ? "" : alt;
       inp.oninput = () => antwortSetzen(i, f.nr, inp.value);
@@ -794,6 +855,21 @@ window.GENUI = (function () {
         tb.appendChild(tr);
       });
       t.appendChild(tb); wrap.appendChild(t); box.appendChild(wrap);
+
+    } else if (f.typ === "flussbild" && window.GENFLUSS) {
+      /* Gezeichnetes Aktivitätsdiagramm mit Lücken — siehe gen/flussbild.js */
+      const werte = (alt && typeof alt === "object" && !Array.isArray(alt)) ? Object.assign({}, alt) : {};
+      const bild = window.GENFLUSS.bau(f, werte, (nr, wert) => {
+        werte[nr] = wert;
+        antwortSetzen(i, f.nr, Object.assign({}, werte));
+      }, false);
+      bild.id = "gfb-" + i + "-" + f.nr;
+      box.appendChild(bild);
+      const hin = el("div", "fb-hinweis",
+        "Die Struktur des Ablaufs ist vorgegeben. Zu ergänzen sind die gestrichelt umrandeten " +
+        "Stellen: Knotentyp, Bezeichnung und die Bedingungen an den Ausgängen der Entscheidung. " +
+        "Ein Kasten nimmt seine Form an, sobald der Typ gewählt ist.");
+      box.appendChild(hin);
 
     } else if (f.typ === "knoten") {
       const wrap = el("div", "gtab-rollen");
@@ -916,13 +992,13 @@ window.GENUI = (function () {
       const zeilen = f.zeilen || (f.typ === "liste" ? 4 : 2);
       if (zeilen <= 1) {
         const zeile = el("div", "geingabe");
-        const inp = el("input"); inp.type = "text";
+        const inp = idGeben(el("input")); inp.type = "text";
         inp.value = alt == null ? "" : alt;
         inp.oninput = () => antwortSetzen(i, f.nr, inp.value);
         zeile.appendChild(inp);
         box.appendChild(zeile);
       } else {
-        const ta = el("textarea");
+        const ta = idGeben(el("textarea"));
         ta.rows = zeilen;
         ta.placeholder = f.typ === "liste"
           ? "eine Nennung je Zeile — mit Begründung („…, weil …“)"
@@ -1114,6 +1190,9 @@ window.GENUI = (function () {
         if (!s.value) return;
         s.classList.add(s.value === f.paare[k][1] ? "richtig" : "falsch");
       });
+    }
+    if (f.typ === "flussbild" && window.GENFLUSS) {
+      window.GENFLUSS.markiere(feldBox.querySelector(".fb"), r.luecken);
     }
     if (f.typ === "knoten" && r.zeilen) {
       feldBox.querySelectorAll("table.gknoten tbody tr").forEach((tr, k) => {
@@ -1348,6 +1427,54 @@ window.GENUI = (function () {
   }
 
   /** Prüfungssimulation abgeben: bewerten, Lösungen freigeben, Zeit auswerten */
+  /* Ein Arbeitsblatt in dieselbe Form bringen, in der das Archiv die echten
+     Prüfungen ablegt — dann steht beides in einer Liste und lässt sich
+     miteinander vergleichen. */
+  function archivieren(quelle, blatt) {
+    const B = blatt || BLATT;
+    if (!window.GENARCHIV || !B) return null;
+    /* Ohne offenes Blatt die Aufgaben aus Vorlage und Saat neu erzeugen —
+       der Zufallskeim macht sie identisch mit denen beim Ausfüllen. */
+    const A = (B === BLATT && AUFG.length) ? AUFG
+            : B.aufgaben.map(x => G.erzeuge(x.vorlageId, x.saat));
+    const aufgaben = A.map((a, i) => {
+      const ant = (B.antworten || {})[i] || {};
+      const teile = (a.felder || []).map(f => {
+        const w = ant[f.nr];
+        if (w == null || w === "") return null;
+        const wert = typeof w === "object" ? JSON.stringify(w) : String(w);
+        return (f.label ? f.label + ": " : "") + wert;
+      }).filter(Boolean);
+      const e = (B.ergebnisse || {})[i] || {};
+      return {
+        k: B.id + ":" + i,
+        label: "Aufgabe " + (i + 1) + " · " + (a.titel || a.vorlageId),
+        frage: (a.prompt || "").replace(/\s+/g, " ").trim().slice(0, 400),
+        antwort: teile.join("\n"),
+        punkte: e.punkte == null ? null : G.runde(e.punkte, 2),
+        be: a.maxPoints || 0,
+        loesung: (a.loesung || "").replace(/\s+/g, " ").trim().slice(0, 600)
+      };
+    });
+    if (!aufgaben.some(x => x.antwort.trim())) return null;
+    const max = aufgaben.reduce((s, x) => s + x.be, 0);
+    const got = aufgaben.reduce((s, x) => s + (x.punkte || 0), 0);
+    return window.GENARCHIV.sichern({
+      id: "b" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      datum: new Date().toISOString(),
+      examId: "blatt:" + (B.opt && B.opt.themen ? B.opt.themen.join("+") : "gemischt"),
+      titel: (B.pruefung ? "Simulation · " : "Arbeitsblatt · ") + B.titel,
+      modus: B.pruefung ? "simulation" : "uebung",
+      quelle: quelle || "abgegeben",
+      punkte: G.runde(got, 2), maxPunkte: G.runde(max, 2),
+      prozent: max ? Math.round(got / max * 100) : 0,
+      beantwortet: aufgaben.filter(x => x.antwort.trim()).length,
+      anzahl: aufgaben.length,
+      minuten: B.sekunden ? Math.round(B.sekunden / 60) : null,
+      aufgaben
+    }, true);
+  }
+
   function abgeben() {
     if (BLATT.abgegeben) return;
     uhrStop();
@@ -1355,6 +1482,9 @@ window.GENUI = (function () {
     BLATT.dauer = BLATT.sekunden || 0;
     AUFG.forEach((_, i) => pruefe(i, true));
     sichern();
+    /* Simulation ins Archiv — dort liegt sie neben den Prüfungsdurchgängen
+       und überlebt auch das Löschen des Arbeitsblatts.                   */
+    try { archivieren("abgegeben"); } catch (e) { console.error("Archiv:", e); }
     zeichne();                       // neu zeichnen: Lösungen sind jetzt frei
     standAktualisieren();
     abschluss();
@@ -1443,5 +1573,5 @@ window.GENUI = (function () {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", einhaengen);
   else einhaengen();
 
-  return { erzeugeBlatt, oeffne, assistent, startBox, speichern: sichern, abgeben };
+  return { erzeugeBlatt, oeffne, assistent, startBox, speichern: sichern, abgeben, archivieren };
 })();

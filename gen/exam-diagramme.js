@@ -66,9 +66,36 @@ window.GENEXAM = (function () {
         { key: "fall", label: "Anwendungsfall" },
         { key: "akteur", label: "Akteur" },
         { key: "bez", label: "verbunden mit" },
-        { key: "art", label: "Art", optionen: ["—", "«include»", "«extend»"] }
+        { key: "art", label: "Art", optionen: ["—", "«include»", "«extend»", "Generalisierung"] }
       ],
-      regel: "Akteure stehen außerhalb der Systemgrenze. «include» läuft immer mit, «extend» nur unter einer Bedingung.",
+      regel: "Akteure stehen außerhalb der Systemgrenze. «include» läuft immer mit, «extend» nur unter einer Bedingung. " +
+        "Generalisierung heißt: der eine kann alles, was der andere kann, und noch mehr.",
+      /* Welche Felder bei welcher Beziehung gefüllt werden. Ohne diese vier
+         Zeilen ist die Tabelle nicht zu bedienen: eine Generalisierung
+         zwischen zwei Akteuren hat gar keinen Anwendungsfall, und der
+         Extension Point eines «extend» hat keine eigene Spalte.        */
+      hilfe: [
+        ["Akteur benutzt eine Funktion", "—", "Anwendungsfall + Akteur"],
+        ["Funktion ruft immer eine andere auf", "«include»", "Anwendungsfall + verbunden mit"],
+        ["Funktion ruft manchmal eine andere auf", "«extend»", "Anwendungsfall + verbunden mit · Extension Point mit Doppelpunkt anhängen: <code>Türen öffnen : Notfall</code>"],
+        ["Einer kann alles, was der andere kann, und mehr", "Generalisierung", "Akteur (der speziellere) + verbunden mit (der allgemeinere)"]
+      ],
+      /* Ein Satz je Zeile statt „Spalte: Wert | Spalte: Wert“ — den liest
+         auch der Wortabgleich in der Auswertung richtig.               */
+      satz(z) {
+        const fall = (z.fall || "").trim(), akt = (z.akteur || "").trim();
+        const roh = (z.bez || "").trim(), art = (z.art || "").trim();
+        const dp = roh.split(/\s*:\s*/);
+        const ziel = (dp[0] || "").trim(), punkt = (dp[1] || "").trim();
+        if (art === "Generalisierung" && (akt || fall) && ziel)
+          return (akt || fall) + " generalisiert " + ziel + " (erbt dessen Anwendungsfälle)";
+        if ((art === "«include»" || art === "«extend»") && fall && ziel)
+          return fall + " " + art + " " + ziel + (punkt ? " [Extension Point: " + punkt + "]" : "");
+        if (fall && akt) return akt + " → " + fall + " (Assoziation)";
+        if (fall) return fall + (ziel ? " — verbunden mit " + ziel : "");
+        if (akt) return "Akteur: " + akt + (ziel ? " — " + ziel : "");
+        return "";
+      },
       vorlage: "dia-usecase-bauen"
     },
     aktivitaet: {
@@ -138,9 +165,19 @@ window.GENEXAM = (function () {
   function alsText(k, form) {
     const daten = lesen(k).filter(z => form.spalten.some(sp => String(z[sp.key] || "").trim()));
     if (!daten.length) return "";
-    const zeilen = daten.map(z => form.spalten
-      .map(sp => sp.label + ": " + (String(z[sp.key] || "").trim() || "—"))
-      .join(" | "));
+    const zeilen = daten.map(z => {
+      /* Kennt die Form einen Satzbau, dann den — „Administrator generalisiert
+         Mitarbeiter“ ist für den Wortabgleich und für einen Menschen lesbar,
+         „Akteur: Administrator | verbunden mit: Mitarbeiter“ ist es nicht. */
+      if (typeof form.satz === "function") {
+        const s = form.satz(z);
+        if (s) return s;
+      }
+      return form.spalten
+        .map(sp => sp.label + ": " + (String(z[sp.key] || "").trim() || "—"))
+        .join(" | ");
+    }).filter(Boolean);
+    if (!zeilen.length) return "";
     return form.titel + "\n" + zeilen.join("\n");
   }
 
@@ -214,6 +251,28 @@ window.GENEXAM = (function () {
     plus.onclick = () => { tb.appendChild(zeile({})); sichere(); };
     wrap.appendChild(plus);
 
+    /* Welche Spalten wann gefüllt werden — bei Beziehungstabellen die
+       wichtigste Information überhaupt, und sie steht nirgends sonst. */
+    if (form.hilfe && form.hilfe.length) {
+      const h = el("div", "ex-hilfe");
+      h.appendChild(el("div", "ex-hilfe-titel", "Was trage ich wo ein?"));
+      const ht = el("table", "ex-hilfe-tab");
+      const hh = el("tr");
+      ["Situation", "Art", "Ausgefüllt wird"].forEach(x => hh.appendChild(el("th", null, x)));
+      ht.appendChild(hh);
+      form.hilfe.forEach(r => {
+        const tr = el("tr");
+        tr.appendChild(el("td", null, r[0]));
+        const td2 = el("td", "ex-hilfe-art", r[1]);
+        tr.appendChild(td2);
+        const td3 = el("td"); td3.innerHTML = r[2];
+        tr.appendChild(td3);
+        ht.appendChild(tr);
+      });
+      h.appendChild(ht);
+      wrap.appendChild(h);
+    }
+
     const regel = el("div", "gmodell-regeln");
     regel.innerHTML = "<b>Notation</b><div>· " + form.regel + "</div>" +
       "<div>· Die Tabelle wird als Text an deine Antwort angehängt — für Export und Auswertung.</div>";
@@ -236,7 +295,14 @@ window.GENEXAM = (function () {
       const ta = haupt ? haupt.querySelector("textarea") : null;
       if (!haupt) return;
       const box = tabelle(it, FORM[typ]);
-      if (ta) haupt.insertBefore(box, ta); else haupt.appendChild(box);
+      /* Das Textfeld liegt bei mehrteiligen Aufgaben nicht direkt in .tk-haupt,
+         sondern in einem Feldkasten darin — insertBefore braucht aber ein
+         echtes Kind. Also den Vorfahren suchen, der eines ist. Sonst wirft
+         der Aufruf und die Schleife bricht ab: alle folgenden Diagramm-
+         karten bekommen dann gar keine Tabelle mehr.                     */
+      let anker = ta;
+      while (anker && anker.parentNode !== haupt) anker = anker.parentNode;
+      if (anker) haupt.insertBefore(box, anker); else haupt.appendChild(box);
       if (ta) ta.placeholder = "Ergänzungen und Erläuterungen in Worten (die Tabelle oben zählt mit) …";
       karte.dataset.diaFertig = "1";
     });

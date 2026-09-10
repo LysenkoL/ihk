@@ -749,6 +749,7 @@ window.GEN = (function () {
     }
 
     if (f.typ === "knoten") return pruefeKnoten(f, eingabe);
+    if (f.typ === "flussbild") return pruefeFlussbild(f, eingabe);
     if (f.typ === "modell") return pruefeModell(f, eingabe);
 
     if (f.typ === "rechenweg") {
@@ -835,6 +836,130 @@ window.GEN = (function () {
       if (sc != null && sc > bestScore) { bestScore = sc; best = i; }
     });
     return best;
+  }
+
+  /* ====================================================================
+     Aktivitätsdiagramm als Bild statt als Tabelle
+     --------------------------------------------------------------------
+     Eine Knotentabelle mit vier Spalten je Zeile ist auf Papier machbar
+     und am Telefon unbenutzbar: man sieht den Ablauf nicht, sondern muss
+     ihn im Kopf zusammensetzen, und tippt Zielnamen ab. Geprüft wird
+     dabei Abtippen, nicht Modellieren.
+
+     Deshalb wird der Ablauf gezeichnet und es werden Lücken hineingelegt
+     — genau die Aufgabenform, die in der echten Prüfung unter
+     „Vervollständigen Sie das Aktivitätsdiagramm“ steht.
+
+     flussLayout() macht aus dem Graphen einen Baum aus Blöcken, den eine
+     Oberfläche stur von oben nach unten zeichnen kann:
+
+       {art:"knoten", i}                       ein Kasten
+       {art:"zweige", von, spalten:[{bed, bloecke}]}   Verzweigung/Fork
+       {art:"sprung", ziel}                    Rücksprung (Schleife)
+
+     Zusammenführungen werden erkannt: die Zweige hören dort auf, und der
+     gemeinsame Knoten wird danach einmal auf der äußeren Ebene gezeichnet.
+     ==================================================================== */
+  function flussLayout(soll, startName) {
+    const nr = {};
+    (soll || []).forEach((k, i) => { if (nr[k.name] == null) nr[k.name] = i; });
+    const kinder = i => (soll[i].nach || []).map(n => nr[n]).filter(x => x != null);
+
+    /* alles, was von i aus vorwärts erreichbar ist (Zyklen enden von selbst) */
+    function erreichbar(i) {
+      const m = new Set(), stapel = [i];
+      while (stapel.length) {
+        const x = stapel.pop();
+        kinder(x).forEach(y => { if (!m.has(y)) { m.add(y); stapel.push(y); } });
+      }
+      return m;
+    }
+    /* erster Knoten, bei dem alle Zweige wieder zusammenlaufen */
+    function treffpunkt(zweige) {
+      if (zweige.length < 2) return null;
+      const mengen = zweige.map(z => { const m = erreichbar(z); m.add(z); return m; });
+      const reihe = [], gesehen = new Set([zweige[0]]), q = [zweige[0]];
+      while (q.length) {
+        const x = q.shift(); reihe.push(x);
+        kinder(x).forEach(y => { if (!gesehen.has(y)) { gesehen.add(y); q.push(y); } });
+      }
+      for (const kandidat of reihe) {
+        if (mengen.every(m => m.has(kandidat))) return kandidat;
+      }
+      return null;
+    }
+
+    const fertig = new Set();
+    function kette(i, stopp, tiefe) {
+      const raus = [];
+      let sicherung = 0;
+      while (i != null && i !== stopp && sicherung++ < 200) {
+        if (fertig.has(i)) { raus.push({ art: "sprung", ziel: i }); break; }
+        fertig.add(i);
+        raus.push({ art: "knoten", i: i });
+        const k = kinder(i);
+        if (!k.length) break;
+        if (k.length === 1) { i = k[0]; continue; }
+        /* Ein Zweig, der zurückspringt, zählt bei der Suche nach dem
+           Treffpunkt nicht mit — sonst „trifft“ sich die Schleife mit
+           sich selbst.                                                */
+        const vorwaerts = k.filter(z => !fertig.has(z));
+        const treff = vorwaerts.length >= 2 ? treffpunkt(vorwaerts) : null;
+        const bed = soll[i].bed || [];
+        raus.push({
+          art: "zweige", von: i,
+          spalten: k.map((z, n) => ({ bed: bed[n] || null, ziel: z, bloecke: kette(z, treff, tiefe + 1) }))
+        });
+        i = treff;
+      }
+      return raus;
+    }
+
+    let start = nr[startName];
+    if (start == null) start = (soll || []).findIndex(k => normTyp(k.typ) === "start");
+    if (start < 0 || start == null) start = 0;
+    const bloecke = kette(start, null, 0);
+    /* Knoten, die kein Zweig erreicht hat (defensiv), hinten anhängen */
+    (soll || []).forEach((k, i) => { if (!fertig.has(i)) bloecke.push({ art: "knoten", i: i }); });
+    return bloecke;
+  }
+
+  /* ---------- Lückendiagramm prüfen ------------------------------------ */
+  /**
+   * f = { typ:"flussbild", soll, start, be,
+   *       luecken:[{art:"name"|"typ"|"bed", n:<Knoten>, e:<Kante>, soll:"…"}],
+   *       pool:{name:[…], typ:[…], bed:[…]} }
+   * eingabe = { "0":"Aktion", "2":"[nein]", … }   Schlüssel = Lückennummer
+   */
+  function pruefeFlussbild(f, eingabe) {
+    const L = f.luecken || [];
+    const e = eingabe && typeof eingabe === "object" && !Array.isArray(eingabe) ? eingabe : {};
+    const gefuellt = L.filter((_, i) => String(e[i] == null ? "" : e[i]).trim()).length;
+    if (!gefuellt) return { status: "leer", punkte: 0, gefunden: [], fehlt: [], text: "", luecken: {} };
+
+    const gleich = (a, b, art) => {
+      const x = String(a == null ? "" : a).trim(), y = String(b == null ? "" : b).trim();
+      if (!x) return false;
+      if (art === "typ") return normTyp(x) === normTyp(y);
+      if (art === "bed") return norm(x).replace(/[\[\]]/g, "") === norm(y).replace(/[\[\]]/g, "");
+      return norm(x) === norm(y);
+    };
+
+    const proLuecke = (f.be || L.length) / Math.max(1, L.length);
+    const stand = {}; let ok = 0;
+    L.forEach((l, i) => {
+      const r = gleich(e[i], l.soll, l.art);
+      stand[i] = r ? "richtig" : (String(e[i] == null ? "" : e[i]).trim() ? "falsch" : "offen");
+      if (r) ok++;
+    });
+
+    return {
+      status: ok === L.length ? "richtig" : (ok ? "teil" : "falsch"),
+      punkte: runde(ok * proLuecke, 2),
+      gefunden: [], fehlt: [], luecken: stand,
+      text: ok + " von " + L.length + " Lücken richtig" +
+            (gefuellt < L.length ? " · " + (L.length - gefuellt) + " noch offen" : "")
+    };
   }
 
   /* ---------- Knotentabelle (Aktivitäts- und Klassendiagramm) ----------- */
@@ -1124,6 +1249,7 @@ window.GEN = (function () {
   return {
     Rng, hashText, fmt, runde, leseZahlen, ZAHLWORT, nennVorlage,
     norm, worte, stamm, stammSatz, enthaelt, enthaeltEines, teile, nahe, abstand,
+    flussLayout, normTyp,
     vorlage, alleVorlagen, vorlageVon, themenBaum, THEMEN_LABEL, KONTEXT,
     HAUPT_LABEL, HAUPT_REIHE, hauptVon, zwischenwerte, pruefeRechenweg, zahlenAusText,
     erzeuge, erzeugeBlatt, pruefeFeld, pruefeAufgabe

@@ -615,3 +615,158 @@ body.mk-stift .katalog-hinweis, body.mk-stift .gmerksatz{
   -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
   cursor:crosshair; box-shadow:inset 3px 0 0 #FFF07A; padding-left:7px;
   border-radius:2px}
+
+/* ============================================================================
+   Aktivitätsdiagramm als Bild (gen/flussbild.js)
+   ----------------------------------------------------------------------------
+   Eine Spalte von oben nach unten, Verzweigungen nebeneinander. Unter 640 px
+   stehen die Zweige untereinander mit Einzug — sonst wird jeder Kasten so
+   schmal, dass die Beschriftung abgeschnitten ist, und genau das war ja das
+   Problem an der Tabelle.
+   ========================================================================== */
+.fb{--fb-linie:var(--rule); margin:6px 0 10px; font-size:13.5px;
+  max-width:620px}
+.fb-reihe{display:flex; flex-direction:column; align-items:stretch}
+
+.fb-knoten{display:flex; align-items:center; gap:9px; background:var(--card);
+  border:1px solid var(--fb-linie); border-radius:6px; padding:8px 11px; min-height:44px}
+.fb-knoten .fb-sym{flex:none; font-size:15px; line-height:1; color:var(--muted)}
+.fb-knoten .fb-txt{flex:1; min-width:0}
+.fb-knoten .fb-name{font-weight:600}
+.fb-knoten .fb-typ{flex:none; max-width:46%}
+.fb-typname{font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:9.5px; font-weight:700; color:var(--muted); white-space:nowrap}
+
+/* Formen: die Bedeutung steckt in der Form, nicht nur in der Beschriftung */
+.fb-start{border-radius:999px; background:var(--field)}
+.fb-start .fb-sym{color:var(--ink); font-size:13px}
+.fb-ende{border-radius:999px; background:var(--field); border-width:2px}
+.fb-aktion{border-radius:8px}
+.fb-raute{border-color:var(--pruefer); background:var(--pruefer-soft);
+  clip-path:polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
+  padding-left:20px; padding-right:20px}
+.fb-merge{border-style:dashed; background:var(--field)}
+.fb-balken{background:var(--ink); color:var(--paper); border-color:var(--ink); border-radius:3px;
+  min-height:34px}
+.fb-balken .fb-sym, .fb-balken .fb-typname{color:var(--paper); opacity:.75}
+.fb-balken .fb-name{font-weight:600}
+
+/* Kante von Kasten zu Kasten */
+.fb-pfeil{align-self:center; width:0; height:18px; border-left:2px solid var(--fb-linie);
+  position:relative; flex:none}
+.fb-pfeil::after{content:""; position:absolute; left:-4px; bottom:-1px;
+  border:5px solid transparent; border-top-color:var(--fb-linie); border-bottom:0}
+
+/* Verzweigung */
+.fb-zweige{display:flex; gap:14px; align-items:flex-start; margin-top:2px}
+.fb-spalte{flex:1; min-width:0; border-top:2px solid var(--pruefer); padding-top:9px;
+  position:relative}
+.fb-bed{margin-bottom:7px}
+.fb-bedtext{font-family:var(--data); font-size:12px; font-weight:600; color:var(--pruefer);
+  background:var(--pruefer-soft); border-radius:10px; padding:2px 9px; display:inline-block}
+.fb-bedtext.fb-leer{color:var(--muted); background:var(--field)}
+.fb-weiter{font-size:12px; color:var(--muted); font-style:italic; padding:4px 0}
+.fb-sprung{display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--warn);
+  background:var(--field); border:1px dashed var(--warn); border-radius:6px; padding:6px 10px}
+
+/* Lücken */
+.fb-luecke{font:inherit; font-size:13px; max-width:100%; width:100%;
+  background:var(--field); border:1px solid var(--pruefer); border-radius:4px;
+  padding:6px 7px; min-height:36px; color:var(--ink)}
+.fb-l-typ{font-family:var(--display); text-transform:uppercase; letter-spacing:.06em;
+  font-size:10.5px; font-weight:700; min-width:130px}
+.fb-l-bed{width:auto; min-width:120px; font-family:var(--data)}
+.fb-luecke.richtig{border-color:var(--ok); background:var(--ok-soft)}
+.fb-luecke.falsch{border-color:var(--red); background:var(--red-soft)}
+.fb-fest{font-weight:600}
+.fb-loesung .fb-fest{background:var(--ok-soft); border-radius:3px; padding:1px 5px}
+.fb-hinweis{font-size:12.5px; color:var(--muted); line-height:1.55; margin-top:2px}
+
+@media (max-width:640px){
+  .fb-zweige{flex-direction:column; gap:10px}
+  .fb-spalte{border-top:0; border-left:3px solid var(--pruefer); padding:0 0 0 12px; margin-left:8px}
+  .fb-knoten{flex-wrap:wrap; gap:6px 9px}
+  .fb-knoten .fb-typ{max-width:100%; flex:1 0 100%}
+  .fb-raute{clip-path:none; border-left:4px solid var(--pruefer); padding-left:11px; padding-right:11px}
+}
+
+/* Knoten mit noch offenem Typ: neutral, bis die Antwort steht */
+.fb-offen{border:2px dashed var(--pruefer); background:var(--field)}
+.fb-offen .fb-sym{color:var(--pruefer); font-weight:700}
+.fb-anonym{color:var(--muted); font-style:italic; font-weight:400}
+
+/* „Was trage ich wo ein?“ — die Spaltenbelegung je Beziehungsart.
+   Ohne diese Tabelle rät man, welche Felder eine Generalisierung braucht. */
+.ex-hilfe{margin-top:11px; border-top:1px dashed var(--rule); padding-top:9px}
+.ex-hilfe-titel{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10px; font-weight:700; color:var(--muted); margin-bottom:6px}
+.ex-hilfe-tab{border-collapse:collapse; width:100%; font-size:12.5px}
+.ex-hilfe-tab th{text-align:left; font-family:var(--display); text-transform:uppercase;
+  letter-spacing:.07em; font-size:9.5px; color:var(--muted); font-weight:700;
+  padding:3px 8px 5px; border-bottom:1px solid var(--rule)}
+.ex-hilfe-tab td{padding:5px 8px; border-bottom:1px solid var(--rule-soft); vertical-align:top;
+  line-height:1.45}
+.ex-hilfe-tab td.ex-hilfe-art{font-family:var(--data); font-weight:600; color:var(--pruefer);
+  white-space:nowrap}
+.ex-hilfe-tab code{font-family:var(--data); font-size:11.5px; background:var(--field);
+  border-radius:3px; padding:1px 5px}
+@media (max-width:640px){
+  .ex-hilfe-tab, .ex-hilfe-tab tbody, .ex-hilfe-tab tr, .ex-hilfe-tab td{display:block; width:auto}
+  .ex-hilfe-tab thead, .ex-hilfe-tab th{display:none}
+  .ex-hilfe-tab tr{border-bottom:1px solid var(--rule); padding:6px 0}
+  .ex-hilfe-tab td{border:0; padding:2px 0}
+  .ex-hilfe-tab td.ex-hilfe-art{color:var(--pruefer)}
+}
+
+/* „Generalisierung“ ist das längste Wort in der Auswahl — die Spalte muss es
+   ganz zeigen, sonst rät man, was da abgeschnitten steht. */
+.ex-dia table select{min-width:148px}
+@media (max-width:640px){ .ex-dia table select{min-width:130px} }
+
+/* ============================================================================
+   Archiv der Durchgänge (gen/archiv.js)
+   ========================================================================== */
+.ar-karte{border:1px solid var(--rule); border-left:3px solid var(--pruefer);
+  background:var(--card); border-radius:2px; padding:12px 14px; margin-bottom:10px}
+.ar-kopf{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  flex-wrap:wrap; margin-bottom:6px}
+.ar-label{font-family:var(--data); font-weight:700; font-size:13.5px}
+.ar-be{font-family:var(--data); font-size:12.5px; color:var(--muted); white-space:nowrap}
+.ar-be.besser{color:var(--ok); font-weight:600}
+.ar-be.schlechter{color:var(--red); font-weight:600}
+.ar-frage{font-size:13px; color:var(--muted); line-height:1.55; margin-bottom:7px}
+.ar-antwort{white-space:pre-wrap; font-size:14px; line-height:1.6; background:var(--field);
+  border-radius:3px; padding:9px 11px}
+.ar-antwort.leer, .ar-spalte.leer{color:var(--muted); font-style:italic}
+.ar-loesung{margin-top:8px}
+.ar-loesung summary{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10px; font-weight:700; color:var(--muted); cursor:pointer}
+.ar-loestxt{white-space:pre-wrap; font-size:13px; line-height:1.6; color:var(--muted);
+  margin-top:6px; padding-left:10px; border-left:2px solid var(--rule)}
+
+.ar-paar{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.ar-spalte{white-space:pre-wrap; font-size:13.5px; line-height:1.6; background:var(--field);
+  border-radius:3px; padding:9px 11px}
+.ar-vgl-kopf{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0 8px;
+  font-family:var(--data); font-size:12.5px; color:var(--muted)}
+.ar-wahl{font:inherit; font-size:13px; padding:5px 7px; min-height:34px;
+  border:1px solid var(--rule); border-radius:4px; background:var(--field); color:var(--ink)}
+@media (max-width:640px){
+  .ar-paar, .ar-vgl-kopf{grid-template-columns:1fr}
+  .ar-spalte + .ar-spalte{border-top:2px solid var(--pruefer)}
+}
+.ar-warnung{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:10px 0;
+  border:1px solid var(--warn); background:var(--warn-soft, var(--field)); border-radius:4px;
+  padding:10px 12px; font-size:13.5px; line-height:1.55}
+.ar-warnung > div{flex:1; min-width:220px}
+
+/* Sichtbarer Rückweg im Kopf (gen/zurueck.js).
+   Die Marke links ist zwar klickbar, sieht aber wie eine Überschrift aus —
+   ein Knopf, der wie ein Knopf aussieht, erspart das Raten. */
+.kopf .btn.zurueck{flex:none; margin-right:4px; min-height:36px; padding:0 12px;
+  font-family:var(--display); text-transform:uppercase; letter-spacing:.08em;
+  font-size:11px; font-weight:700}
+@media (max-width:700px){
+  .kopf .btn.zurueck{padding:0 9px; min-height:34px}
+  .kopf .btn.zurueck span{font-size:14px}
+}

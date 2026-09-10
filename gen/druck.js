@@ -291,7 +291,10 @@ window.GENDRUCK = (function () {
       });
       t.appendChild(tb); box.appendChild(t);
 
-    } else if (f.typ === "knoten") {
+    } else if (f.typ === "knoten" || f.typ === "flussbild") {
+      /* Auf Papier bleibt es beim Selberzeichnen — genau das verlangt die
+         Prüfung. Am Bildschirm ist es das Lückendiagramm; die eine Form
+         übt das Erkennen, die andere das Entwerfen.                    */
       const flaeche = el("div", "dr-zeichnen");
       flaeche.style.minHeight = Math.min(210, 70 + (f.soll || []).length * 11) + "mm";
       flaeche.appendChild(el("div", "dr-klein dr-zeichenhinweis",

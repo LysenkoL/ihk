@@ -10,13 +10,16 @@ build_index.py — собирает все exams/*.json в один exams/exams.
 Запускай после каждого изменения экзаменов:
     python tools/build_index.py
 """
-import json
+import json, sys
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parent.parent
 EXAMS = ROOT / "exams"
 SKIP = (".text.json", ".figures.json", ".report.json", ".loesung.json",
-        ".topics.json", "topics.override.json", "katalog.json",
+        ".topics.json", ".override.json", "katalog.json",
         "luecken.json", "cards.json", "gewichte.json", "exams.js")
 
 TOPIC_LABELS = {

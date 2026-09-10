@@ -232,8 +232,24 @@
   .treffer span{font-size:12.5px; padding:2px 8px; border-radius:10px; font-family:var(--data)}
   .treffer .ja{background:var(--ok-soft); color:var(--ok)}
   .treffer .nein{background:var(--red-soft); color:var(--red)}
-  .pruef-fazit{font-size:13.5px; color:var(--muted)}
+  .treffer .grau{background:var(--field); color:var(--muted); text-decoration:line-through;
+    text-decoration-color:var(--rule)}
+  .pruef-fazit{font-size:13.5px; color:var(--muted); line-height:1.6}
   .pruef-fazit b{color:var(--ink)}
+
+  /* Punkte selbst vergeben — die ganze Skala, nicht nur der Vorschlag */
+  .pruef-punkte{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:11px;
+    padding-top:10px; border-top:1px dashed var(--rule)}
+  .pruef-punkte .pp-lbl{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+    font-size:10.5px; font-weight:700; color:var(--muted); margin-right:2px}
+  .pp-knopf{min-width:40px; min-height:40px; padding:0 10px; font-family:var(--data);
+    font-size:15px; font-weight:600; background:var(--field); color:var(--ink);
+    border:1px solid var(--rule); border-radius:6px; cursor:pointer}
+  .pp-knopf:hover{border-color:var(--pruefer); color:var(--pruefer)}
+  .pp-knopf.tipp{border-style:dashed; border-color:var(--pruefer)}
+  .pp-knopf.an{background:var(--pruefer); border-color:var(--pruefer); color:#fff; border-style:solid}
+  .pruef-punkte .pp-von{font-family:var(--data); font-size:12.5px; color:var(--muted)}
+  .pruef-tipp{font-size:12px; color:var(--muted); margin-top:5px}
 
   /* ================= Netzplan ================= */
   .netz-gitter{display:flex; gap:22px; overflow-x:auto; padding:6px 2px 14px; align-items:flex-start}
@@ -573,8 +589,11 @@
 
   <div class="abschnitt">
     <h2>Fortschritt sichern</h2>
-    <p>Alles liegt im localStorage dieses Browsers. Zum Umziehen auf ein anderes Gerät:
-       exportieren, Datei mitnehmen, dort importieren.</p>
+    <p>Alles liegt im localStorage <b>dieses</b> Browsers — Antworten, Punkte, das Archiv der
+       Durchgänge, die Arbeitsblätter, das Fehlerjournal. Es wird nirgendwohin übertragen und
+       ist auf keinem anderen Gerät sichtbar. Zum Umziehen: exportieren, Datei mitnehmen,
+       dort importieren — die Ausfuhr enthält alles.</p>
+    <p class="hint" id="herkunftHinweis"></p>
     <div class="steuer">
       <button class="btn" id="btnExport">Fortschritt exportieren</button>
       <button class="btn" id="btnImport">Fortschritt importieren</button>
@@ -1549,9 +1568,16 @@ function karte(it, opt){
     const box = document.createElement("div"); box.className = "felder";
     it.felder.forEach((f, i) => {
       const zeile = document.createElement("div"); zeile.className = "feldzeile";
+      /* Beschriftung und Feld gehören zusammen — und zwar nicht nur optisch.
+         Ohne for/id weiß ein Screenreader nicht, wozu das Eingabefeld
+         gehört, und ein Klick auf die Beschriftung setzt den Cursor nicht
+         hinein. Beides kostet eine Zeile Code.                          */
+      const fid = "f-" + safeId(it.k) + "-" + i;
       const lab = document.createElement("label");
+      lab.htmlFor = fid;
       lab.textContent = f.label + (f.maxPoints ? "  (" + f.maxPoints + " BE)" : "");
       const ta = document.createElement("textarea");
+      ta.id = fid;
       ta.rows = 1; ta.value = ANSWERS[it.k + "#" + i] || ""; ta.placeholder = "…";
       ta.addEventListener("input", () => {
         ANSWERS[it.k + "#" + i] = ta.value;
@@ -1589,12 +1615,17 @@ function karte(it, opt){
   }
 
   const pr = it.pruefung || {};
-  if ((pr.zahlen && pr.zahlen.length) || (pr.begriffe && pr.begriffe.length)){
+  const hatHilfe = (pr.zahlen && pr.zahlen.length) || (pr.begriffe && pr.begriffe.length);
+  if (hatHilfe){
     const btn = document.createElement("button");
     btn.className = "seite-link"; btn.textContent = "Antwort prüfen";
     const ziel = document.createElement("div");
     btn.onclick = () => { ziel.innerHTML = ""; ziel.appendChild(pruefhilfe(it, card, true)); };
     main.append(btn, ziel);
+  } else if (it.maxPoints) {
+    /* Ohne Stichwortliste gäbe es sonst gar keine Bewertung an der Antwort —
+       nur die kleine Skala im Rand, die man leicht übersieht.            */
+    main.appendChild(punkteZeile(it, card, null));
   }
 
   if (it.solution && it.solution.text){
@@ -1645,34 +1676,114 @@ function karte(it, opt){
 
 /* --- offline: Zahlen und Begriffe abgleichen --- */
 function normal(s){ return (s || "").toLowerCase().replace(/[»«"'„“]/g, "").replace(/\s+/g, " "); }
+/* --------------------------------------------------------------------------
+   Zahlen aus einem Text lesen.
+
+   Der alte Ausdruck begann mit `\d{1,3}(?:[.\s]\d{3})*` — gedacht für
+   Tausenderpunkte (48.129). Reguläre Ausdrücke probieren Alternativen aber
+   der Reihe nach, und diese greift auch dort, wo gar kein Punkt steht: aus
+   „48129.55“ wurden 481, 29 und 55, aus „33280“ wurden 332 und 80. Jede
+   Zahl ab vier Stellen ohne Tausenderpunkt war damit kaputt — also fast
+   jedes Rechenergebnis. Deshalb stand bei Lenas richtig gerechneten
+   48.129,55 EUR ein Punkt statt eines Hakens.
+
+   Jetzt wird erst der ganze Zahlenklumpen ausgeschnitten und dann von
+   GEN.leseZahlen ausgewertet: das kennt beide Schreibweisen (1.234,56 und
+   1234.56) und liefert bei mehrdeutigen Fällen beide Lesarten zurück.
+   -------------------------------------------------------------------------- */
 function zahlenAus(text){
+  const s = String(text == null ? "" : text);
   const out = [];
-  const rx = /(\d{1,3}(?:[.\s]\d{3})*(?:,\d+)?|\d+(?:[.,]\d+)?)/g;
+  const rx = /\d+(?:[.,]\d+)*/g;
+  /* Vier Gruppen mit je höchstens drei Ziffern sehen aus wie eine IP-Adresse —
+     aber „3.400.000.000 Hz“ sieht genauso aus. Unterschieden wird am Wert:
+     bei einer IP ist jede Gruppe ≤ 255, bei einer Zahl mit Tausenderpunkten
+     steht dort früher oder später etwas Größeres.                        */
+  const istIP = t => {
+    const g = t.split(".");
+    return g.length === 4 && g.every(x => /^\d{1,3}$/.test(x) && +x <= 255);
+  };
   let m;
-  while ((m = rx.exec(text)) !== null){
-    const v = parseFloat(m[1].replace(/[.\s]/g, "").replace(",", "."));
-    if (!isNaN(v)) out.push(v);
+  while ((m = rx.exec(s)) !== null){
+    let roh = m[0];
+    /* 192.168.0.52 ist eine Adresse, keine Zahl — sonst liest parseFloat
+       daraus 192,168 und die steht dann als „Ergebnis“ in der Liste.   */
+    if (istIP(roh)) continue;
+    const davor = s.charAt(m.index - 1);
+    /* Ziffer direkt hinter einem Buchstaben gehört zum Namen: DDR4, IPv4,
+       RAID5 — das sind keine Rechenergebnisse.                          */
+    if (/[a-zäöüß]/i.test(davor)) continue;
+    /* Minuszeichen nur dort, wo wirklich gerechnet wird. In „DDR4-5600MHz“
+       und in der MAC-Adresse „50-1a-c5“ trennt der Strich, er negiert nicht. */
+    if (davor === "-" && !/[0-9a-zäöüß]/i.test(s.charAt(m.index - 2))) roh = "-" + roh;
+    if (window.GEN && GEN.leseZahlen){
+      GEN.leseZahlen(roh).forEach(v => { if (isFinite(v)) out.push(v); });
+    } else {
+      /* Notnagel ohne den Generator: letzte Marke ist das Dezimalzeichen */
+      const k = roh.lastIndexOf(","), p = roh.lastIndexOf(".");
+      let s = roh;
+      if (k >= 0 && p >= 0) s = k > p ? roh.replace(/\./g, "").replace(",", ".") : roh.replace(/,/g, "");
+      else if (k >= 0) s = roh.replace(",", ".");
+      const v = parseFloat(s);
+      if (isFinite(v)) out.push(v);
+    }
   }
   return out;
 }
+/* --------------------------------------------------------------------------
+   Stichwortliste aussieben.
+   Die Begriffe sind maschinell aus der Lösungsseite gezogen, nicht von Hand
+   ausgewählt. Deshalb stehen dort auch Wörter, die nichts über die Antwort
+   sagen: der Firmenname („OHG“), oder ein Wort, das schon in der Aufgabe
+   steht („BYOD“, „Papierform“). Wer die Aufgabe abschreibt, träfe sie —
+   wer sie richtig beantwortet, vielleicht nicht. Solche Begriffe werden
+   gezeigt, zählen aber nicht mit.
+   -------------------------------------------------------------------------- */
+const RECHTSFORM = /^(ohg|gmbh|ag|kg|gbr|se|mbh|ug|kgaa|e\.?k\.?|co)$/i;
+const NUR_ZAHL = /^[\d.,\s]+$/;
+function begriffZaehlt(b, aufgabentext){
+  const w = String(b || "").trim();
+  if (!w || w.length < 4) return false;
+  /* Reine Zahlen stehen schon in der Zahlenliste darüber. Zweimal zählen
+     macht die Quote kaputt: „48.129“ als Begriff wird nach Zeichen
+     verglichen und passt nicht auf „48129,55“, obwohl dieselbe Zahl
+     eine Zeile höher als Treffer steht.                               */
+  if (NUR_ZAHL.test(w)) return false;
+  if (RECHTSFORM.test(w.replace(/[^a-zäöüß]/gi, ""))) return false;
+  const t = normal(aufgabentext || "");
+  return !t.includes(normal(w));
+}
+
 function pruefhilfe(it, card, mitUebernehmen){
   const box = document.createElement("div"); box.className = "pruefhilfe";
   const meins = antwortText(it);
   const meinsN = normal(meins);
   const meineZahlen = zahlenAus(meins);
   const pr = it.pruefung || {};
+  const aufgabe = [it.prompt, it.groupIntro, it.situation].filter(Boolean).join(" ");
   let gefunden = 0, gesamt = 0;
 
   if (pr.zahlen && pr.zahlen.length){
     const h = document.createElement("h4"); h.textContent = "Zahlen aus der Musterlösung";
     const row = document.createElement("div"); row.className = "treffer";
+    /* Dieselbe Zahl steht in der Lösungsseite oft mehrfach (einmal als
+       Zwischenergebnis, einmal im Endsatz). Zweimal zählen verzerrt die
+       Quote nach unten, wenn man sie einmal nennt.                     */
+    const schon = new Set();
     pr.zahlen.forEach(z => {
-      gesamt++;
+      /* „(1 Punkt)“ steht auf der Lösungsseite als Bewertungshinweis, nicht
+         als Rechenergebnis — der Auszug hat es trotzdem eingesammelt.    */
+      const bewertung = /\b(punkte?|be|bewertungseinheit)\b/i.test(z.text || "");
+      const doppelt = !bewertung && schon.has(z.wert);
+      if (!bewertung) schon.add(z.wert);
       const da = meineZahlen.some(v => Math.abs(v - z.wert) < Math.max(0.01, Math.abs(z.wert) * 0.005));
-      if (da) gefunden++;
+      const zaehlt = !bewertung && !doppelt;
+      if (zaehlt){ gesamt++; if (da) gefunden++; }
       const s = document.createElement("span");
-      s.className = da ? "ja" : "nein";
-      s.textContent = (da ? "✓ " : "· ") + z.text;
+      s.className = zaehlt ? (da ? "ja" : "nein") : "grau";
+      s.textContent = (zaehlt ? (da ? "✓ " : "· ") : "– ") + z.text;
+      if (bewertung) s.title = "Bewertungshinweis der Lösungsseite, kein Ergebnis — zählt nicht";
+      else if (doppelt) s.title = "kommt oben schon vor — zählt nur einmal";
       row.appendChild(s);
     });
     box.append(h, row);
@@ -1681,15 +1792,22 @@ function pruefhilfe(it, card, mitUebernehmen){
     const h = document.createElement("h4"); h.textContent = "Begriffe aus der Musterlösung";
     const row = document.createElement("div"); row.className = "treffer";
     pr.begriffe.forEach(b => {
-      gesamt++;
-      const teile = normal(b).split(" ").filter(w => w.length > 3);
-      const da = teile.length
-        ? teile.every(w => meinsN.includes(w.slice(0, Math.max(4, w.length - 2))))
-        : meinsN.includes(normal(b));
-      if (da) gefunden++;
+      const zaehlt = begriffZaehlt(b, aufgabe);
+      /* Der Abgleich aus dem Aufgabengenerator kennt Synonyme, Tippfehler
+         und Teiltreffer — „Netz“ für „Netzwerkverbindungen“ zählt.      */
+      const da = (window.GEN && GEN.enthaelt)
+        ? GEN.enthaelt(meins, b)
+        : (() => {
+            const teile = normal(b).split(" ").filter(w => w.length > 3);
+            return teile.length
+              ? teile.every(w => meinsN.includes(w.slice(0, Math.max(4, w.length - 2))))
+              : meinsN.includes(normal(b));
+          })();
+      if (zaehlt) { gesamt++; if (da) gefunden++; }
       const s = document.createElement("span");
-      s.className = da ? "ja" : "nein";
-      s.textContent = (da ? "✓ " : "· ") + b;
+      s.className = zaehlt ? (da ? "ja" : "nein") : "grau";
+      s.textContent = (zaehlt ? (da ? "✓ " : "· ") : "– ") + b;
+      if (!zaehlt) s.title = "steht schon in der Aufgabe oder ist ein Name — zählt nicht";
       row.appendChild(s);
     });
     box.append(h, row);
@@ -1699,28 +1817,71 @@ function pruefhilfe(it, card, mitUebernehmen){
   const anteil = gesamt ? gefunden / gesamt : 0;
   const vorschlag = Math.round(max * anteil);
   const fazit = document.createElement("div"); fazit.className = "pruef-fazit";
-  fazit.innerHTML = "<b>" + gefunden + " von " + gesamt + "</b> Stichpunkten getroffen — das wären etwa " +
-    "<b>" + vorschlag + " von " + max + " BE</b>. " +
-    "<span style='color:var(--muted)'>Das ist nur ein Wortabgleich, kein Korrektor: " +
-    "lies die Musterlösung und entscheide selbst.</span>";
+  fazit.innerHTML = gesamt
+    ? "<b>" + gefunden + " von " + gesamt + "</b> Stichwörtern getroffen. " +
+      "<span style='color:var(--muted)'>Das ist ein Wortabgleich, keine Korrektur. Die Liste " +
+      "ist maschinell aus der Lösungsseite gezogen — eine sachlich richtige Antwort mit anderen " +
+      "Wörtern trifft sie oft nicht. Lies die Musterlösung und setze die Punkte selbst.</span>"
+    : "<span style='color:var(--muted)'>Für diese Teilaufgabe gibt es keine brauchbaren " +
+      "Stichwörter. Vergleiche mit der Musterlösung und setze die Punkte selbst.</span>";
   box.appendChild(fazit);
 
+  /* ------------------------------------------------------------------
+     Die Bewertung gehört der Prüferin, nicht dem Wortabgleich.
+     Früher stand hier ein einziger Knopf mit der errechneten Zahl —
+     wer inhaltlich alles richtig hatte, konnte trotzdem nur „0 BE
+     übernehmen“ drücken und musste die richtige Zahl anderswo suchen.
+     Jetzt steht die ganze Skala hier, der Vorschlag ist nur markiert.
+     ------------------------------------------------------------------ */
   if (mitUebernehmen){
-    const btn = document.createElement("button");
-    btn.className = "seite-link"; btn.style.marginTop = "9px";
-    btn.textContent = vorschlag + " BE übernehmen";
-    btn.onclick = () => {
-      SCORES[it.k] = vorschlag;
-      const wahl = card.querySelector(".punkte-wahl");
-      if (wahl) [...wahl.children].forEach((c, i) => c.classList.toggle("an", i === vorschlag));
-      const rb = card.querySelector(".rand-be");
-      if (rb) rb.innerHTML = vorschlag + " <small>/ " + max + "</small>";
-      card.classList.add("bewertet");
-      speichern(); refresh(); toast("Übernommen — jederzeit änderbar.");
-    };
-    box.appendChild(btn);
+    box.appendChild(punkteZeile(it, card, gesamt ? vorschlag : null));
   }
   return box;
+}
+
+/* --------------------------------------------------------------------------
+   Punkte selbst vergeben — direkt an der Antwort.
+   Die Skala im schmalen Rand rechts gibt es zwar seit jeher, sie ist nur
+   klein und weit weg vom Text. Diese Zeile steht dort, wo man gerade liest:
+   die ganze Skala, ein Druck, fertig. `tipp` ist der Vorschlag des
+   Wortabgleichs — gestrichelt markiert, mehr nicht. Die Zahl bestimmt, wer
+   die Musterlösung gelesen hat, nicht der Wortabgleich.
+   -------------------------------------------------------------------------- */
+function punkteZeile(it, card, tipp){
+  const max = it.maxPoints || 0;
+  const zeile = document.createElement("div"); zeile.className = "pruef-punkte";
+  const lbl = document.createElement("span"); lbl.className = "pp-lbl";
+  lbl.textContent = "Punkte geben";
+  zeile.appendChild(lbl);
+
+  const knoepfe = [];
+  const setzen = p => {
+    if (SCORES[it.k] === p) delete SCORES[it.k]; else SCORES[it.k] = p;
+    const jetzt = SCORES[it.k];
+    knoepfe.forEach((b, i) => b.classList.toggle("an", jetzt === i));
+    const wahl = card.querySelector(".punkte-wahl");
+    if (wahl) [...wahl.children].forEach((c, i) => c.classList.toggle("an", jetzt === i));
+    const rb = card.querySelector(".rand-be");
+    if (rb) rb.innerHTML = (jetzt == null ? "__" : jetzt) + " <small>/ " + max + "</small>";
+    card.classList.toggle("bewertet", jetzt != null);
+    speichern(); refresh();
+    toast(jetzt == null ? "Bewertung zurückgenommen."
+                        : jetzt + " von " + max + " BE — jederzeit änderbar.");
+  };
+  for (let p = 0; p <= max; p++){
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "pp-knopf" + (SCORES[it.k] === p ? " an" : "") + (p === tipp ? " tipp" : "");
+    b.textContent = p;
+    b.title = p + " von " + max + " BE" + (p === tipp ? " — Vorschlag des Wortabgleichs" : "");
+    b.onclick = () => setzen(p);
+    knoepfe.push(b);
+    zeile.appendChild(b);
+  }
+  const von = document.createElement("span"); von.className = "pp-von";
+  von.textContent = "von " + max + " BE" + (tipp != null ? " · gestrichelt = Vorschlag" : "");
+  zeile.appendChild(von);
+  return zeile;
 }
 
 function bild(a, caption){
@@ -3423,24 +3584,284 @@ $("kkFalsch").addEventListener("click", e => { e.stopPropagation(); kkWeiter(fal
 $("kkEnde").addEventListener("click", e => { e.stopPropagation(); renderStart(); schirm("scStart"); });
 
 /* ======================= Export / Import ======================= */
+/* --------------------------------------------------------------------------
+   Alles mitnehmen, nicht nur die Antworten.
+
+   Die Ausfuhr kannte bisher fünf Dinge: Antworten, Punkte, Uhr, Durchgänge,
+   Karteikarten. Alles, was später dazukam, blieb zurück — das Archiv der
+   Durchgänge mit den ausformulierten Antworten, die Arbeitsblätter und
+   Simulationen, das Fehlerjournal, der Lernplan, die Zeitmessung, die
+   Markierungen. Wer die Datei auf dem zweiten Rechner einliest, hätte davon
+   nichts wiedergefunden und es nicht einmal gemerkt.
+
+   Deshalb wandert jetzt jeder Schlüssel mit, der unter „ihk2:“ liegt — auch
+   die, die es beim Schreiben dieser Zeilen noch gar nicht gibt.
+   -------------------------------------------------------------------------- */
+const SPEICHER_PRAEFIX = "ihk2:";
+/* Der Speicher hängt an der Herkunft der Seite. Ein Doppelklick auf
+   index.html (file://) und dieselbe Seite über GitHub Pages (https://…)
+   sind für den Browser zwei verschiedene Welten mit je eigenem Speicher.
+   Wer einmal so und einmal so öffnet, findet seine Arbeit nicht wieder und
+   hält sie für gelöscht. Also steht es dort, wo es gebraucht wird.      */
+(function herkunftZeigen(){
+  const p = document.getElementById("herkunftHinweis");
+  if (!p) return;
+  const ort = location.protocol === "file:"
+    ? "Diese Seite läuft als Datei vom Rechner (file://)."
+    : "Diese Seite läuft über " + location.origin + ".";
+  p.textContent = ort + " Der Speicher gehört zu genau dieser Herkunft: " +
+    "wenn du die Seite einmal per Doppelklick und einmal über die Web-Adresse öffnest, " +
+    "siehst du zwei getrennte Stände. Immer denselben Weg nehmen — oder exportieren " +
+    "und im anderen importieren.";
+})();
+function alleSpeicherwerte(){
+  const o = {};
+  try {
+    for (let i = 0; i < localStorage.length; i++){
+      const k = localStorage.key(i);
+      if (k && k.indexOf(SPEICHER_PRAEFIX) === 0) o[k] = localStorage.getItem(k);
+    }
+  } catch (e) { }
+  return o;
+}
+/* --------------------------------------------------------------------------
+   Zwei Geräte zusammenführen
+
+   Zu Hause andere Prüfungen, hier andere — beim Zusammenführen darf keine
+   Seite die andere überschreiben. Drei Sorten von Daten, drei Regeln:
+
+   LISTEN   Archiv, Durchgänge, Arbeitsblätter, Fehlerjournal: Einträge haben
+            eine eigene Kennung. Was drüben fehlt, kommt dazu; was schon da
+            ist, bleibt wie es ist.
+
+   ZÄHLER   Versuche und Punkte je Aufgabentyp, Karteikarten-Statistik, die
+            Sekunden je Aufgabenart. Das sind Summen über die geleistete
+            Arbeit. Sie werden ADDIERT — würde man „eigene gewinnen“ nehmen,
+            wären zwanzig Wiederholungen von zu Hause einfach weg.
+
+   REST     Antworten, Punkte, Uhren: Schlüssel ist die Teilaufgabe. Was auf
+            beiden Geräten beantwortet wurde, behält die Fassung des Geräts,
+            auf dem importiert wird. Damit die andere Fassung trotzdem nicht
+            verschwindet, wird der komplette Stand aus der Datei vorher als
+            Archiv-Durchgang abgelegt — nachlesbar und vergleichbar.
+   -------------------------------------------------------------------------- */
+const LISTEN_SCHLUESSEL = {
+  "ihk2:archiv": "id", "ihk2:attempts": "datum",
+  "ihk2:gen:blaetter": "id", "ihk2:gen:fehler": "schluessel"
+};
+/* Schlüssel → welche Zahlenfelder addiert werden */
+const ZAEHLER_FELDER = {
+  "ihk2:gen:stat": ["versuche", "punkte", "max"],
+  "ihk2:cards": ["richtig", "falsch"]
+};
+let importBericht = { listen: 0, zaehler: 0, felder: 0, konflikte: 0 };
+
+function werteZusammen(schluessel, fremdRoh){
+  let eigen = null, fremd = null;
+  try { eigen = JSON.parse(localStorage.getItem(schluessel) || "null"); } catch (e) { }
+  try { fremd = JSON.parse(fremdRoh); } catch (e) { return; }
+
+  const kennung = LISTEN_SCHLUESSEL[schluessel];
+  if (kennung && Array.isArray(fremd)){
+    const liste = Array.isArray(eigen) ? eigen.slice() : [];
+    const da = new Set(liste.map(x => x && x[kennung]));
+    fremd.forEach(x => { if (x && !da.has(x[kennung])) { liste.push(x); importBericht.listen++; } });
+    liste.sort((a, b) => String(b.datum || "").localeCompare(String(a.datum || "")));
+    try { localStorage.setItem(schluessel, JSON.stringify(liste)); } catch (e) { }
+    return;
+  }
+
+  const felder = ZAEHLER_FELDER[schluessel];
+  if (felder && fremd && typeof fremd === "object" && !Array.isArray(fremd)){
+    const raus = Object.assign({}, eigen && typeof eigen === "object" ? eigen : {});
+    Object.keys(fremd).forEach(k => {
+      const f = fremd[k], e = raus[k];
+      if (!f || typeof f !== "object") return;
+      if (!e || typeof e !== "object") { raus[k] = f; importBericht.zaehler++; return; }
+      const summe = Object.assign({}, e);
+      felder.forEach(name => {
+        if (typeof f[name] === "number") summe[name] = (typeof e[name] === "number" ? e[name] : 0) + f[name];
+      });
+      raus[k] = summe; importBericht.zaehler++;
+    });
+    try { localStorage.setItem(schluessel, JSON.stringify(raus)); } catch (e) { }
+    return;
+  }
+
+  /* Zeitmessung: {karten:{key:{s:Sekunden,…}}} — die Sekunden addieren */
+  if (schluessel === "ihk2:zeit" && fremd && fremd.karten){
+    const raus = (eigen && eigen.karten) ? eigen : { karten: {} };
+    Object.keys(fremd.karten).forEach(k => {
+      const f = fremd.karten[k], e = raus.karten[k];
+      if (!e) { raus.karten[k] = f; importBericht.zaehler++; return; }
+      e.s = (e.s || 0) + (f.s || 0);
+      if (!e.be && f.be) e.be = f.be;
+      /* „zuletzt benutzt“ nur setzen, wenn eine Seite es kennt — eine 0 wäre
+         der älteste denkbare Wert und würde die Karte als Erstes wegräumen. */
+      const z = Math.max(e.z || 0, f.z || 0);
+      if (z) e.z = z;
+      importBericht.zaehler++;
+    });
+    try { localStorage.setItem(schluessel, JSON.stringify(raus)); } catch (e) { }
+    return;
+  }
+
+  if (eigen && typeof eigen === "object" && !Array.isArray(eigen) &&
+      fremd && typeof fremd === "object" && !Array.isArray(fremd)){
+    Object.keys(fremd).forEach(k => {
+      if (Object.prototype.hasOwnProperty.call(eigen, k)) {
+        if (JSON.stringify(eigen[k]) !== JSON.stringify(fremd[k])) importBericht.konflikte++;
+      } else importBericht.felder++;
+    });
+    try { localStorage.setItem(schluessel, JSON.stringify(Object.assign({}, fremd, eigen))); } catch (e) { }
+    return;
+  }
+  if (eigen == null) { try { localStorage.setItem(schluessel, fremdRoh); } catch (e) { } }
+}
+
+/* Den Stand AUS DER DATEI als Archiv-Durchgang ablegen, bevor zusammengeführt
+   wird. Nur so überlebt eine Antwort, die auf beiden Geräten existiert und
+   hier verliert — sie steht dann im Archiv unter „aus der Importdatei“. */
+function importAlsDurchgangSichern(sp){
+  if (!window.GENARCHIV || !sp) return 0;
+  let antw = null, punkte = null;
+  try { antw = JSON.parse(sp["ihk2:answers"] || "null"); } catch (e) { }
+  try { punkte = JSON.parse(sp["ihk2:scores"] || "null"); } catch (e) { }
+  if (!antw || typeof antw !== "object") return 0;
+  const stempel = new Date().toISOString().slice(0, 10);
+  let n = 0;
+  EXAMS.forEach(ex => {
+    const items = examSubs(ex).filter(s => String(antw[s.k] || "").trim());
+    if (!items.length) return;
+    const aufgaben = examSubs(ex).map(s => ({
+      k: s.k, label: s.fullLabel || s.label || "",
+      frage: (s.prompt || "").replace(/\s+/g, " ").trim().slice(0, 400),
+      antwort: String(antw[s.k] == null ? "" : antw[s.k]),
+      punkte: punkte && punkte[s.k] != null ? punkte[s.k] : null,
+      be: s.maxPoints || 0,
+      loesung: ((s.solution && s.solution.text) || "").replace(/\s+/g, " ").trim().slice(0, 600)
+    }));
+    const max = aufgaben.reduce((a, x) => a + x.be, 0);
+    const got = aufgaben.reduce((a, x) => a + (x.punkte || 0), 0);
+    window.GENARCHIV.sichern({
+      id: "imp" + stempel + "-" + ex.examId,
+      datum: new Date().toISOString(),
+      examId: ex.examId,
+      titel: [ex.meta.season, ex.meta.year].filter(Boolean).join(" "),
+      modus: "pruefung", quelle: "aus der Importdatei vom " + stempel,
+      punkte: got, maxPunkte: max, prozent: max ? Math.round(got / max * 100) : 0,
+      beantwortet: items.length, anzahl: aufgaben.length, aufgaben
+    }, true);
+    n++;
+  });
+  return n;
+}
+
 $("btnExport").addEventListener("click", () => {
-  const daten = {typ:"ihk-ap1-fortschritt", version:2, exportiert:new Date().toISOString(),
-                 answers:ANSWERS, scores:SCORES, timer:TIMERS, attempts:ATTEMPTS, cards:KKSTAT};
+  const daten = {typ:"ihk-ap1-fortschritt", version:3, exportiert:new Date().toISOString(),
+                 /* Version 2 bleibt lesbar, falls eine ältere Fassung die Datei öffnet */
+                 answers:ANSWERS, scores:SCORES, timer:TIMERS, attempts:ATTEMPTS, cards:KKSTAT,
+                 speicher: alleSpeicherwerte()};
+  const text = JSON.stringify(daten, null, 2);
   download("ihk-fortschritt_" + new Date().toISOString().slice(0,10) + ".json",
-           JSON.stringify(daten, null, 2), "application/json");
-  toast("Datei gespeichert — auf dem anderen Gerät importieren.");
+           text, "application/json");
+  const kb = Math.round(text.length / 1024);
+  toast("Gesichert (" + kb + " KB) — auf dem anderen Gerät importieren.");
 });
 $("btnImport").addEventListener("click", () => $("importDatei").click());
 $("importDatei").addEventListener("change", e => {
   const f = e.target.files[0];
   if (!f) return;
+  /* Sofort und synchron zurücksetzen: gen/fortschritt.js hört dieselbe Datei
+     in der Capture-Phase mit und wartet auf die Entscheidung von hier. Würde
+     dort zurückgesetzt, könnte es eine bereits gefallene Entscheidung
+     löschen — je nachdem, welcher FileReader zuerst fertig wird.        */
+  window.__ihkImport = null;
   const r = new FileReader();
   r.onload = () => {
     let d;
     try { d = JSON.parse(r.result); } catch { return toast("Keine gültige JSON-Datei."); }
     if (d.typ !== "ihk-ap1-fortschritt") return toast("Das ist keine Fortschrittsdatei.");
+    /* Wie viel steckt in der Datei, wie viel liegt hier? Eine ältere Datei
+       (Version 2) kennt die Antworten der zehn Prüfungen und das Archiv gar
+       nicht — beim „ersetzen“ würde sie den hiesigen Stand mit Leere
+       überschreiben. Deshalb wird vorher gezählt und gefragt.            */
+    const inDatei = Object.keys((d.speicher && d.speicher["ihk2:answers"]
+                     ? JSON.parse(d.speicher["ihk2:answers"] || "{}") : (d.answers || {}))).length;
+    const hier = Object.keys(ANSWERS || {}).length;
+    if (!d.speicher){
+      const rat = "Diese Datei ist im alten Format (Version " + (d.version || 1) + ").\n" +
+        "Sie enthält " + inDatei + " Antworten; hier liegen " + hier + ".\n" +
+        (d.gen ? "Arbeitsblätter und Statistik des Generators sind enthalten.\n" : "") +
+        "Das Archiv der Durchgänge ist in diesem Format NICHT enthalten.\n\n" +
+        "Empfehlung: zusammenführen — dann geht hier nichts verloren.";
+      if (inDatei < hier){
+        if (!confirm(rat + "\n\nOK = weiter, Abbrechen = abbrechen")) {
+          window.__ihkImport = "abbruch";
+          toast("Import abgebrochen.");
+          return;
+        }
+      } else alert(rat);
+    }
+
     const zusammen = confirm("OK = zusammenführen (deine bisherigen Antworten bleiben)\n" +
                              "Abbrechen = alles ersetzen");
+    if (!zusammen && inDatei < hier &&
+        !confirm("Achtung: „ersetzen“ löscht " + hier + " Antworten hier und setzt " +
+                 inDatei + " aus der Datei ein.\n\nWirklich ersetzen?")){
+      window.__ihkImport = "abbruch";
+      toast("Import abgebrochen.");
+      return;
+    }
+    /* gen/fortschritt.js hört dieselbe Datei in der Capture-Phase mit und
+       schreibt den Generator-Block. Damit beide dieselbe Entscheidung
+       befolgen, wird sie hier hinterlegt.                                */
+    window.__ihkImport = zusammen ? "zusammen" : "ersetzen";
+
+    /* Ab Version 3 steht ALLES in d.speicher — Antworten, Punkte, Uhr,
+       Durchgänge und Karteikarten inbegriffen. Dann darf der alte Zweig
+       nicht auch noch laufen: er schriebe dieselben Schlüssel ein zweites
+       Mal, und zwar aus dem Zustand, den die Seite gerade im Kopf hat.
+       Genau daran ging beim Zusammenführen eine lokale Antwort verloren. */
+    if (d.speicher && typeof d.speicher === "object"){
+      let n = 0;
+      importBericht = { listen: 0, zaehler: 0, felder: 0, konflikte: 0 };
+      /* Erst den fremden Stand als Durchgang wegschreiben, dann mischen —
+         sonst ist er nach dem Mischen nicht mehr rekonstruierbar. */
+      const durchgaenge = zusammen ? importAlsDurchgangSichern(d.speicher) : 0;
+      Object.keys(d.speicher).forEach(k => {
+        if (k.indexOf(SPEICHER_PRAEFIX) !== 0) return;
+        const roh = d.speicher[k];
+        if (typeof roh !== "string") return;
+        n++;
+        if (zusammen) werteZusammen(k, roh);
+        else { try { localStorage.setItem(k, roh); } catch (err) { } }
+      });
+      if (zusammen){
+        const b = importBericht;
+        alert("Zusammengeführt:\n\n" +
+          "• " + b.felder + " neue Antworten/Punkte übernommen\n" +
+          "• " + b.listen + " neue Einträge (Archiv, Durchgänge, Arbeitsblätter, Fehler)\n" +
+          "• " + b.zaehler + " Statistikwerte addiert (Versuche, Karteikarten, Zeiten)\n" +
+          "• " + b.konflikte + " Teilaufgaben waren auf beiden Geräten beantwortet — " +
+          "hier gilt die Fassung dieses Geräts.\n" +
+          (durchgaenge ? "\nDer komplette Stand aus der Datei liegt zusätzlich als " +
+           durchgaenge + " Durchgang/Durchgänge im Archiv („aus der Importdatei“) — " +
+           "dort lässt sich beides nebeneinander lesen." : ""));
+      }
+      /* Ab hier darf nichts mehr aus dem Kopf der laufenden Seite in den
+         Speicher zurückfließen. Die alte Seite hält ihren eigenen Stand in
+         Variablen und schreibt ihn bei jedem Uhrentick zurück — ein solcher
+         Tick hat beim Testen das gerade Eingelesene wieder überschrieben,
+         und zwar mit einem leeren Objekt. Deshalb: Schreiben stilllegen und
+         sofort neu laden. Die Seite wird ohnehin verworfen.              */
+      try { Storage.prototype.setItem = function () { }; } catch (err) { }
+      toast(n + " Bereiche übernommen — die Seite lädt neu.");
+      location.reload();
+      return;
+    }
+
+    /* Ältere Dateien (Version 1 und 2) wie bisher einlesen */
     if (zusammen){
       ANSWERS = {...(d.answers||{}), ...ANSWERS};
       SCORES  = {...(d.scores||{}),  ...SCORES};
@@ -3722,6 +4143,7 @@ schirm("scStart");
 <script src="gen/vorlagen-hardware.js"></script>
 <script src="gen/vorlagen-fachthemen.js"></script>
 <script src="gen/vorlagen-ki.js"></script>
+<script src="gen/flussbild.js"></script>
 <script src="gen/blatt.js"></script>
 <script src="gen/druck.js"></script>
 <script src="gen/gesamt.js"></script>
@@ -3737,6 +4159,8 @@ schirm("scStart");
 <script src="gen/mobil.js"></script>
 <script src="gen/pwa.js"></script>
 <script src="gen/offline.js"></script>
+<script src="gen/archiv.js"></script>
+<script src="gen/zurueck.js"></script>
 <script src="gen/start.js"></script>
 <script src="gen/marker.js"></script>
 <script src="gen/kompakt.js"></script>

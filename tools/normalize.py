@@ -20,10 +20,13 @@ normalize.py — приводит любой exams/<id>.json к канониче
 import json, re, sys
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 ROOT = Path(__file__).resolve().parent.parent
 EXAMS = ROOT / "exams"
 SKIP = (".text.json", ".figures.json", ".report.json", ".loesung.json",
-        ".topics.json", "topics.override.json", "katalog.json",
+        ".topics.json", ".override.json", "katalog.json",
         "luecken.json", "cards.json", "gewichte.json", "exams.js")
 
 

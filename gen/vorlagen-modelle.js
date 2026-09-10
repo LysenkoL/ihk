@@ -230,7 +230,11 @@ die gegen die erste Normalform verstößt.`)
             "Wissensdatenbank liefert keine Lösung", "Zuständigkeit fehlt", "SLA-Zeit läuft ab"] },
         { fall: "Statusbericht erzeugen", akteur: "Teamleitung", bez: "", art: "—" }
       ],
-      extraAkteure: ["Zeitgeber (nächtlicher Lauf)", "Second Level Support"]
+      extraAkteure: ["Zeitgeber (nächtlicher Lauf)", "Second Level Support"],
+      /* Akteurshierarchie: der speziellere kann alles, was der allgemeinere kann.
+         Die IHK fragt das regelmäßig — im Diagramm ein hohler Dreieckspfeil. */
+      hierarchie: { spezial: "Teamleitung", allgemein: "First Level Support",
+        grund: "die Teamleitung darf alles, was der First Level Support darf, und zusätzlich Statusberichte erzeugen" }
     },
     {
       system: "Bestellportal",
@@ -243,7 +247,9 @@ die gegen die erste Normalform verstößt.`)
         { fall: "Lieferung anstoßen", akteur: "Sachbearbeiter", bez: "", art: "—" },
         { fall: "Zahlung abwickeln", akteur: "Zahlungsdienstleister", bez: "", art: "—" }
       ],
-      extraAkteure: ["Lagerverwaltung", "Versanddienstleister"]
+      extraAkteure: ["Lagerverwaltung", "Versanddienstleister"],
+      hierarchie: { spezial: "Stammkunde", allgemein: "Kunde",
+        grund: "der Stammkunde kann alles, was ein Kunde kann, und zusätzlich Gutscheine einlösen" }
     },
     {
       system: "Zeiterfassung",
@@ -256,14 +262,16 @@ die gegen die erste Normalform verstößt.`)
         { fall: "Urlaubsantrag genehmigen", akteur: "Vorgesetzter", bez: "", art: "—" },
         { fall: "Monatsauswertung erstellen", akteur: "Lohnbuchhaltung", bez: "", art: "—" }
       ],
-      extraAkteure: ["Kalendersystem", "Personalabteilung"]
+      extraAkteure: ["Kalendersystem", "Personalabteilung"],
+      hierarchie: { spezial: "Vorgesetzter", allgemein: "Mitarbeiter",
+        grund: "der Vorgesetzte bucht selbst Zeiten wie jeder Mitarbeiter und genehmigt zusätzlich Urlaubsanträge" }
     }
   ];
 
   G.vorlage({
     id: "dia-usecase-bauen", thema: "diagramm", sub: "UML Use-Case-Diagramm",
     titel: "Use-Case-Diagramm erstellen", stufe: 2,
-    merksatz: "Akteure stehen außerhalb der Systemgrenze. «include» wird immer mit ausgeführt, «extend» nur unter einer Bedingung — der Pfeil zeigt bei beiden auf den Anwendungsfall, der die Bedingung bzw. den Baustein liefert bzw. erweitert wird.",
+    merksatz: "Akteure stehen außerhalb der Systemgrenze. «include» wird immer mit ausgeführt, «extend» nur unter einer Bedingung — der Pfeil zeigt bei beiden auf den Anwendungsfall, der die Bedingung bzw. den Baustein liefert bzw. erweitert wird. Generalisierung: hohler Dreieckspfeil vom speziellen zum allgemeinen Akteur; der speziellere erbt alle Anwendungsfälle.",
     bau(R, c) {
       const sz = R.waehle(UC_SZENARIEN);
       const anzahl = R.ganz(3, sz.faelle.length);
@@ -325,6 +333,30 @@ die gegen die erste Normalform verstößt.`)
             ]
           },
           {
+            /* Die dritte Beziehungsart. In der Tabelle stand sie bisher nicht
+               zur Auswahl, in den Prüfungen kommt sie aber vor — zuletzt
+               „Der Administrator kann alles, was der Mitarbeiter kann.“   */
+            typ: "text", be: 2, zeilen: 2, satzbau: false, noetig: 2,
+            label: `„${sz.hierarchie.spezial}“ kann alles, was „${sz.hierarchie.allgemein}“ kann, ` +
+                   `und zusätzlich mehr. Wie heißt diese Beziehung und wie wird sie im Diagramm gezeichnet?`,
+            erwartet: [
+              ["Generalisierung", "Vererbung", "Spezialisierung", "generalisiert"],
+              ["Pfeil mit hohler Dreiecksspitze", "geschlossene nicht ausgefüllte Pfeilspitze",
+                "durchgezogener Pfeil mit Dreieck", "Dreieckspfeil zum allgemeineren Akteur"]
+            ]
+          },
+          {
+            typ: "auswahl", be: 1.5,
+            label: "In welche Richtung zeigt der Generalisierungspfeil?",
+            optionen: [
+              `von „${sz.hierarchie.spezial}“ zu „${sz.hierarchie.allgemein}“`,
+              `von „${sz.hierarchie.allgemein}“ zu „${sz.hierarchie.spezial}“`,
+              "in beide Richtungen",
+              "die Richtung ist beliebig"
+            ],
+            loesung: `von „${sz.hierarchie.spezial}“ zu „${sz.hierarchie.allgemein}“`
+          },
+          {
             typ: "text", be: 1.5, zeilen: 2, satzbau: true, minWorte: 6,
             label: "Wozu dient die Systemgrenze im Diagramm?",
             erwartet: [["trennt System von Umwelt", "zeigt was zum System gehört", "Abgrenzung des Systemumfangs",
@@ -357,7 +389,14 @@ die gegen die erste Normalform verstößt.`)
         loesung:
           soll.map(x => `• ${x.fall} ← Akteur ${x.akteur}` +
             (x.art !== "—" ? `\n     ${x.art} → ${x.bez}` : "")).join("\n") +
-`\n\nWeitere mögliche Akteure dieses Systems: ${sz.extraAkteure.join(", ")}.
+`\n• ${sz.hierarchie.spezial} ──▷ ${sz.hierarchie.allgemein}   (Generalisierung: ${sz.hierarchie.grund})
+
+Weitere mögliche Akteure dieses Systems: ${sz.extraAkteure.join(", ")}.
+
+Generalisierung zwischen Akteuren: Der speziellere Akteur erbt alle Anwendungsfälle des
+allgemeineren. Gezeichnet wird ein durchgezogener Pfeil mit hohler Dreiecksspitze, und zwar
+vom speziellen zum allgemeinen Akteur (${sz.hierarchie.spezial} ──▷ ${sz.hierarchie.allgemein}).
+Die Verbindungen des allgemeinen Akteurs werden beim speziellen NICHT noch einmal gezeichnet.
 
 «include»: Der eingebundene Anwendungsfall wird bei jedem Ablauf mit ausgeführt — er ist ein
 verpflichtender Baustein, der mehrfach verwendet wird (typisch: „Benutzer anmelden“).

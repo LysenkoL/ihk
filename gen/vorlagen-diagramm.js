@@ -15,7 +15,8 @@
                  "VPN-Zertifikat importieren", "VPN-Verbindung testen"],
       pruefung: "VPN-Test erfolgreich?",
       ja: "Übergabe und Einweisung", nein: "Ticket an das Netzwerkteam erstellen",
-      parallel: ["Zubehör kommissionieren", "Benutzerkonto anlegen"]
+      parallel: ["Zubehör kommissionieren", "Benutzerkonto anlegen"],
+      stoerer: ["Gerät ausmustern", "Lizenz zurückgeben"]
     },
     {
       titel: "Bearbeitung einer Störungsmeldung im First Level Support",
@@ -23,7 +24,8 @@
                  "Lösung aus der Wissensdatenbank suchen"],
       pruefung: "Lösung im First Level möglich?",
       ja: "Störung beheben und Ticket schließen", nein: "An den Second Level eskalieren",
-      parallel: ["Melder informieren", "Ersatzgerät reservieren"]
+      parallel: ["Melder informieren", "Ersatzgerät reservieren"],
+      stoerer: ["Ticket ohne Rückmeldung schließen", "Rechnung stellen"]
     },
     {
       titel: "Wareneingang einer Hardwarelieferung",
@@ -31,7 +33,8 @@
                  "Geräte auf Transportschäden prüfen", "Seriennummern erfassen"],
       pruefung: "Lieferung vollständig und unbeschädigt?",
       ja: "Ware einlagern und Rechnung freigeben", nein: "Mängelrüge an den Lieferanten senden",
-      parallel: ["Inventarnummern vergeben", "Garantiedaten hinterlegen"]
+      parallel: ["Inventarnummern vergeben", "Garantiedaten hinterlegen"],
+      stoerer: ["Lieferung ungeprüft einlagern", "Bestellung stornieren"]
     },
     {
       titel: "Onboarding einer neuen Mitarbeiterin",
@@ -39,7 +42,8 @@
                  "Rechte nach Rollenkonzept vergeben", "Arbeitsplatz vorbereiten"],
       pruefung: "Alle Freigaben vorhanden?",
       ja: "Zugangsdaten übergeben", nein: "Fehlende Freigabe beim Vorgesetzten anfordern",
-      parallel: ["Hardware bestellen", "Schulungstermin buchen"]
+      parallel: ["Hardware bestellen", "Schulungstermin buchen"],
+      stoerer: ["Konto sofort löschen", "Vertrag kündigen"]
     },
     {
       titel: "Einspielen eines Sicherheitsupdates",
@@ -47,7 +51,8 @@
                  "Update in der Testumgebung installieren", "Funktionstest durchführen"],
       pruefung: "Test ohne Fehler?",
       ja: "Update produktiv ausrollen", nein: "Rollback durchführen und Hersteller informieren",
-      parallel: ["Wartungsfenster ankündigen", "Rücksicherung bereitstellen"]
+      parallel: ["Wartungsfenster ankündigen", "Rücksicherung bereitstellen"],
+      stoerer: ["Update ungetestet ausrollen", "Server neu beschaffen"]
     },
     {
       titel: "Rückgabe eines Notebooks beim Austritt",
@@ -55,7 +60,8 @@
                  "Daten sichern", "Datenträger sicher löschen"],
       pruefung: "Gerät weiter verwendbar?",
       ja: "Gerät neu aufsetzen und einlagern", nein: "Gerät zertifiziert entsorgen",
-      parallel: ["Benutzerkonto deaktivieren", "Inventar aktualisieren"]
+      parallel: ["Benutzerkonto deaktivieren", "Inventar aktualisieren"],
+      stoerer: ["Gerät an den Nachfolger geben", "Zubehör nachbestellen"]
     }
   ];
 
@@ -119,6 +125,65 @@
               `zurückgesprungen und erneut geprüft.`
             : `Beide Zweige der Entscheidung werden anschließend wieder zusammengeführt.`;
 
+      /* ------------------------------------------------------------------
+         Lücken ins gezeichnete Diagramm legen.
+         Was geprüft wird, ist dreierlei — und alles drei kommt in der
+         Prüfung vor:
+           Knotentyp   welche Form ist das (Aktion, Entscheidung, Fork …)
+           Bezeichnung welcher Schritt steht an dieser Stelle des Ablaufs
+           Bedingung   welcher Zweig ist [ja], welcher [nein]
+         Zwei Fallen sind dabei bewusst vermieden:
+         • Die beiden Zweige eines Fork sind vertauschbar — dort nach der
+           Bezeichnung zu fragen, würde eine richtige Lösung als falsch
+           werten. Also keine Namenslücken hinter einer Parallelisierung.
+         • Bedingung UND Zielaktion eines Zweiges gleichzeitig abzufragen
+           macht die Aufgabe mehrdeutig: man könnte beides konsistent
+           tauschen. Gefragt wird deshalb die Bedingung, die Zielaktionen
+           bleiben sichtbar.
+         ---------------------------------------------------------------- */
+      const luecken = [];
+      const istStruktur = k => ["Startknoten", "Endknoten", "Entscheidung",
+        "Parallelisierung", "Synchronisation", "Zusammenführung"].includes(k.typ);
+
+      /* 1. Typ: alle Strukturknoten plus zwei Aktionen zur Abgrenzung.
+            Ein Knoten mit offenem Typ wird neutral gezeichnet — erst die
+            Antwort gibt ihm seine Form. Sonst wäre die Form die Lösung. */
+      const aktionen = soll.map((k, i) => ({ k, i })).filter(x => x.k.typ === "Aktion");
+      const typFragen = soll.map((k, i) => ({ k, i })).filter(x => istStruktur(x.k))
+        .concat(R.mische(aktionen.slice()).slice(0, 1))
+        .sort((a, b) => a.i - b.i);
+      typFragen.forEach(x => luecken.push({ art: "typ", n: x.i, soll: x.k.typ }));
+
+      /* 2. Bezeichnung: zwei Schritte aus der geraden Strecke und der Name
+            der Entscheidung. Der erste Schritt bleibt stehen (sonst weiß
+            man nicht, wo der Ablauf anfängt), ebenso das Ziel eines
+            Rücksprungs — dessen Name steht sonst am Pfeil.              */
+      const rueckziel = variante === "schleife" ? schritte[Math.max(0, schritte.length - 2)] : null;
+      const gerade = soll.map((k, i) => ({ k, i }))
+        .filter(x => x.k.typ === "Aktion" && x.i > 1 && x.k.name !== rueckziel
+                     && schritte.indexOf(x.k.name) >= 0);
+      R.mische(gerade.slice()).slice(0, 2)
+        .forEach(x => luecken.push({ art: "name", n: x.i, soll: x.k.name }));
+      const eIdx = soll.findIndex(k => k.typ === "Entscheidung");
+      if (eIdx >= 0) luecken.push({ art: "name", n: eIdx, soll: soll[eIdx].name });
+
+      /* 3. Bedingungen an den Kanten der Entscheidung */
+      soll.forEach((k, i) => (k.bed || []).forEach((b, e) => {
+        if (b) luecken.push({ art: "bed", n: i, e: e, soll: b });
+      }));
+
+      luecken.sort((a, b) => a.n - b.n || (a.e || 0) - (b.e || 0));
+
+      /* Auswahllisten. Bei den Bezeichnungen kommen zwei plausible, aber
+         falsche Schritte dazu — sonst wäre die letzte Lücke geschenkt. */
+      const namenSoll = luecken.filter(l => l.art === "name").map(l => l.soll);
+      const stoerer = sz.stoerer || ["Rechnung an den Kunden senden", "Gerät entsorgen"];
+      const pool = {
+        typ: TYPEN_AKT.slice(),
+        bed: ["[ja]", "[nein]"],
+        name: R.mische(namenSoll.concat(stoerer.slice(0, 2)).filter((x, i, a) => a.indexOf(x) === i))
+      };
+
       return {
         situation:
 `In der ${c.firma} ist der folgende Ablauf zu modellieren: ${sz.titel}.
@@ -129,13 +194,11 @@ Danach wird geprüft: „${sz.pruefung}“
   [nein] → ${variante === "schleife" ? "zurück zu „" + schritte[Math.max(0, schritte.length - 2)] + "\"" : sz.nein}
 ${auftrag}`,
         prompt:
-          "Stellen Sie den Ablauf als UML-Aktivitätsdiagramm dar. Tragen Sie jeden Knoten in eine Zeile ein: " +
-          "Bezeichnung, Knotentyp, die Knoten, auf die Kanten zeigen (mehrere durch Komma getrennt), " +
-          "und bei Entscheidungen die Bedingungen in eckigen Klammern.",
+          "Vervollständigen Sie das UML-Aktivitätsdiagramm. Die Struktur ist vorgegeben — " +
+          "tragen Sie die fehlenden Knotentypen, Bezeichnungen und Bedingungen ein.",
         felder: [
-          { typ: "knoten", label: "Knoten des Aktivitätsdiagramms", be: soll.length,
-            spalten: ["Knoten", "Typ", "Kante zeigt auf", "Bedingung"],
-            typen: TYPEN_AKT, soll, zeilen: soll.length + 2 },
+          { typ: "flussbild", label: "Aktivitätsdiagramm vervollständigen", be: luecken.length,
+            soll, start: "Start", luecken, pool, typen: TYPEN_AKT },
           { typ: "text", label: "Wie viele Endknoten darf ein Aktivitätsdiagramm haben und warum genau ein Startknoten?",
             be: 2, zeilen: 3, satzbau: true, minWorte: 8, noetig: 2,
             erwartet: [

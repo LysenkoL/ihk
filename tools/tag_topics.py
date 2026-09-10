@@ -12,13 +12,17 @@ tag_topics.py — проставляет темы каждой Teilaufgabe (по
   python tools/tag_topics.py --report   # что получилось, без записи
 """
 import json, re, sys
+import sys
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parent.parent
 EXAMS = ROOT / "exams"
 OVERRIDE = EXAMS / "topics.override.json"
 SKIP = (".text.json", ".figures.json", ".report.json", ".loesung.json",
-        ".topics.json", "topics.override.json", "katalog.json",
+        ".topics.json", ".override.json", "katalog.json",
         "luecken.json", "cards.json", "gewichte.json", "exams.js")
 
 TOPICS = {
