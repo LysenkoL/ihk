@@ -145,6 +145,7 @@ window.GENPWA = (function () {
         if (ziel === "simulation" && window.GENSIM) window.GENSIM.starten();
         else if (ziel === "blatt" && window.GENUI) window.GENUI.assistent();
         else if (ziel === "satzbau" && window.GENSATZ) window.GENSATZ.starten();
+        else if (ziel === "spick" && window.GENSPICK) window.GENSPICK.verzeichnis();
       } catch (e) { console.warn("Schnellstart:", e); }
     }, 400);
   }

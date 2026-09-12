@@ -34,6 +34,12 @@
       "short_name": "Satzbau",
       "description": "Fünf Minuten, sechs Formulierungen",
       "url": "./index.html?start=satzbau"
+    },
+    {
+      "name": "Spickzettel",
+      "short_name": "Spickzettel",
+      "description": "Der ganze AP1-Stoff in 20 Kapiteln",
+      "url": "./index.html?start=spick"
     }
   ]
 }

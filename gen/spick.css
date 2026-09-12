@@ -1,0 +1,152 @@
+/* ============================================================================
+   gen/spick.css — Spickzettel im Gewand der Anwendung
+   ----------------------------------------------------------------------------
+   Die Vorlage brachte ihre eigenen Farben und Schriften mit. Übernommen wird
+   davon nichts: alles hängt an den Variablen der Anwendung, damit der
+   Spickzettel im Dunkelmodus mitgeht und nicht wie ein Fremdkörper wirkt.
+
+   Der Rest ist Lesbarkeit auf dem Telefon:
+     · zwei Spalten werden unter 720 px eine,
+     · Tabellen rollen in ihrem eigenen Kasten, die Seite bleibt stehen,
+     · die Kopfleiste klebt oben, damit Suche und Kapitelwechsel immer
+       erreichbar sind, ohne nach oben zu scrollen,
+     · Tippziele mindestens 44 px hoch.
+   ========================================================================== */
+
+.sp-wrap{max-width:900px}
+
+/* ------------------------------------------------------------- Leiste --- */
+.sp-leiste{position:sticky; top:64px; z-index:25; background:var(--paper);
+  border-bottom:1px solid var(--rule); padding:8px 0 9px; margin-bottom:14px}
+.sp-leiste-reihe{display:flex; align-items:center; gap:7px; flex-wrap:wrap}
+.sp-leiste .btn{min-height:38px}
+.sp-zaehler{font-family:var(--data); font-size:12.5px; color:var(--muted); white-space:nowrap}
+.sp-titel-klein{font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10.5px; font-weight:700; color:var(--muted)}
+.sp-suche{flex:1 1 220px; min-width:0; display:flex}
+.sp-suche input{flex:1; min-width:0; font:inherit; font-size:14px; min-height:38px;
+  padding:6px 11px; background:var(--field); color:var(--ink);
+  border:1px solid var(--rule); border-radius:6px}
+.sp-suche input:focus{outline:2px solid var(--pruefer); outline-offset:1px}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+
+/* --------------------------------------------------------- Verzeichnis --- */
+.sp-kopf h2{margin:0 0 4px}
+.sp-nr-gross{font-family:var(--data); font-style:normal; color:var(--muted); font-size:.8em}
+.sp-fakten{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px}
+.sp-fakt{flex:1 1 84px; background:var(--field); border:1px solid var(--rule); border-radius:6px;
+  padding:8px 10px; text-align:center}
+.sp-fakt b{display:block; font-family:var(--data); font-size:18px; line-height:1.2}
+.sp-fakt span{font-size:11px; color:var(--muted)}
+
+.sp-liste{display:flex; flex-direction:column; margin-top:16px;
+  border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--card)}
+.sp-zeile{display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+  min-height:56px; padding:10px 13px; background:none; border:0; cursor:pointer;
+  border-bottom:1px solid var(--rule-soft); font:inherit; color:inherit}
+.sp-zeile:last-child{border-bottom:0}
+.sp-zeile:hover{background:var(--field)}
+.sp-zeile:focus-visible{outline:2px solid var(--pruefer); outline-offset:-2px}
+.sp-nr{flex:none; width:26px; font-family:var(--data); font-size:13px; font-weight:700; color:var(--pruefer)}
+.sp-text{flex:1; min-width:0}
+.sp-text b{display:block; font-size:15px; line-height:1.35}
+.sp-unter{display:block; font-size:12.5px; color:var(--muted); line-height:1.45; margin-top:2px}
+.sp-pfeil{flex:none; color:var(--muted); font-size:19px}
+.sp-quelle{font-size:12px; color:var(--muted); line-height:1.6; margin-top:14px}
+
+.sp-schnell{display:flex; flex-wrap:wrap; gap:6px}
+.sp-schnell .btn{font-size:12px}
+
+/* ------------------------------------------------------------ Kapitel --- */
+.sp-inhalt{margin-top:10px}
+.sp-inhalt .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px; align-items:start; margin-bottom:12px}
+.sp-inhalt .card{background:var(--card); border:1px solid var(--rule); border-radius:6px;
+  padding:13px 15px; margin-bottom:12px}
+.sp-inhalt .grid2 .card{margin-bottom:0}
+/* Rasterspalten schrumpfen nur, wenn man es ihnen erlaubt: ohne min-width:0
+   macht eine breite Tabelle die Spalte auf und schiebt die ganze Seite nach
+   rechts, obwohl der Rollkasten darum herum korrekt gesetzt ist. */
+.sp-inhalt .grid2 > *, .sp-inhalt .card{min-width:0}
+.sp-inhalt .card > :last-child{margin-bottom:0}
+.sp-inhalt h3{font-family:var(--display); font-size:15px; margin:0 0 7px; line-height:1.3}
+.sp-inhalt p{margin:0 0 8px; line-height:1.65; font-size:14.5px}
+.sp-inhalt ul, .sp-inhalt ol{margin:0 0 8px; padding-left:20px}
+.sp-inhalt li{margin-bottom:5px; line-height:1.6; font-size:14.5px}
+.sp-inhalt b.term{font-weight:600; color:var(--ink)}
+
+/* Merkkasten, Warnung, Frage — Farbe kommt aus der Anwendung */
+.sp-inhalt .card.merk{border-left:4px solid var(--pruefer); background:var(--pruefer-soft)}
+.sp-inhalt .card.merk h3{color:var(--pruefer)}
+.sp-inhalt .card.flag{border-left:4px solid var(--red); background:var(--red-soft)}
+.sp-inhalt .card.flag h3{color:var(--red)}
+.sp-inhalt .card.frage{border-left:4px solid var(--muted)}
+
+/* Russische Erläuterung: leise, aber auffindbar */
+.sp-inhalt .ru{font-size:13.5px; color:var(--muted); line-height:1.6;
+  border-top:1px dashed var(--rule); margin-top:9px; padding-top:7px}
+.sp-inhalt .ru::before{content:"RU "; font-family:var(--data); font-size:10.5px;
+  letter-spacing:.08em; color:var(--pruefer); font-weight:700}
+
+.sp-inhalt .formel{font-family:var(--data); font-size:14px; background:var(--pruefer-soft);
+  border:1px solid var(--rule); border-radius:4px; padding:8px 10px; margin:0 0 9px;
+  overflow-x:auto; white-space:pre-wrap; word-break:break-word}
+.sp-inhalt code, .sp-inhalt kbd{font-family:var(--data); font-size:13px;
+  background:var(--field); padding:1px 5px; border-radius:3px; word-break:break-word}
+.sp-inhalt pre{overflow-x:auto; background:var(--field); border:1px solid var(--rule);
+  border-radius:4px; padding:10px 12px; margin:0 0 9px}
+.sp-inhalt pre code{background:none; padding:0}
+
+.sp-inhalt .tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px}
+.sp-inhalt .tag{font-family:var(--display); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; padding:3px 9px; border:1px solid var(--rule);
+  border-radius:999px; color:var(--muted)}
+.sp-inhalt .tag.neu{border-color:var(--ok); color:var(--ok)}
+.sp-inhalt .tag.raus{border-color:var(--red); color:var(--red); text-decoration:line-through}
+
+/* Tabellen: rollen in sich selbst, nie die ganze Seite */
+.sp-inhalt .tablewrap, .sp-inhalt .sp-tab{overflow-x:auto; -webkit-overflow-scrolling:touch;
+  margin:0 0 10px; border:1px solid var(--rule); border-radius:6px; background:var(--card)}
+.sp-inhalt table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:420px}
+.sp-inhalt th, .sp-inhalt td{text-align:left; padding:7px 10px;
+  border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.5}
+.sp-inhalt th{font-family:var(--display); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--muted); font-weight:700; white-space:nowrap}
+.sp-inhalt tr:last-child td{border-bottom:none}
+.sp-inhalt td.num{font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap}
+
+.sp-fuss{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; padding-top:14px;
+  border-top:1px solid var(--rule)}
+
+/* ------------------------------------------------------------- Suche --- */
+.sp-treffer{background:#FFF07A; color:#1A1A1A; border-radius:2px; padding:0 2px}
+/* Die Anwendung schaltet über data-theme="dunkel" — nicht "dark". Nur die
+   Markierung braucht eine eigene Farbe; alles andere kommt aus den
+   Variablen und geht automatisch mit.                                   */
+:root[data-theme="dunkel"] .sp-treffer{background:#8A7400; color:#FFF}
+.sp-fund{border:1px solid var(--rule); border-radius:6px; background:var(--card);
+  padding:11px 13px; margin-bottom:9px}
+.sp-fund-kopf{display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  width:100%; background:none; border:0; padding:0; cursor:pointer; font:inherit;
+  color:inherit; text-align:left; min-height:32px}
+.sp-fund-kopf b{font-size:15px}
+.sp-fund-kopf span{font-family:var(--data); font-size:12px; color:var(--muted)}
+.sp-fund-kopf:hover b{color:var(--pruefer)}
+.sp-stelle{font-size:13px; color:var(--muted); line-height:1.6; margin:6px 0 0}
+
+/* -------------------------------------------------------------- Handy --- */
+@media (max-width:720px){
+  .sp-inhalt .grid2{grid-template-columns:1fr; gap:10px}
+  .sp-leiste{top:56px; padding:7px 0 8px}
+  .sp-leiste-reihe{gap:6px}
+  .sp-suche{flex:1 1 100%; order:3}
+  .sp-fakt{flex:1 1 60px; padding:7px 6px}
+  .sp-fakt b{font-size:16px}
+  .sp-inhalt .card{padding:11px 12px}
+  .sp-zeile{min-height:60px}
+  .sp-fuss .btn{flex:1 1 100%}
+}
+@media print{
+  .sp-leiste, .sp-fuss, .sp-schnell{display:none}
+  .sp-inhalt .grid2{grid-template-columns:1fr 1fr}
+}
